@@ -10,6 +10,15 @@ The primary purpose of this project is to improve upon the previous generation o
 ## Project Aspirations and Description
 This iteration of the project will focus on three key features web development, targeted advertisements, and improved mobile application navigation. These include web development utilizing data and business analytics, targeted advertisements that will promote Parkview technologies, and improved mobile application navigation to assisted disabled patients. Each feature serves to enhance PRMC's quality of service, revenue generation, and modern appeal.
   
+## Project Scope Description - Web Application Development
+
+   - Problem   : Information in the database is not currently used.
+   - Reason    : Hospital patient’s location and database data can be efficiently managed to help guide patients.
+                  * Example Data: Age, Time,  Handicapped  
+   - Solution
+  Development of a Web Application that presents analyzed data to administrative staff in a comprehensive manner and allowing the data to be manipulated or viewed in many different formats and the Web application is only for staff members.   
+  For example, using the webpage the Parkview staff could determine what time are most populated, and by which age group or gender. This would allow for an in-depth look at particular patient demographics, giving Parkview the tools to improve upon their already great services.
+
 
 ## Development server
 
