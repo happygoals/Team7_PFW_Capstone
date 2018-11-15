@@ -2,8 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
 
-The primary purpose of this project is to improve upon the previous generation of the Indoor Navigation Mobile Application that was created for the Parkview Regional Medical Campus (PRMC) in Fort Wayne, Indiana. PRMC is invested in improving the patient experience and is a leading institution in the medical industry. This project aims to utilize new technologies with a focus on the patient experience to keep PRMC ahead of the competitors. The application currently uses Bluetooth low energy to power the real-time positioning functionality of the application creating an easy to understand navigation system.  
 
+## Project Background and Description
+The primary purpose of this project is to improve upon the previous generation of the Indoor Navigation Mobile Application that was created for the Parkview Regional Medical Campus (PRMC) in Fort Wayne, Indiana. PRMC is invested in improving the patient experience and is a leading institution in the medical industry. This project aims to utilize new technologies with a focus on the patient experience to keep PRMC ahead of the competitors. The application currently uses Bluetooth low energy to power the real-time positioning functionality of the application creating an easy to understand navigation system. 
+
+
+## Project Aspirations and Description
+This iteration of the project will focus on three key features web development, targeted advertisements, and improved mobile application navigation. These include web development utilizing data and business analytics, targeted advertisements that will promote Parkview technologies, and improved mobile application navigation to assisted disabled patients. Each feature serves to enhance PRMC's quality of service, revenue generation, and modern appeal.
+  
 
 ## Development server
 
