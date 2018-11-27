@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:server" :"nodemon server.js"
+    "server": "nodemon server.js"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +23,8 @@
     "@angular/router": "~7.0.0",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
+    "express-myconnection": "^1.0.4",
+    "heatmap.js": "^2.0.5",
     "mysql": "^2.16.0",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
