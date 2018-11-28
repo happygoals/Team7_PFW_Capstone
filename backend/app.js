@@ -1,39 +1,48 @@
 //back end - express should connect to the database or server here.
 const express = require('express')
-const http = require('http')
-const path = require('path')
 const bodyParser = require('body-parser')
-
 const app = express()
-const connection = request('express-myconnection')
+var connection = require('express-myconnection')
 const mysql = require('mysql')
 
-app.set('port', process.env.PORT || 4300);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(express.static(path.join(__dirname, 'public')));
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
-app.use(
-  connection(mysql,{
-    host: 'localhost',
-    user: 'root',
-    password : '123456789',
-    port : 3306, //port mysql
-    database:'sampledata'
-  },'pool')
-)
+connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password : '123456789',
+  port : 3306, //port mysql
+  database:'sampledata'
+})
 
-app.use(app.router)
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'))
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack)
+    return
+  }
+  console.log('connected as id ' + connection.threadId)
+})
+
+app.use((req, res, next) => {
+  res.send('Hello - !')
+  next()
+})
+
+app.use((req, res) => {
+  connection.query('SELECT * FROM test', (error, rows) => {
+      if (!error)
+        console.log(rows)
+      else
+        console.log('ERROR')
+  })
+})
+
+app.use((req, res, next) => {
+  console.log("first 1")
+  console.log(req.method)
+  console.log(req.url)
+  next()
 })
 
 module.exports = app
