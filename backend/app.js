@@ -1,11 +1,13 @@
 //back end - express should connect to the database or server here.
 const express = require('express')
 const bodyParser = require('body-parser')
-const app = express()
-var connection = require('express-myconnection')
+
+const path = require('path')
 const mysql = require('mysql')
 
-connection = mysql.createConnection({
+const app = express()
+
+const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password : '123456789',
@@ -15,19 +17,17 @@ connection = mysql.createConnection({
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use("/images", express.static(path.join('backend/images')))
 
-connection.connect(function(err) {
+db.connect((err) => {
   if (err) {
     console.error('error connecting: ' + err.stack)
     return
   }
   console.log('connected as id ' + connection.threadId)
 })
+global.db = db;
 
-app.use((req, res, next) => {
-  res.send('Hello - !')
-  next()
-})
 
 app.use((req, res) => {
   connection.query('SELECT * FROM test', (error, rows) => {
@@ -38,11 +38,5 @@ app.use((req, res) => {
   })
 })
 
-app.use((req, res, next) => {
-  console.log("first 1")
-  console.log(req.method)
-  console.log(req.url)
-  next()
-})
 
 module.exports = app
