@@ -5,7 +5,6 @@ import { PopulationComponent } from './core/body/population/population.component
 
 const routes: Routes = [
   { path: 'population', component: PopulationComponent}
-
 ];
 
 @NgModule({
