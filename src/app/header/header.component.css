@@ -27,3 +27,7 @@ ul {
   background-color:  rgb(20, 41, 22) !important;
   color: green !important;
 }
+
+header{
+  margin: 0 auto !important;
+}
