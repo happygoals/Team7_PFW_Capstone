@@ -5,12 +5,13 @@ const app = express()
 var connection = require('express-myconnection')
 const mysql = require('mysql')
 
+//local DB info - different per person
 connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password : '123456789',
   port : 3306, //port mysql
-  database:'sampledata'
+  database:'test'
 })
 
 app.use(bodyParser.json())
