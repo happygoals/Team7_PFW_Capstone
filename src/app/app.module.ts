@@ -5,7 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { BodyComponent } from './body/body.component';
+import { PopulationComponent } from './body/population/population.component';
+import { RoutingComponent } from './body/routing/routing.component';
+import { SettingsComponent } from './body/settings/settings.component';
 import { AngularMaterialModule } from './angular-material.module';
 
 
@@ -13,7 +15,9 @@ import { AngularMaterialModule } from './angular-material.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    BodyComponent
+    PopulationComponent,
+    RoutingComponent,
+    SettingsComponent
 
   ],
   imports: [
