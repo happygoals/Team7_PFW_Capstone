@@ -9,7 +9,7 @@ a {
   color: white;
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   font-size: 11pt;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.50;
 }
 
@@ -18,7 +18,7 @@ ul {
 }
 
 .spacer {
-  flex: 1 1 auto;
+  flex: 5 5 auto;
 }
 
 .mat-toolbar { 
