@@ -4,16 +4,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { PopulationComponent } from './body/population/population.component';
-import { RoutingComponent } from './body/routing/routing.component';
-import { SettingsComponent } from './body/settings/settings.component';
+import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
+import { PopulationComponent } from './core/body/population/population.component';
+import { RoutingComponent } from './core/body/routing/routing.component';
+import { SettingsComponent } from './core/body/settings/settings.component';
 import { AngularMaterialModule } from './angular-material.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    FooterComponent,
     HeaderComponent,
     PopulationComponent,
     RoutingComponent,
