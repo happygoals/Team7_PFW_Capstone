@@ -18,11 +18,11 @@ ul {
 }
 
 .spacer {
-  flex: 5 5 auto;
+  flex: 1 1 auto;
 }
 
 .mat-toolbar { 
-  margin : 5px auto;
+  margin : 0px auto;
   background: rgb(20, 41, 22) !important;
   background-color:  rgb(20, 41, 22) !important;
   color: green !important;
