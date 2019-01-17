@@ -4,6 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { LogoutComponent } from './authentication/logout/logout.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { PopulationComponent } from './core/body/population/population.component';
@@ -19,6 +21,8 @@ import { AngularMaterialModule } from './angular-material.module';
     HeaderComponent,
     PopulationComponent,
     RoutingComponent,
+    LoginComponent,
+    LogoutComponent,
     SettingsComponent
 
   ],
