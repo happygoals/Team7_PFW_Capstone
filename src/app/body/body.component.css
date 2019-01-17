@@ -6,6 +6,7 @@
 
 body {
     -ms-overflow-style: scrollbar;
+    margin: 0 auto !important;
 }
 
 @media screen and (max-width: 480px) {
@@ -26,10 +27,10 @@ html {
 
 body {
     background-color: #000000;
-    background-image: url("../../assets/images/overlay.png"), -moz-linear-gradient(180deg, #142916 15%, #196530 85%);
-    background-image: url("../../assets/images/overlay.png"), -webkit-linear-gradient(180deg, #142916 15%, #196530 85%);
-    background-image: url("../../assets/images/overlay.png"), -ms-linear-gradient(180deg, #142916 15%, #196530 85%);
-    background-image: url("../../assets/images/overlay.png"), linear-gradient(180deg, #142916 15%, #196530 85%);
+    background-image: url("../../assets/images/overlay.png"), -moz-linear-gradient(180deg, #152816 25%, #196530 75%);
+    background-image: url("../../assets/images/overlay.png"), -webkit-linear-gradient(180deg, #152816 25%, #196530 75%);
+    background-image: url("../../assets/images/overlay.png"), -ms-linear-gradient(180deg, #152816 25%, #196530 75%);
+    background-image: url("../../assets/images/overlay.png"), linear-gradient(180deg, #152816 25%, #196530 75%);
 }
 
     body.is-preload *, body.is-preload *:before, body.is-preload *:after {
