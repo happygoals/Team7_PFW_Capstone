@@ -6,17 +6,34 @@
   </span>
   <span></span>
   <ul>
-    <li style="padding-top: 20px; padding-left: 80px;">
+    <li style="padding-top: 15px; padding-left: 80px;">
       <a [routerLink]="['/population']">Population</a>
     </li>
-    <li style="padding-top: 20px; padding-left: 50px;">
+    <li style="padding-top: 15px; padding-left: 50px;">
       <a [routerLink]="['/routing']">Routing</a>
     </li>
-    <li style="padding-top: 20px; padding-left: 600px;">
-      <a [routerLink]="['/settings']">Settings</a>
+    <li style="padding-top: 15px; padding-left: 650px;">
+      <i class="material-icons">portrait</i>
     </li>
-    <li style="padding-top: 20px; padding-left: 80px;">
-      <button>Logout</button>
+    <li style="padding-top: 15px; padding-left: 10px; line-height:0.3em;">
+      <a style="font-size: 10pt; text-align: left;"><em>Darrell </em> Keeling</a><br>
+      <a style="font-size: 8pt; text-align: right; ">Information Technology</a>
     </li>
+    <li style="padding-top: 15px; padding-left: 10px;">
+      <button mat-icon-button [matMenuTriggerFor]="menu" (mouseenter)="someMethod()">
+        <i class="material-icons">expand_more</i>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <i class="material-icons" [routerLink]="['/']">power_settings_new</i>
+          <span [routerLink]="['/']"> Sign Out</span>
+        </button>
+        <button mat-menu-item> <!--disabled : if you don't want to use it-->
+          <i class="material-icons" [routerLink]="['/settings']">settings</i>
+          <span [routerLink]="['/settings']"> Account Setting</span>
+        </button>
+      </mat-menu>
+    </li>
+
   </ul>
 </mat-toolbar>

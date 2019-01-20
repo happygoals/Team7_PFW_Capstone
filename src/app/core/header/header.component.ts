@@ -1,4 +1,5 @@
-import { Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import { MatMenuTrigger } from '@angular/material';
 
 
 @Component({
@@ -8,5 +9,9 @@ import { Component} from '@angular/core';
 })
 
 export class HeaderComponent {
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
+  someMethod(){
+    this.trigger.openMenu();
+  }
 }
