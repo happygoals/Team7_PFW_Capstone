@@ -25,9 +25,19 @@ ul {
   margin : 0px auto;
   background: rgb(20, 41, 22) !important;
   background-color:  rgb(20, 41, 22) !important;
-  color: rgb(205, 205, 205) !important;
+  color: white !important;
 }
 
 header{
   margin: 0 auto !important;
+}
+
+.mat-chip{
+    margin : 0px auto;
+    text-decoration: none;
+    color: white;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 11pt;
+    font-weight: 300;
+    line-height: 1.50;
 }

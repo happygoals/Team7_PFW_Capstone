@@ -6,13 +6,19 @@
   </span>
   <span></span>
   <ul>
-    <li style="padding-top: 15px; padding-left: 80px;">
-      <a [routerLink]="['/population']">Population</a>
+    <li style="padding-top: 15px; padding-left: 360px;">
+      <mat-chip-list>
+      <mat-chip [routerLink]="['/population']" style="background-color: #1de9b6;" selected>&nbsp;Population&nbsp;</mat-chip>
+    </mat-chip-list>
     </li>
     <li style="padding-top: 15px; padding-left: 50px;">
-      <a [routerLink]="['/routing']">Routing</a>
+      <mat-chip-list>
+        <mat-chip [routerLink]="['/routing']" style="background-color: #69f0ae;" selected>&nbsp;&nbsp; Routing &nbsp;&nbsp;</mat-chip>
+      </mat-chip-list>
     </li>
-    <li style="padding-top: 15px; padding-left: 650px;">
+
+
+    <li style="padding-top: 15px; padding-left: 300px;">
       <i class="material-icons">portrait</i>
     </li>
     <li style="padding-top: 15px; padding-left: 10px; line-height:0.3em;">
