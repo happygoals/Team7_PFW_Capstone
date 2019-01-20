@@ -21,7 +21,7 @@ ul {
   flex: 1 1 auto;
 }
 
-.mat-toolbar { 
+.mat-toolbar {
   margin : 0px auto;
   background: rgb(20, 41, 22) !important;
   background-color:  rgb(20, 41, 22) !important;
