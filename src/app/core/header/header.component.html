@@ -16,7 +16,6 @@
       </mat-chip-list>
     </li>
 
-
     <li style="padding-top: 15px; padding-left: 300px;">
       <i class="material-icons">portrait</i>
     </li>
@@ -33,12 +32,12 @@
           <i class="material-icons" [routerLink]="['/']">power_settings_new</i>
           <span [routerLink]="['/']"> Sign Out</span>
         </button>
-        <button mat-menu-item> <!--disabled : if you don't want to use it-->
+        <button mat-menu-item> 
+          <!--disabled : if you don't want to use it-->
           <i class="material-icons" [routerLink]="['/settings']">settings</i>
           <span [routerLink]="['/settings']"> Account Setting</span>
         </button>
       </mat-menu>
     </li>
-
   </ul>
 </mat-toolbar>
