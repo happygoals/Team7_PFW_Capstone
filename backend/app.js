@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 })
 
 app.use((req, res) => {
-  connection.query('SELECT * FROM test', (error, rows) => {
+  connection.query('SELECT * FROM test where Id=2', (error, rows) => {
       if (!error)
         console.log(rows)
       else
