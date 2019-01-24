@@ -29,21 +29,20 @@ app.use((req, res, next) => {
   res.send('Hello - !')
   next()
 })
+var someVar = [];
 
 app.use((req, res) => {
-  connection.query('SELECT * FROM test where Id=2', (error, rows) => {
+  connection.query('SELECT beacon FROM test where Id=2', (error, rows) => {
       if (!error)
         console.log(rows)
       else
-        console.log('ERROR')
+        setValue(rows)
   })
 })
 
-app.use((req, res, next) => {
-  console.log("first 1")
-  console.log(req.method)
-  console.log(req.url)
-  next()
-})
+function setValue(value){
+  someVar =value
+  console.log(someVar)
+}
 
 module.exports = app
