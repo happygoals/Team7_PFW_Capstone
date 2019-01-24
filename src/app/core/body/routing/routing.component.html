@@ -1,28 +1,32 @@
 <body>
-  <!-- Placeholder for the route map location-->
-  <div id="routemap_location" style="display: none;">
-    Route Map Placeholder
+  <!-- Body 2 Div, for White wrap around objects -->
+  <div class="body2">
+    <!-- This will hold the box that contains the checkboxes and options to manipulate the map-->
+    <mat-grid-list class="Optionslist" cols="7">
+      <mat-grid-tile class="options-tile" id="options-time" colspan="3"> <!-- Time Options-->
+        <mat-grid-tile-header> Time </mat-grid-tile-header>
+
+      </mat-grid-tile>
+      <mat-grid-tile class="options-tile" id="options-date" colspan="3"> <!-- Date Options-->
+        <mat-grid-tile-header> Date </mat-grid-tile-header>
+
+      </mat-grid-tile>
+      <mat-grid-tile class="options-tile" id="options-export" colspan="1"> <!-- Export Options-->
+        <mat-grid-tile-header> Export </mat-grid-tile-header>
+
+      </mat-grid-tile>
+    </mat-grid-list>
+    <!-- This will contain the Facts Boxes on the left side of the screen -->
+    <!-- and the map on the right side of the screen -->
+    <mat-grid-list class="Lowerbodylist" cols="8" rows="6">
+      <mat-grid-tile class="chart" colspan="4" rowspan="3">
+        <mat-grid-tile-header> Chart </mat-grid-tile-header>
+
+      </mat-grid-tile>
+      <mat-grid-tile class="map" colspan="4" rowspan="3">
+        <mat-grid-tile-header> MAP </mat-grid-tile-header>
+
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
-  <!-- Placeholder for the route chart location-->
-  <div id="routechart_location" style="display: none;">
-    Route Chart Placeholder
-  </div>
-    <!-- This Div will hold the box that contains the checkboxes and options to manipulate the map-->
-    <h1>Hello I am routing</h1>
-    <div id="optionsbox">
-      OptionsBox Placeholder
-      <br><br><br>
-    </div>
-    <!-- Placeholder for the heat map location-->
-    <div id="heatmap_location">
-      Heat Map Placeholder
-    </div>
-    <!-- Placeholder for the route map location-->
-    <div id="routemap_location" style="display: none;">
-      Route Map Placeholder
-    </div>
-    <!-- Placeholder for the route chart location-->
-    <div id="routechart_location" style="display: none;">
-      Route Chart Placeholder
-    </div>
 </body>
