@@ -39,11 +39,5 @@ app.use((req, res) => {
   })
 })
 
-app.use((req, res, next) => {
-  console.log("first 1")
-  console.log(req.method)
-  console.log(req.url)
-  next()
-})
 
 module.exports = app
