@@ -1,15 +1,10 @@
 //back end - express should connect to the database or server here.
 const express = require('express')
-const bodyParser = require('body-parser')
 const app = express()
-var connection = require('express-myconnection')
-const mysql = require('mysql')
- var connection = require('./connection')
+var connection = require('./connection')
+var query = require('./query')
+
 //local DB info - different per person
-
-
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
 
 connection.connect(function(err) {
   if (err) {
