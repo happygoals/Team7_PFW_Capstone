@@ -10,11 +10,11 @@ import { MatMenuTrigger } from '@angular/material';
 
 export class HeaderComponent {
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
-  if (selected){
-    disabled = false;
+  if (selected) {
+    selected = false;
   }
 
-  someMethod(){
+  someMethod() {
     this.trigger.openMenu();
   }
 }
