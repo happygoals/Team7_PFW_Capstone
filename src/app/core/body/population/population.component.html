@@ -1,35 +1,39 @@
 <body>
-  <!-- This Div will hold the box that contains the checkboxes and options to manipulate the map-->
-  <div class="optionsbox" id="optionsbox" >
-    <mat-grid-list cols="3" rowHeight="2:1">
-      <mat-grid-tile class="options-time" id="options-time" colspan="1">
-        test text
+  <!-- Body 2 Div, for White wrap around objects -->
+  <div class="body2">
+    <!-- This will hold the box that contains the checkboxes and options to manipulate the map-->
+    <mat-grid-list class="Optionslist" cols="7">
+      <mat-grid-tile class="options-tile" id="options-time" colspan="3"> <!-- Time Options-->
+        <mat-grid-tile-header> Time </mat-grid-tile-header>
+
       </mat-grid-tile>
-      <mat-grid-tile class="options-time" id="options-time" colspan="1">
-        test text
+      <mat-grid-tile class="options-tile" id="options-date" colspan="3"> <!-- Date Options-->
+        <mat-grid-tile-header> Date </mat-grid-tile-header>
+
       </mat-grid-tile>
-      <mat-grid-tile class="options-time" id="options-time" colspan="1">
-        test text
+      <mat-grid-tile class="options-tile" id="options-export" colspan="1"> <!-- Export Options-->
+        <mat-grid-tile-header> Export </mat-grid-tile-header>
+
       </mat-grid-tile>
     </mat-grid-list>
-  </div>
-  <!-- This div will contain the Facts Boxes on the left side of the screen -->
-  <div class="factboxes" id="factboxes">
-    <mat-grid-list class="factboxes-tiles" cols="1" rows="3" rowHeight="8:1">
-        <mat-grid-tile class="factboxes-tile1" id="factboxes-tile1" colspan="1">
-          test text
+    <!-- This will contain the Facts Boxes on the left side of the screen -->
+    <!-- and the map on the right side of the screen -->
+    <mat-grid-list class="Lowerbodylist" cols="3" rows="3" rowHeight="150px">
+      <mat-grid-tile class="fact1" colspan="1" rowspan="1">
+          <mat-grid-tile-header> FACT 1 </mat-grid-tile-header>
+
+      </mat-grid-tile>
+      <mat-grid-tile class= "map1" colspan="2" rowspan="3">
+          <mat-grid-tile-header> MAP </mat-grid-tile-header>
+
         </mat-grid-tile>
-        <mat-grid-tile class="factboxes-tile2" id="factboxes-tile2" colspan="1">
-          test text
-        </mat-grid-tile>
-        <mat-grid-tile class="factboxes-tile3" id="factboxes-tile3" colspan="1">
-          test text
-        </mat-grid-tile>
+      <mat-grid-tile class="fact2" colspan="1" rowspan="1">
+        <mat-grid-tile-header> FACT 2 </mat-grid-tile-header>
+
+      </mat-grid-tile>
+      <mat-grid-tile class="fact3" colspan="1" rowspan="1">
+        <mat-grid-tile-header> FACT 3 </mat-grid-tile-header>
+      </mat-grid-tile>
     </mat-grid-list>
-    <!-- Placeholder for the heat map location-->
-    <!-- W:900 H:600-->
-    <div class="popmap" id="popmap">
-      test
-    </div>
   </div>
 </body>

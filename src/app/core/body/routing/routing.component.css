@@ -1,3 +1,39 @@
+/* Body Styling START */
+body {
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+div.body2 {
+    background-color: white;
+    margin: 0px 20px 30px 20px;
+  }
+  
+
+/* Body Styling END */
+/* Options Styling START */
+
+mat-grid-list.Optionslist {
+  font-size: large;
+  text-align: center;
+  margin-bottom: 5%;
+  border-bottom: solid;
+}
+
+/* Options Styling END*/
+/* FactBoxes and Map Styling START */
+
+mat-grid-list.Lowerbodylist {
+  font-size: large;
+  text-align: center;
+  margin-top: 5%;
+  border-top: solid;
+}
+
+/* FactBoxes Styling END */
+
 /* Basic */
 
 @-ms-viewport {
