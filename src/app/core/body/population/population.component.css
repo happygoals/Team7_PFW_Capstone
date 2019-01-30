@@ -28,10 +28,37 @@ mat-grid-list.Lowerbodylist {
   font-size: large;
   text-align: center;
   margin-top: 5%;
-  border-top: solid;
+  margin-bottom: 5%;
+  padding-bottom: 5%;
 }
 
-/* FactBoxes Styling END */
+mat-grid-tile.fact1 {
+  background-color: rgba(25, 91, 38, 200);
+  margin-left: 25px;
+}
+
+mat-grid-tile.fact2 {
+  background-color: rgba(30, 109, 46, 200);
+  margin-left: 25px;
+}
+
+mat-grid-tile.fact3 {
+  background-color: rgba(30, 137, 51, 200);
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+
+p {
+  font-size: 30px;
+  line-height: .1;
+}
+
+span {
+  font-size: 60px;
+  margin-left: 50px;
+}
+
+/* FactBoxes and Map Styling END */
 
 
 /* Basic */
