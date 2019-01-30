@@ -2,6 +2,7 @@
 const express = require('express')
 const app = express()
 var connection = require('./connection')
+var heat = require('./heat')
 //var query = require('./query')
 
 //local DB info - different per person
