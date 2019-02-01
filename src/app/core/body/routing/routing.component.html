@@ -1,76 +1,87 @@
 <body>
-  <!-- Body 2 Div, for White wrap around objects -->
-  <div class="body2">
-    <!-- This will hold the box that contains the checkboxes and options to manipulate the map-->
-    <mat-grid-list class="Optionslist" cols="7">
-      <mat-grid-tile class="options-tile" id="options-time" colspan="3"> <!-- Time Options-->
-        <mat-grid-tile-header> Time </mat-grid-tile-header>
-        <!-- Time card -->
-        <mat-card>
-          <mat-card-content>
-            <h2 class="example-h2">Select the time range that best fits your schedule</h2>
-                <section class="example-section">
-              <mat-checkbox class="example-margin" >Morning</mat-checkbox>
-              <mat-checkbox class="example-margin" >Afternoon</mat-checkbox>
-              <mat-checkbox class="example-margin">Night</mat-checkbox>
-            </section>
-            <h3 class="example-h2">Time</h3>
-        <mat-chip-list>
-          <mat-chip selected>0am</mat-chip>
-          <mat-chip selected>1am</mat-chip>
-          <mat-chip selected>2am</mat-chip>
-        </mat-chip-list>
-
-            <section class="example-section">
-              <mat-checkbox class="example-margin" >0am - 1am</mat-checkbox>
-              <mat-checkbox class="example-margin" >01:00 - 02:00</mat-checkbox>
-              <mat-checkbox class="example-margin" >02:00 - 03:00</mat-checkbox>
-            </section>
-            <section class="example-section">
-              <mat-checkbox class="example-margin" >03:00 - 04:00</mat-checkbox>
-              <mat-checkbox class="example-margin" >04:00 - 05:00</mat-checkbox>
-              <mat-checkbox class="example-margin" >05:00 - 06:00</mat-checkbox>
-            </section>
-            <section class="example-section">
-              <mat-checkbox class="example-margin">06:00 - 07:00</mat-checkbox>
-              <mat-checkbox class="example-margin" >07:00 - 08:00</mat-checkbox>
-              <mat-checkbox class="example-margin" >08:00 - 09:00</mat-checkbox>
-            </section>
-            <section class="example-section">
-              <mat-checkbox class="example-margin">09:00 - 10:00</mat-checkbox>
-              <mat-checkbox class="example-margin">10:00 - 11:00</mat-checkbox>
-              <mat-checkbox class="example-margin">11:00 - 12:00</mat-checkbox>
-            </section>
-            <section class="example-section">
-              <mat-checkbox class="example-margin">12:00 - 1:00</mat-checkbox>
-              <mat-checkbox class="example-margin">13:00 - 14:00</mat-checkbox>
-              <mat-checkbox class="example-margin">11:00 - 12:00</mat-checkbox>
-            </section>
-          </mat-card-content>
+    <!-- Body 2 Div, for White wrap around objects -->
+    <div class="body2">
+    <mat-card>
+        <!-- This will hold the box that contains the checkboxes and options to manipulate the map-->
+          <mat-grid-list class="Optionslist" cols="7">
+           <mat-grid-tile class="options-tile" id="options-time" colspan="3"[style.border-right]="'1px dashed #ddd'" >
+              <mat-grid-tile-header> <span class="material-icons">date_range</span>&nbsp; Date 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button mat-flat-button class="example-button-row" style="width: 150px;">Reset Date Selections</button>
+              </mat-grid-tile-header>
+           
+            </mat-grid-tile>
+          <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'"> 
+              <!-- Time Options-->
+              <!-- Time card -->
+              <mat-grid-tile-header>  
+                <span class="material-icons">schedule</span>&nbsp; Time 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button mat-flat-button class="example-button-row" style="width: 150px; display: left">Reset Time Selections</button>
+              </mat-grid-tile-header>
+              <div class="timeoption">
+                <span class="material-icons">wb_sunny</span>
+                <br><br><br>
+                <span class="material-icons">brightness_3</span>
+              </div>
+              <div class="time-chip">
+                <!-- Time chip-->
+                  <cdk-virtual-scroll-viewport itemSize="24" class="example-viewport">  
+                        <mat-chip-list>
+                          <mat-chip [color]="'success'" >8 AM</mat-chip>
+                          <mat-chip [color]="'success'" >9 AM</mat-chip>
+                          <mat-chip [color]="'success'" >10 AM</mat-chip>
+                          <mat-chip [color]="'success'" >11 AM</mat-chip>
+                          <mat-chip [color]="'success'" >12 PM</mat-chip>
+                          <mat-chip [color]="'success'" >1 PM</mat-chip>
+                          <mat-chip [color]="'success'" >2 PM</mat-chip>
+                          <mat-chip [color]="'success'" >3 PM</mat-chip> 
+                          <mat-chip [color]="'success'" >4 PM</mat-chip>
+                          <mat-chip [color]="'success'" >5 PM</mat-chip>
+                          <mat-chip [color]="'success'" >6 PM</mat-chip>
+                          <mat-chip [color]="'success'" >7 PM</mat-chip>
+                        </mat-chip-list>
+                        <mat-chip-list>
+                            <mat-chip [color]="'success'" selected>8 PM</mat-chip>
+                            <mat-chip [color]="'success'" selected>9 PM</mat-chip>
+                            <mat-chip [color]="'success'" selected>10 PM</mat-chip>
+                            <mat-chip [color]="'success'" selected>11 PM</mat-chip>
+                            <mat-chip [color]="'success'" selected>0 AM</mat-chip>
+                            <mat-chip [color]="'success'" selected>1 AM</mat-chip>
+                            <mat-chip [color]="'success'" selected>2 AM</mat-chip>
+                            <mat-chip [color]="'success'" selected>3 AM</mat-chip> 
+                            <mat-chip [color]="'success'" selected>4 AM</mat-chip>
+                            <mat-chip [color]="'success'" selected>5 AM</mat-chip>
+                            <mat-chip [color]="'success'" selected>6 AM</mat-chip>
+                            <mat-chip [color]="'success'" selected>7 AM</mat-chip>
+                        </mat-chip-list>
+                    </cdk-virtual-scroll-viewport>
+            </div>
+            </mat-grid-tile>
+            <mat-grid-tile class="options-tile" id="options-export" colspan="1"> 
+              <!-- Export Options-->
+              <mat-grid-tile-header> <span class="material-icons">get_app</span> &nbsp;Export </mat-grid-tile-header>
+              <span class="material-icons" style="margin: 0px auto; padding-top: 48px; font-size: 70px;">vertical_align_bottom</span>
+            </mat-grid-tile>
+          </mat-grid-list>
         </mat-card>
-
-        <!-- Copyright 2018 Google Inc. All Rights Reserved.
-            Use of this source code is governed by an MIT-style license that
-            can be found in the LICENSE file at http://angular.io/license -->
-      </mat-grid-tile>
-      <mat-grid-tile class="options-tile" id="options-date" colspan="3"> <!-- Date Options-->
-        <mat-grid-tile-header> Date </mat-grid-tile-header>
-
-      </mat-grid-tile>
-      <mat-grid-tile class="options-tile" id="options-export" colspan="1"> <!-- Export Options-->
-        <mat-grid-tile-header> Export </mat-grid-tile-header>
-
-      </mat-grid-tile>
-    </mat-grid-list>
-    <!-- This will contain the Facts Boxes on the left side of the screen -->
-    <!-- and the map on the right side of the screen -->
-    <mat-grid-list class="Lowerbodylist" cols="8" rows="6">
-      <mat-grid-tile class="chart" colspan="4" rowspan="3">
-        <img src="../assets/images/640x420 route chart.png" alt="Test Image">
-      </mat-grid-tile>
-      <mat-grid-tile class="map" colspan="4" rowspan="3">
-        <img src="../assets/images/640x420 route map.png" alt="Test Image">
-      </mat-grid-tile>
-    </mat-grid-list>
-  </div>
-</body>
+   
+      <!-- This will contain the Facts Boxes on the left side of the screen -->
+      <!-- and the map on the right side of the screen -->
+      <mat-grid-list class="Lowerbodylist" cols="8" rows="6">
+        <mat-grid-tile class="chart" colspan="4" rowspan="3">
+          <img src="../assets/images/640x420 route chart.png" alt="Test Image">
+        </mat-grid-tile>
+        <mat-grid-tile class="map" colspan="4" rowspan="3">
+          <img src="../assets/images/640x420 route map.png" alt="Test Image">
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </body>
+  
