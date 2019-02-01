@@ -1,3 +1,8 @@
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {CdkTableModule} from '@angular/cdk/table';
+import {CdkTreeModule} from '@angular/cdk/tree';
+import {A11yModule} from '@angular/cdk/a11y';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 
@@ -41,6 +46,10 @@ import {
 
 @NgModule({
   exports: [
+    A11yModule,
+    CdkTableModule,
+    CdkTreeModule,
+    DragDropModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -75,7 +84,9 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    ScrollingModule
   ]
 })
 export class AngularMaterialModule {}
+
