@@ -17,5 +17,14 @@
       "es2018",
       "dom"
     ]
-  }
+  },
+  "include": [
+    "src/**/*",
+    "../node_modulels/jqwidgets-scripts/jqwidgets-ts/*"
+  ],
+  "files": [
+    "src/app/app.module.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxdropdownlist.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxchart.ts"
+  ]
 }
