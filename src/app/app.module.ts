@@ -18,6 +18,9 @@ import { HeatmapComponent } from './core/body/population/heatmap/heatmap.compone
 import { RoutingComponent } from './core/body/routing/routing.component';
 import { SettingsComponent } from './core/body/settings/settings.component';
 import { AngularMaterialModule } from './angular-material.module';
+import { ChartComponent } from './core/body/routing/chart/chart.component';
+import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
+import { jqxDropDownListComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxdropdownlist';
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import { AngularMaterialModule } from './angular-material.module';
     LoginComponent,
     LogoutComponent,
     SettingsComponent,
-    HeatmapComponent
+    HeatmapComponent,
+    ChartComponent,
+    jqxChartComponent,
+    jqxDropDownListComponent
   ],
   imports: [
     BrowserModule,
