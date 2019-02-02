@@ -1,21 +1,37 @@
 <body>
   <!-- Body 2 Div, for White wrap around objects -->
   <div class="body2">
-    <!-- This will hold the box that contains the checkboxes and options to manipulate the map-->
-    <mat-grid-list class="Optionslist" cols="7">
-      <mat-grid-tile class="options-tile" id="options-time" colspan="3"> <!-- Time Options-->
-        <mat-grid-tile-header> Time </mat-grid-tile-header>
-
-      </mat-grid-tile>
-      <mat-grid-tile class="options-tile" id="options-date" colspan="3"> <!-- Date Options-->
-        <mat-grid-tile-header> Date </mat-grid-tile-header>
-
-      </mat-grid-tile>
-      <mat-grid-tile class="options-tile" id="options-export" colspan="1"> <!-- Export Options-->
-        <mat-grid-tile-header> Export </mat-grid-tile-header>
-
-      </mat-grid-tile>
-    </mat-grid-list>
+      <mat-card>
+          <!-- This will hold the box that contains the checkboxes and options to manipulate the map-->
+            <mat-grid-list class="Optionslist" cols="7">
+             <mat-grid-tile class="options-tile" id="options-time" colspan="3"[style.border-right]="'1px dashed #ddd'" >
+                <mat-grid-tile-header> <span class="material-icons">date_range</span> &nbsp; Date
+                  <button mat-flat-button class="reset-button-row">Reset Date Selections</button>
+                </mat-grid-tile-header>
+              </mat-grid-tile>
+            <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'"> 
+                <!-- Time Options-->
+                <!-- Time card -->
+                <mat-grid-tile-header>  
+                  <span class="material-icons">schedule</span>&nbsp; Time 
+                  <button mat-flat-button class="reset-button-row">Reset Time Selections</button>
+                </mat-grid-tile-header>
+                <div class="timeoption">
+                </div>
+                <div class="time-chip">
+                  <!-- Time scroll-->
+                    <cdk-virtual-scroll-viewport itemSize="24" class="example-viewport">  
+                     
+                    </cdk-virtual-scroll-viewport>
+              </div>
+              </mat-grid-tile>
+              <mat-grid-tile class="options-tile" id="options-export" colspan="1"> 
+                <!-- Export Options-->
+                <mat-grid-tile-header> <span class="material-icons">get_app</span> &nbsp;Export </mat-grid-tile-header>
+                <span class="material-icons" style="margin: 0px auto; padding-top: 48px; font-size: 70px;">vertical_align_bottom</span>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </mat-card>
     <!-- This will contain the Facts Boxes on the left side of the screen -->
     <!-- and the map on the right side of the screen -->
     <mat-grid-list class="Lowerbodylist" cols="3" rows="3" rowHeight="125px" gutterSize="20px">
