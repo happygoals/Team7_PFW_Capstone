@@ -8,5 +8,4 @@ import { Component} from '@angular/core';
 })
 
 export class RoutingComponent {
-  items = Array.from({length: 12}).map((_, i) => ` ${i}`);
 }
