@@ -5,63 +5,24 @@
         <!-- This will hold the box that contains the checkboxes and options to manipulate the map-->
           <mat-grid-list class="Optionslist" cols="7">
            <mat-grid-tile class="options-tile" id="options-time" colspan="3"[style.border-right]="'1px dashed #ddd'" >
-              <mat-grid-tile-header> <span class="material-icons">date_range</span>&nbsp; Date 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button mat-flat-button class="example-button-row" style="width: 150px;">Reset Date Selections</button>
+              <mat-grid-tile-header> <span class="material-icons">date_range</span> &nbsp; Date
+                <button mat-flat-button class="reset-button-row">Reset Date Selections</button>
               </mat-grid-tile-header>
-           
             </mat-grid-tile>
           <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'"> 
               <!-- Time Options-->
               <!-- Time card -->
               <mat-grid-tile-header>  
                 <span class="material-icons">schedule</span>&nbsp; Time 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button mat-flat-button class="example-button-row" style="width: 150px; display: left">Reset Time Selections</button>
+                <button mat-flat-button class="reset-button-row">Reset Time Selections</button>
               </mat-grid-tile-header>
               <div class="timeoption">
-                <span class="material-icons">wb_sunny</span>
-                <br><br><br>
-                <span class="material-icons">brightness_3</span>
               </div>
               <div class="time-chip">
-                <!-- Time chip-->
+                <!-- Time scroll-->
                   <cdk-virtual-scroll-viewport itemSize="24" class="example-viewport">  
-                        <mat-chip-list>
-                          <mat-chip [color]="'success'" >8 AM</mat-chip>
-                          <mat-chip [color]="'success'" >9 AM</mat-chip>
-                          <mat-chip [color]="'success'" >10 AM</mat-chip>
-                          <mat-chip [color]="'success'" >11 AM</mat-chip>
-                          <mat-chip [color]="'success'" >12 PM</mat-chip>
-                          <mat-chip [color]="'success'" >1 PM</mat-chip>
-                          <mat-chip [color]="'success'" >2 PM</mat-chip>
-                          <mat-chip [color]="'success'" >3 PM</mat-chip> 
-                          <mat-chip [color]="'success'" >4 PM</mat-chip>
-                          <mat-chip [color]="'success'" >5 PM</mat-chip>
-                          <mat-chip [color]="'success'" >6 PM</mat-chip>
-                          <mat-chip [color]="'success'" >7 PM</mat-chip>
-                        </mat-chip-list>
-                        <mat-chip-list>
-                            <mat-chip [color]="'success'" selected>8 PM</mat-chip>
-                            <mat-chip [color]="'success'" selected>9 PM</mat-chip>
-                            <mat-chip [color]="'success'" selected>10 PM</mat-chip>
-                            <mat-chip [color]="'success'" selected>11 PM</mat-chip>
-                            <mat-chip [color]="'success'" selected>0 AM</mat-chip>
-                            <mat-chip [color]="'success'" selected>1 AM</mat-chip>
-                            <mat-chip [color]="'success'" selected>2 AM</mat-chip>
-                            <mat-chip [color]="'success'" selected>3 AM</mat-chip> 
-                            <mat-chip [color]="'success'" selected>4 AM</mat-chip>
-                            <mat-chip [color]="'success'" selected>5 AM</mat-chip>
-                            <mat-chip [color]="'success'" selected>6 AM</mat-chip>
-                            <mat-chip [color]="'success'" selected>7 AM</mat-chip>
-                        </mat-chip-list>
-                    </cdk-virtual-scroll-viewport>
+                   
+                  </cdk-virtual-scroll-viewport>
             </div>
             </mat-grid-tile>
             <mat-grid-tile class="options-tile" id="options-export" colspan="1"> 
