@@ -230,7 +230,7 @@ body {
       width: 25px;
     }
     
-    /* button */
+  /* button */
   .reset-button-row{
     width: 150px; 
     position: absolute;
@@ -238,3 +238,5 @@ body {
     padding : 1px; 
   }  
   
+  /* slider */
+
