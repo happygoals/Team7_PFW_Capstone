@@ -25,6 +25,27 @@ mat-grid-list.Optionslist {
   margin-bottom: 5%;
 }
 
+mat-form-field.datepickers1 {
+  margin-top: 25%;
+  margin-right: 2%;
+  font-size: 14px;
+}
+
+mat-form-field.datepickers2 {
+  margin-right: 2%;
+  font-size: 14px;
+}
+
+div.dateselection {
+  margin-left: 2%;
+
+}
+
+mat-button-toggle-group.dateselection1 {
+  font-size: 70%;
+  margin-right: 2%;
+}
+
 /* Options Styling END*/
 
 /* FactBoxes and Map Styling START */
