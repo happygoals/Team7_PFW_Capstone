@@ -4,6 +4,7 @@ const app = express()
 var connection = require('./connection')
 var heat = require('./heat')
 //var query = require('./query')
+var beacon = require('./models/beacon')
 
 //local DB info - different per person
 connection.connect(function(err) {
@@ -23,6 +24,7 @@ function setValue(value){
   someVar = value
   console.log(someVar)
 }
+app.use(beacon.getBeaconsById)
 
 app.use((req, res) => {
   connection.query('SELECT beacon FROM test where Id=8', (error, rows) => {
