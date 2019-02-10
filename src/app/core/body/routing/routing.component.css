@@ -47,7 +47,7 @@ body {
   }
   .timeoption{
       margin-top: 20%;
-      margin-right: 5%;
+      margin-right: 3%;
       align-content: center;
       align-items: center;
   }
@@ -227,10 +227,10 @@ body {
     
     .example-item {
       height: 40px;
-      width: 25px;
+      width: 28px;
     }
     
-    /* button */
+  /* button */
   .reset-button-row{
     width: 150px; 
     position: absolute;

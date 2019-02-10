@@ -21,7 +21,7 @@ import { AngularMaterialModule } from './angular-material.module';
 import { ChartComponent } from './core/body/routing/chart/chart.component';
 import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
 import { jqxDropDownListComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxdropdownlist';
-
+import { Ng5SliderModule } from 'ng5-slider';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import { jqxDropDownListComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular
     MatGridListModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatMenuModule
+    MatMenuModule,
+    Ng5SliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
