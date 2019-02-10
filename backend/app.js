@@ -2,7 +2,7 @@
 const express = require('express')
 const app = express()
 var connection = require('./connection')
-var heat = require('./heat')
+//var heat = require('./heat')
 //var query = require('./query')
 var beacon = require('./models/beacon')
 
@@ -14,12 +14,11 @@ connection.connect(function(err) {
   }
   console.log('connected as id ' + connection.threadId)
 })
+
 app.use((req, res, next) => {
   res.send('Hello - !')
   next()
 })
-
-
 
 app.use((req, res, next) => {
   beacon.getBeaconsById(667)
@@ -31,6 +30,7 @@ app.use((req, res, next) => {
   beacon.getBeaconsByDateTime('2018-01-01', '2018-12-02', '07:30:00', '15:01:32')
   console.log("function for date time works")
   next()
+
 })
 
 
