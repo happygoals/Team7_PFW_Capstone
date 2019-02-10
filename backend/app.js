@@ -2,7 +2,7 @@
 const express = require('express')
 const app = express()
 var connection = require('./connection')
-var heat = require('./heat')
+//var heat = require('./heat')
 //var query = require('./query')
 
 //local DB info - different per person
@@ -13,6 +13,7 @@ connection.connect(function(err) {
   }
   console.log('connected as id ' + connection.threadId)
 })
+
 app.use((req, res, next) => {
   res.send('Hello - !')
   next()
@@ -25,7 +26,7 @@ function setValue(value){
 }
 
 app.use((req, res) => {
-  connection.query('SELECT beacon FROM test where Id=8', (error, rows) => {
+  connection.query('SELECT beacon FROM test where Id=1000', (error, rows) => {
       if (!error)
         setValue(rows)
       else
