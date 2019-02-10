@@ -2,8 +2,9 @@
 const express = require('express')
 const app = express()
 var connection = require('./connection')
-var heat = require('./heat')
+//var heat = require('./heat')
 //var query = require('./query')
+var beacon = require('./models/beacon')
 
 //local DB info - different per person
 connection.connect(function(err) {
@@ -13,23 +14,24 @@ connection.connect(function(err) {
   }
   console.log('connected as id ' + connection.threadId)
 })
+
 app.use((req, res, next) => {
   res.send('Hello - !')
   next()
 })
 
-var someVar = [];
-function setValue(value){
-  someVar = value
-  console.log(someVar)
-}
-
-app.use((req, res) => {
-  connection.query('SELECT beacon FROM test where Id=8', (error, rows) => {
-      if (!error)
-        setValue(rows)
-      else
-        console.log("error")
-  })
+app.use((req, res, next) => {
+  beacon.getBeaconsById(667)
+  console.log("function works")
+  next()
 })
+app.use((req, res, next) => {
+  console.log("start date time func")
+  beacon.getBeaconsByDateTime('2018-01-01', '2018-12-02', '07:30:00', '15:01:32')
+  console.log("function for date time works")
+  next()
+
+})
+
+
 module.exports = app
