@@ -21,8 +21,9 @@
               <div class="time-chip">
                 <!-- Time scroll-->
                   <cdk-virtual-scroll-viewport itemSize="24" class="example-viewport">  
-                      <ng5-slider [(value)]="minValue" [(highValue)]="maxValue"  [options]="options" style="margin-bottom: 4rem;"></ng5-slider>
-                    <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                      <div class="custom-slider">
+                        <ng5-slider [(value)]="minValue" [(highValue)]="maxValue"  [options]="options" style="margin-bottom: 2rem; font-size: 11px;"></ng5-slider>
+                      </div>
                   </cdk-virtual-scroll-viewport>
             </div>
             </mat-grid-tile>
