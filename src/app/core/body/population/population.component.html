@@ -3,47 +3,47 @@
   <div class="body2">
       <mat-card>
           <!-- This will hold the box that contains the checkboxes and options to manipulate the map-->
-           <!-- Date Picker -->
-            <mat-grid-list class="Optionslist" cols="8">
-             <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'" >
-                <mat-grid-tile-header> <span class="material-icons">date_range</span> &nbsp; Date
-                  <button mat-flat-button class="reset-button-row">Reset Date</button>
-                </mat-grid-tile-header>
-                <div class=datepickers>
-                  <mat-form-field class="datepickers1">
-                      <input matInput [matDatepicker]="dp1" placeholder="Choose a date">
-                      <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
-                      <mat-datepicker #dp1></mat-datepicker>
-                  </mat-form-field>
-                  <mat-form-field class="datepickers2">
-                      <input matInput [matDatepicker]="dp2" placeholder="Choose a date">
-                      <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
-                      <mat-datepicker #dp2></mat-datepicker>
-                  </mat-form-field>
-                </div>
-              </mat-grid-tile>
-            <mat-grid-tile class="options-tile" id="options-time" colspan="4" [style.border-right]="'1px dashed #ddd'">
-          <!-- Time picker -->
+        <!-- Date Picker -->
+        <mat-grid-list class="Optionslist" cols="7">
+            <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'" >
+               <mat-grid-tile-header> 
+                 <span class="material-icons">date_range</span> &nbsp; Date
+                 <button mat-flat-button class="reset-button-row">Reset Date</button>
+               </mat-grid-tile-header>
+              
+                 <mat-form-field class="datepickers1">
+                     <input matInput [matDatepicker]="dp1" placeholder="Choose a date">
+                     <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                     <mat-datepicker #dp1></mat-datepicker>
+                 </mat-form-field>
+                 <mat-form-field class="datepickers2">
+                     <input matInput [matDatepicker]="dp2" placeholder="Choose a date">
+                     <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                     <mat-datepicker #dp2></mat-datepicker>
+                 </mat-form-field>
+      
+             </mat-grid-tile>
+         <!-- Time Picker -->
+           <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'">
               <!-- Time card -->
               <mat-grid-tile-header> 
                   <span class="material-icons">schedule</span>&nbsp; Time 
                   <button mat-flat-button class="reset-button-row">Reset Time</button>
                 </mat-grid-tile-header>
-                
                 <div class="time-chip">
                   <!-- Time picker scroll-->
-                  
                     <cdk-virtual-scroll-viewport itemSize="100" class="example-viewport">  
                       <div class="custom-slider">
-                          <div>
-  
-                            </div>
-                          <ng5-slider [(value)]="minValue" [(highValue)]="maxValue"  [options]="options" style="margin-bottom: 2rem; font-size: 11px;"></ng5-slider>
-                          <div>
-                              <button mat-mini-fab class="round-button">Add</button>
-                           </div> 
-                        </div>
-  
+                          <div class="left-slider">
+                          <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" style="margin-bottom: 2rem; font-size: 10px;"></ng5-slider>
+                          </div>
+                          <div class="right-add-button">
+                              <!-- Add one more time picker -->
+                                <button mat-mini-fab class="round-button">
+                                  <mat-icon aria-label="round-button">add</mat-icon>
+                                </button>
+                             </div> 
+                        </div>   
                     </cdk-virtual-scroll-viewport>
               </div>
               </mat-grid-tile>
