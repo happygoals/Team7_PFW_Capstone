@@ -7,7 +7,7 @@ declare const h337: any;
 @Component({
   selector: 'app-core-body-population-heatmap',
   templateUrl: './heatmap.component.html',
-  styleUrls: []
+  styleUrls: ['./heatmap.component.css']
 })
 
 /*can use outside of this file because of 'export'*/
