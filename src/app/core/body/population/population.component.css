@@ -33,11 +33,13 @@ body {
 
   /* date picker */
   mat-form-field.datepickers1 {
+    margin-top: 13%;
     padding-right: 2%;
     font-size: 14px;
   }
 
   mat-form-field.datepickers2 {
+    margin-top: 13%;
     padding-left: 2%;
     font-size: 14px;
   }
