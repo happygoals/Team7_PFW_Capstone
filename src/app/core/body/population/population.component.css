@@ -8,7 +8,7 @@ body {
 
   div.body2 {
       background-color: white;
-      margin: 1% 2% 4% 2%;
+      margin: 1% 2% 3% 2%;
       padding-top: 1%;
       padding-bottom: 1%;
       padding-left: 0%;
@@ -26,6 +26,7 @@ body {
 
   mat-grid-list.options-tile {
       min-height : 100%;
+      min-width : 100%;
   }
 
   /* Options Styling END*/
