@@ -2,15 +2,27 @@
     <!-- Body 2 Div, for White wrap around objects -->
     <div class="body2">
     <mat-card>
-        <!-- This will hold the box that contains the checkboxes and options to manipulate the map-->
-          <mat-grid-list class="Optionslist" cols="8">
-           <mat-grid-tile class="options-tile" id="options-time" colspan="3"[style.border-right]="'1px dashed #ddd'" >
-              <mat-grid-tile-header> <span class="material-icons">date_range</span> &nbsp; Date
-                <button mat-flat-button class="reset-button-row">Reset Date</button>
-              </mat-grid-tile-header>
-            </mat-grid-tile>
-          <mat-grid-tile class="options-tile" id="options-time" colspan="4" [style.border-right]="'1px dashed #ddd'"> 
-              <!-- Time Options-->
+        <!-- Date Picker -->
+        <mat-grid-list class="Optionslist" cols="8">
+            <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'" >
+               <mat-grid-tile-header> <span class="material-icons">date_range</span> &nbsp; Date
+                 <button mat-flat-button class="reset-button-row">Reset Date</button>
+               </mat-grid-tile-header>
+               <div class=datepickers>
+                 <mat-form-field class="datepickers1">
+                     <input matInput [matDatepicker]="dp1" placeholder="Choose a date">
+                     <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                     <mat-datepicker #dp1></mat-datepicker>
+                 </mat-form-field>
+                 <mat-form-field class="datepickers2">
+                     <input matInput [matDatepicker]="dp2" placeholder="Choose a date">
+                     <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                     <mat-datepicker #dp2></mat-datepicker>
+                 </mat-form-field>
+               </div>
+             </mat-grid-tile>
+           <mat-grid-tile class="options-tile" id="options-time" colspan="4" [style.border-right]="'1px dashed #ddd'">
+        <!-- Time Picker -->
               <!-- Time card -->
               <mat-grid-tile-header> 
                 <span class="material-icons">schedule</span>&nbsp; Time 

@@ -3,10 +3,11 @@
   <div class="body2">
       <mat-card>
           <!-- This will hold the box that contains the checkboxes and options to manipulate the map-->
-            <mat-grid-list class="Optionslist" cols="7">
-             <mat-grid-tile class="options-tile" id="options-time" colspan="3"[style.border-right]="'1px dashed #ddd'" >
+           <!-- Date Picker -->
+            <mat-grid-list class="Optionslist" cols="8">
+             <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'" >
                 <mat-grid-tile-header> <span class="material-icons">date_range</span> &nbsp; Date
-                  <button mat-flat-button class="reset-button-row">Reset Date Selections</button>
+                  <button mat-flat-button class="reset-button-row">Reset Date</button>
                 </mat-grid-tile-header>
                 <div class=datepickers>
                   <mat-form-field class="datepickers1">
@@ -21,23 +22,32 @@
                   </mat-form-field>
                 </div>
               </mat-grid-tile>
-            <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'">
-                <!-- Time Options-->
-                <!-- Time card -->
-                <mat-grid-tile-header>
-                  <span class="material-icons">schedule</span>&nbsp; Time
-                  <button mat-flat-button class="reset-button-row">Reset Time Selections</button>
+            <mat-grid-tile class="options-tile" id="options-time" colspan="4" [style.border-right]="'1px dashed #ddd'">
+          <!-- Time picker -->
+              <!-- Time card -->
+              <mat-grid-tile-header> 
+                  <span class="material-icons">schedule</span>&nbsp; Time 
+                  <button mat-flat-button class="reset-button-row">Reset Time</button>
                 </mat-grid-tile-header>
-                <div class="timeoption">
-                </div>
+                
                 <div class="time-chip">
-                  <!-- Time scroll-->
-                    <cdk-virtual-scroll-viewport itemSize="24" class="example-viewport">
-
+                  <!-- Time picker scroll-->
+                  
+                    <cdk-virtual-scroll-viewport itemSize="100" class="example-viewport">  
+                      <div class="custom-slider">
+                          <div>
+  
+                            </div>
+                          <ng5-slider [(value)]="minValue" [(highValue)]="maxValue"  [options]="options" style="margin-bottom: 2rem; font-size: 11px;"></ng5-slider>
+                          <div>
+                              <button mat-mini-fab class="round-button">Add</button>
+                           </div> 
+                        </div>
+  
                     </cdk-virtual-scroll-viewport>
               </div>
               </mat-grid-tile>
-              <mat-grid-tile class="options-tile" id="options-export" colspan="1">
+              <mat-grid-tile class="options-tile" id="options-export" colspan="1"> 
                 <!-- Export Options-->
                 <mat-grid-tile-header> <span class="material-icons">get_app</span> &nbsp;Export </mat-grid-tile-header>
                 <span class="material-icons" style="margin: 0px auto; padding-top: 48px; font-size: 70px;">vertical_align_bottom</span>
