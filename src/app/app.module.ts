@@ -7,6 +7,7 @@ import { MatCheckboxModule } from '@angular/material';
 import {FormControl,FormGroup} from '@angular/forms';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
@@ -22,6 +23,7 @@ import { ChartComponent } from './core/body/routing/chart/chart.component';
 import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
 import { jqxDropDownListComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxdropdownlist';
 import { Ng5SliderModule } from 'ng5-slider';
+import { BeaconService } from './services/beacon.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,7 @@ import { Ng5SliderModule } from 'ng5-slider';
     MatMenuModule,
     Ng5SliderModule
   ],
-  providers: [],
+  providers: [BeaconService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

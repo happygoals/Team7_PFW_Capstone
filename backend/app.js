@@ -15,6 +15,8 @@ connection.connect(function(err) {
   console.log('connected as id ' + connection.threadId)
 })
 
+app.use(require('./api/beacon_api'))
+
 app.use((req, res, next) => {
   res.send('Hello - !')
   next()
@@ -27,7 +29,7 @@ app.use((req, res, next) => {
 })
 app.use((req, res, next) => {
   console.log("start date time func")
-  beacon.getBeaconsByDateTime('2018-01-01', '2018-12-02', '07:30:00', '15:01:32')
+  beacon.getBeaconsByDateTime('2018-01-01', '2018-01-02', '07:30:00', '07:50:00')
   console.log("function for date time works")
   next()
 
