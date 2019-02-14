@@ -1,221 +1,236 @@
 /* Body Styling START */
 body {
-  padding-left: 2%;
-  padding-right: 2%;
-  padding-top: 2%;
-  padding-bottom: 2%;
-}
-
-div.body2 {
-    background-color: white;
-    margin: 1% 2% 4% 2%;
+    padding-left: 2%;
+    padding-right: 2%;
     padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 0%;
-    padding-right: 0%;
+    padding-bottom: 2%;
   }
-
-
-/* Body Styling END */
-/* Options Styling START */
-
-mat-grid-list.Optionslist {
-  font-size: large;
-  text-align: center;
-  margin-bottom: 5%;
-}
-
-mat-form-field.datepickers1 {
-  margin-top: 25%;
-  margin-right: 2%;
-  font-size: 14px;
-}
-
-mat-form-field.datepickers2 {
-  margin-right: 2%;
-  font-size: 14px;
-}
-
-/* Options Styling END*/
-
-/* FactBoxes and Map Styling START */
-
-mat-grid-list.Lowerbodylist {
-  font-size: large;
-  text-align: center;
-  margin-top: 5%;
-  border-top: solid;
-}
-
-mat-grid-tile.fact1 {
-  background-color: rgba(25, 91, 38, 200);
-  margin-left: 25px;
-}
-
-mat-grid-tile.fact2 {
-  background-color: rgba(30, 109, 46, 200);
-  margin-left: 25px;
-}
-
-mat-grid-tile.fact3 {
-  background-color: rgba(30, 137, 51, 200);
-  margin-left: 25px;
-  margin-bottom: 25px;
-}
-
-p {
-  font-size: 30px;
-  line-height: .1;
-}
-
-span {
-  font-size: 60px;
-  margin-left: 50px;
-}
-
-/* FactBoxes Styling END */
-
-/* Basic */
-
-@-ms-viewport {
-    width: device-width;
-}
-
-body {
-    -ms-overflow-style: scrollbar;
-    margin: 0 auto !important;
-}
-
-@media screen and (max-width: 480px) {
-    html, body {
-        min-width: 320px;
+  
+  div.body2 {
+      background-color: white;
+      margin: 1% 2% 4% 2%;
+      padding-top: 1%;
+      padding-bottom: 1%;
+      padding-left: 0%;
+      padding-right: 0%;
     }
-}
-
-html {
-    box-sizing: border-box;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-body {
-    background-color: #000000;
-    background-image: url("../../../../assets/images/overlay.png"), -moz-linear-gradient(180deg, #152816 25%, #196530 75%);
-    background-image: url("../../../../assets/images/overlay.png"), -webkit-linear-gradient(180deg, #152816 25%, #196530 75%);
-    background-image: url("../../../../assets/images/overlay.png"), -ms-linear-gradient(180deg, #152816 25%, #196530 75%);
-    background-image: url("../../../../assets/images/overlay.png"), linear-gradient(180deg, #152816 25%, #196530 75%);
-}
-
-    body.is-preload *, body.is-preload *:before, body.is-preload *:after {
-        -moz-animation: none !important;
-        -webkit-animation: none !important;
-        -ms-animation: none !important;
-        animation: none !important;
-        -moz-transition: none !important;
-        -webkit-transition: none !important;
-        -ms-transition: none !important;
-        transition: none !important;
-    }
-
-/* Type */
-
-body {
-    background-color: #935d8c;
-    color: rgba(255, 255, 255, 0.65);
-}
-
-body, input, select, textarea {
-    font-family: "Source Sans Pro", Helvetica, sans-serif;
-    font-size: 17pt;
-    font-weight: 300;
-    line-height: 1.65;
-}
-
-    @media screen and (max-width: 1680px) {
-
-        body, input, select, textarea {
-            font-size: 14pt;
-        }
-
-    }
-
-    @media screen and (max-width: 1280px) {
-
-        body, input, select, textarea {
-            font-size: 12pt;
-        }
-
-    }
-
-    @media screen and (max-width: 360px) {
-
-        body, input, select, textarea {
-            font-size: 11pt;
-        }
-
-    }
-
-a {
-    -moz-transition: color 0.2s ease, border-bottom 0.2s ease;
-    -webkit-transition: color 0.2s ease, border-bottom 0.2s ease;
-    -ms-transition: color 0.2s ease, border-bottom 0.2s ease;
-    transition: color 0.2s ease, border-bottom 0.2s ease;
-    text-decoration: none;
-    border-bottom: dotted 1px;
-    color: inherit;
-}
-
-    a:hover {
-        border-bottom-color: transparent;
-    }
-
-strong, b {
-    font-weight: 400;
-}
-
-em, i {
-    font-style: italic;
-}
-
-p {
-    margin: 0 0 2em 0;
-}
-
-/* Card Section */
-.example-h2 {
-    margin: 10px;
+  
+  /* Body Styling END */
+  /* Options Styling START */
+  
+  mat-grid-list.Optionslist {
+    font-size: large;
+    text-align: center;
+    margin-bottom: 5%;
   }
-
-  .example-section {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    height: 60px;
+  
+  mat-grid-list.options-tile {
+      min-height : 100%;
   }
-
-  .example-margin {
-    margin: 0 10px;
+  
+  /* Options Styling END*/
+  
+  /* date picker */
+  mat-form-field.datepickers1 {
+    margin-top: 25%;
+    margin-right: 2%;
+    font-size: 14px;
   }
-
-/* scroll */
-.example-viewport {
-    height: 150px;
-    width: 400px;
-    border: 0px solid black;
+  
+  mat-form-field.datepickers2 {
+    margin-right: 2%;
+    font-size: 14px;
   }
-
-  .example-item {
-    height: 40px;
-    width: 25px;
+  
+  
+  /* FactBoxes and Map Styling START */
+  mat-grid-list.Lowerbodylist {
+    font-size: large;
+    text-align: center;
+    margin-top: 5%;
+    border-top: solid;
   }
-
-/* button */
-.reset-button-row{
-  width: 150px;
-  position: absolute;
-  left: 65%;
-  padding : 1px;
-}
-
+  
+  mat-grid-tile.fact1 {
+    background-color: rgba(25, 91, 38, 200);
+    margin-left: 25px;
+  }
+  
+  mat-grid-tile.fact2 {
+    background-color: rgba(30, 109, 46, 200);
+    margin-left: 25px;
+  }
+  
+  mat-grid-tile.fact3 {
+    background-color: rgba(30, 137, 51, 200);
+    margin-left: 25px;
+    margin-bottom: 25px;
+  }
+  
+  p {
+    font-size: 30px;
+    line-height: .1;
+  }
+  
+  span {
+    font-size: 60px;
+    margin-left: 50px;
+  }
+  
+  /* FactBoxes Styling END */
+  
+  /* mat-card style for date and time picker */ 
+  .mat-card{
+      margin-left: 1.5%;
+      margin-right: 1.5%;
+      align-content: center;
+      align-items: center;
+      background-color: #FAFAFA;
+  }
+  
+  .timeoption{
+      margin-top: 20%;
+      margin-right: 5%;
+      align-content: center;
+      align-items: center;
+  }
+  
+  .time-chip{
+      margin-top: 110px;
+      margin-bottom: 5px;
+  }
+  
+  
+  /* Basic */
+  
+  @-ms-viewport {
+      width: device-width;
+  }
+  
+  body {
+      -ms-overflow-style: scrollbar;
+      margin: 0 auto !important;
+  }
+  
+  @media screen and (max-width: 480px) {
+      html, body {
+          min-width: 320px;
+      }
+  }
+  
+  html {
+      box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+      box-sizing: inherit;
+  }
+  
+  body {
+      background-color: #000000;
+      background-image: url("../../../../assets/images/overlay.png"), -moz-linear-gradient(180deg, #152816 25%, #196530 75%);
+      background-image: url("../../../../assets/images/overlay.png"), -webkit-linear-gradient(180deg, #152816 25%, #196530 75%);
+      background-image: url("../../../../assets/images/overlay.png"), -ms-linear-gradient(180deg, #152816 25%, #196530 75%);
+      background-image: url("../../../../assets/images/overlay.png"), linear-gradient(180deg, #152816 25%, #196530 75%);
+  }
+  
+      body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+          -moz-animation: none !important;
+          -webkit-animation: none !important;
+          -ms-animation: none !important;
+          animation: none !important;
+          -moz-transition: none !important;
+          -webkit-transition: none !important;
+          -ms-transition: none !important;
+          transition: none !important;
+      }
+  
+  /* Type */
+  
+  body {
+      background-color: #935d8c;
+      color: rgba(255, 255, 255, 0.65);
+  }
+  
+  body, input, select, textarea {
+      font-family: "Source Sans Pro", Helvetica, sans-serif;
+      font-size: 17pt;
+      font-weight: 300;
+      line-height: 1.65;
+  }
+  
+      @media screen and (max-width: 1680px) {
+  
+          body, input, select, textarea {
+              font-size: 14pt;
+          }
+  
+      }
+  
+      @media screen and (max-width: 1280px) {
+  
+          body, input, select, textarea {
+              font-size: 12pt;
+          }
+  
+      }
+  
+      @media screen and (max-width: 360px) {
+  
+          body, input, select, textarea {
+              font-size: 11pt;
+          }
+  
+      }
+  
+  a {
+      -moz-transition: color 0.2s ease, border-bottom 0.2s ease;
+      -webkit-transition: color 0.2s ease, border-bottom 0.2s ease;
+      -ms-transition: color 0.2s ease, border-bottom 0.2s ease;
+      transition: color 0.2s ease, border-bottom 0.2s ease;
+      text-decoration: none;
+      border-bottom: dotted 1px;
+      color: inherit;
+  }
+  
+      a:hover {
+          border-bottom-color: transparent;
+      }
+  
+  strong, b {
+      font-weight: 400;
+  }
+  
+  em, i {
+      font-style: italic;
+  }
+  
+  p {
+      margin: 0 0 2em 0;
+  }
+  
+  /* scroll */
+  .example-viewport {
+      height: 300px;
+      width: 450px;
+      border: 0px solid black;
+      margin-top: 160px;
+    }
+  
+    .example-item {
+      height: 40px;
+      width: 25px;
+    }
+  
+    /* button */
+    .reset-button-row{
+      width: 100px; 
+      position: absolute;
+      left: 75%;
+      padding : 1px; 
+    }  
+  
+    .round-button{
+      margin-right: 8px;
+      background-color: #152816;
+    }
