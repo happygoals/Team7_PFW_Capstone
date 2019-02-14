@@ -5,8 +5,7 @@ var connection = require('./connection')
 //var heat = require('./heat')
 //var query = require('./query')
 var beacon = require('./models/beacon')
-var k = new Array()
-
+var i = 1
 
 //local DB info - different per person
 connection.connect(function(err) {
@@ -22,12 +21,15 @@ app.use((req, res, next) => {
   next()
 })
 
-
 app.use((req, res, next) => {
-  console.log("start date time func")
-  beacon.getBeaconsByDateTime('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')
-  console.log("function for date time works")
- // next()
+  if(i == 2){
+    console.log("start date time func")
+    beacon.getBeaconsByDateTime('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')
+    console.log("function for date time works")
+  }
+  i++
+  //console.log(obj)
+  //next()
 })
 
 module.exports = app
