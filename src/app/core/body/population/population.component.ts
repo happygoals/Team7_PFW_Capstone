@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import { Component, Inject, OnInit} from '@angular/core';
-import { BeaconService } from '../../../services/beacon.service';
-
-=======
 import { Component} from '@angular/core';
 import { Options, LabelType } from 'ng5-slider';
->>>>>>> 9e9e10e01fd86d14b181bdf8173407751348a099
 
 @Component({
   selector: 'app-core-body-population',
