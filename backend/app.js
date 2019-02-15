@@ -16,8 +16,6 @@ connection.connect(function(err) {
   console.log('connected as id ' + connection.threadId)
 })
 
-app.use(require('./api/beacon_api'))
-
 app.use((req, res, next) => {
   res.send('Hello - !')
   next()
@@ -25,9 +23,18 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   if(i == 2){
-    console.log("start date time func")
-    beacon.getBeaconsByDateTime('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')
-    console.log("function for date time works")
+    console.log("Function for Heat Map")
+    beacon.getBeaconsByDateTimeForHeatmap('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')
+    next()
+  }
+  i++
+  //console.log(obj)
+})
+
+app.use((req, res, next) => {
+  if(i == 2){
+    console.log("Function for Routing")
+    beacon.getBeaconsByDateTimeForRouting('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')
   }
   i++
   //console.log(obj)
