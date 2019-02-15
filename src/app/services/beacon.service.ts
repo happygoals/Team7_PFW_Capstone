@@ -1,22 +1,24 @@
 import { Injectable, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Http, Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 
 export class BeaconService {
-	
-	http: any;
+	constructor(private http: HttpClient, private router: Router) { }
+	url = 'http://localhost:3000';
 
-	constructor(@Inject(Http) http) {
-		this.http = http;
+	getAllBeacons() {
+	  return this
+		.http
+		.get(`${this.url}/beacons`);
 	}
+	getRouting(startDate, endDate, startTime, endTime){
+		return this
+		.http
+		.get(`${this.url}/beacons/beaconsRouting`);
 
-	getById(data) {
-		let headers = new Headers({"Content-Type": "application/json"});
-		let options = new RequestOptions({ headers: headers });
-
-		return this.http.post('http://localhost:3000/beaconById', JSON.stringify(data), options)
-			.map(res => res.json());
 	}
 
 }

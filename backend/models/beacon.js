@@ -87,5 +87,4 @@ var beacon = {
 
 }
 
-
 module.exports = beacon

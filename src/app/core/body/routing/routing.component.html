@@ -7,7 +7,7 @@
             <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'" >
                <mat-grid-tile-header>
                  <span class="material-icons">date_range</span> &nbsp; Date
-                 <button mat-flat-button class="reset-button-row">Reset Date</button>
+                 <button mat-flat-button (click)="getRouting('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')" class="reset-button-row">Reset Date</button>
                </mat-grid-tile-header>
 
                  <mat-form-field class="datepickers1">

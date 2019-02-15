@@ -4,10 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatGridListModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material';
 import { MatCheckboxModule } from '@angular/material';
-import {FormControl,FormGroup} from '@angular/forms';
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
@@ -24,6 +20,9 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
 import { jqxDropDownListComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxdropdownlist';
 import { Ng5SliderModule } from 'ng5-slider';
 import { BeaconService } from './services/beacon.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormControl, FormGroup } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,7 +49,8 @@ import { BeaconService } from './services/beacon.service';
     MatButtonModule,
     MatCheckboxModule,
     MatMenuModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    HttpClientModule
   ],
   providers: [BeaconService],
   bootstrap: [AppComponent]

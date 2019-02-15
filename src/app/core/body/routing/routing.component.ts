@@ -1,4 +1,7 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { BeaconService } from '../../../services/beacon.service';
+import { Beacon } from '../../../interfaces/beacon.interface';
+import { Router } from '@angular/router';
 import { Options, LabelType } from 'ng5-slider';
 
 @Component({
@@ -7,7 +10,29 @@ import { Options, LabelType } from 'ng5-slider';
   styleUrls: ['./routing.component.css','./routing.component.scss']
 })
 
-export class RoutingComponent {
+export class RoutingComponent implements OnInit{
+  beacons : Beacon[];
+  
+  routingBeacons : Beacon[];
+  constructor(private beaconService : BeaconService, private router : Router){}
+  ngOnInit(){
+    this.beaconService
+    .getRouting('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')
+    .subscribe((data : Beacon[]) =>{
+      this.beacons = data;
+      console.log(this.beacons[1]);
+    });
+  }
+
+  getRouting(startDate, endDate, startTime, endTime){
+    this.beaconService
+    .getRouting(startDate,endDate,startTime,endTime)
+    .subscribe((data: Beacon []) =>{
+      this.routingBeacons = data;
+      console.log(this.routingBeacons[1]);
+    });
+  }
+
   minValue: number = 0;
   maxValue: number = 24;
   options: Options = {
