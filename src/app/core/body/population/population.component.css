@@ -32,16 +32,22 @@ body {
   /* Options Styling END*/
 
   /* date picker */
-  mat-form-field.datepickers1 {
-    margin-top: 13%;
+  div.dp1 {
+    margin-top: 0%;
     padding-right: 2%;
     font-size: 14px;
   }
 
-  mat-form-field.datepickers2 {
-    margin-top: 13%;
+  div.dp2 {
+    margin-top: 0%;
     padding-left: 2%;
     font-size: 14px;
+  }
+
+  div.dselection {
+    position: absolute;
+    bottom: 5%;
+    right: 62%;
   }
 
   /* FactBoxes and Map Styling START */
