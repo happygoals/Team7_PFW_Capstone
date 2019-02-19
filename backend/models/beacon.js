@@ -31,7 +31,8 @@ var beacon = {
                 posb = text.lastIndexOf("}") - 1
                 output = text.slice(posf,posb) //cut it
 
-                beaconList.push(output)        //store(push) cutted text (string) to list
+                beaconList.push(output)  
+                      //store(push) cutted text (string) to list
               //  listItem[i] = beaconList[i].split("-")
               }
               console.log(beaconList)
