@@ -278,3 +278,8 @@ body {
     margin-right: 8px;
     background-color: #152816;
   }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }

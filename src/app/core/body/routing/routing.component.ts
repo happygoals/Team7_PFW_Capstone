@@ -21,6 +21,10 @@ export class RoutingComponent implements OnInit{
     .subscribe((data : Beacon[]) =>{
       this.beacons = data;
       console.log(this.beacons[1]);
+
+
+
+      
     });
   }
 
