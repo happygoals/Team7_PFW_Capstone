@@ -2,6 +2,8 @@
 import {AfterViewInit, Component} from '@angular/core';
 
 declare const h337: any;
+//declare function getBeaconsByDateTimeForHeatmap(): any;
+//let figure: number;
 
 
 @Component({
@@ -9,6 +11,15 @@ declare const h337: any;
   templateUrl: './heatmap.component.html',
   styleUrls: ['./heatmap.component.css']
 })
+/*
+export class HeatmapConnection implements Component {
+
+  ngComponent() {
+
+
+  }
+}
+*/
 
 /*can use outside of this file because of 'export'*/
 export class HeatmapComponent implements AfterViewInit {
