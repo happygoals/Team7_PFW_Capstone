@@ -2,7 +2,7 @@
 body {
     padding-left: 2%;
     padding-right: 2%;
-    padding-top: 1%;
+    padding-top: 5%;
     padding-bottom: 2%;
   }
 
@@ -32,23 +32,30 @@ body {
   /* Options Styling END*/
 
   /* date picker */
-  mat-form-field.datepickers1 {
-    margin-top: 13%;
+  div.dp1 {
+    margin-top: 0%;
     padding-right: 2%;
     font-size: 14px;
   }
 
-  mat-form-field.datepickers2 {
-    margin-top: 13%;
+  div.dp2 {
+    margin-top: 0%;
     padding-left: 2%;
     font-size: 14px;
+  }
+
+  div.dselection {
+    position: absolute;
+    bottom: 5%;
+    right: 62%;
   }
 
   /* FactBoxes and Map Styling START */
   mat-grid-list.Lowerbodylist {
     font-size: large;
     text-align: center;
-    margin-top: 5%;
+    margin-top: 2%;
+    margin-bottom: 3%;
     border-top: solid;
   }
 
@@ -122,7 +129,7 @@ body {
 
   .left-slider {
     float: left;
-    min-width: 380px;
+    min-width: 82%;
   }
   /* mat-card style for date and time picker END*/
 
@@ -249,13 +256,18 @@ body {
 
     /* button */
     .reset-button-row{
-      width: 100px;
-      position: absolute;
-      left: 75%;
-      padding : 1px;
+        width: 20%;
+        position: absolute;
+        left: 79%;
+        padding : 1px;
     }
 
     .round-button{
       margin-right: 8px;
       background-color: #152816;
     }
+
+    img {
+        max-width: 100%;
+        height: auto;
+      }
