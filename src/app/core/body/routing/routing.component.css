@@ -2,7 +2,7 @@
 body {
     padding-left: 2%;
     padding-right: 2%;
-    padding-top: 1%;
+    padding-top: 5%;
     padding-bottom: 2%;
   }
 
@@ -277,4 +277,9 @@ body {
   .round-button{
     margin-right: 8px;
     background-color: #152816;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
