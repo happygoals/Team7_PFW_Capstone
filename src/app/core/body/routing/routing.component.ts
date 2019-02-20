@@ -18,6 +18,7 @@ export class RoutingComponent implements OnInit{
   ngOnInit(){
     this.beaconService
     .getRouting('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')
+    // .getAllBeacons()
     .subscribe((data : Beacon[]) =>{
       this.beacons = data;
       console.log(this.beacons[1]);

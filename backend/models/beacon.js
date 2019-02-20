@@ -1,3 +1,5 @@
+//file that has the functions for the navigation table that has the query to the mysql db - imports the connection from backend/connection
+
 var connection = require('../connection')
 
 let obj = new Array()
@@ -10,11 +12,12 @@ var listItem = [[],[]]
 
 
 var beacon = {
-
+    //this function calls for a query of all the data from our db for the navigations table
     getAllDataSet:function(callback){
         return connection.query("SELECT * FROM test", callback)
     },
 
+    //this function calls for a query that gets beacons in a certain time frame from our db for the navigation table
     getBeaconsByDateTimeForRouting(startDate, endDate, startTime, endTime){
         return connection.query("SELECT beacon FROM test WHERE Date BETWEEN ? AND ?  AND Time BETWEEN ? AND ?",
          [startDate, endDate, startTime, endTime], (error, rows) => {
@@ -31,7 +34,8 @@ var beacon = {
                 posb = text.lastIndexOf("}") - 1
                 output = text.slice(posf,posb) //cut it
 
-                beaconList.push(output)        //store(push) cutted text (string) to list
+                beaconList.push(output)  
+                      //store(push) cutted text (string) to list
               //  listItem[i] = beaconList[i].split("-")
               }
               console.log(beaconList)

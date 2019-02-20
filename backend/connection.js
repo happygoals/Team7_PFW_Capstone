@@ -1,3 +1,5 @@
+//connection to the mysql db - it is called into other files that utilize a connection.
+
 var mysql = require ('mysql')
 var connection = require('express-myconnection')
 
