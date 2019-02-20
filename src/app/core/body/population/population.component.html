@@ -15,32 +15,28 @@
             <span class="material-icons">date_range</span> &nbsp; Date
             <button mat-flat-button class="reset-button-row">Reset Date</button>
           </mat-grid-tile-header>
-          <div class="dp1">
+          <div id="dp1" class="dp1">
             <mat-form-field>
-              <input matInput [matDatepicker]="dp1" placeholder="Start date" />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="dp1"
-              ></mat-datepicker-toggle>
+              <input matInput [matDatepicker]="dp1" placeholder="Start date"  (dateinput)="addEvent('input', $event)"
+              (dateChange)="addEvent('change', $event)">
+              <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
               <mat-datepicker #dp1></mat-datepicker>
             </mat-form-field>
           </div>
-          <div class="dp2">
+          <div id="dp2" class="dp2">
             <mat-form-field>
-              <input matInput [matDatepicker]="dp2" placeholder="End date" />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="dp2"
-              ></mat-datepicker-toggle>
+              <input matInput [matDatepicker]="dp2" placeholder="End date" (dateinput)="addEvent('input', $event)"
+              (dateChange)="addEvent('change', $event)">
+              <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
               <mat-datepicker #dp2></mat-datepicker>
             </mat-form-field>
           </div>
           <div class="dselection">
-            <h5 style="margin-bottom: 0%; margin-top:0%;">Date Selection Mode:</h5>
+            <h5 style="margin-bottom: 0%; margin-top:0%;">
+              Date Selection Mode:
+            </h5>
             <label>Single </label>
-            <mat-slide-toggle>
-
-            </mat-slide-toggle>
+            <mat-slide-toggle> </mat-slide-toggle>
             <label>Range</label>
           </div>
         </mat-grid-tile>

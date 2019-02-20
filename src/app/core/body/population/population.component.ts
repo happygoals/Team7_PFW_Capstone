@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
 import { Options, LabelType } from 'ng5-slider';
+import { MatDatepickerInputEvent } from '@angular/material';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-core-body-population',
@@ -81,11 +83,25 @@ export class PopulationComponent {
     ],
     selectionBarGradient: {
       from: 'black',
-      to: 'green', 
+      to: 'green',
 
     },
     showTicks: true,
     draggableRange: true,
-    
+
   };
+
+  //Date Picker Extraction Method
+  constructor(private datePipe: DatePipe) {}
+
+  events: string[] = [];
+
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    const eventDate = new Date(event.value);
+    const formattedDate = this.datePipe.transform(eventDate, 'yyyy-MM-dd');
+    alert(formattedDate);
+  }
+
+
+
 }
