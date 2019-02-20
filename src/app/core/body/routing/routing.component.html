@@ -28,11 +28,11 @@
           </div>
           <div class="dselection">
             <h5 style="margin-bottom: 0%; margin-top:0%;">Date Selection Mode:</h5>
-            <label>Single </label>
-            <mat-slide-toggle>
+            <label style="font-size:14px;">Single </label>
+            <mat-slide-toggle color="primary" class="date-toggle">
 
             </mat-slide-toggle>
-            <label>Range</label>
+            <label style="font-size:14px;">&nbsp; Range</label>
           </div>
         </mat-grid-tile>
         <!-- Time Picker -->
@@ -50,7 +50,7 @@
 
               <div class="custom-slider">
                 <div class="left-slider">
-                  <ng5-slider [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1" style="margin-bottom: 0.2rem; font-size: 11px;"></ng5-slider>
+                  <ng5-slider [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1" style="margin-bottom: 0.2rem; "></ng5-slider>
                 </div>
                 <div class="right-add-button">
                   <!-- Add one more time picker -->
@@ -61,12 +61,12 @@
 
               <div *ngIf="!isCollapsed" class="custom-slider2">
                   <div class="left-slider">
-                  <ng5-slider [(value)]="minValue2" [(highValue)]="maxValue2" [options]="options2" style="margin-bottom: 0.2rem; font-size: 11px;"></ng5-slider>
+                  <ng5-slider [(value)]="minValue2" [(highValue)]="maxValue2" [options]="options2" style="margin-bottom: 0.2rem; "></ng5-slider>
                   </div>
                 </div>
               <div *ngIf="!isCollapsed" class="custom-slider2">
                   <div class="left-slider">
-                  <ng5-slider [(value)]="minValue2" [(highValue)]="maxValue2" [options]="options2" style="margin-bottom: 0.2rem; font-size: 11px;"></ng5-slider>
+                  <ng5-slider [(value)]="minValue2" [(highValue)]="maxValue2" [options]="options2" style="margin-bottom: 0.2rem;"></ng5-slider>
                 </div>
                 </div>
             </div>

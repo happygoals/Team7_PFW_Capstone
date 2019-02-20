@@ -55,6 +55,9 @@ body {
         right: 62%;
       }
 
+      .date-toggle{
+      }
+
   /* FactBoxes and Map Styling START */
   mat-grid-list.Lowerbodylist {
     font-size: large;
@@ -282,7 +285,7 @@ body {
   .reset-button-row{
     position: absolute;
     left: 90%;
-    background-color: rgb(135, 160, 152); 
+    background-color: rgb(143, 156, 152); 
   }
 
   .round-button{
