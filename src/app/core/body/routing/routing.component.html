@@ -1,68 +1,107 @@
 <body>
-    <!-- Body 2 Div, for White wrap around objects -->
-    <div class="body2">
-    <mat-card>
-        <!-- Date Picker -->
-        <mat-grid-list class="Optionslist" cols="7">
-            <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'" >
-               <mat-grid-tile-header>
-                 <span class="material-icons">date_range</span> &nbsp; Date
-                 <button mat-flat-button (click)="getRouting('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')" class="reset-button-row">Reset Date</button>
-               </mat-grid-tile-header>
-
-                 <mat-form-field class="datepickers1">
-                     <input matInput [matDatepicker]="dp1" placeholder="Start date">
-                     <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
-                     <mat-datepicker #dp1></mat-datepicker>
-                 </mat-form-field>
-                 <mat-form-field class="datepickers2">
-                     <input matInput [matDatepicker]="dp2" placeholder="End date">
-                     <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
-                     <mat-datepicker #dp2></mat-datepicker>
-                 </mat-form-field>
-
-             </mat-grid-tile>
-         <!-- Time Picker -->
-           <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'">
-              <!-- Time card -->
-              <mat-grid-tile-header>
-                <span class="material-icons">schedule</span>&nbsp; Time
-                <button mat-flat-button class="reset-button-row">Reset Time</button>
-              </mat-grid-tile-header>
-              <div class="time-chip">
-                <!-- Time picker scroll-->
-                  <cdk-virtual-scroll-viewport itemSize="100" class="example-viewport">
-                    <div class="custom-slider">
-                        <div class="left-slider">
-                        <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" style="margin-bottom: 2rem; font-size: 10px;"></ng5-slider>
-                        </div>
-                        <div class="right-add-button">
-                            <!-- Add one more time picker -->
-                              <button mat-mini-fab class="round-button">
-                                <mat-icon aria-label="round-button">add</mat-icon>
-                              </button>
-                           </div>
-                      </div>
-                  </cdk-virtual-scroll-viewport>
+  <!-- Body 2 Div, for White wrap around objects -->
+  <div class="body2">
+    <mat-card class="picker">
+      <!-- Date Picker -->
+      <mat-grid-list class="Optionslist" cols="7">
+        <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'">
+          <mat-grid-tile-header>
+            <span class="material-icons">date_range</span> &nbsp; Date
+            <button mat-mini-fab class="reset-button-row">
+                <mat-icon aria-label="reset-button">refresh</mat-icon>
+            </button>
+  
+          </mat-grid-tile-header>
+        <div id="wrap">
+          <div class="dselection">
+              
+              <label style="font-size:14px;">Single Mode &nbsp;</label>
+              <mat-slide-toggle color="primary" class="date-toggle">
+  
+              </mat-slide-toggle>
+              <label style="font-size:14px;">&nbsp; Range Mode</label>
+          </div>
+          <div class="container"> 
+            <div class="dp1">
+              <mat-form-field class="dateform">
+                <input matInput [matDatepicker]="dp1" placeholder="Start date" />
+                <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                <mat-datepicker #dp1></mat-datepicker>
+              </mat-form-field>
             </div>
-            </mat-grid-tile>
-            <mat-grid-tile class="options-tile" id="options-export" colspan="1">
-              <!-- Export Options-->
-              <mat-grid-tile-header> <span class="material-icons">get_app</span> &nbsp;Export </mat-grid-tile-header>
-              <span class="material-icons" style="margin: 0px auto; padding-top: 48px; font-size: 70px;">vertical_align_bottom</span>
-            </mat-grid-tile>
-          </mat-grid-list>
-        </mat-card>
+            <div class="dp2">
+              <mat-form-field class="dateform"> 
+                <input matInput [matDatepicker]="dp2" placeholder="End date" />
+                <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                <mat-datepicker #dp2></mat-datepicker>
+              </mat-form-field>
+            </div>
+        </div>
+        
+      </div> 
+        </mat-grid-tile>
+        <!-- Time Picker -->
+        <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'">
+          <!-- Time card -->
+          <mat-grid-tile-header>
+            <span class="material-icons">schedule</span>&nbsp; Time
+            <button mat-mini-fab class="reset-button-row">
+                <mat-icon aria-label="reset-button">refresh</mat-icon>
+            </button>
+          </mat-grid-tile-header>
+          <div class="time-chip">
 
-      <!-- This will contain the Facts Boxes on the left side of the screen -->
-      <!-- and the map on the right side of the screen -->
-      <mat-grid-list class="Lowerbodylist" cols="8" rows="6">
-          <mat-grid-tile class="chart" colspan="4" rowspan="3">
-              <app-core-body-routing-chart></app-core-body-routing-chart>
-          </mat-grid-tile>
-        <mat-grid-tile class="map" colspan="4" rowspan="3">
-          <img src="../assets/images/640x420 route map.png" alt="Test Image">
+            <!-- Time picker scroll-->
+
+              <div class="custom-slider">
+                <div class="left-slider">
+                  <ng5-slider [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1" style="margin-bottom: 0.2rem; "></ng5-slider>
+                </div>
+                <div class="right-add-button">
+                  <!-- Add one more time picker -->
+                  <button (click)="toggleCollapse()" mat-mini-fab class="round-button">
+                    <mat-icon aria-label="round-button">add</mat-icon>
+                  </button>
+                </div>
+
+              <div *ngIf="!isCollapsed" class="custom-slider2">
+                  <div class="left-slider">
+                  <ng5-slider [(value)]="minValue2" [(highValue)]="maxValue2" [options]="options2" style="margin-bottom: 0.2rem; "></ng5-slider>
+                  </div>
+                </div>
+              <div *ngIf="!isCollapsed" class="custom-slider2">
+                  <div class="left-slider">
+                  <ng5-slider [(value)]="minValue3" [(highValue)]="maxValue3" [options]="options3" style="margin-bottom: 0.2rem;"></ng5-slider>
+                </div>
+                </div>
+            </div>
+     
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile class="options-tile" id="options-export" colspan="1">
+          <!-- Export Options-->
+          <mat-grid-tile-header> 
+          <span class="material-icons">get_app</span> &nbsp;Export </mat-grid-tile-header>
+          <span class="material-icons" style="margin: 0px auto; padding-top: 48px; font-size: 70px;">vertical_align_bottom</span>
         </mat-grid-tile>
       </mat-grid-list>
+    </mat-card>
+    <div class=chart-title>
+        <h3 style="color: black; "> Chart Widget</h3>
     </div>
-  </body>
+    <!-- This will contain the Facts Boxes on the left side of the screen -->
+    <!-- and the map on the right side of the screen -->
+    <mat-grid-list class="Lowerbodylist" cols="8" rows="6">
+      <mat-grid-tile class="chart" colspan="4" rowspan="3">
+          <mat-card class="chartbox">
+        <app-core-body-routing-chart></app-core-body-routing-chart>
+          </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile class="map" colspan="4" rowspan="3">
+          <mat-card class="chartbox">
+        <img src="../assets/images/640x420 route map.png" alt="Test Image">
+      </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</body>
