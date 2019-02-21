@@ -4,9 +4,9 @@ import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxcha
 import { jqxDropDownListComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxdropdownlist';
 
 @Component({
-    selector: 'app-core-body-routing-chart',
-    templateUrl: './chart.component.html',
-    styleUrls: []
+  selector: 'app-core-body-routing-chart',
+  templateUrl: './chart.component.html',
+  styleUrls: []
 })
 
 export class ChartComponent {
@@ -28,50 +28,43 @@ export class ChartComponent {
 
     titlePadding: any = { left: 90, top: 0, right: 0, bottom: 10 };
 
-    getWidth(): any {
-        if (document.body.offsetWidth < 850) {
-            return '90%';
-        }
+	getWidth() : any {
+		if (document.body.offsetWidth < 850) {
+			return '90%';
+		}
 
-        return 850;
-    }
+		return 850;
+	}
 
-    getHeight(): any {
-        if (document.body.offsetWidth < 850) {
-            return '90%';
-        }
-
-        return 400;
-    }
     xAxis: any =
-        {
-            dataField: 'Visit',
-            valuesOnTicks: false
-        };
+    {
+        dataField: 'Visit',
+        valuesOnTicks: false
+    };
 
     valueAxis: any =
-        {
-            unitInterval: 50000,
-            minValue: 50000,
-            maxValue: 350000,
-            title: { text: 'Beacon Number' },
-            labels: {
-                formatSettings: { prefix: '', thousandsSeparator: ',' },
-                horizontalAlignment: 'right'
-            }
-        };
+    {
+        unitInterval: 50000,
+        minValue: 50000,
+        maxValue: 350000,
+        title: { text: 'Beacon Number' },
+        labels: {
+            formatSettings: { prefix: '', thousandsSeparator: ',' },
+            horizontalAlignment: 'right'
+        }
+    };
 
     seriesGroups: any[] =
-        [
-            {
-                type: 'bubble',
-                series: [
-                    { dataField: 'SalesQ1', radiusDataField: 'YoYGrowthQ1', minRadius: 50, maxRadius: 50, displayText: 'Path 1' },
-                    { dataField: 'SalesQ2', radiusDataField: 'YoYGrowthQ2', minRadius: 20, maxRadius: 20, displayText: 'Path 2' },
-                    { dataField: 'SalesQ3', radiusDataField: 'YoYGrowthQ3', minRadius: 15, maxRadius: 15, displayText: 'Path 3' }
-                ]
-            }
-        ];
+    [
+        {
+            type: 'bubble',
+            series: [
+                { dataField: 'SalesQ1', radiusDataField: 'YoYGrowthQ1', minRadius: 50, maxRadius: 50, displayText: 'Path 1' },
+                { dataField: 'SalesQ2', radiusDataField: 'YoYGrowthQ2', minRadius: 20, maxRadius: 20, displayText: 'Path 2' },
+                { dataField: 'SalesQ3', radiusDataField: 'YoYGrowthQ3', minRadius: 15, maxRadius: 15, displayText: 'Path 3' }
+            ]
+        }
+    ];
 
     symbolsList: string[] = ['circle', 'diamond', 'square', 'triangle_up', 'triangle_down', 'triangle_left', 'triangle_right'];
 
@@ -86,4 +79,4 @@ export class ChartComponent {
         this.myChart.seriesGroups()[0].series[1].symbolType = value;
         this.myChart.update();
     }
-}
+} 
