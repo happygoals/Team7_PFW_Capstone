@@ -36,26 +36,44 @@ body {
   /* Options Styling END*/
 
   /* Date picker */
-    /* date picker */
-    div.dp1 {
-        margin-top: 0%;
-        padding-right: 2%;
-        font-size: 14px;
-      }
-    
-      div.dp2 {
-        margin-top: 0%;
-        padding-left: 2%;
-        font-size: 14px;
-      }
-    
-      div.dselection {
-        position: absolute;
-        bottom: 4%;
-        right: 62%;
+    #wrap{
+        margin: 0 auto;
+        margin-top: 5%;
+    }
+    div.container{
+        background-color: yellow; 
+        width: 100%;
+        min-width: 440px;
+        height: auto;
+    }
+
+     /* date mode selection */
+    div.dselection {  
+        margin-bottom: 3%; 
+        text-align: right;
+        
+        clear: both; 
       }
 
-      .date-toggle{
+      /* start date */
+    div.dp1 {
+        margin-top: 0%;
+        margin-left: 1%;
+        padding-right: 2%;
+        font-size: 14px;
+        float: left;
+      }
+    
+       /* end date */
+      div.dp2 {
+        margin-top: 0%;
+        margin-left: 2%;
+        padding-left: 2%;
+        font-size: 14px;
+        float: left;
+      }
+      .dateform{
+        width : 100%;
       }
 
   /* FactBoxes and Map Styling START */
@@ -110,7 +128,7 @@ body {
   }
 
   .time-chip{
-      margin-top: 27px;
+      margin-top: 20px;
       margin-bottom: 3px;
   }
 
@@ -137,18 +155,21 @@ body {
   /* mat-card style for date and time picker END*/
 
   /* chart box START */
-  mat-card.chartbox{
-    margin-left: 1.0%;
-    margin-right: 1.0%;
-    align-content: center;
-    align-items: center;
-    background-color: #000000; 
-    max-width: 100%;
-    height: auto;
-}
- div.chart-title{
-    margin-left: 1.0%
- }
+    mat-card.chartbox {
+        margin-left: 1.0%;
+        margin-right: 1.0%;
+        margin-top: 1.0%;
+        margin-bottom: 1.0%;
+        align-content: center;
+        align-items: center;
+        background-color: #EAEAEA; 
+        max-width: 100%;
+        height: auto;
+    }
+
+    div.chart-title {
+        margin-left: 3.0%
+    }
 
   /* Basic */
   @-ms-viewport {
@@ -258,9 +279,6 @@ body {
   }
 
   /* Card Section */
-  .example-h2 {
-      margin: 10%;
-    }
 
     .example-section {
       display: flex;

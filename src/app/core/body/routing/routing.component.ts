@@ -124,7 +124,7 @@ export class RoutingComponent implements OnInit{
       {value: 24}
     ],
     selectionBarGradient: {
-      from: 'green',
+      from: '#1B5E20',
       to: 'black', 
     },
     showTicks: true,
@@ -133,7 +133,7 @@ export class RoutingComponent implements OnInit{
   };
   
     /* End Time Picker Variables */
-
+    /* Start Time Picker 2 Variables */
     minValue2: number = 0;
     maxValue2: number = 24;
     options2: Options = {
@@ -206,11 +206,93 @@ export class RoutingComponent implements OnInit{
         {value: 24}
       ],
       selectionBarGradient: {
-        from: 'black',
-        to: 'green', 
+        from: '#1B5E20',
+        to: 'black', 
       },
       showTicks: true,
       draggableRange: true,
     };
-      /* End Time Picker Variables */
+      /* End Time Picker 2 Variables */
+      /* Start Time Picker 3 Variables */
+       /* Start Time Picker 3 Variables */
+    minValue3: number = 0;
+    maxValue3: number = 24;
+    options3: Options = {
+      ceil: 12,
+      floor: 0,
+      step: 24,
+      translate: (value: number, label: LabelType): string => {
+        var time = null;
+        var hours = value;
+        // Convert military time to standard time 
+        switch (label) {
+          case LabelType.Low:
+           if (hours < 12) {
+             time = "AM";
+           }
+           else{
+             time = "PM";
+           }
+           if (value == 0) {
+            hours = 12;
+          }
+          if (hours > 12) {
+              hours = hours - 12;
+          }
+            return '<b>Start</b> ' + hours + time;
+          case LabelType.High:
+            if (hours < 12 || hours == 24) {
+              time = "AM";
+            }
+            else{
+              time = "PM";
+            }
+            if (value == 0) {
+              hours = 12;
+            }
+            if (hours > 12) {
+                hours = hours - 12;
+            }
+            return '<b>End</b> ' + hours + time;
+          default:
+            return hours + time;
+        }
+      },
+      showSelectionBar: true,
+      stepsArray: [
+        {value: 0},
+        {value: 1},
+        {value: 2},
+        {value: 3},
+        {value: 4},
+        {value: 5},
+        {value: 6},
+        {value: 7},
+        {value: 8},
+        {value: 9},
+        {value: 10},
+        {value: 11},
+        {value: 12},
+        {value: 13},
+        {value: 14},
+        {value: 15},
+        {value: 16},
+        {value: 17},
+        {value: 18},
+        {value: 19},
+        {value: 20},
+        {value: 21},
+        {value: 22},
+        {value: 23},
+        {value: 24}
+      ],
+      selectionBarGradient: {
+        from: '#155A20',
+        to: '#152816', 
+      },
+      showTicks: true,
+      draggableRange: true,
+    };
+      /* End Time Picker 3 Variables */
 }
+
