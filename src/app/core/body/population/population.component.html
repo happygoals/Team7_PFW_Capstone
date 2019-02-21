@@ -5,48 +5,42 @@
       <!-- This will hold the box that contains the checkboxes and options to manipulate the map-->
       <!-- Date Picker -->
       <mat-grid-list class="Optionslist" cols="7">
-        <mat-grid-tile
-          class="options-tile"
-          id="options-time"
-          colspan="3"
-          [style.border-right]="'1px dashed #ddd'"
-        >
+        <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'">
           <mat-grid-tile-header>
             <span class="material-icons">date_range</span> &nbsp; Date
-            <button mat-flat-button class="reset-button-row">Reset Date</button>
+            <button mat-mini-fab class="reset-button-row">
+              <mat-icon aria-label="reset-button">refresh</mat-icon>
+            </button>
           </mat-grid-tile-header>
-          <div id="dp1" class="dp1">
-            <mat-form-field>
-              <input matInput [matDatepicker]="dp1" placeholder="Start date"  (dateinput)="addEvent('input', $event)"
-              (dateChange)="addEvent('change', $event)">
-              <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
-              <mat-datepicker #dp1></mat-datepicker>
-            </mat-form-field>
-          </div>
-          <div id="dp2" class="dp2">
-            <mat-form-field>
-              <input matInput [matDatepicker]="dp2" placeholder="End date" (dateinput)="addEvent('input', $event)"
-              (dateChange)="addEvent('change', $event)">
-              <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
-              <mat-datepicker #dp2></mat-datepicker>
-            </mat-form-field>
-          </div>
-          <div class="dselection">
-            <h5 style="margin-bottom: 0%; margin-top:0%;">
-              Date Selection Mode:
-            </h5>
-            <label>Single </label>
-            <mat-slide-toggle> </mat-slide-toggle>
-            <label>Range</label>
+          <div id="wrap">
+            <div class="dselection">
+              <label style="font-size:14px;">Single Mode &nbsp;</label>
+              <mat-slide-toggle  color="primary"  class="date-toggle"></mat-slide-toggle>
+              <label style="font-size:14px;">&nbsp; Range Mode</label>
+            </div>
+            <div class="container">
+              <div id="dp1" class="dp1">
+                <mat-form-field class="dateform">
+                  <input matInput [matDatepicker]="dp1" placeholder="Start date"
+                    (dateinput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)"/>
+                  <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                  <mat-datepicker #dp1></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div id="dp2" class="dp2">
+                <mat-form-field class="dateform">
+                  <input matInput [matDatepicker]="dp2" placeholder="End date"
+                  (dateinput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)"/>
+                  <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                  <mat-datepicker #dp2></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
           </div>
         </mat-grid-tile>
+        <!-- Date Picker -->
         <!-- Time Picker -->
-        <mat-grid-tile
-          class="options-tile"
-          id="options-time"
-          colspan="3"
-          [style.border-right]="'1px dashed #ddd'"
-        >
+        <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'">
           <!-- Time card -->
           <mat-grid-tile-header>
             <span class="material-icons">schedule</span>&nbsp; Time

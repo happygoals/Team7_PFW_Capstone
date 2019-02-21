@@ -91,7 +91,7 @@ export class PopulationComponent {
 
   };
 
-  //Date Picker Extraction Method
+  // Date Picker Extraction Method
   constructor(private datePipe: DatePipe) {}
 
   events: string[] = [];
