@@ -43,8 +43,10 @@
         <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'">
           <!-- Time card -->
           <mat-grid-tile-header>
-            <span class="material-icons">schedule</span>&nbsp; Time
-            <button mat-flat-button class="reset-button-row">Reset Time</button>
+            <span class="material-icons">schedule</span> &nbsp; Time
+            <button mat-mini-fab class="reset-button-row">
+                <mat-icon aria-label="reset-button">refresh</mat-icon>
+            </button>
           </mat-grid-tile-header>
           <div class="time-chip">
             <!-- Time picker scroll-->

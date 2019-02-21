@@ -10,18 +10,18 @@
             <button mat-mini-fab class="reset-button-row">
                 <mat-icon aria-label="reset-button">refresh</mat-icon>
             </button>
-  
+
           </mat-grid-tile-header>
         <div id="wrap">
           <div class="dselection">
-              
+
               <label style="font-size:14px;">Single Mode &nbsp;</label>
               <mat-slide-toggle color="primary" class="date-toggle">
-  
+
               </mat-slide-toggle>
               <label style="font-size:14px;">&nbsp; Range Mode</label>
           </div>
-          <div class="container"> 
+          <div class="container">
             <div class="dp1">
               <mat-form-field class="dateform">
                 <input matInput [matDatepicker]="dp1" placeholder="Start date" />
@@ -30,15 +30,15 @@
               </mat-form-field>
             </div>
             <div class="dp2">
-              <mat-form-field class="dateform"> 
+              <mat-form-field class="dateform">
                 <input matInput [matDatepicker]="dp2" placeholder="End date" />
                 <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
                 <mat-datepicker #dp2></mat-datepicker>
               </mat-form-field>
             </div>
         </div>
-        
-      </div> 
+
+      </div>
         </mat-grid-tile>
         <!-- Time Picker -->
         <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'">
@@ -75,12 +75,12 @@
                 </div>
                 </div>
             </div>
-     
+
           </div>
         </mat-grid-tile>
         <mat-grid-tile class="options-tile" id="options-export" colspan="1">
           <!-- Export Options-->
-          <mat-grid-tile-header> 
+          <mat-grid-tile-header>
           <span class="material-icons">get_app</span> &nbsp;Export </mat-grid-tile-header>
           <span class="material-icons" style="margin: 0px auto; padding-top: 48px; font-size: 70px;">vertical_align_bottom</span>
         </mat-grid-tile>

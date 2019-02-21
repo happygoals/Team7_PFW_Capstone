@@ -29,6 +29,10 @@ mat-grid-list.options-tile {
   min-width: 100%;
 }
 
+mat-grid-tile-header{
+  max-height : 20%;
+}
+
 /* Options Styling END*/
 
 /* date picker */
@@ -293,11 +297,10 @@ p {
 }
 
 /* button */
-.reset-button-row {
-  width: 20%;
+.reset-button-row{
   position: absolute;
-  left: 79%;
-  padding: 1px;
+  left: 90%;
+  background-color: rgb(143, 156, 152);
 }
 
 .round-button {
