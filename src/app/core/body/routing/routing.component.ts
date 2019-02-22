@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Component, OnInit, ViewChild } from '@angular/core';
-=======
-import { Component, OnInit, OnChanges } from '@angular/core';
->>>>>>> 5eeea61010be7e643845c501c64c20c9e6d0d614
+import { Component, OnInit, OnChanges, ViewChild } from '@angular/core';
 import { Options, LabelType, ChangeContext, PointerType } from 'ng5-slider';
 import { BeaconService } from '../../../services/beacon.service';
 import { Beacon } from '../../../interfaces/beacon.interface';
@@ -32,7 +28,7 @@ export class RoutingComponent implements OnInit{
   public routeBeacons: Beacon[];
   errorMessage: String;
   public beaconSet : any[];
-  
+
 
   ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
   // startDate: string = '2018-01-19';
