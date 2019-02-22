@@ -1,10 +1,8 @@
-import { BeaconService } from './../../../services/beacon.service';
-import { Beacon } from './../../../interfaces/beacon.interface';
-import { Timeset } from './../routing/timeset';
 import { Component} from '@angular/core';
-import { Options, LabelType, ChangeContext } from 'ng5-slider';
+import { Options, LabelType, ChangeContext, PointerType } from 'ng5-slider';
 import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle } from '@angular/material';
 import { DatePipe } from '@angular/common';
+import { Timeset } from './../routing/timeset';
 
 @Component({
   selector: 'app-core-body-population',
@@ -57,7 +55,8 @@ export class PopulationComponent {
   onSelect(reset: Timeset) {
     console.log(JSON.stringify(reset));
   }
-
+  panelOpenState = false;
+  
    /* Start Time Picker Variables */
    minValue1: number = 0;
    maxValue1: number = 24;
@@ -220,7 +219,7 @@ export class PopulationComponent {
      draggableRange: true,
    };
    /* End Time Picker 2 Variables */
-   /* Start Time Picker 3 Variables */
+
    /* Start Time Picker 3 Variables */
    minValue3: number = 0;
    maxValue3: number = 24;
