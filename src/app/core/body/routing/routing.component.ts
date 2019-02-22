@@ -380,5 +380,10 @@ export class RoutingComponent implements OnInit {
 
   // End of Toggle Slider Logic
 
+  // Reset Button Logic
+
+  
+
+  // End of Reset Button Logic
 }
 
