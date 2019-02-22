@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Options, LabelType, ChangeContext, PointerType } from 'ng5-slider';
 import { BeaconService } from '../../../services/beacon.service';
 import { Beacon } from '../../../interfaces/beacon.interface';
 import { Router, UrlSegment } from '@angular/router';
-import { Options, LabelType, ChangeContext, PointerType } from 'ng5-slider';
+import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle } from '@angular/material';
 import { Timeset } from './timeset';
 
 @Component({
@@ -324,5 +325,59 @@ export class RoutingComponent implements OnInit {
     draggableRange: true,
   };
   /* End Time Picker 3 Variables */
+  // Date Picker Extraction Method
+  constructor(private datePipe: DatePipe) {}
+
+  events: string[] = [];
+  startDate: string = "";   // Start Date
+  endDate: string = "";     // End Date
+
+  // Start Date Listener
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    const eventDate = new Date(event.value); // Datepicker Date Value
+    const formattedDate = this.datePipe.transform(eventDate, 'yyyy-MM-dd'); // Formatted new Date
+    const tempStartDate = new Date(Date.parse(this.startDate));
+    const tempEndDate = new Date(Date.parse(this.endDate));
+
+    // Checking to make sure end date isn't before start date (BROKEN)
+    /*
+      if((this.startDate != '' && this.endDate != '') || (this.startDate != '' && this.endDate == '')
+      || (this.startDate == '' && this.endDate != '')){
+        if(tempStartDate.valueOf() > tempEndDate.valueOf() ){
+          alert('You cannot have a start date after the end date!');
+          return;
+        }
+        else if(tempEndDate.valueOf() < tempStartDate.valueOf()){
+          alert('You cannot have an end date before the start date!');
+          return;
+        }
+      }
+    */
+
+    // Checking for which datepicker is being used
+    if(event.targetElement.id == 'dp1'){  // Checks for Datepicker 1
+      this.startDate = formattedDate;
+    }
+    else if( event.targetElement.id == 'dp2'){ // checks for Datepicker 2
+      this.endDate = formattedDate;
+    }
+  }
+
+  // End of Date Extraction
+
+  // Toggle Slider Logic
+
+  toggle(event: MatSlideToggleChange) {
+
+    if ( event.checked){
+      document.getElementById('dp2_div').style.display = '';
+    }
+    else {
+      document.getElementById('dp2_div').style.display = 'none';
+    }
+  }
+
+  // End of Toggle Slider Logic
+  
 }
 
