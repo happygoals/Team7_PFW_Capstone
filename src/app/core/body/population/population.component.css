@@ -21,7 +21,7 @@ div.body2 {
 mat-grid-list.Optionslist {
   font-size: large;
   text-align: center;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
 }
 
 mat-grid-list.options-tile {
@@ -41,7 +41,6 @@ mat-grid-tile-header{
   margin-top: 5%;
 }
 div.container {
-  background-color: yellow;
   width: 100%;
   min-width: 440px;
   height: auto;
@@ -81,7 +80,7 @@ mat-grid-list.Lowerbodylist {
   font-size: large;
   text-align: center;
   margin-top: 2%;
-  margin-bottom: 3%;
+  margin-bottom: 3%; /* different with routing page*/
   border-top: solid;
 }
 
@@ -114,7 +113,7 @@ span {
 /* FactBoxes Styling END */
 
 /* mat-card style for date and time picker */
-.mat-card {
+.mat-card.picker {
   margin-left: 1.3%;
   margin-right: 1.3%;
   align-content: center;
@@ -123,25 +122,16 @@ span {
 }
 
 .timeoption {
-  margin-top: 20%;
-  margin-right: 5%;
+  margin-top: 1%;
+  margin-right: 1%;
+  margin-right: 1%;
   align-content: center;
   align-items: center;
 }
 
 .time-chip {
-  margin-top: 125px;
-  margin-bottom: 5px;
-}
-
-.right {
-  float: right;
   margin-top: 20px;
-  margin-left: 1px;
-}
-
-.left {
-  float: left;
+  margin-bottom: 3px;
 }
 
 .right-add-button {
@@ -154,7 +144,9 @@ span {
 
 .left-slider {
   float: left;
-  min-width: 82%;
+  min-width : 380px;
+  max-width : 100%;
+  min-height: auto;
 }
 /* mat-card style for date and time picker END*/
 
