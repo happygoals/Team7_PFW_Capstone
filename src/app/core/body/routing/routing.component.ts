@@ -5,6 +5,8 @@ import { Beacon } from '../../../interfaces/beacon.interface';
 import { Router, UrlSegment } from '@angular/router';
 import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle } from '@angular/material';
 import { Timeset } from './timeset';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-core-body-routing',
@@ -62,7 +64,7 @@ export class RoutingComponent implements OnInit {
   beacons: Beacon[];
 
   routingBeacons: Beacon[];
-  constructor(private beaconService: BeaconService, private router: Router) { }
+  constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) { }
   ngOnInit() {
     this.beaconService
       .getRouting('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')
@@ -92,7 +94,7 @@ export class RoutingComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time 
+      // Convert military time to standard time
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -174,7 +176,7 @@ export class RoutingComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time 
+      // Convert military time to standard time
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -255,7 +257,7 @@ export class RoutingComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time 
+      // Convert military time to standard time
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -326,7 +328,6 @@ export class RoutingComponent implements OnInit {
   };
   /* End Time Picker 3 Variables */
   // Date Picker Extraction Method
-  constructor(private datePipe: DatePipe) {}
 
   events: string[] = [];
   startDate: string = "";   // Start Date
@@ -378,6 +379,6 @@ export class RoutingComponent implements OnInit {
   }
 
   // End of Toggle Slider Logic
-  
+
 }
 
