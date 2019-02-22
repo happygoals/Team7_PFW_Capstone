@@ -45,9 +45,10 @@ export class RoutingComponent implements OnInit{
 
   constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) { }
   ngOnInit() {
+    help(k)
     help(this.startTime)
     this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
-    
+
   }
 
   callParse(){
@@ -136,7 +137,7 @@ export class RoutingComponent implements OnInit{
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time 
+      // Convert military time to standard time
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -221,7 +222,7 @@ export class RoutingComponent implements OnInit{
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time 
+      // Convert military time to standard time
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -301,7 +302,7 @@ export class RoutingComponent implements OnInit{
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time 
+      // Convert military time to standard time
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -372,7 +373,7 @@ export class RoutingComponent implements OnInit{
   };
   /* End Time Picker 3 Variables */
   // Date Picker Extraction Method
- 
+
   events: string[] = [];
   //startDate: string = null;   // Start Date
   //endDate: string = null;     // End Date
