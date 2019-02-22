@@ -3,6 +3,7 @@ import {AfterViewInit, Component} from '@angular/core';
 
 declare const h337: any;
 
+declare var listItemD: any
 
 @Component({
   selector: 'app-core-body-population-heatmap',
@@ -10,8 +11,23 @@ declare const h337: any;
   styleUrls: ['./heatmap.component.css']
 })
 
+
+
+
 /*can use outside of this file because of 'export'*/
 export class HeatmapComponent implements AfterViewInit {
+
+   ValueList: number []
+         = [0,0,0,0,0,0,0,0,0,0,0,
+            0,0,0,0,0,0,0,0,0,0,0,
+            0,0,0,0,0,0,0,0,0,0,0,
+            0,0,0,0,0,0,0,0,0,0,0,
+            0,0,0,0,0,0,0,0,0,0,0,
+            0,0,0,0,0,0,0,0,0,0,0,
+            0,0,0,0,0,0,0,0,0,0,0,
+            0,0,0,0,0]
+
+
 
   ngAfterViewInit() {
     const heatmap = h337.create({
@@ -22,7 +38,11 @@ export class HeatmapComponent implements AfterViewInit {
     heatmap.setData({
       max: 50,
       data: [
-        {x: 85, y: 190, value: 50}, {x: 126, y: 212, value: 30}, {x: 164, y: 219, value: 50}, {x: 162, y: 187, value: 30},
+        //1
+        {x: 85, y: 190, value: 50},
+
+        //24
+        {x: 126, y: 212, value: 30}, {x: 164, y: 219, value: 50}, {x: 162, y: 187, value: 30},
         {x: 184, y: 168, value: 10}, {x: 202, y: 150, value: 30}, {x: 220, y: 129, value: 70}, {x: 236, y: 110, value: 30},
         {x: 248, y: 93, value: 50}, {x: 263, y: 80, value: 30}, {x: 280, y: 61, value: 50}, {x: 295, y: 42, value: 30},
         {x: 313, y: 28, value: 10}, {x: 356, y: 35, value: 30}, {x: 285, y: 96, value: 50}, {x: 243, y: 163, value: 30},

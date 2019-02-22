@@ -6,6 +6,9 @@ var connection = require('./connection')
 var beacon = require('./models/beacon')
 var BeaconController = require('./controllers/beacons')
 app.use('/beacons', BeaconController)
+var store = require('../../Team7_PFW_Capstone/src/assets/js/store')
+
+
 
 var i = 1
 
