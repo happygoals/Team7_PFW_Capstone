@@ -55,7 +55,12 @@
 
               <div class="custom-slider">
                 <div class="left-slider">
-                  <ng5-slider [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1" style="margin-bottom: 0.2rem; "></ng5-slider>
+                  <!-- time slider --> 
+                  <ng5-slider [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1" 
+                  (userChangeEnd)="onUserChangeEnd($event)"
+                  style="margin-bottom: 0.2rem; ">
+                </ng5-slider>
+
                 </div>
                 <div class="right-add-button">
                   <!-- Add one more time picker -->
@@ -82,12 +87,18 @@
           <!-- Export Options-->
           <mat-grid-tile-header>
           <span class="material-icons">get_app</span> &nbsp;Export </mat-grid-tile-header>
+         <!--
+          <button mat-fab>
+              <mat-icon aria-label="Example icon-button with a heart icon">vertical_align_bottom</mat-icon>
+          </button>
+          -->
           <span class="material-icons" style="margin: 0px auto; padding-top: 48px; font-size: 70px;">vertical_align_bottom</span>
         </mat-grid-tile>
       </mat-grid-list>
     </mat-card>
-    <div class=chart-title>
+    <div class ="chart-title">
         <h3 style="color: black; "> Chart Widget</h3>
+
     </div>
     <!-- This will contain the Facts Boxes on the left side of the screen -->
     <!-- and the map on the right side of the screen -->
