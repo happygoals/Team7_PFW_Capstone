@@ -13,7 +13,7 @@ import { Timeset } from './timeset';
 
 export class RoutingComponent implements OnInit {
 
-  isCollapsed: boolean = true;
+  isCollapsed: boolean = true; // for the add button of multiple time sliders : expansion
 
   /* user-event-slider */
   logText: string = ''; // to print the time result
@@ -23,25 +23,29 @@ export class RoutingComponent implements OnInit {
 
   // get change result for time selection
   onUserChange(changeContext: ChangeContext): void {
-    this.logText += `Change(${this.getChangeContextString(changeContext)})\n`;
+    // this.logText += `Change(${this.getChangeContextString(changeContext)})\n`;
   }
   // get end result for time selection
   onUserChangeEnd(changeContext: ChangeContext): void {
-    this.logText += `End(${this.getChangeContextString(changeContext)})\n`;
+    // this.logText += `End(${this.getChangeContextString(changeContext)})\n`;
+    this.startTime = `${this.getChangeStartString(changeContext)}`;
+    this.endTime = `${this.getChangeEndString(changeContext)}`;
+    this.logText += this.startTime + ` ` + this.endTime +`\n` ;
   }
 
-  // Change the string value
-  getChangeContextString(changeContext: ChangeContext): string {
-    var zerolowValue = (changeContext.value < 10) ? "0": "";
-    var zerohighValue = (changeContext.highValue < 10) ? "0": "";
-
-    this.endTime = `${zerolowValue}${changeContext.value}:00:00`;
-    this.startTime = `${zerohighValue}${changeContext.highValue}:00:00`;
-
-    return  this.startTime + `\n` + this.endTime;
+  // Update the string Starttime value
+  getChangeStartString(changeContext: ChangeContext): string {
+    var zerolowValue = (changeContext.value < 10) ? "0": ""; // to put zero for the time format
+    this.startTime = `${zerolowValue}${changeContext.value}:00:00`; // selected start time
+    return this.startTime;
   }
 
-  
+  // Update the string Starttime value
+  getChangeEndString(changeContext: ChangeContext): string {
+    var zerohighValue = (changeContext.highValue < 10) ? "0": ""; // to put zero for the time format
+    this.endTime = `${zerohighValue}${changeContext.highValue}:00:00`; // selected end time
+    return this.endTime;
+  }
 
   /* button*/
   toggleCollapse() {
