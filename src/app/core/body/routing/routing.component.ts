@@ -8,6 +8,13 @@ import { Timeset } from './timeset';
 import { DatePipe } from '@angular/common';
 
 
+interface External {
+  help: Function
+}
+
+declare function help(): any
+
+
 @Component({
   selector: 'app-core-body-routing',
   templateUrl: './routing.component.html',
