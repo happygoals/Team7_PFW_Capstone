@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Options, LabelType, ChangeContext, PointerType } from 'ng5-slider';
 import { BeaconService } from '../../../services/beacon.service';
 import { Beacon } from '../../../interfaces/beacon.interface';
@@ -6,7 +7,6 @@ import { Router, UrlSegment } from '@angular/router';
 import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle } from '@angular/material';
 import { Timeset } from './timeset';
 import { DatePipe } from '@angular/common';
-
 
 @Component({
   selector: 'app-core-body-routing',
@@ -87,6 +87,12 @@ export class RoutingComponent implements OnInit {
   /* Start Time Picker Variables */
   minValue1: number = 0;
   maxValue1: number = 24;
+    /* Time slider value reset */
+    sliderForm: FormGroup = new FormGroup({
+      sliderControl: new FormControl([0, 24])
+    })
+
+     /* Time slider value reset finished */
   options1: Options = {
     ceil: 12,
     floor: 0,
@@ -94,7 +100,7 @@ export class RoutingComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time
+      // Convert military time to standard time 
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -164,6 +170,9 @@ export class RoutingComponent implements OnInit {
     draggableRange: true,
 
   };
+  resetForm(): void {
+    this.sliderForm.reset({sliderControl: [0, 24]});
+  }
   /* End Time Picker Variables */
 
   /* Start Time Picker 2 Variables */
@@ -176,7 +185,7 @@ export class RoutingComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time
+      // Convert military time to standard time 
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -247,7 +256,6 @@ export class RoutingComponent implements OnInit {
   };
   /* End Time Picker 2 Variables */
   /* Start Time Picker 3 Variables */
-  /* Start Time Picker 3 Variables */
   minValue3: number = 0;
   maxValue3: number = 24;
   options3: Options = {
@@ -257,7 +265,7 @@ export class RoutingComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time
+      // Convert military time to standard time 
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -328,7 +336,7 @@ export class RoutingComponent implements OnInit {
   };
   /* End Time Picker 3 Variables */
   // Date Picker Extraction Method
-
+ 
   events: string[] = [];
   startDate: string = "";   // Start Date
   endDate: string = "";     // End Date
@@ -379,6 +387,5 @@ export class RoutingComponent implements OnInit {
   }
 
   // End of Toggle Slider Logic
-
+  
 }
-

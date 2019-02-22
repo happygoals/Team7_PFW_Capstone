@@ -46,7 +46,7 @@
           <!-- Time card -->
           <mat-grid-tile-header>
             <span class="material-icons">schedule</span>&nbsp; Time
-            <button mat-mini-fab class="reset-button-row">
+            <button mat-mini-fab (click)="resetForm()" class="reset-button-row">
                 <mat-icon aria-label="reset-button">refresh</mat-icon>
             </button>
           </mat-grid-tile-header>
@@ -57,10 +57,13 @@
               <div class="custom-slider">
                 <div class="left-slider">
                   <!-- time slider --> 
-                  <ng5-slider [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1" 
-                  (userChangeEnd)="onUserChangeEnd($event)"
-                  style="margin-bottom: 0.2rem; ">
-                </ng5-slider>
+                  <form [formGroup]="sliderForm">
+
+                    <ng5-slider formControlName="sliderControl" [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1"                   (userChangeEnd)="onUserChangeEnd($event)"
+                    style="margin-bottom: 0.2rem;"  required>
+                  </ng5-slider>
+                  
+              </form>
 
                 </div>
                 <div class="right-add-button">
@@ -72,16 +75,19 @@
 
               <div *ngIf="!isCollapsed" class="custom-slider2">
                   <div class="left-slider">
-                  <ng5-slider [(value)]="minValue2" [(highValue)]="maxValue2" [options]="options2" style="margin-bottom: 0.2rem; "></ng5-slider>
+                      <form [formGroup]="sliderForm">
+                         <ng5-slider formControlName="sliderControl" [(value)]="minValue2" [(highValue)]="maxValue2" [options]="options2" style="margin-bottom: 0.2rem; "></ng5-slider>
+                      </form>                  
                   </div>
                 </div>
               <div *ngIf="!isCollapsed" class="custom-slider2">
                   <div class="left-slider">
-                  <ng5-slider [(value)]="minValue3" [(highValue)]="maxValue3" [options]="options3" style="margin-bottom: 0.2rem;"></ng5-slider>
-                </div>
+                      <form [formGroup]="sliderForm">
+                         <ng5-slider formControlName="sliderControl" [(value)]="minValue3" [(highValue)]="maxValue3" [options]="options3" style="margin-bottom: 0.2rem;"></ng5-slider>
+                           </form>
+                     </div>
                 </div>
             </div>
-
           </div>
         </mat-grid-tile>
         <mat-grid-tile class="options-tile" id="options-export" colspan="1">
@@ -117,3 +123,4 @@
     </mat-grid-list>
   </div>
 </body>
+
