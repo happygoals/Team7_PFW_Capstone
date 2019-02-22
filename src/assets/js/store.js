@@ -21,7 +21,7 @@ var listItemD = []
 var x = {Value: 0};
 
 //parsing function
-function par(rows) {
+function par(k) {
 
     obj = JSON.stringify(rows)
     objparse = JSON.parse(obj) //obj array parsing

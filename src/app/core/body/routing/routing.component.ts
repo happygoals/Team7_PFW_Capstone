@@ -6,13 +6,15 @@ import { Router, UrlSegment } from '@angular/router';
 import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle } from '@angular/material';
 import { Timeset } from './timeset';
 import { DatePipe } from '@angular/common';
-
+import {Variable } from '@angular/compiler/src/render3/r3_ast';
 
 interface External {
   help: Function
+  k: Variable
 }
 
-declare function help(): any
+declare function help(string): any
+declare var k: any
 
 
 @Component({
@@ -39,7 +41,7 @@ export class RoutingComponent implements OnInit{
 
   constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) { }
   ngOnInit() {
-    help()
+    help(k)
     this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
 
   }
