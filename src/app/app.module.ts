@@ -43,6 +43,7 @@ import { DatePipe } from '@angular/common';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AngularMaterialModule,
     BrowserAnimationsModule,
@@ -51,7 +52,8 @@ import { DatePipe } from '@angular/common';
     MatCheckboxModule,
     MatMenuModule,
     Ng5SliderModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [DatePipe, BeaconService],
   bootstrap: [AppComponent]
