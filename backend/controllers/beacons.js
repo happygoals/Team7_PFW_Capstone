@@ -5,6 +5,8 @@ var router = express.Router()
 var bodyParser = require('body-parser')
 router.use(bodyParser.json())
 var beacon = require('../models/beacon')
+var connection = require('../connection')
+
 
 //this router uses the function to get all the data from the navigation table from our db | link: http://localhost:3000/beacons
 router.get('/', function(req, res){
@@ -13,23 +15,60 @@ router.get('/', function(req, res){
             res.status(400).json(err)
         }
         else{
-            console.log(rows)
+            //console.log(rows)
             res.json(rows)
         }
     })
 })
 
 //this router uses the function to get the beacon data for specific time from the navigation table from our db | link: http://localhost:3000/beacons/beaconRouting
-router.get('/beaconsRouting', function(req, res){
-    beacon.getBeaconsByDateTimeForRouting(req.body, function(err, count){
+router.get('/beaconSets/:startDate/:endDate/:startTime/:endTime', function(req, res) {
+    var startDate = req.params.startDate;
+    var endDate = req.params.endDate;
+    var startTime = req.params.startTime;
+    var endTime = req.params.endTime;
+    var sqlBeacon = "SELECT beacon FROM test WHERE Date BETWEEN ? AND ?  AND Time BETWEEN ? AND ?"
+
+    return connection.query(sqlBeacon, [startDate, endDate, startTime, endTime], (err, rows)=>{
         if(err){
             res.status(400).json(err)
         }
         else{
-            
-            res.json(req.body)
+            //console.log(rows)
+            res.json(rows)
         }
     })
+    // beacon.getBeaconSets(startDate, endDate, startTime, endTime, function(err, rows){
+    //     if(err){
+    //         res.status(400).json(err)
+    //     }
+    //     else{
+    //         //console.log(rows)
+    //         res.json(rows)
+    //     }
+    // })
+    // connection.query(sqlBeacon, [req.query.startDate, req.query.endDate, req.query.startTime, req.query.endTime], function (err, rows){
+    //     if(err){
+    //         res.status(400).json(err)
+    //     }
+    //     else{
+    //         res.json(JSON.stringify(rows));
+    //         console.log(rows)
+    //     }
+    // })
 })
+
+// //this router uses the function to get the beacon data for specific time from the navigation table from our db | link: http://localhost:3000/beacons/beaconRouting
+// router.get('/beaconsRouting', function(req, res){
+//     beacon.getBeaconsByDateTimeForRouting(req.body, function(err, rows){
+//         if(err){
+//             res.status(400).json(err)
+//         }
+//         else{
+//             console.log(rows)
+//             res.json(rows)
+//         }
+//     })
+// })
 
 module.exports = router

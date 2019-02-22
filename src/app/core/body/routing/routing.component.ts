@@ -23,6 +23,43 @@ declare function help(): any
 
 export class RoutingComponent implements OnInit {
 
+  public beacons : Beacon[];
+  public beacon : Beacon;
+  public routeBeacons: Beacon[];
+  errorMessage: String;
+  
+
+  ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
+  // startDate: string = '2018-01-19';
+  // endDate: string = '2018-01-20';
+  // start: string = '07:30:00';
+  // end: string = '07:50:00';
+  routingBeacons : Beacon[];
+
+  constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) { }
+  ngOnInit() {
+    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
+
+  }
+
+  getAll(){
+    this.beaconService.getAllBeacons()
+    .subscribe(
+      (data : Beacon[]) =>{
+          this.beacons = data;
+          console.log(this.beacons);
+          console.log(this.beacons[1]);
+        });
+  }
+  getBeaconSets(startDate, endDate, startTime, endTime){
+    this.beaconService.getBeaconSets(startDate, endDate, startTime, endTime)
+    .subscribe(
+      (data : Beacon[]) =>{
+          this.beacons = data;
+          console.log(this.beacons);
+          console.log(this.beacons[1]);
+        });
+  }
 
   isCollapsed: boolean = true; // for the add button of multiple time sliders : expansion
 
@@ -69,29 +106,6 @@ export class RoutingComponent implements OnInit {
   }
 
   panelOpenState = false;
-  beacons: Beacon[];
-
-  routingBeacons: Beacon[];
-  constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) { }
-  ngOnInit() {
-    help()                //testing from assets/js/store.js
-    this.beaconService
-      .getRouting('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')
-      // .getAllBeacons()
-      .subscribe((data: Beacon[]) => {
-        this.beacons = data;
-        console.log(this.beacons[1]);
-      });
-  }
-
-  getRouting(startDate, endDate, startTime, endTime) {
-    this.beaconService
-      .getRouting(startDate, endDate, startTime, endTime)
-      .subscribe((data: Beacon[]) => {
-        this.routingBeacons = data;
-        console.log(this.routingBeacons[1]);
-      });
-  }
 
   /* Start Time Picker Variables */
   minValue1: number = 0;

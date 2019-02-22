@@ -26,6 +26,15 @@ app.use((req, res, next) => {
   next()
 })
 
+app.get('/hi/:start/:end',(req, res, next) => {
+  var start = req.params.start;
+  var end = req.params.end;
+  connection.query("SELECT beacon FROM test WHERE Date BETWEEN ? AND ?",[start, end], (error, rows) => {
+    console.log(rows)
+  }
+  )
+})
+
 // app.use((req, res, next) => {
 //   if(i == 2){
 //     console.log("Function for Heat Map")
@@ -35,17 +44,15 @@ app.use((req, res, next) => {
 //   i++
 //   //console.log(obj)
 // })
-var arr = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"]
+// var arr = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"]
+// app.use((req, res, next) => {
+//   if(i == 2){
+//     console.log("Function for Routing")
+//     beacon.getBeaconsByDateTimeForRouting(arr)
+//   }
+//   i++
 
-app.use((req, res, next) => {
-  if(i == 2){
-    console.log("Function for Routing")
-    //store.par(beacon.getBeaconsByDateTimeForRouting(arr))
-    beacon.parseData(beacon.getBeaconsByDateTimeForRouting(arr))
-  }
-  i++
-
-  next()
-})
+//   next()
+// })
 
 module.exports = app
