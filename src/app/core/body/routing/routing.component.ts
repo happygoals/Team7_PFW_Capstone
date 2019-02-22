@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Options, LabelType, ChangeContext, PointerType } from 'ng5-slider';
 import { BeaconService } from '../../../services/beacon.service';
 import { Beacon } from '../../../interfaces/beacon.interface';
 import { Router, UrlSegment } from '@angular/router';
-import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle } from '@angular/material';
+import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle, MatInput, MatButton } from '@angular/material';
 import { Timeset } from './timeset';
 import { DatePipe } from '@angular/common';
 
@@ -380,10 +380,26 @@ export class RoutingComponent implements OnInit {
 
   // End of Toggle Slider Logic
 
-  // Reset Button Logic
+   // Start of Date Reset button logic
+   @ViewChild('dp1', {
+    read: MatInput
+  }) dp1: MatInput;
 
-  
+  @ViewChild('dp2', {
+    read: MatInput
+  }) dp2: MatInput;
 
-  // End of Reset Button Logic
+  @ViewChild('slidetoggle', {
+    read: MatSlideToggle
+  }) slidetoggle: MatSlideToggle;
+
+  resetDate(type: MatButton){
+    this.dp1.value = '';
+    this.dp2.value = '';
+    this.slidetoggle.checked = false;
+    document.getElementById('dp2_div').style.display = 'none';
+  }
+
+  // End of date reset button logic
 }
 

@@ -7,7 +7,7 @@
         <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'">
           <mat-grid-tile-header>
             <span class="material-icons">date_range</span> &nbsp; Date
-            <button mat-mini-fab class="reset-button-row">
+            <button mat-mini-fab class="reset-button-row" (click)="resetDate()">
                 <mat-icon aria-label="reset-button">refresh</mat-icon>
             </button>
 
@@ -16,14 +16,13 @@
           <div class="dselection">
 
               <label style="font-size:14px;">Single Mode &nbsp;</label>
-              <mat-slide-toggle  id="slidetoggle" color="primary"  class="date-toggle" (change)="toggle($event)"></mat-slide-toggle>
-
+              <mat-slide-toggle #slidetoggle  id="slidetoggle" color="primary"  class="date-toggle" (change)="toggle($event)" checked="false"></mat-slide-toggle>
               <label style="font-size:14px;">&nbsp; Range Mode</label>
           </div>
           <div class="container">
             <div class="dp1">
               <mat-form-field class="dateform">
-                  <input id="dp1" matInput [matDatepicker]="dp1" placeholder="Start date"
+                  <input id="dp1" #dp1 matInput [matDatepicker]="dp1" placeholder="Start date"
                   (dateinput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)"/>
                 <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
                 <mat-datepicker #dp1></mat-datepicker>
@@ -31,7 +30,7 @@
             </div>
             <div id="dp2_div" class="dp2" style="display:none;">
               <mat-form-field class="dateform">
-                  <input id="dp2" matInput [matDatepicker]="dp2" placeholder="End date"
+                  <input id="dp2" #dp2 matInput [matDatepicker]="dp2" placeholder="End date"
                   (dateinput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)"/>
                 <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
                 <mat-datepicker #dp2></mat-datepicker>
@@ -56,8 +55,8 @@
 
               <div class="custom-slider">
                 <div class="left-slider">
-                  <!-- time slider --> 
-                  <ng5-slider [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1" 
+                  <!-- time slider -->
+                  <ng5-slider [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1"
                   (userChangeEnd)="onUserChangeEnd($event)"
                   style="margin-bottom: 0.2rem; ">
                 </ng5-slider>
