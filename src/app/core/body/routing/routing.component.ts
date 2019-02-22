@@ -4,21 +4,32 @@ import { Beacon } from '../../../interfaces/beacon.interface';
 import { Router } from '@angular/router';
 import { Options, LabelType } from 'ng5-slider';
 
+interface External {
+  help: Function
+}
+
+declare function help(): any
+
+
 @Component({
   selector: 'app-core-body-routing',
   templateUrl: './routing.component.html',
   styleUrls: ['./routing.component.css','./routing.component.scss']
 })
 
+
+
 export class RoutingComponent implements OnInit{
   beacons : Beacon[];
-  
+
   routingBeacons : Beacon[];
   constructor(private beaconService : BeaconService, private router : Router){}
   ngOnInit(){
+    help()  //testing from assets/js/store.js
+
     this.beaconService
-    .getRouting('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')
-    // .getAllBeacons()
+    //.getRouting('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')
+    .getAllBeacons()
     .subscribe((data : Beacon[]) =>{
       this.beacons = data;
       console.log(this.beacons[1]);
@@ -33,6 +44,8 @@ export class RoutingComponent implements OnInit{
       console.log(this.routingBeacons[1]);
     });
   }
+
+
 
   minValue: number = 0;
   maxValue: number = 24;
@@ -107,11 +120,11 @@ export class RoutingComponent implements OnInit{
     ],
     selectionBarGradient: {
       from: 'black',
-      to: 'green', 
+      to: 'green',
 
     },
     showTicks: true,
     draggableRange: true,
-    
+
   };
 }

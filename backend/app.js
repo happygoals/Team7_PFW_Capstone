@@ -6,6 +6,9 @@ var connection = require('./connection')
 var beacon = require('./models/beacon')
 var BeaconController = require('./controllers/beacons')
 app.use('/beacons', BeaconController)
+var store = require('../../Team7_PFW_Capstone/src/assets/js/store')
+
+
 
 var i = 1
 
@@ -32,11 +35,13 @@ app.use((req, res, next) => {
 //   i++
 //   //console.log(obj)
 // })
+var arr = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"]
 
 app.use((req, res, next) => {
   if(i == 2){
     console.log("Function for Routing")
-    beacon.getBeaconsByDateTimeForRouting('2018-01-19', '2018-08-02', '07:30:00', '8:01:32')
+    //store.par(beacon.getBeaconsByDateTimeForRouting(arr))
+    beacon.parseData(beacon.getBeaconsByDateTimeForRouting(arr))
   }
   i++
 
