@@ -152,6 +152,12 @@ body {
     max-width: 100%;
     height: auto;
   }
+
+  .custom-slider3{
+    min-width: 380px;
+    max-width: 100%;
+    height: auto;
+  }
   /* mat-card style for date and time picker END*/
 
   /* chart box START */

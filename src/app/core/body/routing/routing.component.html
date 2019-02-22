@@ -64,9 +64,19 @@
                 </div>
                 <div class="right-add-button">
                   <!-- Add one more time picker -->
-                  <button (click)="toggleCollapse()" mat-mini-fab class="round-button">
+                  <button *ngIf="isCollapsed" (click)="toggleCollapse()" mat-mini-fab class="round-button">
                     <mat-icon aria-label="round-button">add</mat-icon>
                   </button>
+                   <!-- Add/Remove one more time picker -->
+                    <div>
+                      <button *ngIf="!isCollapsed" (click)="toggleCollapse()" style="margin-top: 1rem; margin-bottom: 1rem;" mat-mini-fab class="round-button">
+                        <mat-icon aria-label="round-button">remove</mat-icon>
+                      </button>
+                    <br>
+                      <button *ngIf="!isCollapsed" (click)="toggleCollapse()" mat-mini-fab class="round-button">
+                        <mat-icon aria-label="round-button">add</mat-icon>
+                      </button>
+                  </div>
                 </div>
 
               <div *ngIf="!isCollapsed" class="custom-slider2">
@@ -76,11 +86,11 @@
                       </form>                  
                   </div>
                 </div>
-              <div *ngIf="!isCollapsed" class="custom-slider2">
+              <div *ngIf="!isCollapsed" class="custom-slider3">
                   <div class="left-slider">
                       <form [formGroup]="sliderForm">
                          <ng5-slider formControlName="sliderControl" [(value)]="minValue3" [(highValue)]="maxValue3" [options]="options3" style="margin-bottom: 0.2rem;"></ng5-slider>
-                           </form>
+                      </form>
                      </div>
                 </div>
             </div>
@@ -90,12 +100,13 @@
           <!-- Export Options-->
           <mat-grid-tile-header>
           <span class="material-icons">get_app</span> &nbsp;Export </mat-grid-tile-header>
-         <!--
-          <button mat-fab>
-              <mat-icon aria-label="Example icon-button with a heart icon">vertical_align_bottom</mat-icon>
+            <div style="margin-top: 50px"> 
+          <button>
+            <span class="material-icons" style="margin: 0px auto; font-size: 70px;">vertical_align_bottom</span>
           </button>
-          -->
-          <span class="material-icons" style="margin: 0px auto; padding-top: 48px; font-size: 70px;">vertical_align_bottom</span>
+         </div>
+
+      <!-- <span class="material-icons" style="margin: 0px auto; padding-top: 48px; font-size: 70px;">vertical_align_bottom</span> -->  
         </mat-grid-tile>
       </mat-grid-list>
     </mat-card>
