@@ -2,7 +2,7 @@
 ::ng-deep {
     .custom-slider .ng5-slider .ng5-slider-bar {
       background: rgb(227, 228, 233);
-      height: 11px;
+      height: 5px;
     }
     .custom-slider .ng5-slider .ng5-slider-selection {
       background: rgb(227, 228, 233);
@@ -10,8 +10,8 @@
     }
   
     .custom-slider .ng5-slider .ng5-slider-pointer {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       top: 0; 
       bottom: 0;
       background-color: green;
@@ -25,19 +25,19 @@
     }
   
     .custom-slider .ng5-slider .ng5-slider-bubble {
-      bottom: 13px;
-      font-size: 13px;
+      bottom: 10px;
+      font-size: 11px;
     }
   
     .custom-slider .ng5-slider .ng5-slider-limit {
       font-weight: bold;
       color: grey;
-      font-size: 11px;
+      font-size: 0px; //size of number (0-24)
     }
   
     .custom-slider .ng5-slider .ng5-slider-tick {
       width: 1px;
-      height: 10px;
+      height: 7px;
       margin-left: 4px;
       border-radius: 0;
       background: grey;

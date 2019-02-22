@@ -23,6 +23,7 @@ import { BeaconService } from './services/beacon.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Ng5SliderModule,
     HttpClientModule
   ],
-  providers: [BeaconService],
+  providers: [DatePipe, BeaconService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
