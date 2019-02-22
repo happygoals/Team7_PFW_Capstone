@@ -49,7 +49,6 @@
             </button>
           </mat-grid-tile-header>
           <div class="time-chip">
-
             <!-- Time picker scroll-->
               <div class="custom-slider">
                 <div class="left-slider">
@@ -59,37 +58,6 @@
                          style="margin-bottom: 0.2rem;"  required>
                     </ng5-slider>                  
                    </form>
-                </div>
-                <div class="right-add-button">
-                  <!-- Add one more time picker -->
-                  <button *ngIf="isCollapsed" (click)="toggleCollapse()" mat-mini-fab class="round-button">
-                    <mat-icon aria-label="round-button">add</mat-icon>
-                  </button>
-                   <!-- Add/Remove one more time picker -->
-                    <div>
-                      <button *ngIf="!isCollapsed" (click)="toggleCollapse()" style="margin-top: 1rem; margin-bottom: 1rem;" mat-mini-fab class="round-button">
-                        <mat-icon aria-label="round-button">remove</mat-icon>
-                      </button>
-                    <br>
-                      <button *ngIf="!isCollapsed" (click)="toggleCollapse()" mat-mini-fab class="round-button">
-                        <mat-icon aria-label="round-button">add</mat-icon>
-                      </button>
-                  </div>
-                </div>
-
-              <div *ngIf="!isCollapsed" class="custom-slider2">
-                  <div class="left-slider">
-                      <form [formGroup]="sliderForm">
-                         <ng5-slider formControlName="sliderControl" [(value)]="minValue2" [(highValue)]="maxValue2" [options]="options2" style="margin-bottom: 0.2rem; "></ng5-slider>
-                      </form>                  
-                  </div>
-                </div>
-              <div *ngIf="!isCollapsed" class="custom-slider3">
-                  <div class="left-slider">
-                      <form [formGroup]="sliderForm">
-                         <ng5-slider formControlName="sliderControl" [(value)]="minValue3" [(highValue)]="maxValue3" [options]="options3" style="margin-bottom: 0.2rem;"></ng5-slider>
-                      </form>
-                     </div>
                 </div>
             </div>
           </div>
