@@ -3,6 +3,7 @@ import {AfterViewInit, Component} from '@angular/core';
 
 declare const h337: any;
 
+declare var listItemD: any
 
 @Component({
   selector: 'app-core-body-population-heatmap',
@@ -11,7 +12,6 @@ declare const h337: any;
 })
 
 
-declare var listItemD: any
 
 
 /*can use outside of this file because of 'export'*/
