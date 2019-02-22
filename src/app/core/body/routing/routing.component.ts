@@ -2,7 +2,14 @@ import { Component, OnInit} from '@angular/core';
 import { BeaconService } from '../../../services/beacon.service';
 import { Beacon } from '../../../interfaces/beacon.interface';
 import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
 import { Options, LabelType } from 'ng5-slider';
+import {Http, Headers, Response} from '@angular/http';
+import {Observable} from "rxjs";
+import { map } from "rxjs/operators";
+
+
+
 
 @Component({
   selector: 'app-core-body-routing',
@@ -11,28 +18,76 @@ import { Options, LabelType } from 'ng5-slider';
 })
 
 export class RoutingComponent implements OnInit{
-  beacons : Beacon[];
+  public beacons : Beacon[];
+  public beacon : Beacon;
+  public routeBeacons: Beacon[];
+  errorMessage: String;
   
+
+  ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
+  startDate: string = '2018-01-19';
+  endDate: string = '2018-01-20';
+  startTime: string = '07:30:00';
+  endTime: string = '07:50:00';
   routingBeacons : Beacon[];
   constructor(private beaconService : BeaconService, private router : Router){}
   ngOnInit(){
-    this.beaconService
-    .getRouting('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')
+    console.log(this.startDate)
+    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
+    // this.beaconService
     // .getAllBeacons()
-    .subscribe((data : Beacon[]) =>{
-      this.beacons = data;
-      console.log(this.beacons[1]);
-    });
+    // .subscribe((data : Beacon[]) =>{
+    //   this.beacons = data;
+    //   console.log(this.beacons);
+    //   console.log(this.beacons[3]);
+    // });
+    //this.beaconService.getAllBeacons();
   }
 
-  getRouting(startDate, endDate, startTime, endTime){
-    this.beaconService
-    .getRouting(startDate,endDate,startTime,endTime)
-    .subscribe((data: Beacon []) =>{
-      this.routingBeacons = data;
-      console.log(this.routingBeacons[1]);
-    });
+  print(){
+    console.log(this.beacons[2]);
   }
+  getAll(){
+    this.beaconService.getAllBeacons()
+    .subscribe(
+      (data : Beacon[]) =>{
+          this.beacons = data;
+          console.log(this.beacons);
+          console.log(this.beacons[1]);
+        });
+  }
+  getBeaconSets(startDate, endDate, startTime, endTime){
+    this.beaconService.getBeaconSets(startDate, endDate, startTime, endTime)
+    .subscribe(
+      (data : Beacon[]) =>{
+          this.beacons = data;
+          console.log(this.beacons);
+          console.log(this.beacons[1]);
+        });
+  }
+  // getRoutes(array) {
+  //   this.beaconService
+  //     .getRouting(array)
+  //     .subscribe(
+  //       (data: Beacon[]) => {
+  //         this.beacons = data;
+  //         console.log("tester")
+  //         console.log(this.beacons[1])
+  //       },
+  //       err => console.log(err), // error
+  //       () => console.log('getUserStatus Complete')
+  //     )
+  // }
+
+  
+  // getRouting(startDate, endDate, startTime, endTime){
+  //   this.beaconService
+  //   .getRouting(startDate,endDate,startTime,endTime)
+  //   .subscribe((data: Beacon []) =>{
+  //     this.routingBeacons = data;
+  //     console.log(this.routingBeacons[1]);
+  //   });
+  // }
 
   minValue: number = 0;
   maxValue: number = 24;
