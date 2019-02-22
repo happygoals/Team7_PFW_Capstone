@@ -1,7 +1,7 @@
 //var beacon = require('/Capstone/Team7_PFW_Capstone/backend/models/beacon')
 
 
-var k = "please work...";
+var k = "please wfdsfgdgfgfgdfgdork...";
 //connection testing with Angular front end w/ ts!
 function help(k) {
   alert(k)
@@ -17,13 +17,13 @@ var beaconList = []
 var listItem = [[],[]]
 var listItemD = []
 
-//pointer 
+//pointer
 var x = {Value: 0};
 
 //parsing function
-function par(rows) {
+function par(beacons) {
 
-    obj = JSON.stringify(rows)
+    obj = JSON.stringify(beacons)
     objparse = JSON.parse(obj) //obj array parsing
 
     for(var i = 0; i < objparse.length; i++){
@@ -37,14 +37,26 @@ function par(rows) {
       beaconList.push(output)
 
       //1-D array
-      listItemD = beaconList.split("-")
-      rows.Value++ // pointer move 
+      //listItemD[i] = beaconList[i].split("-")
+      beacons.Value++ // pointer move 
       
+      //listItemD = beaconList.split("-")
+      //beacons.Value++ // pointer move
+
     //store(push) cutted text (string) to list to 2-D
-    //listItem[i] = beaconList[i].split("-")
+    listItem[i] = beaconList[i].split("-")
     }
+    
+    console.log(listItemD)
     console.log(beaconList)
-  //  console.log(listItem[3][3])
+    console.log(listItem.length)
+    console.log(listItem)
+    // for(var v = 0; v < listItem[v].length; v++) {
+    //   for(var z = 0; z < listItem.length; z++) {
+    //    console.log(listItem[z][v]);
+    //   }
+    //  }
+    //console.log(listItem[3][3])
 
 }
 

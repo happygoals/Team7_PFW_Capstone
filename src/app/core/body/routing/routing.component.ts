@@ -7,14 +7,19 @@ import { Router, UrlSegment } from '@angular/router';
 import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle, MatInput, MatButton } from '@angular/material';
 import { Timeset } from './timeset';
 import { DatePipe } from '@angular/common';
+import { Variable } from '@angular/compiler/src/render3/r3_ast';
 
 
 interface External {
   help: Function
+  k: Variable
+  par: Function
+  beaconList: Variable
 }
 
-declare function help(): any
-
+declare function help(string): any
+declare function par(list):any
+declare var k: any
 
 @Component({
   selector: 'app-core-body-routing',
@@ -32,19 +37,24 @@ export class RoutingComponent implements OnInit{
 
 
   ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
-  // startDate: string = '2018-01-19';
-  // endDate: string = '2018-01-20';
-  // start: string = '07:30:00';
-  // end: string = '07:50:00';
+  startDate: string = '2018-01-19';
+  endDate: string = '2018-01-29';
+  startTime: string = '07:30:00';
+  endTime: string = '07:50:00';
   routingBeacons : Beacon[];
 
   constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) { }
   ngOnInit() {
-    help()
+    help(k)
+    help(this.startTime)
     this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
 
   }
 
+  callParse(){
+    console.log('prased');
+    par(this.beacons)
+  }
   getAll(){
     this.beaconService.getAllBeacons()
     .subscribe(
@@ -60,7 +70,6 @@ export class RoutingComponent implements OnInit{
       (data : Beacon[]) =>{
           this.beacons = data;
           console.log(this.beacons);
-          console.log(this.beacons[1]);
         });
   }
 
@@ -69,8 +78,8 @@ export class RoutingComponent implements OnInit{
   /* user-event-slider START */
   logText: string = ''; // to print the time result
 
-  startTime: string = null; // to store the time string for low
-  endTime: string = null; // to store the time string for high
+  //startTime: string = null; // to store the time string for low
+  //endTime: string = null; // to store the time string for high
 
   // get change result for time selection
   onUserChange(changeContext: ChangeContext): void {
@@ -128,7 +137,7 @@ export class RoutingComponent implements OnInit{
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time 
+      // Convert military time to standard time
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -213,7 +222,7 @@ export class RoutingComponent implements OnInit{
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time 
+      // Convert military time to standard time
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -293,7 +302,7 @@ export class RoutingComponent implements OnInit{
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time 
+      // Convert military time to standard time
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -364,10 +373,10 @@ export class RoutingComponent implements OnInit{
   };
   /* End Time Picker 3 Variables */
   // Date Picker Extraction Method
- 
+
   events: string[] = [];
-  startDate: string = null;   // Start Date
-  endDate: string = null;     // End Date
+  //startDate: string = null;   // Start Date
+  //endDate: string = null;     // End Date
 
   // Start Date Listener
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {

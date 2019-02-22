@@ -1,9 +1,27 @@
+import { Component, ViewChild, OnInit} from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Component, ViewChild} from '@angular/core';
 import { Options, LabelType, ChangeContext, PointerType } from 'ng5-slider';
 import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle, MatButton, MatInput } from '@angular/material';
 import { DatePipe } from '@angular/common';
+import { BeaconService } from '../../../services/beacon.service';
+import { Beacon } from '../../../interfaces/beacon.interface';
 import { Timeset } from './../routing/timeset';
+import { Router, UrlSegment } from '@angular/router';
+import { Variable } from '@angular/compiler/src/render3/r3_ast';
+
+interface External {
+  help: Function
+  k: Variable
+  par: Function
+  beaconList: Variable
+  listItemD: Variable
+  listItem: Variable
+}
+
+declare function help(string): any
+declare function par(list):any
+declare var k: any
+
 
 @Component({
   selector: 'app-core-body-population',
@@ -11,15 +29,61 @@ import { Timeset } from './../routing/timeset';
   styleUrls: ['./population.component.css', './population.component.scss']
 })
 
-export class PopulationComponent {
+
+
+export class PopulationComponent implements OnInit{
+
+  public beacons : Beacon[];
+  public beacon : Beacon;
+  public routeBeacons: Beacon[];
+  errorMessage: String;
+  public beaconSet : any[];
+  
+
+
+  ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
+  startDate: string = '2018-01-19';
+  endDate: string = '2018-01-29';
+  startTime: string = '07:30:00';
+  endTime: string = '07:50:00';
+
+  constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) {}
+  
+  ngOnInit() {
+    help(this.endTime)
+    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
+    
+  }
+
+  callParse(){
+    console.log('prased');
+    par(this.beacons)
+  }
+  getAll(){
+    this.beaconService.getAllBeacons()
+    .subscribe(
+      (data : Beacon[]) =>{
+          this.beacons = data;
+          console.log(this.beacons);
+          console.log(this.beacons[1]);
+        });
+  }
+  getBeaconSets(startDate, endDate, startTime, endTime){
+    this.beaconService.getBeaconSets(startDate, endDate, startTime, endTime)
+    .subscribe(
+      (data : Beacon[]) =>{
+          this.beacons = data;
+          console.log(this.beacons);
+        });
+  }
 
   isCollapsed: boolean = true; // for the add button of multiple time sliders : expansion
 
   /* user-event-slider START */
   logText: string = ''; // to print the time result
 
-  startTime: string = ""; // to store the time string for low
-  endTime: string = ""; // to store the time string for high
+  //startTime: string = null; // to store the time string for low
+  //endTime: string = null; // to store the time string for high
 
   // get change result for time selection
   onUserChange(changeContext: ChangeContext): void {
@@ -37,6 +101,7 @@ export class PopulationComponent {
   getChangeStartString(changeContext: ChangeContext): string {
     var zerolowValue = (changeContext.value < 10) ? "0": ""; // to put zero for the time format
     this.startTime = `${zerolowValue}${changeContext.value}:00:00`; // selected start time
+    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
     return this.startTime;
   }
 
@@ -44,6 +109,7 @@ export class PopulationComponent {
   getChangeEndString(changeContext: ChangeContext): string {
     var zerohighValue = (changeContext.highValue < 10) ? "0": ""; // to put zero for the time format
     this.endTime = `${zerohighValue}${changeContext.highValue}:00:00`; // selected end time
+    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
     return this.endTime;
   }
   /* user-event-slider END */
@@ -58,15 +124,14 @@ export class PopulationComponent {
   }
   panelOpenState = false;
 
-   /* Start Time Picker Variables */
-   minValue1: number = 0;
-   maxValue1: number = 24;
-
        /* Time slider value reset */
        sliderForm: FormGroup = new FormGroup({
         sliderControl: new FormControl([0, 24])
       })  
-      
+
+   /* Start Time Picker Variables */
+   minValue1: number = 0;
+   maxValue1: number = 24;   
    options1: Options = {
      ceil: 12,
      floor: 0,
@@ -146,10 +211,6 @@ export class PopulationComponent {
    };
    /* End Time Picker Variables */
   
-   // reset the time picker
-   resetForm(): void {
-    this.sliderForm.reset({sliderControl: [0, 24]});
-  }
    /* Start Time Picker 2 Variables */
    minValue2: number = 0;
    maxValue2: number = 24;
@@ -312,12 +373,17 @@ export class PopulationComponent {
    };
    /* End Time Picker 3 Variables */
 
+      // reset the time picker
+      resetForm(): void {
+        this.sliderForm.reset({sliderControl: [0, 24]});
+      }
+
   // Date Picker Extraction Method
-  constructor(private datePipe: DatePipe) {}
+
 
   events: string[] = [];
-  startDate: string = "";   // Start Date
-  endDate: string = "";     // End Date
+  //startDate: string = null;   // Start Date
+  //endDate: string = null;     // End Date
 
   // Start Date Listener
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
@@ -326,6 +392,7 @@ export class PopulationComponent {
     const tempStartDate = new Date(Date.parse(this.startDate));
     const tempEndDate = new Date(Date.parse(this.endDate));
 
+    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
     // Checking to make sure end date isn't before start date (BROKEN)
     /*
       if((this.startDate != '' && this.endDate != '') || (this.startDate != '' && this.endDate == '')
