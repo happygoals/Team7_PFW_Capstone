@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, OnInit, ViewChild } from '@angular/core';
+=======
+import { Component, OnInit, OnChanges } from '@angular/core';
+>>>>>>> 5eeea61010be7e643845c501c64c20c9e6d0d614
 import { Options, LabelType, ChangeContext, PointerType } from 'ng5-slider';
 import { BeaconService } from '../../../services/beacon.service';
 import { Beacon } from '../../../interfaces/beacon.interface';
@@ -8,21 +12,68 @@ import { Timeset } from './timeset';
 import { DatePipe } from '@angular/common';
 
 
+interface External {
+  help: Function
+}
+
+declare function help(): any
+
+
 @Component({
   selector: 'app-core-body-routing',
   templateUrl: './routing.component.html',
   styleUrls: ['./routing.component.css', './routing.component.scss']
 })
 
-export class RoutingComponent implements OnInit {
+export class RoutingComponent implements OnInit{
+
+  public beacons : Beacon[];
+  public beacon : Beacon;
+  public routeBeacons: Beacon[];
+  errorMessage: String;
+  public beaconSet : any[];
+  
+
+  ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
+  // startDate: string = '2018-01-19';
+  // endDate: string = '2018-01-20';
+  // start: string = '07:30:00';
+  // end: string = '07:50:00';
+  routingBeacons : Beacon[];
+
+  constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) { }
+  ngOnInit() {
+    help()
+    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
+
+  }
+
+  getAll(){
+    this.beaconService.getAllBeacons()
+    .subscribe(
+      (data : Beacon[]) =>{
+          this.beacons = data;
+          console.log(this.beacons);
+          console.log(this.beacons[1]);
+        });
+  }
+  getBeaconSets(startDate, endDate, startTime, endTime){
+    this.beaconService.getBeaconSets(startDate, endDate, startTime, endTime)
+    .subscribe(
+      (data : Beacon[]) =>{
+          this.beacons = data;
+          console.log(this.beacons);
+          console.log(this.beacons[1]);
+        });
+  }
 
   isCollapsed: boolean = true; // for the add button of multiple time sliders : expansion
 
   /* user-event-slider START */
   logText: string = ''; // to print the time result
 
-  startTime: string = ""; // to store the time string for low
-  endTime: string = ""; // to store the time string for high
+  startTime: string = null; // to store the time string for low
+  endTime: string = null; // to store the time string for high
 
   // get change result for time selection
   onUserChange(changeContext: ChangeContext): void {
@@ -40,6 +91,7 @@ export class RoutingComponent implements OnInit {
   getChangeStartString(changeContext: ChangeContext): string {
     var zerolowValue = (changeContext.value < 10) ? "0": ""; // to put zero for the time format
     this.startTime = `${zerolowValue}${changeContext.value}:00:00`; // selected start time
+    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
     return this.startTime;
   }
 
@@ -47,6 +99,7 @@ export class RoutingComponent implements OnInit {
   getChangeEndString(changeContext: ChangeContext): string {
     var zerohighValue = (changeContext.highValue < 10) ? "0": ""; // to put zero for the time format
     this.endTime = `${zerohighValue}${changeContext.highValue}:00:00`; // selected end time
+    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
     return this.endTime;
   }
   /* user-event-slider END */
@@ -61,28 +114,6 @@ export class RoutingComponent implements OnInit {
   }
 
   panelOpenState = false;
-  beacons: Beacon[];
-
-  routingBeacons: Beacon[];
-  constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) { }
-  ngOnInit() {
-    this.beaconService
-      .getRouting('2018-01-01', '2018-01-02', '07:30:00', '8:01:32')
-      // .getAllBeacons()
-      .subscribe((data: Beacon[]) => {
-        this.beacons = data;
-        console.log(this.beacons[1]);
-      });
-  }
-
-  getRouting(startDate, endDate, startTime, endTime) {
-    this.beaconService
-      .getRouting(startDate, endDate, startTime, endTime)
-      .subscribe((data: Beacon[]) => {
-        this.routingBeacons = data;
-        console.log(this.routingBeacons[1]);
-      });
-  }
 
   /* Start Time Picker Variables */
   minValue1: number = 0;
@@ -330,8 +361,8 @@ export class RoutingComponent implements OnInit {
   // Date Picker Extraction Method
 
   events: string[] = [];
-  startDate: string = "";   // Start Date
-  endDate: string = "";     // End Date
+  startDate: string = null;   // Start Date
+  endDate: string = null;     // End Date
 
   // Start Date Listener
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
@@ -340,6 +371,7 @@ export class RoutingComponent implements OnInit {
     const tempStartDate = new Date(Date.parse(this.startDate));
     const tempEndDate = new Date(Date.parse(this.endDate));
 
+    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
     // Checking to make sure end date isn't before start date (BROKEN)
     /*
       if((this.startDate != '' && this.endDate != '') || (this.startDate != '' && this.endDate == '')
