@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Options, LabelType, ChangeContext, PointerType } from 'ng5-slider';
 import { BeaconService } from '../../../services/beacon.service';
 import { Beacon } from '../../../interfaces/beacon.interface';
@@ -14,12 +14,13 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./routing.component.css', './routing.component.scss']
 })
 
-export class RoutingComponent implements OnInit {
+export class RoutingComponent implements OnInit{
 
   public beacons : Beacon[];
   public beacon : Beacon;
   public routeBeacons: Beacon[];
   errorMessage: String;
+  public beaconSet : any[];
   
 
   ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
@@ -59,8 +60,8 @@ export class RoutingComponent implements OnInit {
   /* user-event-slider START */
   logText: string = ''; // to print the time result
 
-  startTime: string = ""; // to store the time string for low
-  endTime: string = ""; // to store the time string for high
+  startTime: string = null; // to store the time string for low
+  endTime: string = null; // to store the time string for high
 
   // get change result for time selection
   onUserChange(changeContext: ChangeContext): void {
@@ -78,6 +79,7 @@ export class RoutingComponent implements OnInit {
   getChangeStartString(changeContext: ChangeContext): string {
     var zerolowValue = (changeContext.value < 10) ? "0": ""; // to put zero for the time format
     this.startTime = `${zerolowValue}${changeContext.value}:00:00`; // selected start time
+    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
     return this.startTime;
   }
 
@@ -85,6 +87,7 @@ export class RoutingComponent implements OnInit {
   getChangeEndString(changeContext: ChangeContext): string {
     var zerohighValue = (changeContext.highValue < 10) ? "0": ""; // to put zero for the time format
     this.endTime = `${zerohighValue}${changeContext.highValue}:00:00`; // selected end time
+    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
     return this.endTime;
   }
   /* user-event-slider END */
@@ -346,8 +349,8 @@ export class RoutingComponent implements OnInit {
   // Date Picker Extraction Method
 
   events: string[] = [];
-  startDate: string = "";   // Start Date
-  endDate: string = "";     // End Date
+  startDate: string = null;   // Start Date
+  endDate: string = null;     // End Date
 
   // Start Date Listener
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
@@ -356,6 +359,7 @@ export class RoutingComponent implements OnInit {
     const tempStartDate = new Date(Date.parse(this.startDate));
     const tempEndDate = new Date(Date.parse(this.endDate));
 
+    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
     // Checking to make sure end date isn't before start date (BROKEN)
     /*
       if((this.startDate != '' && this.endDate != '') || (this.startDate != '' && this.endDate == '')
