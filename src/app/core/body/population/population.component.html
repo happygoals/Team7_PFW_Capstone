@@ -39,39 +39,49 @@
           </div>
         </mat-grid-tile>
         <!-- Date Picker -->
-        <!-- Time Picker -->
-        <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'">
-          <!-- Time card -->
-          <mat-grid-tile-header>
-            <span class="material-icons">schedule</span> &nbsp; Time
-            <button mat-mini-fab class="reset-button-row">
-                <mat-icon aria-label="reset-button">refresh</mat-icon>
-            </button>
-          </mat-grid-tile-header>
-          <div class="time-chip">
-            <!-- Time picker scroll-->
-            <cdk-virtual-scroll-viewport
-              itemSize="100"
-              class="example-viewport">
-              <div class="custom-slider">
+       <!-- Time Picker -->
+       <mat-grid-tile class="options-tile" id="options-time" colspan="3" [style.border-right]="'1px dashed #ddd'">
+        <!-- Time card -->
+        <mat-grid-tile-header>
+          <span class="material-icons">schedule</span>&nbsp; Time
+          <button mat-mini-fab class="reset-button-row">
+              <mat-icon aria-label="reset-button">refresh</mat-icon>
+          </button>
+        </mat-grid-tile-header>
+        <div class="time-chip">
+
+          <!-- Time picker scroll-->
+
+            <div class="custom-slider">
+              <div class="left-slider">
+                <!-- time slider -->
+                <ng5-slider [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1"
+                (userChangeEnd)="onUserChangeEnd($event)"
+                style="margin-bottom: 0.2rem; ">
+              </ng5-slider>
+
+              </div>
+              <div class="right-add-button">
+                <!-- Add one more time picker -->
+                <button (click)="toggleCollapse()" mat-mini-fab class="round-button">
+                  <mat-icon aria-label="round-button">add</mat-icon>
+                </button>
+              </div>
+
+            <div *ngIf="!isCollapsed" class="custom-slider2">
                 <div class="left-slider">
-                  <ng5-slider
-                    [(value)]="minValue"
-                    [(highValue)]="maxValue"
-                    [options]="options"
-                    style="margin-bottom: 2rem; font-size: 10px;"
-                  ></ng5-slider>
-                </div>
-                <div class="right-add-button">
-                  <!-- Add one more time picker -->
-                  <button mat-mini-fab class="round-button">
-                    <mat-icon aria-label="round-button">add</mat-icon>
-                  </button>
+                <ng5-slider [(value)]="minValue2" [(highValue)]="maxValue2" [options]="options2" style="margin-bottom: 0.2rem; "></ng5-slider>
                 </div>
               </div>
-            </cdk-virtual-scroll-viewport>
+            <div *ngIf="!isCollapsed" class="custom-slider2">
+                <div class="left-slider">
+                <ng5-slider [(value)]="minValue3" [(highValue)]="maxValue3" [options]="options3" style="margin-bottom: 0.2rem;"></ng5-slider>
+              </div>
+              </div>
           </div>
-        </mat-grid-tile>
+
+        </div>
+      </mat-grid-tile>
         <mat-grid-tile class="options-tile" id="options-export" colspan="1">
           <!-- Export Options-->
           <mat-grid-tile-header>
