@@ -1,9 +1,10 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, OnChanges, ViewChild } from '@angular/core';
 import { Options, LabelType, ChangeContext, PointerType } from 'ng5-slider';
 import { BeaconService } from '../../../services/beacon.service';
 import { Beacon } from '../../../interfaces/beacon.interface';
 import { Router, UrlSegment } from '@angular/router';
-import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle } from '@angular/material';
+import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle, MatInput, MatButton } from '@angular/material';
 import { Timeset } from './timeset';
 import { DatePipe } from '@angular/common';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
@@ -33,7 +34,7 @@ export class RoutingComponent implements OnInit{
   public routeBeacons: Beacon[];
   errorMessage: String;
   public beaconSet : any[];
-  
+
 
   ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
   startDate: string = '2018-01-19';
@@ -122,6 +123,12 @@ export class RoutingComponent implements OnInit{
   /* Start Time Picker Variables */
   minValue1: number = 0;
   maxValue1: number = 24;
+    /* Time slider value reset */
+    sliderForm: FormGroup = new FormGroup({
+      sliderControl: new FormControl([0, 24])
+    })
+
+     /* Time slider value reset finished */
   options1: Options = {
     ceil: 12,
     floor: 0,
@@ -129,7 +136,7 @@ export class RoutingComponent implements OnInit{
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time
+      // Convert military time to standard time 
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -199,6 +206,9 @@ export class RoutingComponent implements OnInit{
     draggableRange: true,
 
   };
+  resetForm(): void {
+    this.sliderForm.reset({sliderControl: [0, 24]});
+  }
   /* End Time Picker Variables */
 
   /* Start Time Picker 2 Variables */
@@ -211,7 +221,7 @@ export class RoutingComponent implements OnInit{
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time
+      // Convert military time to standard time 
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -282,7 +292,6 @@ export class RoutingComponent implements OnInit{
   };
   /* End Time Picker 2 Variables */
   /* Start Time Picker 3 Variables */
-  /* Start Time Picker 3 Variables */
   minValue3: number = 0;
   maxValue3: number = 24;
   options3: Options = {
@@ -292,7 +301,7 @@ export class RoutingComponent implements OnInit{
     translate: (value: number, label: LabelType): string => {
       var time = null;
       var hours = value;
-      // Convert military time to standard time
+      // Convert military time to standard time 
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
@@ -363,7 +372,7 @@ export class RoutingComponent implements OnInit{
   };
   /* End Time Picker 3 Variables */
   // Date Picker Extraction Method
-
+ 
   events: string[] = [];
   //startDate: string = null;   // Start Date
   //endDate: string = null;     // End Date
@@ -416,10 +425,26 @@ export class RoutingComponent implements OnInit{
 
   // End of Toggle Slider Logic
 
-  // Reset Button Logic
+  // Start of Date Reset button logic
+   @ViewChild('dp1', {
+    read: MatInput
+  }) dp1: MatInput;
 
-  
+  @ViewChild('dp2', {
+    read: MatInput
+  }) dp2: MatInput;
 
-  // End of Reset Button Logic
+  @ViewChild('slidetoggle', {
+    read: MatSlideToggle
+  }) slidetoggle: MatSlideToggle;
+
+  resetDate(type: MatButton){
+    this.dp1.value = '';
+    this.dp2.value = '';
+    this.slidetoggle.checked = false;
+    document.getElementById('dp2_div').style.display = 'none';
+  }
+
+  // End of date reset button logic
+
 }
-
