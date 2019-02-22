@@ -15,7 +15,7 @@ export class RoutingComponent implements OnInit {
 
   isCollapsed: boolean = true; // for the add button of multiple time sliders : expansion
 
-  /* user-event-slider */
+  /* user-event-slider START */
   logText: string = ''; // to print the time result
 
   startTime: string = ""; // to store the time string for low
@@ -46,6 +46,7 @@ export class RoutingComponent implements OnInit {
     this.endTime = `${zerohighValue}${changeContext.highValue}:00:00`; // selected end time
     return this.endTime;
   }
+  /* user-event-slider END */
 
   /* button*/
   toggleCollapse() {
