@@ -15,6 +15,9 @@ var beaconList = []
 var listItem = [[],[]]
 var listItemD = []
 
+//pointer 
+var x = {Value: 0};
+
 //parsing function
 function par(rows) {
 
@@ -32,8 +35,9 @@ function par(rows) {
       beaconList.push(output)
 
       //1-D array
-      //listItemD = beaconList.split("-")
-
+      listItemD = beaconList.split("-")
+      rows.Value++ // pointer move 
+      
     //store(push) cutted text (string) to list to 2-D
     //listItem[i] = beaconList[i].split("-")
     }
