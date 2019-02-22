@@ -1,6 +1,6 @@
-import { Component} from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { Options, LabelType, ChangeContext, PointerType } from 'ng5-slider';
-import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle } from '@angular/material';
+import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle, MatButton, MatInput } from '@angular/material';
 import { DatePipe } from '@angular/common';
 import { Timeset } from './../routing/timeset';
 
@@ -56,7 +56,7 @@ export class PopulationComponent {
     console.log(JSON.stringify(reset));
   }
   panelOpenState = false;
-  
+
    /* Start Time Picker Variables */
    minValue1: number = 0;
    maxValue1: number = 24;
@@ -356,4 +356,25 @@ export class PopulationComponent {
 
   // End of Toggle Slider Logic
 
+  // Start of Date Reset button logic
+  @ViewChild('dp1', {
+    read: MatInput
+  }) dp1: MatInput;
+
+  @ViewChild('dp2', {
+    read: MatInput
+  }) dp2: MatInput;
+
+  @ViewChild('slidetoggle', {
+    read: MatSlideToggle
+  }) slidetoggle: MatSlideToggle;
+
+  resetDate(type: MatButton){
+    this.dp1.value = '';
+    this.dp2.value = '';
+    this.slidetoggle.checked = false;
+    document.getElementById('dp2_div').style.display = 'none';
+  }
+
+  // End of date reset button logic
 }

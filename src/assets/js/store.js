@@ -1,8 +1,10 @@
 //var beacon = require('/Capstone/Team7_PFW_Capstone/backend/models/beacon')
 
+
+var k = "please work...";
 //connection testing with Angular front end w/ ts!
-function help() {
-  alert("please work...")
+function help(k) {
+  alert(k)
 }
 
 

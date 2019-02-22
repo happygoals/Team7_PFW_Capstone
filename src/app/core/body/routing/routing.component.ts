@@ -39,6 +39,7 @@ export class RoutingComponent implements OnInit{
 
   constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) { }
   ngOnInit() {
+    help()
     this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
 
   }
@@ -407,5 +408,10 @@ export class RoutingComponent implements OnInit{
 
   // End of Toggle Slider Logic
 
+  // Reset Button Logic
+
+  
+
+  // End of Reset Button Logic
 }
 
