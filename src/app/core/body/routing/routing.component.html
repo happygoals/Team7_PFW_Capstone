@@ -45,7 +45,7 @@
           <!-- Time card -->
           <mat-grid-tile-header>
             <span class="material-icons">schedule</span>&nbsp; Time
-            <button mat-mini-fab (click)="resetForm()" class="reset-button-row">
+            <button mat-mini-fab class="reset-button-row" (click)="resetForm()">
                 <mat-icon aria-label="reset-button">refresh</mat-icon>
             </button>
           </mat-grid-tile-header>
@@ -57,11 +57,9 @@
                 <div class="left-slider">
                   <!-- time slider --> 
                   <form [formGroup]="sliderForm">
-
                     <ng5-slider formControlName="sliderControl" [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1"                   (userChangeEnd)="onUserChangeEnd($event)"
                          style="margin-bottom: 0.2rem;"  required>
-                    </ng5-slider>
-                  
+                    </ng5-slider>                  
                    </form>
                 </div>
                 <div class="right-add-button">

@@ -1,3 +1,4 @@
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Component, ViewChild} from '@angular/core';
 import { Options, LabelType, ChangeContext, PointerType } from 'ng5-slider';
 import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle, MatButton, MatInput } from '@angular/material';
@@ -60,6 +61,12 @@ export class PopulationComponent {
    /* Start Time Picker Variables */
    minValue1: number = 0;
    maxValue1: number = 24;
+
+       /* Time slider value reset */
+       sliderForm: FormGroup = new FormGroup({
+        sliderControl: new FormControl([0, 24])
+      })  
+      
    options1: Options = {
      ceil: 12,
      floor: 0,
@@ -138,7 +145,11 @@ export class PopulationComponent {
 
    };
    /* End Time Picker Variables */
-
+  
+   // reset the time picker
+   resetForm(): void {
+    this.sliderForm.reset({sliderControl: [0, 24]});
+  }
    /* Start Time Picker 2 Variables */
    minValue2: number = 0;
    maxValue2: number = 24;
