@@ -2,6 +2,7 @@
 import {AfterViewInit, Component} from '@angular/core';
 
 declare const h337: any;
+declare var listItemD: any
 
 
 @Component({
@@ -10,8 +11,6 @@ declare const h337: any;
   styleUrls: ['./heatmap.component.css']
 })
 
-
-declare var listItemD: any
 
 
 /*can use outside of this file because of 'export'*/
@@ -26,7 +25,8 @@ export class HeatmapComponent implements AfterViewInit {
             0,0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0]
-
+  
+           
 
 
   ngAfterViewInit() {
