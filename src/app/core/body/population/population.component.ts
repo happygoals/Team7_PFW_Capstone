@@ -1,5 +1,8 @@
+import { BeaconService } from './../../../services/beacon.service';
+import { Beacon } from './../../../interfaces/beacon.interface';
+import { Timeset } from './../routing/timeset';
 import { Component} from '@angular/core';
-import { Options, LabelType } from 'ng5-slider';
+import { Options, LabelType, ChangeContext } from 'ng5-slider';
 import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle } from '@angular/material';
 import { DatePipe } from '@angular/common';
 
@@ -10,6 +13,50 @@ import { DatePipe } from '@angular/common';
 })
 
 export class PopulationComponent {
+
+  isCollapsed: boolean = true; // for the add button of multiple time sliders : expansion
+
+  /* user-event-slider START */
+  logText: string = ''; // to print the time result
+
+  startTime: string = ""; // to store the time string for low
+  endTime: string = ""; // to store the time string for high
+
+  // get change result for time selection
+  onUserChange(changeContext: ChangeContext): void {
+    // this.logText += `Change(${this.getChangeContextString(changeContext)})\n`;
+  }
+  // get end result for time selection
+  onUserChangeEnd(changeContext: ChangeContext): void {
+    // this.logText += `End(${this.getChangeContextString(changeContext)})\n`;
+    this.startTime = `${this.getChangeStartString(changeContext)}`;
+    this.endTime = `${this.getChangeEndString(changeContext)}`;
+    this.logText += this.startTime + ` ` + this.endTime +`\n` ;
+  }
+
+  // Update the string Starttime value
+  getChangeStartString(changeContext: ChangeContext): string {
+    var zerolowValue = (changeContext.value < 10) ? "0": ""; // to put zero for the time format
+    this.startTime = `${zerolowValue}${changeContext.value}:00:00`; // selected start time
+    return this.startTime;
+  }
+
+  // Update the string Starttime value
+  getChangeEndString(changeContext: ChangeContext): string {
+    var zerohighValue = (changeContext.highValue < 10) ? "0": ""; // to put zero for the time format
+    this.endTime = `${zerohighValue}${changeContext.highValue}:00:00`; // selected end time
+    return this.endTime;
+  }
+  /* user-event-slider END */
+
+  /* button*/
+  toggleCollapse() {
+    this.isCollapsed = !this.isCollapsed;
+  }
+
+  onSelect(reset: Timeset) {
+    console.log(JSON.stringify(reset));
+  }
 
    /* Start Time Picker Variables */
    minValue1: number = 0;
