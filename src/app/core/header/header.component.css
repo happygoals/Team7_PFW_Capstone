@@ -40,14 +40,19 @@ a {
   flex: 1 1 auto;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .mat-toolbar {
   margin: 0px auto;
-  background: rgb(20, 41, 22) !important;
-  background-color:  rgb(20, 41, 22) !important;
+  background: rgba(20, 41, 22, 1) !important;
+  background-color:  rgba(20, 41, 22, 1) !important;
   color: white !important;
   position: fixed; 
   top: 0;
-  z-index: 1;
+  z-index: 5;
 }
 
 header{
