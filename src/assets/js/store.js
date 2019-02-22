@@ -37,14 +37,23 @@ function par(beacons) {
       beaconList.push(output)
 
       //1-D array
-      //listItemD = beaconList.split("-")
+      //listItemD[i] = beaconList[i].split("-")
       beacons.Value++ // pointer move 
       
     //store(push) cutted text (string) to list to 2-D
-    //listItem[i] = beaconList[i].split("-")
+    listItem[i] = beaconList[i].split("-")
     }
+    
+    console.log(listItemD)
     console.log(beaconList)
-  //  console.log(listItem[3][3])
+    console.log(listItem.length)
+    console.log(listItem)
+    // for(var v = 0; v < listItem[v].length; v++) {
+    //   for(var z = 0; z < listItem.length; z++) {
+    //    console.log(listItem[z][v]);
+    //   }
+    //  }
+    //console.log(listItem[3][3])
 
 }
 
