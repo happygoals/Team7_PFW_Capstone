@@ -55,7 +55,13 @@
 
               <div class="custom-slider">
                 <div class="left-slider">
-                  <ng5-slider [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1" style="margin-bottom: 0.2rem; "></ng5-slider>
+                  <!-- time slider --> 
+                  <ng5-slider [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1" 
+                  (userChange)="onUserChange($event)"
+                  (userChangeEnd)="onUserChangeEnd($event)">
+                  style="margin-bottom: 0.2rem; ">
+                </ng5-slider>
+
                 </div>
                 <div class="right-add-button">
                   <!-- Add one more time picker -->
@@ -88,6 +94,8 @@
     </mat-card>
     <div class=chart-title>
         <h3 style="color: black; "> Chart Widget</h3>
+        <textarea type="text" class="form-control" style="min-width: 900px; min-height: 300px;">{{logText}}
+        </textarea>
     </div>
     <!-- This will contain the Facts Boxes on the left side of the screen -->
     <!-- and the map on the right side of the screen -->
