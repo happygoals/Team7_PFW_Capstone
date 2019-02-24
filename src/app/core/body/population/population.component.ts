@@ -50,8 +50,8 @@ export class PopulationComponent implements OnInit{
   constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) {}
   
   ngOnInit() {
-    help(this.endTime)
-    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
+    //help(this.endTime)
+    //this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
     
   }
 

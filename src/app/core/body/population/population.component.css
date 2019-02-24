@@ -85,32 +85,41 @@ mat-grid-list.Lowerbodylist {
 }
 
 mat-grid-tile.fact1 {
-  background-color: rgba(25, 91, 38, 200);
-  margin-left: 25px;
+  margin-left: 2.5vw;
 }
 
 mat-grid-tile.fact2 {
-  background-color: rgba(30, 109, 46, 200);
-  margin-left: 25px;
+  margin-left: 2.5vw;
 }
 
 mat-grid-tile.fact3 {
-  background-color: rgba(30, 137, 51, 200);
-  margin-left: 25px;
-  margin-bottom: 25px;
+  margin-left: 2.5vw;
+  margin-bottom: 2.5vw;
 }
+  /* mat-card style for the fact-boxes START*/
+  mat-card.box1{
+    margin: 1% auto;
+    background-color: rgba(25, 91, 38, 200);
+    color: white;
+  }
 
-p {
-  font-size: 30px;
-  line-height: 0.1;
-}
+  mat-card.box2{
+    margin: 1% auto;
+    background-color: rgba(30, 109, 46, 200);
+    color: white;
+  }
 
-span {
-  font-size: 60px;
-  margin-left: 50px;
-}
+  mat-card.box3{
+    margin: 1% auto;
+    background-color: rgba(30, 137, 51, 200);
+    color: white;
+  }
+  /* mat-card style for the fact-boxes END */
 
 /* FactBoxes Styling END */
+
+
+
 
 /* mat-card style for date and time picker */
 .mat-card.picker {
@@ -273,7 +282,32 @@ i {
 
 p {
   margin: 0 0 2em 0;
+  font-size:1.7vw;
+  line-height: 0.3;
 }
+
+/* Responsive text START */
+h1{
+  font-size:3vw;
+}
+
+h2{
+  font-size:2vw;
+}
+
+h3{
+  font-size:1.8vw;
+}
+
+h4{
+  font-size:1.5vw;
+}
+
+span {
+  font-size: 4.0vw;
+  margin-left: 2vw;
+}
+/* Responsive text END */
 
 /* scroll */
 .example-viewport {
