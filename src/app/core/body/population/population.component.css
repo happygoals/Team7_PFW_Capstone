@@ -101,18 +101,27 @@ mat-grid-tile.fact3 {
     margin: 1% auto;
     background-color: rgba(25, 91, 38, 200);
     color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
   }
 
   mat-card.box2{
     margin: 1% auto;
     background-color: rgba(30, 109, 46, 200);
     color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
   }
 
   mat-card.box3{
     margin: 1% auto;
     background-color: rgba(30, 137, 51, 200);
     color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
   }
   /* mat-card style for the fact-boxes END */
 
