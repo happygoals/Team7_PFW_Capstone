@@ -41,18 +41,18 @@ body {
         margin-top: 5%;
     }
     div.container{
-        background-color: yellow; 
+        background-color: yellow;
         width: 100%;
         min-width: 440px;
         height: auto;
     }
 
      /* date mode selection */
-    div.dselection {  
-        margin-bottom: 3%; 
+    div.dselection {
+        margin-bottom: 3%;
         text-align: right;
-        
-        clear: both; 
+
+        clear: both;
       }
 
       /* start date */
@@ -63,7 +63,7 @@ body {
         font-size: 14px;
         float: left;
       }
-    
+
        /* end date */
       div.dp2 {
         margin-top: 0%;
@@ -116,7 +116,7 @@ body {
       margin-right: 1.3%;
       align-content: center;
       align-items: center;
-      background-color: #FAFAFA; 
+      background-color: #FAFAFA;
   }
 
   .timeoption{
@@ -168,7 +168,7 @@ body {
         margin-bottom: 1.0%;
         align-content: center;
         align-items: center;
-        background-color: #EAEAEA; 
+        /*background-color: #EAEAEA;*/
         max-width: 100%;
         height: auto;
     }
@@ -309,7 +309,7 @@ body {
   .reset-button-row{
     position: absolute;
     left: 90%;
-    background-color: rgb(143, 156, 152); 
+    background-color: rgb(143, 156, 152);
   }
 
   .round-button{
