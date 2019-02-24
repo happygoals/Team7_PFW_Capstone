@@ -98,3 +98,21 @@ div.dp2 {
 }
 
 /* mat-card style for date and time picker END*/
+
+/* Reset button */
+.reset-button-row{
+  position: absolute;
+  left: 90%;
+  background-color: rgb(143, 156, 152);
+}
+
+.round-button {
+  margin-right: 8px;
+  background-color: #152816;
+}
+
+/* Image resizing */
+img {
+  max-width: 100%;
+  height: auto;
+}
