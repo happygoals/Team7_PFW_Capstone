@@ -77,8 +77,6 @@ export class PopulationComponent implements OnInit{
         });
   }
 
-  isCollapsed: boolean = true; // for the add button of multiple time sliders : expansion
-
   /* user-event-slider START */
   logText: string = ''; // to print the time result
 
