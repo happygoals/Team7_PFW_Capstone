@@ -49,12 +49,8 @@ export class PopulationComponent implements OnInit {
 
   ngOnInit() {
     //help(this.endTime)
-    this.getBeaconSets(
-      this.startDate,
-      this.endDate,
-      this.startTime,
-      this.endTime
-    );
+    //this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
+
   }
 
   callParse() {
