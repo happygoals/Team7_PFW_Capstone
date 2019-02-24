@@ -113,9 +113,7 @@ export class PopulationComponent implements OnInit{
   /* user-event-slider END */
 
   /* button*/
-  toggleCollapse() {
-    this.isCollapsed = !this.isCollapsed;
-  }
+
 
   onSelect(reset: Timeset) {
     console.log(JSON.stringify(reset));
