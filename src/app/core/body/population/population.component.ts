@@ -1,15 +1,12 @@
-import { Component, ViewChild, OnInit} from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Options, LabelType, ChangeContext, PointerType } from 'ng5-slider';
-import { MatDatepickerInputEvent, MatDatepicker, MatSlideToggleChange, MatSlideToggle, MatButton, MatInput } from '@angular/material';
-import { DatePipe } from '@angular/common';
-import { BeaconService } from '../../../services/beacon.service';
-import { Beacon } from '../../../interfaces/beacon.interface';
-import { Timeset } from './../routing/timeset';
-import { Router, UrlSegment } from '@angular/router';
-import { Variable } from '@angular/compiler/src/render3/r3_ast';
+import { Component, ViewChild, OnInit } from "@angular/core";
+import { DatePipe } from "@angular/common";
+import { BeaconService } from "../../../services/beacon.service";
+import { Beacon } from "../../../interfaces/beacon.interface";
+import { Router, UrlSegment } from "@angular/router";
+import { Variable } from "@angular/compiler/src/render3/r3_ast";
 
 interface External {
+<<<<<<< HEAD
   help: Function
   k: Variable
   par: Function
@@ -26,36 +23,60 @@ declare var listItem: any
 declare function StoreValueForHeatmap(Array): any
 
 
+=======
+  help: Function;
+  k: Variable;
+  par: Function;
+  beaconList: Variable;
+  listItemD: Variable;
+  listItem: Variable;
+}
+
+declare function help(string): any;
+declare function par(list): any;
+declare var k: any;
+>>>>>>> 341f6f0fa602b7f2a5d54f6c59ceeb66ec0f04e7
 
 @Component({
-  selector: 'app-core-body-population',
-  templateUrl: './population.component.html',
-  styleUrls: ['./population.component.css', './population.component.scss']
+  selector: "app-core-body-population",
+  templateUrl: "./population.component.html",
+  styleUrls: ["./population.component.css"]
 })
 
-
-
-export class PopulationComponent implements OnInit{
-
-  public beacons : Beacon[];
-  public beacon : Beacon;
+export class PopulationComponent implements OnInit {
+  public beacons: Beacon[];
+  public beacon: Beacon;
   public routeBeacons: Beacon[];
   errorMessage: String;
+<<<<<<< HEAD
   public beaconSet : any[];
 
 
+=======
+  public beaconSet: any[];
+>>>>>>> 341f6f0fa602b7f2a5d54f6c59ceeb66ec0f04e7
 
   ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
-  startDate: string = '2018-01-19';
-  endDate: string = '2018-01-29';
-  startTime: string = '07:30:00';
-  endTime: string = '07:50:00';
+  startDate: string = "2018-01-19";
+  endDate: string = "2018-01-29";
+  startTime: string = "07:30:00";
+  endTime: string = "07:50:00";
 
+  constructor(
+    private beaconService: BeaconService,
+    private router: Router,
+    private datePipe: DatePipe
+  ) {}
+
+<<<<<<< HEAD
   constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) {}
 
+=======
+>>>>>>> 341f6f0fa602b7f2a5d54f6c59ceeb66ec0f04e7
   ngOnInit() {
     //help(this.endTime)
     this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
+<<<<<<< HEAD
 
   }
 
@@ -122,11 +143,15 @@ export class PopulationComponent implements OnInit{
   /* button*/
   toggleCollapse() {
     this.isCollapsed = !this.isCollapsed;
+=======
+>>>>>>> 341f6f0fa602b7f2a5d54f6c59ceeb66ec0f04e7
   }
 
-  onSelect(reset: Timeset) {
-    console.log(JSON.stringify(reset));
+  callParse() {
+    console.log("prased");
+    par(this.beacons);
   }
+<<<<<<< HEAD
   panelOpenState = false;
 
        /* Time slider value reset */
@@ -435,29 +460,21 @@ export class PopulationComponent implements OnInit{
     else {
       document.getElementById('dp2_div').style.display = 'none';
     }
+=======
+  getAll() {
+    this.beaconService.getAllBeacons().subscribe((data: Beacon[]) => {
+      this.beacons = data;
+      console.log(this.beacons);
+      console.log(this.beacons[1]);
+    });
+>>>>>>> 341f6f0fa602b7f2a5d54f6c59ceeb66ec0f04e7
   }
-
-  // End of Toggle Slider Logic
-
-  // Start of Date Reset button logic
-  @ViewChild('dp1', {
-    read: MatInput
-  }) dp1: MatInput;
-
-  @ViewChild('dp2', {
-    read: MatInput
-  }) dp2: MatInput;
-
-  @ViewChild('slidetoggle', {
-    read: MatSlideToggle
-  }) slidetoggle: MatSlideToggle;
-
-  resetDate(type: MatButton){
-    this.dp1.value = '';
-    this.dp2.value = '';
-    this.slidetoggle.checked = false;
-    document.getElementById('dp2_div').style.display = 'none';
+  getBeaconSets(startDate, endDate, startTime, endTime) {
+    this.beaconService
+      .getBeaconSets(startDate, endDate, startTime, endTime)
+      .subscribe((data: Beacon[]) => {
+        this.beacons = data;
+        console.log(this.beacons);
+      });
   }
-
-  // End of date reset button logic
 }

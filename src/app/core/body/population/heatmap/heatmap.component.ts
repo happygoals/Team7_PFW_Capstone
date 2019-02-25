@@ -2,7 +2,7 @@
 import {AfterViewInit, Component} from '@angular/core';
 
 declare const h337: any;
-declare var listItemD: any
+declare var listItemD: any;
 
 
 @Component({
