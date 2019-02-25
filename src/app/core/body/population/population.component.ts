@@ -10,17 +10,21 @@ import { Router, UrlSegment } from '@angular/router';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 
 interface External {
-  help: Function
-  k: Variable
-  par: Function
-  beaconList: Variable
-  listItemD: Variable
-  listItem: Variable
+  help: Function;
+  k: Variable;
+  par: Function;
+  beaconList: Variable;
+  listItemD: Variable;
+  listItem: Variable;
+  heatList: Variable;
 }
 
-declare function help(string): any
-declare function par(list):any
-declare var k: any
+declare function help(string): any;
+declare function par(list):any;
+declare var k: any;
+declare var beaconList: any;
+declare var listItem: any;
+declare var heatList: any
 
 
 @Component({
@@ -50,7 +54,7 @@ export class PopulationComponent implements OnInit{
   constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) {}
   
   ngOnInit() {
-    help(this.endTime)
+    //help(this.endTime)
     this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
     
   }
@@ -58,6 +62,9 @@ export class PopulationComponent implements OnInit{
   callParse(){
     console.log('prased');
     par(this.beacons)
+    console.log(listItem);
+    heatList[0]++
+    console.log(heatList[0])
   }
   getAll(){
     this.beaconService.getAllBeacons()

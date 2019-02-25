@@ -16,7 +16,14 @@ var text, posf, posb, output
 var beaconList = []
 var listItem = [[],[]]
 var listItemD = []
-
+var heatList = [0,0,0,0,0,0,0,0,0,0,0,
+  0,0,77,0,0,12,0,0,55,0,0,
+  0,0,43,0,21,0,0,0,0,24,0,
+  0,33,0,0,67,0,0,0,0,22,0,
+  0,0,0,42,0,0,0,0,0,0,0,
+  0,75,0,0,74,75,0,0,0,0,0,
+  0,0,55,44,0,0,75,66,74,21,0,
+  0,0,66,0,0]
 //pointer
 var x = {Value: 0};
 
@@ -47,9 +54,8 @@ function par(beacons) {
     listItem[i] = beaconList[i].split("-")
     }
     
-    console.log(listItemD)
-    console.log(beaconList)
-    console.log(listItem.length)
+    //console.log(listItemD)
+    //console.log(listItem.length)
     console.log(listItem)
     // for(var v = 0; v < listItem[v].length; v++) {
     //   for(var z = 0; z < listItem.length; z++) {

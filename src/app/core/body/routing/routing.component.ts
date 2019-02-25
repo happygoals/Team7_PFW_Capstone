@@ -45,14 +45,13 @@ export class RoutingComponent implements OnInit{
 
   constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) { }
   ngOnInit() {
-    help(k)
-    help(this.startTime)
+    //help(k)
+    //help(this.startTime)
     this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
 
   }
 
   callParse(){
-    console.log('prased');
     par(this.beacons)
   }
   getAll(){
