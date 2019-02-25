@@ -16,11 +16,15 @@ interface External {
   beaconList: Variable
   listItemD: Variable
   listItem: Variable
+  StoreValueForHeatmap: Function
 }
 
 declare function help(string): any
 declare function par(list):any
 declare var k: any
+declare var listItem: any
+declare function StoreValueForHeatmap(Array): any
+
 
 
 @Component({
@@ -38,7 +42,7 @@ export class PopulationComponent implements OnInit{
   public routeBeacons: Beacon[];
   errorMessage: String;
   public beaconSet : any[];
-  
+
 
 
   ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
@@ -48,16 +52,17 @@ export class PopulationComponent implements OnInit{
   endTime: string = '07:50:00';
 
   constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) {}
-  
+
   ngOnInit() {
-    help(this.endTime)
+    //help(this.endTime)
     this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
-    
+
   }
 
   callParse(){
     console.log('prased');
     par(this.beacons)
+    StoreValueForHeatmap(listItem)
   }
   getAll(){
     this.beaconService.getAllBeacons()
@@ -127,11 +132,11 @@ export class PopulationComponent implements OnInit{
        /* Time slider value reset */
        sliderForm: FormGroup = new FormGroup({
         sliderControl: new FormControl([0, 24])
-      })  
+      })
 
    /* Start Time Picker Variables */
    minValue1: number = 0;
-   maxValue1: number = 24;   
+   maxValue1: number = 24;
    options1: Options = {
      ceil: 12,
      floor: 0,
@@ -210,7 +215,7 @@ export class PopulationComponent implements OnInit{
 
    };
    /* End Time Picker Variables */
-  
+
    /* Start Time Picker 2 Variables */
    minValue2: number = 0;
    maxValue2: number = 24;
