@@ -383,9 +383,6 @@ function StoreValueForHeatmap(listItem)
       }
         
     }
-
-
-    
     
   }
 

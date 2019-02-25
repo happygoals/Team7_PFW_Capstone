@@ -58,6 +58,7 @@ export class PopulationComponent implements OnInit {
   callParse() {
     console.log("prased");
     par(this.beacons);
+    StoreValueForHeatmap(listItem)
   }
   getAll() {
     this.beaconService.getAllBeacons().subscribe((data: Beacon[]) => {
