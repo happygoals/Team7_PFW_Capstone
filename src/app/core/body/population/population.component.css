@@ -16,64 +16,6 @@ div.body2 {
 }
 
 /* Body Styling END */
-/* Options Styling START */
-
-mat-grid-list.Optionslist {
-  font-size: large;
-  text-align: center;
-  margin-bottom: 2%;
-}
-
-mat-grid-list.options-tile {
-  min-height: 100%;
-  min-width: 100%;
-}
-
-mat-grid-tile-header{
-  max-height : 20%;
-}
-
-/* Options Styling END*/
-
-/* date picker */
-#wrap {
-  margin: 0 auto;
-  margin-top: 5%;
-}
-div.container {
-  width: 100%;
-  min-width: 440px;
-  height: auto;
-}
-
-/* date mode selection */
-div.dselection {
-  margin-bottom: 3%;
-  text-align: right;
-
-  clear: both;
-}
-
-/* start date */
-div.dp1 {
-  margin-top: 0%;
-  margin-left: 1%;
-  padding-right: 2%;
-  font-size: 14px;
-  float: left;
-}
-
-/* end date */
-div.dp2 {
-  margin-top: 0%;
-  margin-left: 2%;
-  padding-left: 2%;
-  font-size: 14px;
-  float: left;
-}
-.dateform {
-  width: 100%;
-}
 
 /* FactBoxes and Map Styling START */
 mat-grid-list.Lowerbodylist {
@@ -85,70 +27,59 @@ mat-grid-list.Lowerbodylist {
 }
 
 mat-grid-tile.fact1 {
-  background-color: rgba(25, 91, 38, 200);
-  margin-left: 25px;
+  margin-left: 2.5vw;
 }
 
 mat-grid-tile.fact2 {
-  background-color: rgba(30, 109, 46, 200);
-  margin-left: 25px;
+  margin-left: 2.5vw;
 }
 
 mat-grid-tile.fact3 {
-  background-color: rgba(30, 137, 51, 200);
-  margin-left: 25px;
-  margin-bottom: 25px;
+  margin-left: 2.5vw;
+  margin-bottom: 2.5vw;
 }
+  /* mat-card style for the fact-boxes START*/
+  mat-card.box1{
+    margin: 1% auto;
+    background-color: rgba(25, 91, 38, 200);
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+  }
 
-p {
-  font-size: 30px;
-  line-height: 0.1;
-}
+  mat-card.box1:hover{
+    box-shadow: 0 16px 16px 0 rgba(0,0,0,0.4);
+  }
 
-span {
-  font-size: 60px;
-  margin-left: 50px;
-}
+  mat-card.box2{
+    margin: 1% auto;
+    background-color: rgba(30, 109, 46, 200);
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+  }
+
+  mat-card.box2:hover{
+    box-shadow: 0 16px 16px 0 rgba(0,0,0,0.4);
+  }
+
+  mat-card.box3{
+    margin: 1% auto;
+    background-color: rgba(30, 137, 51, 200);
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+  }
+
+  mat-card.box3:hover{
+    box-shadow: 0 16px 16px 0 rgba(0,0,0,0.4);
+  }
+  /* mat-card style for the fact-boxes END */
 
 /* FactBoxes Styling END */
-
-/* mat-card style for date and time picker */
-.mat-card.picker {
-  margin-left: 1.3%;
-  margin-right: 1.3%;
-  align-content: center;
-  align-items: center;
-  background-color: #fafafa;
-}
-
-.timeoption {
-  margin-top: 1%;
-  margin-right: 1%;
-  margin-right: 1%;
-  align-content: center;
-  align-items: center;
-}
-
-.time-chip {
-  margin-top: 20px;
-  margin-bottom: 3px;
-}
-
-.right-add-button {
-  float: right;
-  min-width: 50px;
-  min-height: 50px;
-  margin-top: 20px;
-  margin-left: 20px;
-}
-
-.left-slider {
-  float: left;
-  min-width : 380px;
-  max-width : 100%;
-  min-height: auto;
-}
-/* mat-card style for date and time picker END*/
 
 /* Basic */
 
@@ -273,7 +204,32 @@ i {
 
 p {
   margin: 0 0 2em 0;
+  font-size:1.7vw;
+  line-height: 0.3;
 }
+
+/* Responsive text START */
+h1{
+  font-size:3vw;
+}
+
+h2{
+  font-size:2vw;
+}
+
+h3{
+  font-size:1.8vw;
+}
+
+h4{
+  font-size:1.5vw;
+}
+
+span {
+  font-size: 4.0vw;
+  margin-left: 2vw;
+}
+/* Responsive text END */
 
 /* scroll */
 .example-viewport {
@@ -286,18 +242,6 @@ p {
 .example-item {
   height: 40px;
   width: 25px;
-}
-
-/* button */
-.reset-button-row{
-  position: absolute;
-  left: 90%;
-  background-color: rgb(143, 156, 152);
-}
-
-.round-button {
-  margin-right: 8px;
-  background-color: #152816;
 }
 
 img {
