@@ -29,11 +29,11 @@ export class ChartComponent {
     titlePadding: any = { left: 90, top: 0, right: 0, bottom: 10 };
 
 	getWidth() : any {
-		if (document.body.offsetWidth < 850) {
-			return '90%';
-		}
-
-		return 850;
+		return (document.body.offsetWidth-700);
+    }
+    
+    getHeight() : any {
+		return (document.body.offsetHeight-250);
 	}
 
     xAxis: any =
