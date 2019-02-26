@@ -8,7 +8,6 @@ import { MatCheckboxModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
-import { LogoutComponent } from './authentication/logout/logout.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { PopulationComponent } from './core/body/population/population.component';
@@ -34,7 +33,6 @@ import { DatePipe } from '@angular/common';
     PopulationComponent,
     RoutingComponent,
     LoginComponent,
-    LogoutComponent,
     SettingsComponent,
     ControllerComponent,
     HeatmapComponent,
