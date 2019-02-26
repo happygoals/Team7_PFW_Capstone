@@ -31,7 +31,7 @@ export class ChartComponent {
 	getWidth() : any {
 		return (document.body.offsetWidth-700);
     }
-    
+
     getHeight() : any {
 		return (document.body.offsetHeight-250);
 	}
@@ -79,4 +79,4 @@ export class ChartComponent {
         this.myChart.seriesGroups()[0].series[1].symbolType = value;
         this.myChart.update();
     }
-} 
+}
