@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -8,5 +9,10 @@ import { Component} from '@angular/core';
 })
 
 export class LoginComponent {
+
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
 
 }
