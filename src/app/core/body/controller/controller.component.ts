@@ -208,8 +208,8 @@ export class ControllerComponent {
       { value: 24 }
     ],
     selectionBarGradient: {
-      from: "#1B5E20",
-      to: "black"
+      from: "rgb(30, 137, 51)",
+      to: "rgb(21, 40, 22)"
     },
     showTicks: true,
     draggableRange: true
