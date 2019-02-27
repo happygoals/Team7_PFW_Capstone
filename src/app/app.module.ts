@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { ForgotpassComponent } from './authentication/forgotpass/forgotpass.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DatePipe } from '@angular/common';
     PopulationComponent,
     RoutingComponent,
     LoginComponent,
+    ForgotpassComponent,
     SettingsComponent,
     ControllerComponent,
     HeatmapComponent,

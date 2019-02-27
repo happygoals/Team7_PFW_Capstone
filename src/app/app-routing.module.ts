@@ -4,6 +4,7 @@ import { PopulationComponent } from 'src/app/core/body/population/population.com
 import { RoutingComponent } from 'src/app/core/body/routing/routing.component';
 import { SettingsComponent } from 'src/app/core/body/settings/settings.component';
 import { LoginComponent } from './authentication/login/login.component';
+import { ForgotpassComponent } from './authentication/forgotpass/forgotpass.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'routing', component: RoutingComponent},
   { path: 'settings', component: SettingsComponent},
   { path: 'login', component: LoginComponent},
+  { path: 'forgotpass', component: ForgotpassComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
