@@ -1,8 +1,7 @@
 
 html, body {
-
     /* homepage background image */
-    background: url('../../../assets/images/parkview-home-background.jpg') no-repeat center center fixed;
+    background: url('../../../assets/images/parkview-home.jpg') no-repeat center center fixed;
     -webkit-background-size: cover; /* For WebKit*/
     -moz-background-size: cover;    /* Mozilla*/
     -o-background-size: cover;      /* Opera*/
