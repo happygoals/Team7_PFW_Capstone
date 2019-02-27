@@ -1,9 +1,108 @@
 
+/* homepage background image */
 html, body {
-    /* homepage background image */
     background: url('../../../assets/images/parkview-home.jpg') no-repeat center center fixed;
     -webkit-background-size: cover; /* For WebKit*/
     -moz-background-size: cover;    /* Mozilla*/
     -o-background-size: cover;      /* Opera*/
     background-size: cover;         /* Generic*/
+    min-height: 100vh;
 }
+
+/* top-left logo */
+#logo{
+    padding-top: 1%; 
+    padding-left: 3%;
+}
+
+#logo-image{    
+    position: fixed;
+    margin-left: 5%;
+    width: 18vw;
+    height: 7.35vw;
+}
+
+#create-account{
+    padding-top: 1%; 
+    color:white; 
+    margin-right: 5%; 
+    float:right; 
+    font-weight: 100; 
+    font-size: 1.2vw;
+}
+
+/* login diamond window */
+.center-container{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+ }
+
+ .only-parkview{
+    margin: 0 auto; 
+    margin-top: 13%;
+    font-size:1.15vw;
+ }
+
+ .username{
+     margin: 1% auto; 
+     margin-bottom: 2%;
+ }
+
+ mat-form-field.login-email{
+    max-width: 22vw;
+    max-height: 1vw;
+    font-size: 13px; 
+ }
+
+ mat-form-field.login-password{
+    width: 17vw;
+    height: 3vw;
+    font-size: 13px; 
+ }
+
+ .login-button{
+    margin: 0 auto; 
+    margin-top: 1.5%;
+    width: 17vw;
+    height: 3vw;
+    color: white;
+ }
+
+ .login{
+    width: 17vw;
+    height: 3vw;
+    font-weight: 200; 
+    font-stretch: ultra-expanded;
+ }
+
+ .mat-basic{
+    background-color:rgb(27,131,67);
+    color: #fff;
+}
+
+ .forgotten-password{
+    margin-top: 2.0%;
+    font-size: 1vw;
+    font-style: italic;
+ }
+ /* unvisited link */
+a:link {
+    color: green;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: black;
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  }
+
