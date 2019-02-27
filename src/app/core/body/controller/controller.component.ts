@@ -284,6 +284,7 @@ export class ControllerComponent {
     this.dp2.value = "";
     this.slidetoggle.checked = false;
     document.getElementById("dp2_div").style.display = "none";
+    this.resetForm();
   }
 
   // End of date reset button logic
