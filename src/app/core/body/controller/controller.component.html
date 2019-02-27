@@ -81,6 +81,26 @@
               </mat-form-field>
             </div>
           </div>
+          <div class="time-chip">
+            <!-- Time picker scroll-->
+            <div class="custom-slider">
+              <div class="left-slider">
+                <!-- time slider -->
+                <form [formGroup]="sliderForm">
+                  <ng5-slider
+                    formControlName="sliderControl"
+                    [(value)]="minValue1"
+                    [(highValue)]="maxValue1"
+                    [options]="options1"
+                    (userChangeEnd)="onUserChangeEnd($event)"
+                    style="margin-bottom: 0.2rem;"
+                    required
+                  >
+                  </ng5-slider>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </mat-grid-tile>
       <!-- Date Picker END-->
@@ -93,31 +113,12 @@
       >
         <!-- Time card -->
         <mat-grid-tile-header>
-          <span class="material-icons">schedule</span>&nbsp; Time
+          <span class="material-icons">schedule</span>&nbsp; Other Options
           <button mat-mini-fab class="reset-button-row" (click)="resetForm()">
             <mat-icon aria-label="reset-button">refresh</mat-icon>
           </button>
         </mat-grid-tile-header>
-        <div class="time-chip">
-          <!-- Time picker scroll-->
-          <div class="custom-slider">
-            <div class="left-slider">
-              <!-- time slider -->
-              <form [formGroup]="sliderForm">
-                <ng5-slider
-                  formControlName="sliderControl"
-                  [(value)]="minValue1"
-                  [(highValue)]="maxValue1"
-                  [options]="options1"
-                  (userChangeEnd)="onUserChangeEnd($event)"
-                  style="margin-bottom: 0.2rem;"
-                  required
-                >
-                </ng5-slider>
-              </form>
-            </div>
-          </div>
-        </div>
+        
       </mat-grid-tile>
       <mat-grid-tile class="options-tile" id="options-export" colspan="1">
         <!-- Export Options-->
