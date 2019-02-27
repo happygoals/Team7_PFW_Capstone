@@ -118,3 +118,81 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Styling for the Other Options section! */
+
+.opt_wrap {
+  margin: 0 auto;
+  margin-top: 12%;
+}
+
+.Age_Container {
+  width: 100%;
+  min-width: 440px;
+  height: auto;
+}
+
+.Age1 {
+  margin-top: 0%;
+  margin-left: 1%;
+  padding-right: 2%;
+  font-size: 14px;
+  float: left;
+  width: 200px;
+}
+
+.Age2 {
+  margin-top: 0%;
+  margin-left: 2%;
+  padding-left: 2%;
+  font-size: 14px;
+  float: left;
+  width: 200px;
+}
+
+.WH_Container {
+  width: 100%;
+  min-width: 440px;
+  height: auto;
+}
+
+.Weight {
+  margin-top: 0%;
+  margin-left: 1%;
+  padding-right: 2%;
+  font-size: 14px;
+  float: left;
+  width: 200px;
+}
+
+.Height {
+  margin-top: 0%;
+  margin-left: 2%;
+  padding-left: 2%;
+  font-size: 14px;
+  float: left;
+  width: 200px;
+}
+
+.Gender_Container {
+  width: 100%;
+  min-width: 440px;
+  height: auto;
+}
+
+.Gender1 {
+  margin-top: 0%;
+  margin-left: 1%;
+  padding-right: 2%;
+  font-size: 14px;
+  float: left;
+  width: 200px;
+}
+
+.Hand1 {
+  margin-top: 0%;
+  margin-left: 2%;
+  padding-left: 2%;
+  font-size: 14px;
+  float: left;
+}

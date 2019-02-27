@@ -16,8 +16,8 @@
         Edit the Chart and Map using these tools!
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <!-- Date Picker Tile -->
-    <mat-grid-list class="Optionslist" cols="7">
+    <!-- Date and Time Picker Tile -->
+    <mat-grid-list class="Optionslist" cols="7" rowHeight="210px">
       <mat-grid-tile
         class="options-tile"
         id="options-time"
@@ -103,23 +103,108 @@
           </div>
         </div>
       </mat-grid-tile>
-      <!-- Date Picker END-->
-      <!-- Time Picker START-->
+      <!-- Date and Time Picker END-->
+      <!-- Other Options START-->
       <mat-grid-tile
         class="options-tile"
         id="options-time"
         colspan="3"
         [style.border-right]="'1px dashed #ddd'"
       >
-        <!-- Time card -->
         <mat-grid-tile-header>
           <span class="material-icons">schedule</span>&nbsp; Other Options
-          <button mat-mini-fab class="reset-button-row" (click)="resetForm()">
+          <button
+            mat-mini-fab
+            class="reset-button-row"
+            (click)="resetOptions()"
+          >
             <mat-icon aria-label="reset-button">refresh</mat-icon>
           </button>
         </mat-grid-tile-header>
-        
+        <div class="opt_wrap">
+          <div class="Age_Container">
+            <mat-form-field class="Age1">
+              <input
+                id="age1"
+                matInput
+                type="text"
+                placeholder="Starting Age"
+                [(ngModel)]="value1"
+              />
+              <button
+                mat-button
+                *ngIf="value1"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="value1 = ''"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+            <mat-form-field class="Age2">
+              <input
+                id="age2"
+                matInput
+                type="text"
+                placeholder="End Age"
+                [(ngModel)]="value2"
+              />
+              <button
+                mat-button
+                *ngIf="value2"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="value2 = ''"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+          <div class="WH_Container">
+            <mat-form-field class="Weight">
+              <mat-select placeholder="Weight" [(value)]="weightValue">
+                <mat-option
+                  id="weight"
+                  *ngFor="let Weight of weights"
+                  [value]="Weight.value"
+                >
+                  {{ Weight.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="Height">
+              <mat-select placeholder="Height" [(value)]="heightValue">
+                <mat-option
+                  id="height"
+                  *ngFor="let Height of heights"
+                  [value]="Height.value"
+                >
+                  {{ Height.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="Gender_Container">
+            <mat-form-field class="Gender1">
+              <mat-select placeholder="Gender" [(value)]="genderValue">
+                <mat-option
+                  id="gender"
+                  *ngFor="let Gender of genders"
+                  [value]="Gender.value"
+                >
+                  {{ Gender.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-checkbox id="hand" class="Hand1" [(ngModel)]="checked_HD"
+              >Handicapped/Disabled</mat-checkbox
+            >
+          </div>
+        </div>
       </mat-grid-tile>
+      <!-- Other Options END -->
       <mat-grid-tile class="options-tile" id="options-export" colspan="1">
         <!-- Export Options-->
         <mat-grid-tile-header>
