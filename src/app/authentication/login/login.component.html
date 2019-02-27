@@ -1,26 +1,41 @@
 <body class="body">
+
+        <span id="logo">
+            <!-- replace with parkview icon -->
+         <h1> <img id="logo-image" src="../../assets/images/parkview-health-logo-w.png" alt="Parkview Health logo"/>
+          <a id="create-account"href="/"> Create account! </a></h1>  
+          </span>
+
   <div class="center-container">
+      <div class="only-parkview">
+          <label>PARKVIEW STAFF ONLY </label>
+      </div>
     <div class="username">
-      <mat-form-field>
-        <input matInput placeholder="Email" [formControl]="emailFormControl">
+
+      <mat-form-field appearance="outline" class="login-email">
+          <mat-label>Email</mat-label>
+        <input matInput placeholder="Enter your email address" [formControl]="emailFormControl">
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
             Please enter a valid email address
         </mat-error>
         <mat-error *ngIf="emailFormControl.hasError('required')">
             Email is <strong>required</strong>
         </mat-error>
+        <mat-icon matSuffix>email</mat-icon>
       </mat-form-field>
     </div>
-    <div class="password">
-
-    </div>
+      <div class="password">
+        <mat-form-field appearance="outline" class="login-password">
+            <mat-label>Password</mat-label>
+          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="login-button">
+          <button mat-raised-button color="basic" class="login" [routerLink]="['/population']">LOGIN</button>
+      </div>
     <div class="forgotten-password">
-      <label>Recover Forgotten Password. </label>
+      <a [routerLink]="['/forgotpass']">Forgot password ? </a>
     </div>
-   
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>   
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
-
   </div>
 </body>

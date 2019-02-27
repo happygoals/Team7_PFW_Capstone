@@ -15,4 +15,5 @@ export class LoginComponent {
     Validators.email,
   ]);
 
+  hide = true;
 }
