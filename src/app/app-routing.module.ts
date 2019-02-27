@@ -3,14 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { PopulationComponent } from 'src/app/core/body/population/population.component';
 import { RoutingComponent } from 'src/app/core/body/routing/routing.component';
 import { SettingsComponent } from 'src/app/core/body/settings/settings.component';
-import { HomeComponent } from 'src/app/core/body/home/home.component';
+import { LoginComponent } from './authentication/login/login.component';
 
 
 const routes: Routes = [
   { path: 'population', component: PopulationComponent},
   { path: 'routing', component: RoutingComponent},
   { path: 'settings', component: SettingsComponent},
-  { path: 'home', component: HomeComponent}
+  { path: 'login', component: LoginComponent},
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({

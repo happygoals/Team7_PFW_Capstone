@@ -14,7 +14,6 @@ import { PopulationComponent } from './core/body/population/population.component
 import { HeatmapComponent } from './core/body/population/heatmap/heatmap.component';
 import { RoutingComponent } from './core/body/routing/routing.component';
 import { SettingsComponent } from './core/body/settings/settings.component';
-import { HomeComponent } from './core/body/home/home.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { ChartComponent } from './core/body/routing/chart/chart.component';
 import { jqxChartComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
@@ -33,7 +32,6 @@ import { DatePipe } from '@angular/common';
     HeaderComponent,
     PopulationComponent,
     RoutingComponent,
-    HomeComponent,
     LoginComponent,
     SettingsComponent,
     ControllerComponent,
