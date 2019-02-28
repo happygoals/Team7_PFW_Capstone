@@ -11,8 +11,8 @@ div.body2 {
   margin: 1% 2% 3% 2%;
   padding-top: 1%;
   padding-bottom: 1%;
-  padding-left: 0%;
-  padding-right: 0%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
 /* Body Styling END */
@@ -28,54 +28,66 @@ mat-grid-list.Lowerbodylist {
 
 mat-grid-tile.fact1 {
   margin-left: 2.5vw;
+  border-radius: 4px; /* 4px rounded corners */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 mat-grid-tile.fact2 {
   margin-left: 2.5vw;
+  border-radius: 4px; /* 4px rounded corners */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 mat-grid-tile.fact3 {
   margin-left: 2.5vw;
   margin-bottom: 2.5vw;
+  border-radius: 4px; /* 4px rounded corners */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
   /* mat-card style for the fact-boxes START*/
   mat-card.box1{
+    max-width: 630px; 
+    min-width: 630px; 
+    height: auto;  
     margin: 1% auto;
     background-color: rgba(25, 91, 38, 200);
-    color: white;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    color: #fafafa;
     transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
   }
 
   mat-card.box1:hover{
     box-shadow: 0 16px 16px 0 rgba(0,0,0,0.4);
+    text-shadow: 1px 1px rgba(21, 40, 22, 0.9);
   }
 
   mat-card.box2{
+    max-width: 630px; 
+    min-width: 630px; 
     margin: 1% auto;
+    padding: 1%; 
     background-color: rgba(30, 109, 46, 200);
-    color: white;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    color: #fafafa;
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
   }
 
   mat-card.box2:hover{
-    box-shadow: 0 16px 16px 0 rgba(0,0,0,0.4);
+    box-shadow: 0 16px 16px 0 rgba(0,0,0,0.4); 
+    text-shadow: 1px 1px rgba(21, 40, 22, 0.9);
   }
 
   mat-card.box3{
-    margin: 1% auto;
+    max-width: 630px; 
+    min-width: 630px; 
     background-color: rgba(30, 137, 51, 200);
-    color: white;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    color: #fafafa;
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
   }
 
   mat-card.box3:hover{
     box-shadow: 0 16px 16px 0 rgba(0,0,0,0.4);
+    text-shadow: 1px 1px rgba(21, 40, 22, 0.9);
   }
   /* mat-card style for the fact-boxes END */
 
@@ -137,7 +149,6 @@ body.is-preload *:after {
 /* Type */
 
 body {
-  background-color: #935d8c;
   color: rgba(255, 255, 255, 0.65);
 }
 
@@ -204,7 +215,8 @@ i {
 
 p {
   margin: 0 0 2em 0;
-  font-size:1.7vw;
+  font-size:2.1vw;
+  font-weight: 500;
   line-height: 0.3;
 }
 
@@ -214,7 +226,10 @@ h1{
 }
 
 h2{
-  font-size:2vw;
+  text-align:left; 
+  font-size: 1.4vw;
+  font-weight: 200;
+  line-height: 2.3;
 }
 
 h3{
@@ -227,7 +242,7 @@ h4{
 
 span {
   font-size: 4.0vw;
-  margin-left: 2vw;
+  margin-left: 4vw;
 }
 /* Responsive text END */
 

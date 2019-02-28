@@ -8,7 +8,6 @@ import { MatCheckboxModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
-import { LogoutComponent } from './authentication/logout/logout.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { PopulationComponent } from './core/body/population/population.component';
@@ -25,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { ForgotpassComponent } from './authentication/forgotpass/forgotpass.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { DatePipe } from '@angular/common';
     PopulationComponent,
     RoutingComponent,
     LoginComponent,
-    LogoutComponent,
+    ForgotpassComponent,
     SettingsComponent,
     ControllerComponent,
     HeatmapComponent,

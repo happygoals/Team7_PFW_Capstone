@@ -47,7 +47,6 @@ export class RoutingComponent implements OnInit{
   }
 
   callParse(){
-    console.log('prased');
     par(this.beacons)
   }
   getAll(){
