@@ -7,122 +7,219 @@
   tiles in this component.
 -->
 <mat-card>
-  <!-- Date Picker Tile -->
-  <mat-grid-list class="Optionslist" cols="7">
-    <mat-grid-tile
-      class="options-tile"
-      id="options-time"
-      colspan="3"
-      [style.border-right]="'1px dashed #ddd'"
-    >
-      <mat-grid-tile-header>
-        <span class="material-icons">date_range</span> &nbsp; Date
-        <button mat-mini-fab class="reset-button-row" (click)="resetDate()">
-          <mat-icon aria-label="reset-button">refresh</mat-icon>
-        </button>
-      </mat-grid-tile-header>
-      <div id="wrap">
-        <div class="dselection">
-          <label style="font-size:14px;">Single Mode &nbsp;</label>
-          <mat-slide-toggle
-            #slidetoggle
-            id="slidetoggle"
-            color="primary"
-            class="date-toggle"
-            (change)="toggle($event)"
-            checked="false"
-          ></mat-slide-toggle>
-          <label style="font-size:14px;">&nbsp; Range Mode</label>
-        </div>
-        <div class="container">
-          <div class="dp1">
-            <mat-form-field class="dateform">
-              <input
-                id="dp1"
-                #dp1
-                matInput
-                [matDatepicker]="dp1"
-                placeholder="Start date"
-                (dateinput)="addEvent('input', $event)"
-                (dateChange)="addEvent('change', $event)"
-              />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="dp1"
-              ></mat-datepicker-toggle>
-              <mat-datepicker #dp1></mat-datepicker>
-            </mat-form-field>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Dynamic Controls
+      </mat-panel-title>
+      <mat-panel-description>
+        Edit the Chart and Map using these tools!
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!-- Date and Time Picker Tile -->
+    <mat-grid-list class="Optionslist" cols="7" rowHeight="210px">
+      <mat-grid-tile
+        class="options-tile"
+        id="options-time"
+        colspan="3"
+        [style.border-right]="'1px dashed #ddd'"
+      >
+        <mat-grid-tile-header>
+          <span class="material-icons">date_range</span> &nbsp; Date
+          <button mat-mini-fab class="reset-button-row" (click)="resetDate()">
+            <mat-icon aria-label="reset-button">refresh</mat-icon>
+          </button>
+        </mat-grid-tile-header>
+        <div id="wrap">
+          <div class="dselection">
+            <label style="font-size:14px;">Single Mode &nbsp;</label>
+            <mat-slide-toggle
+              #slidetoggle
+              id="slidetoggle"
+              color="primary"
+              class="date-toggle"
+              (change)="toggle($event)"
+              checked="false"
+            ></mat-slide-toggle>
+            <label style="font-size:14px;">&nbsp; Range Mode</label>
           </div>
-          <div id="dp2_div" class="dp2" style="display:none;">
-            <mat-form-field class="dateform">
-              <input
-                id="dp2"
-                #dp2
-                matInput
-                [matDatepicker]="dp2"
-                placeholder="End date"
-                (dateinput)="addEvent('input', $event)"
-                (dateChange)="addEvent('change', $event)"
-              />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="dp2"
-              ></mat-datepicker-toggle>
-              <mat-datepicker #dp2></mat-datepicker>
-            </mat-form-field>
+          <div class="container">
+            <div class="dp1">
+              <mat-form-field class="dateform">
+                <input
+                  id="dp1"
+                  #dp1
+                  matInput
+                  [matDatepicker]="dp1"
+                  placeholder="Start date"
+                  (dateinput)="addEvent('input', $event)"
+                  (dateChange)="addEvent('change', $event)"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="dp1"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #dp1></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div id="dp2_div" class="dp2" style="display:none;">
+              <mat-form-field class="dateform">
+                <input
+                  id="dp2"
+                  #dp2
+                  matInput
+                  [matDatepicker]="dp2"
+                  placeholder="End date"
+                  (dateinput)="addEvent('input', $event)"
+                  (dateChange)="addEvent('change', $event)"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="dp2"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #dp2></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="time-chip">
+            <!-- Time picker scroll-->
+            <div class="custom-slider">
+              <div class="left-slider">
+                <!-- time slider -->
+                <form [formGroup]="sliderForm">
+                  <ng5-slider
+                    formControlName="sliderControl"
+                    [(value)]="minValue1"
+                    [(highValue)]="maxValue1"
+                    [options]="options1"
+                    (userChangeEnd)="onUserChangeEnd($event)"
+                    style="margin-bottom: 0.2rem;"
+                    required
+                  >
+                  </ng5-slider>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </mat-grid-tile>
-    <!-- Date Picker END-->
-    <!-- Time Picker START-->
-    <mat-grid-tile
-      class="options-tile"
-      id="options-time"
-      colspan="3"
-      [style.border-right]="'1px dashed #ddd'"
-    >
-      <!-- Time card -->
-      <mat-grid-tile-header>
-        <span class="material-icons">schedule</span>&nbsp; Time
-        <button mat-mini-fab class="reset-button-row" (click)="resetForm()">
-          <mat-icon aria-label="reset-button">refresh</mat-icon>
-        </button>
-      </mat-grid-tile-header>
-      <div class="time-chip">
-        <!-- Time picker scroll-->
-        <div class="custom-slider">
-          <div class="left-slider">
-            <!-- time slider -->
-            <form [formGroup]="sliderForm">
-              <ng5-slider
-                formControlName="sliderControl"
-                [(value)]="minValue1"
-                [(highValue)]="maxValue1"
-                [options]="options1"
-                (userChangeEnd)="onUserChangeEnd($event)"
-                style="margin-bottom: 0.2rem;"
-                required
+      </mat-grid-tile>
+      <!-- Date and Time Picker END-->
+      <!-- Other Options START-->
+      <mat-grid-tile
+        class="options-tile"
+        id="options-time"
+        colspan="3"
+        [style.border-right]="'1px dashed #ddd'"
+      >
+        <mat-grid-tile-header>
+          <span class="material-icons">schedule</span>&nbsp; Other Options
+          <button
+            mat-mini-fab
+            class="reset-button-row"
+            (click)="resetOptions()"
+          >
+            <mat-icon aria-label="reset-button">refresh</mat-icon>
+          </button>
+        </mat-grid-tile-header>
+        <div class="opt_wrap">
+          <div class="Age_Container">
+            <mat-form-field class="Age1">
+              <input
+                id="age1"
+                matInput
+                type="text"
+                placeholder="Starting Age"
+                [(ngModel)]="value1"
+              />
+              <button
+                mat-button
+                *ngIf="value1"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="value1 = ''"
               >
-              </ng5-slider>
-            </form>
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+            <mat-form-field class="Age2">
+              <input
+                id="age2"
+                matInput
+                type="text"
+                placeholder="End Age"
+                [(ngModel)]="value2"
+              />
+              <button
+                mat-button
+                *ngIf="value2"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="value2 = ''"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+          <div class="WH_Container">
+            <mat-form-field class="Weight">
+              <mat-select placeholder="Weight" [(value)]="weightValue">
+                <mat-option
+                  id="weight"
+                  *ngFor="let Weight of weights"
+                  [value]="Weight.value"
+                >
+                  {{ Weight.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="Height">
+              <mat-select placeholder="Height" [(value)]="heightValue">
+                <mat-option
+                  id="height"
+                  *ngFor="let Height of heights"
+                  [value]="Height.value"
+                >
+                  {{ Height.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="Gender_Container">
+            <mat-form-field class="Gender1">
+              <mat-select placeholder="Gender" [(value)]="genderValue">
+                <mat-option
+                  id="gender"
+                  *ngFor="let Gender of genders"
+                  [value]="Gender.value"
+                >
+                  {{ Gender.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-checkbox id="hand" class="Hand1" [(ngModel)]="checked_HD"
+              >Handicapped/Disabled</mat-checkbox
+            >
           </div>
         </div>
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile class="options-tile" id="options-export" colspan="1">
-      <!-- Export Options-->
-      <mat-grid-tile-header>
-        <span class="material-icons">get_app</span> &nbsp;Export
-      </mat-grid-tile-header>
-      <div style="margin-top: 50px">
-        <button (click)="callParse()">
-          <span
-            class="material-icons"
-            style="margin: 0px auto; font-size: 70px;"
-            >vertical_align_bottom</span>
-        </button>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+      </mat-grid-tile>
+      <!-- Other Options END -->
+      <mat-grid-tile class="options-tile" id="options-export" colspan="1">
+        <!-- Export Options-->
+        <mat-grid-tile-header>
+          <span class="material-icons">get_app</span> &nbsp;Export
+        </mat-grid-tile-header>
+        <div style="margin-top: 50px">
+          <button (click)="callParse()">
+            <span
+              class="material-icons"
+              style="margin: 0px auto; font-size: 70px;"
+              >vertical_align_bottom</span
+            >
+          </button>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-expansion-panel>
 </mat-card>

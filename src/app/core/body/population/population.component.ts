@@ -22,7 +22,6 @@ declare var listItem: any
 declare function StoreValueForHeatmap(Array): any
 
 
-
 @Component({
   selector: "app-core-body-population",
   templateUrl: "./population.component.html",
@@ -35,8 +34,6 @@ export class PopulationComponent implements OnInit {
   public routeBeacons: Beacon[];
   errorMessage: String;
   public beaconSet : any[];
-
-
 
   ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
   startDate: string = "2018-01-19";

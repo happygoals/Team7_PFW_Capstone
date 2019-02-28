@@ -11,8 +11,8 @@ body {
       margin: 1% 2% 3% 2%;
       padding-top: 1%;
       padding-bottom: 1%;
-      padding-left: 0%;
-      padding-right: 0%;
+      padding-left: 1%;
+      padding-right: 1%;
     }
 
   /* Body Styling END */
@@ -52,16 +52,9 @@ body {
   }
 
   /* chart box START */
-    mat-card.chartbox {
-        margin-left: 1.0%;
-        margin-right: 1.0%;
-        margin-top: 1.0%;
-        margin-bottom: 1.0%;
-        align-content: center;
-        align-items: center;
-        /*background-color: #EAEAEA;*/
-        max-width: 100%;
-        height: auto;
+    .chartbox {
+        padding: 1%;
+        box-sizing: border-box;
     }
 
     div.chart-title {
