@@ -1,14 +1,15 @@
 /* Body Gradient Styling */
 
 body {
+  background-color: #000000;
   background: url("/../../../assets/images/overlay.png") no-repeat center center fixed,
-    -moz-linear-gradient(180deg, #1dc525 25%, #3fb610 75%) ;
+    -moz-linear-gradient(180deg, #4a9f50 25%, #7ee36a 75%) ;
   background: url("/../../../assets/images/overlay.png") no-repeat center center fixed,
-    -webkit-linear-gradient(180deg, #1dc525 25%, #3fb610 75%);
+    -webkit-linear-gradient(180deg, #4a9f50 25%, #7ee36a 75%);
   background: url("/../../../assets/images/overlay.png") no-repeat center center fixed,
-    -ms-linear-gradient(180deg, #1dc525 25%, #3fb610 75%);
+    -ms-linear-gradient(180deg, #4a9f50 25%, #7ee36a 75%);
   background: url("/../../../assets/images/overlay.png") no-repeat center center fixed,
-    linear-gradient(180deg, #1dc525 25%, #3fb610 75%);
+    linear-gradient(180deg, #4a9f50 25%, #7ee36a 75%);
     -webkit-background-size: cover; /* For WebKit */
     -moz-background-size: cover;    /* Mozilla */
     -o-background-size: cover;      /* Opera */
@@ -38,6 +39,10 @@ body {
 
 .emailLabel {
   margin-right: 4%;
+}
+
+.emailinput{
+  width: 40vw;
 }
 
 .parkIcon {

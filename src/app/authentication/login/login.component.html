@@ -27,7 +27,7 @@
       <div class="password">
         <mat-form-field appearance="outline" class="login-password">
             <mat-label>Password</mat-label>
-          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+          <input matInput [type]="hide ? 'password' : 'text'">
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
       </div>
@@ -35,6 +35,7 @@
           <button mat-raised-button color="basic" class="login" [routerLink]="['/population']">LOGIN</button>
       </div>
     <div class="forgotten-password">
+        <mat-checkbox> Remember me!</mat-checkbox><br>
       <a [routerLink]="['/forgotpass']">Forgot password ? </a>
     </div>
   </div>

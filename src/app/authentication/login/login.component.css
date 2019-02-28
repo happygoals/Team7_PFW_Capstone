@@ -36,6 +36,11 @@ html, body {
     align-content: center;
     align-items: center;
     text-align: center;
+    position: fixed;
+    left: calc(-50vw + 50%);
+    right: calc(-50vw + 50%);
+    margin-left: auto;
+    margin-right: auto;
  }
 
  .only-parkview{
@@ -50,14 +55,14 @@ html, body {
  }
 
  mat-form-field.login-email{
-    max-width: 22vw;
-    max-height: 1vw;
+    width: 17vw;
+    height: 1vw;
     font-size: 13px; 
  }
 
  mat-form-field.login-password{
     width: 17vw;
-    height: 3vw;
+    height: 1vw;
     font-size: 13px; 
  }
 
@@ -82,7 +87,7 @@ html, body {
 }
 
  .forgotten-password{
-    margin-top: 2.0%;
+    margin-top: 1.0%;
     font-size: 1vw;
     font-style: italic;
  }
