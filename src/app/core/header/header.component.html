@@ -28,14 +28,14 @@
         <i class="material-icons">expand_more</i>
       </button>
       <mat-menu #menu="matMenu">
-      <button mat-menu-item> 
+      <button mat-menu-item>
           <!--disabled : if you don't want to use it-->
           <i class="material-icons" [routerLink]="['/settings']">settings</i>
           <span [routerLink]="['/settings']"> Account Setting</span>
         </button>
         <button mat-menu-item>
-          <i class="material-icons" [routerLink]="['/']">power_settings_new</i>
-          <span [routerLink]="['/']"> Sign Out</span>
+          <i class="material-icons" [routerLink]="['/login']">power_settings_new</i>
+          <span [routerLink]="['/login']"> Sign Out</span>
         </button>
       </mat-menu>
     </li>

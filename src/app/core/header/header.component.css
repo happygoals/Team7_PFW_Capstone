@@ -70,7 +70,7 @@ header{
     font-size: 10pt;
     font-weight: 300;
     line-height: 1.50;
-    background-color: #43cc0d;
+    background-color: #000000;
     background-image: url("../../../assets/images/overlay.png"), -moz-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
     background-image: url("../../../assets/images/overlay.png"), -webkit-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
     background-image: url("../../../assets/images/overlay.png"), -ms-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);

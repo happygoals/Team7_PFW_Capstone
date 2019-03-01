@@ -1,0 +1,40 @@
+<body>
+  <img
+    class="parkIcon"
+    src="../../../assets/images/parkview-health-logo-w.png"
+    alt="Parkview Health logo"
+  />
+  <form class="emailForm">
+    <div class="inputCenter">
+      <h1 style="font-weight: 300;">Forgot Your Password</h1>
+        <div>
+        <label class="emailLabel">Email Address </label><br>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Put your email address"
+            [formControl]="emailFormControl"
+            [errorStateMatcher]="matcher"
+            class="emailinput"
+          />
+          <mat-error
+            *ngIf="
+              emailFormControl.hasError('email') &&
+              !emailFormControl.hasError('required')
+            "
+          >
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <br />
+    <div class="submissionButtons">
+      <button mat-raised-button color="basic">Retrieve Password</button>
+      <button mat-raised-button color="warn" [routerLink]="['/login']" >Cancel</button>
+    </div>
+  </form>
+</body>
