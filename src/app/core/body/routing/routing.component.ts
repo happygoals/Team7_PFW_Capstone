@@ -54,8 +54,6 @@ export class RoutingComponent implements OnInit{
     .subscribe(
       (data : Beacon[]) =>{
           this.beacons = data;
-          console.log(this.beacons);
-          console.log(this.beacons[1]);
         });
   }
   getBeaconSets(startDate, endDate, startTime, endTime){
@@ -63,7 +61,6 @@ export class RoutingComponent implements OnInit{
     .subscribe(
       (data : Beacon[]) =>{
           this.beacons = data;
-          console.log(this.beacons);
         });
   }
 }

@@ -12,12 +12,16 @@ interface External {
   beaconList: Variable
   listItemD: Variable
   listItem: Variable
+  heatList: Variable
+  returnValueForHeatMap: Function
   StoreValueForHeatmap: Function
 }
 
 declare function help(string): any
 declare function par(list):any
+declare function returnValueForHeatMap():any
 declare var k: any
+declare var heatList: any
 declare var listItem: any
 declare function StoreValueForHeatmap(Array): any
 
@@ -34,6 +38,7 @@ export class PopulationComponent implements OnInit {
   public routeBeacons: Beacon[];
   errorMessage: String;
   public beaconSet : any[];
+  heats: any;
 
   ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
   startDate: string = "2018-01-19";
@@ -53,14 +58,11 @@ export class PopulationComponent implements OnInit {
   }
 
   callParse() {
-    console.log("prased");
     par(this.beacons);
   }
   getAll() {
     this.beaconService.getAllBeacons().subscribe((data: Beacon[]) => {
       this.beacons = data;
-      console.log(this.beacons);
-      console.log(this.beacons[1]);
     });
   }
   getBeaconSets(startDate, endDate, startTime, endTime) {
@@ -68,7 +70,7 @@ export class PopulationComponent implements OnInit {
       .getBeaconSets(startDate, endDate, startTime, endTime)
       .subscribe((data: Beacon[]) => {
         this.beacons = data;
-        console.log(this.beacons);
       });
+      console.log('this is popilation ');
   }
 }

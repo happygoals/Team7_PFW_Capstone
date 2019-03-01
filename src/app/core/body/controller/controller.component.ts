@@ -17,11 +17,16 @@ interface External {
   beaconList: Variable;
   listItemD: Variable;
   listItem: Variable;
+  StoreValueForHeatmap: Function
+  returnValueForHeatMap: Function
 }
 
 declare function help(string): any;
 declare function par(list): any;
 declare var k: any;
+declare var listItem: any
+declare function returnValueForHeatMap():any
+declare function StoreValueForHeatmap(Array): any
 
 @Component({
   selector: "app-core-body-controller",
@@ -34,7 +39,10 @@ export class ControllerComponent {
   public beacon: Beacon;
   public routeBeacons: Beacon[];
   errorMessage: String;
+  heatList: any
   public beaconSet: any[];
+  url = 'http://localhost:4200';
+  url1 = 'http://localhost:4200/population';
 
   ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
   startDate: string = "2018-01-19";
@@ -59,8 +67,9 @@ export class ControllerComponent {
   }
 
   callParse() {
-    console.log("prased");
     par(this.beacons);
+    StoreValueForHeatmap(listItem)
+    this.heatList = returnValueForHeatMap()
   }
 
   getAll() {
@@ -108,6 +117,7 @@ export class ControllerComponent {
       this.startTime,
       this.endTime
     );
+
     return this.startTime;
   }
 
@@ -121,6 +131,7 @@ export class ControllerComponent {
       this.startTime,
       this.endTime
     );
+
     return this.endTime;
   }
   /* user-event-slider END */
