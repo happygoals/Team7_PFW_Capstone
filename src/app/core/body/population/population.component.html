@@ -2,7 +2,7 @@
 <body>
   <!-- Body 2 Div, for White wrap around objects -->
   <div class="body2">
-    <app-core-body-controller></app-core-body-controller>
+    <app-core-body-controller (outputToParent)="GetOutput($event)"></app-core-body-controller>
     <!-- This will contain the Facts Boxes on the left side of the screen -->
     <!-- and the map on the right side of the screen -->
     <mat-grid-list class="Lowerbodylist" cols="3" rows="3" rowHeight="125px" gutterSize="20px">
@@ -19,7 +19,7 @@
       </mat-grid-tile>
       <mat-grid-tile class="map1" colspan="2" rowspan="3">
         <!-- showing heat color on the map -->
-        <app-core-body-population-heatmap></app-core-body-population-heatmap>
+        <app-core-body-population-heatmap [heatList] = 'heats'></app-core-body-population-heatmap>
       </mat-grid-tile>
 
       <mat-grid-tile class="fact2" colspan="1" rowspan="1">

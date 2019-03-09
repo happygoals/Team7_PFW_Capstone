@@ -4,7 +4,7 @@ import { Timeset } from "./../routing/timeset";
 import { DatePipe } from "@angular/common";
 import { BeaconService } from "./../../../services/beacon.service";
 import { Beacon } from "./../../../services/beacon";
-import { Component, ViewChild } from "@angular/core";
+import { Component, ViewChild, EventEmitter, Input, Output } from "@angular/core";
 import { Router } from "@angular/router";
 import {
   MatButton,
@@ -23,6 +23,8 @@ interface External {
   beaconList: Variable;
   listItemD: Variable;
   listItem: Variable;
+  StoreValueForHeatmap: Function
+  returnValueForHeatMap: Function
 }
 
 // This is for the gender select
@@ -46,6 +48,9 @@ export interface Height {
 declare function help(string): any;
 declare function par(list): any;
 declare var k: any;
+declare var listItem: any
+declare function returnValueForHeatMap():any
+declare function StoreValueForHeatmap(Array): any
 
 @Component({
   selector: "app-core-body-controller",
@@ -53,14 +58,20 @@ declare var k: any;
   styleUrls: ["./controller.component.css", "./controller.component.scss"]
 })
 export class ControllerComponent {
+  @Output() outputToParent = new EventEmitter<any>();
   public beacons: Beacon[];
   public beacon: Beacon;
   public routeBeacons: Beacon[];
   errorMessage: String;
+  heatList: any
   public beaconSet: any[];
   panelOpenState = false;
   events: string[] = [];
 
+  NotifyParent( selected : any){
+    this.outputToParent.emit(selected);
+  }
+  
   // Form Variables for Input clearing
   value1 = '';
   value2 = '';
@@ -88,10 +99,10 @@ export class ControllerComponent {
   logText: string = ''; // to print the time result
 
   ary: any = ['2018-01-19', '2018-01-20', '07:30:00', '08:01:32'];
-  startDate: string = '2018-01-19';
-  endDate: string = '2018-01-29';
-  startTime: string = '07:30:00';
-  endTime: string = '07:50:00';
+  startDate: string = '';
+  endDate: string = '';
+  startTime: string = '';
+  endTime: string = '';
 
   /* Time slider value reset */
   sliderForm: FormGroup = new FormGroup({
@@ -238,26 +249,6 @@ export class ControllerComponent {
   ) {}
 
   ngOnInit() {
-    // help(this.endTime)
-    this.getBeaconSets(
-      this.startDate,
-      this.endDate,
-      this.startTime,
-      this.endTime
-    );
-  }
-
-  callParse() {
-    console.log('prased');
-    par(this.beacons);
-  }
-
-  getAll() {
-    this.beaconService.getAllBeacons().subscribe((data: Beacon[]) => {
-      this.beacons = data;
-      console.log(this.beacons);
-      console.log(this.beacons[1]);
-    });
   }
 
   getBeaconSets(startDate, endDate, startTime, endTime) {
@@ -265,8 +256,8 @@ export class ControllerComponent {
       .getBeaconSets(startDate, endDate, startTime, endTime)
       .subscribe((data: Beacon[]) => {
         this.beacons = data;
-        console.log(this.beacons);
       });
+      this.NotifyParent(this.beacons)
   }
 
   // startTime: string = null; // to store the time string for low
@@ -294,6 +285,7 @@ export class ControllerComponent {
       this.startTime,
       this.endTime
     );
+    this.NotifyParent(this.beacons)
     return this.startTime;
   }
 
@@ -307,6 +299,7 @@ export class ControllerComponent {
       this.startTime,
       this.endTime
     );
+    this.NotifyParent(this.beacons)
     return this.endTime;
   }
   /* user-event-slider END */
@@ -331,7 +324,8 @@ export class ControllerComponent {
       this.endDate,
       this.startTime,
       this.endTime
-    );
+    );      
+    this.NotifyParent(this.beacons)
 
     // Checking for which datepicker is being used
     if (event.targetElement.id === 'dp1') {

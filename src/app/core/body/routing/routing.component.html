@@ -2,13 +2,13 @@
 <body>
   <!-- Body 2 Div, for White wrap around objects -->
   <div class="body2">
-    <app-core-body-controller></app-core-body-controller>
+    <app-core-body-controller (outputToParent)="GetOutput($event)"></app-core-body-controller>
     <!-- This will contain the Facts Boxes on the left side of the screen -->
     <!-- and the map on the right side of the screen -->
     <mat-grid-list class="Lowerbodylist" cols="8" rows="6">
       <mat-grid-tile class="chart" colspan="4" rowspan="3">
             
-        <app-core-body-routing-chart></app-core-body-routing-chart>
+        <app-core-body-routing-chart [routeList] = 'routes'></app-core-body-routing-chart>
 
       </mat-grid-tile>
       <mat-grid-tile class="map" colspan="4" rowspan="3">
