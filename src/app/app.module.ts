@@ -1,6 +1,7 @@
 import { ControllerComponent } from './core/body/controller/controller.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatGridListModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material';
@@ -25,6 +26,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { ForgotpassComponent } from './authentication/forgotpass/forgotpass.component';
+import { DxChartModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { ForgotpassComponent } from './authentication/forgotpass/forgotpass.comp
     MatButtonModule,
     MatCheckboxModule,
     MatMenuModule,
+    DxChartModule,
     Ng5SliderModule,
     HttpClientModule,
 
@@ -61,3 +64,5 @@ import { ForgotpassComponent } from './authentication/forgotpass/forgotpass.comp
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);

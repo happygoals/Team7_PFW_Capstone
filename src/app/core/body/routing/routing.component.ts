@@ -6,61 +6,65 @@ import { DatePipe } from '@angular/common';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 
 
+
 interface External {
   help: Function
   k: Variable
   par: Function
   beaconList: Variable
+  listItemD: Variable
+  listItem: Variable
+  heatList: Variable
+  parseRouting: Function
+  returnValueForHeatMap: Function
+  StoreValueForHeatmap: Function
+  resetHeatList: Function
+  StoreValueForRouting: Function
+  routeList: Variable
+  routeBeacons: Variable
 }
 
 declare function help(string): any
 declare function par(list):any
+declare function parseRouting(list):any
+declare function returnValueForHeatMap():any
 declare var k: any
-
+declare var heatList: any
+declare var routeBeacons: any
+declare var listItem: any
+declare var routeList:any
+declare function resetHeatList(): any
+declare function StoreValueForHeatmap(Array): any
+declare function StoreValueForRouting(Array): any
 @Component({
   selector: 'app-core-body-routing',
   templateUrl: './routing.component.html',
   styleUrls: ['./routing.component.css']
 })
 
-export class RoutingComponent implements OnInit{
+export class RoutingComponent{
 
   public beacons : Beacon[];
   public beacon : Beacon;
   public routeBeacons: Beacon[];
   errorMessage: String;
+  public routes : any;
   public beaconSet : any[];
 
-  ary: any = ["2018-01-19", "2018-01-20", "07:30:00", "08:01:32"];
-  startDate: string = '2018-01-19';
-  endDate: string = '2018-01-29';
-  startTime: string = '07:30:00';
-  endTime: string = '07:50:00';
   routingBeacons : Beacon[];
 
-  constructor(private beaconService: BeaconService, private router: Router, private datePipe: DatePipe) { }
-  ngOnInit() {
-    //help(k)
-    //help(this.startTime)
-    this.getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime);
-
+  GetOutput(selected: any){
+    if(selected)
+    {
+      this.beacons = selected;
+      this.callParse()
+    }
   }
 
-  callParse(){
-    par(this.beacons)
-  }
-  getAll(){
-    this.beaconService.getAllBeacons()
-    .subscribe(
-      (data : Beacon[]) =>{
-          this.beacons = data;
-        });
-  }
-  getBeaconSets(startDate, endDate, startTime, endTime){
-    this.beaconService.getBeaconSets(startDate, endDate, startTime, endTime)
-    .subscribe(
-      (data : Beacon[]) =>{
-          this.beacons = data;
-        });
+  callParse() {
+    parseRouting(this.beacons);
+    StoreValueForRouting(routeBeacons)
+    this.routes = routeList
+    console.log(this.routes)
   }
 }

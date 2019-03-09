@@ -10,85 +10,184 @@ function help(k) {
 
 
 let obj = new Array()
-obj = ["a","b"]
+obj = ["a", "b"]
 var objparse = []
 
 var text, posf, posb, output
 var beaconList = []
-var listItem = [[],[]]
+var routeBeacons =[]
+var routeList = []
+var listItem = [[], []]
 var listItemD = []
-var heatList 
-         = [0,0,0,0,0,0,0,0,0,0,0,
-            0,0,0,0,0,0,0,0,0,0,0,
-            0,0,0,0,0,0,0,0,0,0,0,
-            0,0,0,0,0,0,0,0,0,0,0,
-            0,0,0,0,0,0,0,0,0,0,0,
-            0,0,0,0,0,0,0,0,0,0,0,
-            0,0,0,0,0,0,0,0,0,0,0,
-            0,0,0,0,0,0]
+var heatList
+  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0]
 
 
 //pointer
-var x = {Value: 0};
+var x = { Value: 0 };
 
 //parsing function
 function par(beacons) {
-  heatList 
-  = [0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0]
-    obj = JSON.stringify(beacons)
-    objparse = JSON.parse(obj) //obj array parsing
+  obj = JSON.stringify(beacons)
+  objparse = JSON.parse(obj) //obj array parsing
 
-    for(var i = 0; i < objparse.length; i++){
+  for (var i = 0; i < objparse.length; i++) {
 
-      text = JSON.stringify(objparse[i])
-      //set the location to cut the text
-      posf = text.indexOf(":") + 2
-      posb = text.lastIndexOf("}") - 1
-      output = text.slice(posf,posb) //cut it
-      beaconList.push(output)
-      //1-D array
-      //listItemD[i] = beaconList[i].split("-")
-      beacons.Value++ // pointer move
-      //listItemD = beaconList.split("-")
-      //beacons.Value++ // pointer move
-      //store(push) cutted text (string) to list to 2-D
-      listItem[i] = beaconList[i].split("-")
-    }
-    //console.log(listItemD)
-    //console.log(beaconList)
+    text = JSON.stringify(objparse[i])
+    //set the location to cut the text
+    posf = text.indexOf(":") + 2
+    posb = text.lastIndexOf("}") - 1
+    output = text.slice(posf, posb) //cut it
+    beaconList.push(output)
+    //1-D array
+    //listItemD[i] = beaconList[i].split("-")
+    beacons.Value++ // pointer move
+    //listItemD = beaconList.split("-")
+    //beacons.Value++ // pointer move
+    //store(push) cutted text (string) to list to 2-D
+    listItem[i] = beaconList[i].split("-")
+  }
+  //console.log(listItemD)
+  //console.log(beaconList)
 }
 
-function returnValueForHeatMap(){
+function parseRouting(beacons) {
+  obj = JSON.stringify(beacons)
+  objparse = JSON.parse(obj) //obj array parsing
+
+  for (var i = 0; i < objparse.length; i++) {
+
+    text = JSON.stringify(objparse[i])
+    //set the location to cut the text
+    posf = text.indexOf(":") + 2
+    posb = text.lastIndexOf("}") - 1
+    output = text.slice(posf, posb) //cut it
+
+    routeBeacons.push(output)
+    //store(push) cutted text (string) to list
+    //  listItem[i] = beaconList[i].split("-")
+  }
+  console.log(routeBeacons)
+  //  console.log(listItem[3][3])
+}
+
+function returnValueForHeatMap() {
   return heatList
 }
-function StoreValueForHeatmap(listItem)
-{
-  heatList 
-  = [0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0,0,0,0,0,0,
-     0,0,0,0,0,0]
-  for(var j = 0; j < listItem.length; j++)
-  {
-    for(var k = 0; k< listItem.length; k++) {
-      switch (listItem[j][k]){
+
+function StoreValueForRouting(routeBeacons){
+  routeList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0]
+  for(var i =0; i < routeBeacons.length; i++){
+    switch(routeBeacons[i]){
+      case "0-58-60-10":
+        routeList[0]++
+        break;
+      case "0-20-30-27-35-5":
+        routeList[1]++
+        break;
+      case "0-20-30-27-35-21-4":
+        routeList[2]++
+        break;
+      case "0-20-30-27-35-21-23-36-29-37-51-9":
+        routeList[3]++
+        break;
+      case "0-20-30-27-35-21-23-36-29-37-51-72-75-33-40-46-39-7":
+        routeList[4]++
+        break; 
+      case "0-20-30-27-35-21-23-36-29-55-49-53-44-50-42-48-38-43-7":
+        routeList[5]++
+        break;
+      case "0-20-30-27-35-21-23-36-29-55-49-53-44-50-42-47-34-41-24-6":
+        routeList[6]++
+        break; 
+      case "0-20-30-27-31-22-28-32-8":
+        routeList[7]++
+        break;
+      case "0-20-30-27-35-21-23-36-29-37-51-70-68-64-59-65-62-69-63-11":
+        routeList[8]++
+        break;
+      case "1-24-6":
+        routeList[9]++
+        break;
+      case "1-24-41-34-47-42-48-38-43-7":
+        routeList[10]++
+        break;
+      case "1-24-41-34-47-42-50-44-53-49-56-45-51-9":
+        routeList[11]++
+        break;
+      case "1-24-41-34-47-42-50-44-53-49-55-29-36-23-21-4":
+        routeList[12]++
+        break;
+      case "1-24-41-34-47-42-50-44-53-49-55-29-36-23-21-35-5":
+        routeList[13]++
+        break;
+      case "1-24-41-34-47-42-50-44-53-49-55-29-36-23-21-35-27-30-20-58-60-10":
+        routeList[14]++
+        break;
+      case "1-24-41-34-47-42-50-44-53-49-55-29-37-51-70-66-71-67-8":
+        routeList[15]++
+        break;
+      case "1-24-41-34-47-42-50-44-53-49-55-29-37-51-70-68-64-59-65-62-69-63-11":
+        routeList[16]++
+        break;
+      case "2-25-59-65-62-69-63-11":
+        routeList[17]++
+        break;
+      case "2-25-33-40-46-39-7":
+        routeList[18]++
+        break;
+      case "2-25-33-40-46-39-43-38-48-42-47-38-41-24-6":
+        routeList[19]++
+        break;
+      case "2-25-75-72-51-9":
+        routeList[20]++
+        break;
+      case "2-25-75-72-51-70-66-71-67-8":
+        routeList[21]++
+        break;
+      case "2-25-64-68-70-66-71-67-8":
+        routeList[22]++
+        break;
+      case "2-25-75-72-51-37-29-36-23-21-4":
+        routeList[23]++
+        break;
+      case "2-25-75-72-51-37-29-36-23-21-35-5":
+        routeList[24]++
+        break;
+      case "2-25-75-72-51-37-29-36-23-21-35-27-30-20-58-60-10":
+        routeList[25]++
+        break;
+    }
+  }
+}
+function StoreValueForHeatmap(listItem) {
+  heatList
+    = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0]
+  for (var j = 0; j < listItem.length; j++) {
+    for (var k = 0; k < listItem.length; k++) {
+      switch (listItem[j][k]) {
         case "0":
           heatList[0]++
           break;
         case "1":
           heatList[1]++
-          break;  
+          break;
         case "2":
           heatList[2]++
           break;
@@ -97,19 +196,19 @@ function StoreValueForHeatmap(listItem)
           break;
         case "4":
           heatList[4]++
-          break;  
+          break;
         case "5":
           heatList[5]++
-          break; 
+          break;
         case "6":
           heatList[6]++
           break;
         case "7":
           heatList[7]++
-          break;  
+          break;
         case "8":
           heatList[8]++
-          break; 
+          break;
         case "9":
           heatList[9]++
           break;
@@ -121,7 +220,7 @@ function StoreValueForHeatmap(listItem)
           break;
         case "12":
           heatList[12]++
-          break;  
+          break;
         case "13":
           heatList[13]++
           break;
@@ -130,19 +229,19 @@ function StoreValueForHeatmap(listItem)
           break;
         case "15":
           heatList[15]++
-          break;  
+          break;
         case "16":
           heatList[16]++
-          break; 
+          break;
         case "17":
           heatList[17]++
           break;
         case "18":
           heatList[18]++
-          break;  
+          break;
         case "19":
           heatList[19]++
-          break; 
+          break;
         case "20":
           heatList[20]++
           break;
@@ -154,7 +253,7 @@ function StoreValueForHeatmap(listItem)
           break;
         case "23":
           heatList[23]++
-          break;  
+          break;
         case "24":
           heatList[24]++
           break;
@@ -163,19 +262,19 @@ function StoreValueForHeatmap(listItem)
           break;
         case "26":
           heatList[26]++
-          break;  
+          break;
         case "27":
           heatList[27]++
-          break; 
+          break;
         case "28":
           heatList[28]++
           break;
         case "29":
           heatList[29]++
-          break;  
+          break;
         case "30":
           heatList[30]++
-          break; 
+          break;
         case "31":
           heatList[31]++
           break;
@@ -187,7 +286,7 @@ function StoreValueForHeatmap(listItem)
           break;
         case "34":
           heatList[34]++
-          break;  
+          break;
         case "35":
           heatList[35]++
           break;
@@ -196,19 +295,19 @@ function StoreValueForHeatmap(listItem)
           break;
         case "37":
           heatList[37]++
-          break;  
+          break;
         case "38":
           heatList[38]++
-          break; 
+          break;
         case "39":
           heatList[39]++
           break;
         case "40":
           heatList[40]++
-          break;  
+          break;
         case "41":
           heatList[41]++
-          break; 
+          break;
         case "42":
           heatList[42]++
           break;
@@ -217,7 +316,7 @@ function StoreValueForHeatmap(listItem)
           break;
         case "44":
           heatList[44]++
-          break; 
+          break;
         case "45":
           heatList[45]++
           break;
@@ -226,7 +325,7 @@ function StoreValueForHeatmap(listItem)
           break;
         case "47":
           heatList[47]++
-          break; 
+          break;
         case "48":
           heatList[48]++
           break;
@@ -312,12 +411,12 @@ function StoreValueForHeatmap(listItem)
           heatList[75]++
           break;
       }
-        
+
     }
 
 
-    
-    
+
+
   }
 
 }
