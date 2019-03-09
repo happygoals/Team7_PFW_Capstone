@@ -19,4 +19,7 @@ export class HeaderComponent {
 
     this.trigger.openMenu();
   }
+
+  
+  
 }
