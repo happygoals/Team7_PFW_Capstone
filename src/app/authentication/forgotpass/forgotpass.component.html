@@ -8,9 +8,10 @@
     <div class="inputCenter">
       <h1 style="font-weight: 300;">Forgot Your Password</h1>
         <div>
-        <label class="emailLabel">Email Address </label><br>
+        <label class="emailLabel">Email Address </label>
         <mat-form-field>
           <input
+            [(ngModel)]="input"
             matInput
             placeholder="Put your email address"
             [formControl]="emailFormControl"
@@ -33,8 +34,11 @@
     </div>
     <br />
     <div class="submissionButtons">
-      <button mat-raised-button color="basic">Retrieve Password</button>
+      <button mat-raised-button color="basic" (click)="emailSent();">Retrieve Password</button>
       <button mat-raised-button color="warn" [routerLink]="['/login']" >Cancel</button>
+    </div>
+    <div class="emailSent">
+      <h2> An email has been sent to reset your password. </h2>
     </div>
   </form>
 </body>
