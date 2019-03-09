@@ -12,7 +12,7 @@
     </li>
     <li style="padding-top: 3%; margin-left: 13%;">
       <mat-chip-list>
-        <mat-chip [routerLink]="['/routing']" >&nbsp;&nbsp;&nbsp; Routing &nbsp;&nbsp;&nbsp;</mat-chip>
+        <mat-chip [routerLink]="['/routing']" >&nbsp;&nbsp;&nbsp;Routing &nbsp;&nbsp;&nbsp;</mat-chip>
       </mat-chip-list>
     </li>
 
@@ -28,12 +28,12 @@
         <i class="material-icons">expand_more</i>
       </button>
       <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item [routerLink]="['/settings']">
           <!--disabled : if you don't want to use it-->
           <i class="material-icons" [routerLink]="['/settings']">settings</i>
           <span [routerLink]="['/settings']"> Account Setting</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item [routerLink]="['/login']">
           <i class="material-icons" [routerLink]="['/login']">power_settings_new</i>
           <span [routerLink]="['/login']"> Sign Out</span>
         </button>
