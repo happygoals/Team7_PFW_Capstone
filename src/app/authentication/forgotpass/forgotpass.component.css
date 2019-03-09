@@ -61,6 +61,11 @@ body {
   margin-bottom: 3%;
 }
 
+.emailSent {
+  display: none;
+  text-align: center;
+}
+
 button {
   margin: 1%;
 }
