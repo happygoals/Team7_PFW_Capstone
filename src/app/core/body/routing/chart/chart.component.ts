@@ -23,7 +23,7 @@ export class ChartComponent {
 		return (document.body.offsetHeight-230);
     }
 
-    routes: any = [null, 15, null, null, null, null, null, null, null, null, null,
+    routes: any = [null, null, null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null, null, null,
@@ -1540,6 +1540,14 @@ export class ChartComponent {
         this.routes = this.routeList;
         console.log('dasdas')
         console.log(this.routeList[3])
+        for(var i=0; i < 26; i++){
+            if(this.routeList[i] === 0){
+                this.routeList[i] = null;
+                console.log('changed')
+            }
+            console.log('changedcycle')
+        }
+        console.log(this.routeList)
         this.dataSource = [{
             x1: 1,
             x2: 1,

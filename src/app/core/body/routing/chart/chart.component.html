@@ -9,12 +9,13 @@
     ignoreEmptyPoints = "true"
     type="bubble">
     </dxo-common-series-settings>
-    <dxo-export [enabled]="true"></dxo-export>
-    <!-- <dxo-legend
-        position="inside"
+    <dxo-export [enabled]="false"></dxo-export>
+    <dxo-legend
+        
+        [visible] ="false"
         horizontalAlignment="left">
         <dxo-border [visible]="true"></dxo-border>
-    </dxo-legend> -->
+    </dxo-legend>
     <dxo-argument-axis title="Number of Beacons Taken per Route">
         <dxo-label [customizeText]="argumentCustomizeText"></dxo-label>
     </dxo-argument-axis>
