@@ -45,6 +45,9 @@ export class PopulationComponent{
   public beaconSet : any[];
   heats: any = 0;
   ChildVal : any;
+  tempBeacon: any[];
+  temp: any;
+  numMax: number;
 
   GetOutput(selected: any){
     if(selected)
@@ -57,6 +60,27 @@ export class PopulationComponent{
   callParse() {
     par(this.beacons);
     StoreValueForHeatmap(listItem)
+    this.MaxBeaconNum()
     this.heats = heatList
+  }
+
+  MaxBeaconNum() {
+    this.tempBeacon = heatList;
+    this.temp = this.tempBeacon[0];
+    var num: number = 1;
+    var k: number;
+
+    for(k = num; k < this.tempBeacon.length; k++)
+    {
+      if(this.tempBeacon[k] >= this.temp) {
+        this.temp = this.tempBeacon[k];
+        this.numMax = k;
+      }
+    }
+
+  }
+
+  MinBeaconNum() {
+
   }
 }
