@@ -9,6 +9,10 @@ import { MatMenuTrigger } from '@angular/material';
 })
 
 export class HeaderComponent {
+
+
+  
+  
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
   if (selected) {
@@ -20,6 +24,12 @@ export class HeaderComponent {
     this.trigger.openMenu();
   }
 
-  
+  color1 : boolean = false; 
+  color2 : boolean = false; 
+
+  colorChange(){
+    this.color1 = true; 
+    this.color2 = false;
+  }
   
 }
