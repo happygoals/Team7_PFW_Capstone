@@ -43,7 +43,7 @@ export class PopulationComponent{
   public routeBeacons: Beacon[];
   errorMessage: String;
   public beaconSet : any[];
-  heats: any;
+  heats: any = 0;
   ChildVal : any;
 
   GetOutput(selected: any){
