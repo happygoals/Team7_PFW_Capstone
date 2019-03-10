@@ -31,15 +31,30 @@ export class HeatmapComponent implements OnChanges {
   differ: any;
   interval: any;
   data: any;
+  heatmap: any;
 
   constructor() {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-      var heatmap = h337.create({
-        container: window.document.querySelector('#heatmap')
-      });
-      this.drawHeatMap(heatmap);
+
+    for(let propertyName in changes) {
+      let change = changes[propertyName]
+      change.previousValue = null;
+
+      change.currentValue = null;
+    }
+
+
+    this.heatmap = h337.create({
+      container: window.document.querySelector('#heatmap')
+    });
+    this.ClearHeatMap(this.heatmap)
+    this.drawHeatMap(this.heatmap);
+
+
+     // this.ClearHeatMap(heatmap);
+
   }
 
   drawHeatMap(heatmap) {
@@ -114,6 +129,11 @@ export class HeatmapComponent implements OnChanges {
       ]
     });
   }
+
+  ClearHeatMap(heatmap) {
+    heatmap.setData({data:[{}]});
+  }
+
 }
 
 
