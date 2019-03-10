@@ -48,3 +48,11 @@
       background: grey;
     }
   }
+
+/* mat-checkbox */
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-color: #aaaaaa;
+  background-color: #aaaaaa;
+
+}
