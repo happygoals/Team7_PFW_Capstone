@@ -27,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { ForgotpassComponent } from './authentication/forgotpass/forgotpass.component';
 import { DxChartModule } from 'devextreme-angular';
+import { RegisterComponent } from './authentication/register/register.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { DxChartModule } from 'devextreme-angular';
     HeatmapComponent,
     ChartComponent,
     jqxChartComponent,
-    jqxDropDownListComponent
+    jqxDropDownListComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

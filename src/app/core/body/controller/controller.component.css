@@ -32,7 +32,7 @@ div.container {
 
 /* date mode selection */
 div.dselection {
-  margin-top: 3%;
+  margin-top: 3.5%;
   margin-bottom: 1%;
   text-align: right;
 
@@ -79,7 +79,8 @@ div.dp2 {
   align-items: center;
 }
 
-.time-chip {
+.time-slider {
+  margin: 0 auto; 
   margin-top: 20px;
   margin-bottom: 3px;
 }
@@ -93,12 +94,30 @@ div.dp2 {
 }
 
 .left-slider {
-  float: left;
+  float: center;
   min-width : 380px;
   max-width : 100%;
   min-height: auto;
 }
 
+.icons{
+  margin-top: 1vw;
+}
+
+.sun-icon{
+  float: left;
+  width: 33%;
+}
+
+.moon-icon1{
+  float: left;
+  width: 33%;
+}
+
+.moon-icon2{
+  float: right;
+  width: 33%;
+}
 /* mat-card style for date and time picker END*/
 
 /* Reset button */
