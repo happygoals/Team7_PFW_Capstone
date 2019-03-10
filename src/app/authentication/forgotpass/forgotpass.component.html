@@ -5,13 +5,12 @@
     alt="Parkview Health logo"
   />
   <form class="emailForm">
-    <div class="inputCenter">
+    <div id="inputForm" class="inputCenter">
       <h1 style="font-weight: 300;">Forgot Your Password</h1>
         <div>
         <label class="emailLabel">Email Address </label>
         <mat-form-field>
           <input
-            [(ngModel)]="input"
             matInput
             placeholder="Put your email address"
             [formControl]="emailFormControl"
@@ -33,12 +32,13 @@
       </div>
     </div>
     <br />
-    <div class="submissionButtons">
+    <div id="submissionButtons" class="submissionButtons">
       <button mat-raised-button color="basic" (click)="emailSent();">Retrieve Password</button>
       <button mat-raised-button color="warn" [routerLink]="['/login']" >Cancel</button>
     </div>
-    <div class="emailSent">
-      <h2> An email has been sent to reset your password. </h2> <br>
+    <div id="emailSent" class="emailSent">
+      <h2> Email Sent! </h2>
+      <p>Please check your Email for a link to recover your password.</p>
       <button mat-raised-button color="warn" [routerLink]="['/login']" >Return</button>
     </div>
   </form>
