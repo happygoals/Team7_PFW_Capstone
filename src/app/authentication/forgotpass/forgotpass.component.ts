@@ -27,6 +27,6 @@ export class ForgotpassComponent {
   input = '';
 
   emailSent(){
-    
+
   }
 }
