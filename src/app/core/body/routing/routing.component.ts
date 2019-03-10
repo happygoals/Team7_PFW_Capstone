@@ -48,7 +48,7 @@ export class RoutingComponent{
   public beacon : Beacon;
   public routeBeacons: Beacon[];
   errorMessage: String;
-  public routes : any;
+  public routes : any = 0;
   public beaconSet : any[];
 
   routingBeacons : Beacon[];

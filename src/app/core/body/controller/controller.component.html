@@ -25,7 +25,7 @@
         [style.border-right]="'1px dashed #ddd'"
       >
         <mat-grid-tile-header>
-          <span class="material-icons">date_range</span> &nbsp; Date
+          <span class="material-icons">date_range</span> &nbsp; Date & Time
           <button mat-mini-fab class="reset-button-row" (click)="resetDate()">
             <mat-icon aria-label="reset-button">refresh</mat-icon>
           </button>
@@ -81,9 +81,9 @@
               </mat-form-field>
             </div>
           </div>
-          <div class="time-chip">
+          <div class="time-slider">
             <!-- Time picker scroll-->
-            <div class="custom-slider">
+            <div class="custom-slider" >
               <div class="left-slider">
                 <!-- time slider -->
                 <form [formGroup]="sliderForm">
@@ -98,6 +98,18 @@
                   >
                   </ng5-slider>
                 </form>
+               <!-- 3 icons -->
+                <div class="icons">
+                  <div class="moon-icon1">
+                      <mat-icon style="font-size:13px;">brightness_2</mat-icon>
+                  </div>
+                  <div class="sun-icon">
+                      <mat-icon style="font-size:16px;">wb_sunny</mat-icon>
+                  </div>
+                  <div class="moon-icon2">
+                      <mat-icon style="font-size:13px;">brightness_2</mat-icon>
+                  </div>
+               </div>
               </div>
             </div>
           </div>
@@ -198,7 +210,7 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <mat-checkbox id="hand" class="Hand1" [(ngModel)]="checked_HD"
+            <mat-checkbox color="green" id="hand" class="Hand1" [(ngModel)]="checked_HD" 
               >Handicapped/Disabled</mat-checkbox
             >
           </div>
@@ -211,7 +223,7 @@
           <span class="material-icons">get_app</span> &nbsp;Export
         </mat-grid-tile-header>
         <div style="margin-top: 50px">
-          <button (click)="callParse()">
+          <button>
             <span
               class="material-icons"
               style="margin: 0px auto; font-size: 70px;"
