@@ -4,8 +4,8 @@
     [title]="title"
     [palette]="['#00ced1', '#008000', '#ffd700', '#ff7f50']"
     (onSeriesClick)="onSeriesClick($event)">
-    <dxo-common-series-settings   
-    hoverMode = "allSeriesPoints" 
+    <dxo-common-series-settings
+    hoverMode = "allSeriesPoints"
     ignoreEmptyPoints = "true"
     type="bubble">
     </dxo-common-series-settings>
@@ -39,13 +39,13 @@
 
 
 
-<!-- 
+<!--
 
 <jqxChart #myChart
     [width]="getWidth()" [height]="getHeight()"
-    [title]="'Beacons Paths Taken'" 
+    [title]="'Beacons Paths Taken'"
     [description]="'(the size of the circles represents the number of times a beacon has been visited'"
-    [enableAnimations]="true" [showLegend]="true" [padding]="padding" 
+    [enableAnimations]="true" [showLegend]="true" [padding]="padding"
     [titlePadding]="titlePadding" [source]="sampleData" [xAxis]="xAxis"
     [valueAxis]="valueAxis" [seriesGroups]="seriesGroups" [colorScheme]="'scheme04'">
 </jqxChart>
