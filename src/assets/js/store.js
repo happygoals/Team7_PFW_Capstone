@@ -102,13 +102,13 @@ function StoreValueForRouting(routeBeacons){
         break;
       case "0-20-30-27-35-21-23-36-29-37-51-72-75-33-40-46-39-7":
         routeList[4]++
-        break; 
+        break;
       case "0-20-30-27-35-21-23-36-29-55-49-53-44-50-42-48-38-43-7":
         routeList[5]++
         break;
       case "0-20-30-27-35-21-23-36-29-55-49-53-44-50-42-47-34-41-24-6":
         routeList[6]++
-        break; 
+        break;
       case "0-20-30-27-31-22-28-32-8":
         routeList[7]++
         break;

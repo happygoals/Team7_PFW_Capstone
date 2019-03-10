@@ -24,4 +24,9 @@ export class ForgotpassComponent {
   ]);
 
   matcher = new MyErrorStateMatcher();
+  input = '';
+
+  emailSent(){
+
+  }
 }

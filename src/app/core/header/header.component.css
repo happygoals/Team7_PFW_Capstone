@@ -85,3 +85,5 @@ mat-chip:hover {
   background-image: url("../../../assets/images/overlay.png"), -ms-linear-gradient(100deg, rgb(202, 202, 202) 100%, #41C483 50%);
   background-image: url("../../../assets/images/overlay.png"), linear-gradient(100deg, rgb(202, 202, 202) 100%, #41C483 50%);
 }
+
+
