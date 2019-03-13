@@ -18,10 +18,12 @@ export class HeaderComponent {
   ngOnInit() {
       this.href = this.router.url;
       if(this.href === '/population'){
-        document.getElementById('popbutton').style.backgroundColor = 'blue';
+        document.getElementById('popbutton').style.backgroundColor = '#27e9b6';
+        document.getElementById('popbutton').style.color = 'white';
       }
       else{
-        document.getElementById('routingbutton').style.backgroundColor = 'blue';
+        document.getElementById('routingbutton').style.backgroundColor = '#27e9b6';
+        document.getElementById('routingbutton').style.color = 'white';
       }
   }
 
@@ -36,12 +38,5 @@ export class HeaderComponent {
     this.trigger.openMenu();
   }
 
-  color1 : boolean = false;
-  color2 : boolean = false;
-
-  colorChange(){
-    this.color1 = true;
-    this.color2 = false;
-  }
 
 }
