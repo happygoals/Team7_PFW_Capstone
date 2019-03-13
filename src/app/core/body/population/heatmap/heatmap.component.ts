@@ -3,6 +3,7 @@ import { AfterViewInit, Component, ChangeDetectorRef, DoCheck, Input, ChangeDete
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { BeaconService } from 'src/app/services/beacon.service';
 import { Beacon } from '../../../../interfaces/beacon.interface';
+import { empty } from 'rxjs';
 
 interface External {
   help: Function;
@@ -32,28 +33,29 @@ export class HeatmapComponent implements OnChanges {
   interval: any;
   data: any;
   heatmap: any;
+  number: number = 0;
 
   constructor() {
   }
 
   ngOnChanges(changes: SimpleChanges) {
 
-    for(let propertyName in changes) {
-      let change = changes[propertyName]
-      change.previousValue = null;
-
-      change.currentValue = null;
+    if(this.number>1)
+    {
+      this.ClearHeatMap(this.heatmap);
     }
 
+    if(this.number === 0) {
+      this.heatmap = h337.create({
+        container: window.document.querySelector('#heatmap')
+      });
+      this.number++;
+    }
 
-    this.heatmap = h337.create({
-      container: window.document.querySelector('#heatmap')
-    });
-    this.ClearHeatMap(this.heatmap)
     this.drawHeatMap(this.heatmap);
 
-
-     // this.ClearHeatMap(heatmap);
+    //this.drawHeatMap(this.heatmap);
+    // this.ClearHeatMap(heatmap);
 
   }
 
@@ -128,10 +130,19 @@ export class HeatmapComponent implements OnChanges {
           /* 66 */{ x: 454, y: 157, value: this.heatList[66] },
       ]
     });
+
+
   }
 
   ClearHeatMap(heatmap) {
-    heatmap.setData({data:[{}]});
+
+    heatmap.setData({
+      max: 400,
+      min: 0,
+      data: [
+        0,0,0,0
+      ]
+    });
   }
 
 }

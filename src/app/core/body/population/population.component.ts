@@ -48,6 +48,7 @@ export class PopulationComponent{
   tempBeacon: any[];
   temp: any;
   numMax: number;
+  numMin: number;
 
   GetOutput(selected: any){
     if(selected)
@@ -59,8 +60,12 @@ export class PopulationComponent{
 
   callParse() {
     par(this.beacons);
+    for(var v =0; v <heatList.length; v++){
+      heatList[v] = 0;
+    }
     StoreValueForHeatmap(listItem)
     this.MaxBeaconNum()
+    this.MinBeaconNum()
     this.heats = heatList
   }
 
@@ -69,18 +74,36 @@ export class PopulationComponent{
     this.temp = this.tempBeacon[0];
     var num: number = 1;
     var k: number;
-
+    // console.log(this.tempBeacon)
+    // console.log(heatList)
     for(k = num; k < this.tempBeacon.length; k++)
     {
+      //console.log("this is k for " + k)
       if(this.tempBeacon[k] >= this.temp) {
         this.temp = this.tempBeacon[k];
         this.numMax = k;
+        // console.log("this is k if " + k)
+        // console.log("this is numMax " + this.numMax)
       }
     }
 
   }
 
   MinBeaconNum() {
+    this.tempBeacon = heatList;
+    this.temp = this.tempBeacon[0];
+    var num: number = 1;
+    var j: number;
+    //console.log(this.tempBeacon)
+    for(j = num; j < this.tempBeacon.length; j++)
+    {
+      if(this.tempBeacon[j] <= this.temp) {
+        if(this.tempBeacon[j] != 0) {
+        this.temp = this.tempBeacon[j];
+        this.numMin = j;
 
+        }
+      }
+    }
   }
 }
