@@ -1,0 +1,136 @@
+<body>
+  <img
+    class="parkIcon"
+    src="../../../assets/images/parkview-health-logo-w.png"
+    alt="Parkview Health logo"
+  />
+  <form class="registerForm" [formGroup]="registerForm">
+    <div id="registerInput">
+      <h1 style="font-weight: 300;">Registration</h1>
+      <table cellspacing="0" class="maxWidth">
+        <tr>
+          <td>
+            <mat-form-field class="maxWidth">
+              <input
+                id="first"
+                matInput
+                placeholder="First name"
+                formControlName="first"
+              />
+              <mat-error *ngIf="registerForm.hasError('required')">
+                First Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="maxWidth">
+              <input
+                id="last"
+                matInput
+                placeholder="Last Name"
+                formControlName="last"
+              />
+              <mat-error *ngIf="registerForm.hasError('required')">
+                Last Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <table cellspacing="0" class="maxWidth">
+        <tr>
+          <td>
+            <mat-form-field class="maxWidth">
+              <textarea
+                id="id"
+                matInput
+                placeholder="Employee ID Number"
+                formControlName="id"
+              ></textarea>
+              <mat-error *ngIf="registerForm.hasError('required')">
+                ID is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="maxWidth">
+              <input
+                id="email"
+                matInput
+                placeholder="Email"
+                formControlName="email"
+              />
+              <mat-error
+                *ngIf="
+                  registerForm.hasError('email') &&
+                  !emailFormControl.hasError('required')
+                "
+              >
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="registerForm.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <table cellspacing="0" class="maxWidth">
+        <tr>
+          <td>
+            <mat-form-field class="maxWidth">
+              <input
+                id="newpass"
+                matInput
+                placeholder="New Password"
+                formControlName="newpass"
+              />
+              <mat-error *ngIf="registerForm.hasError('required')">
+                New Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="maxWidth">
+              <input
+                id="confirmpass"
+                matInput
+                placeholder="Confirm New Password"
+                formControlName="confirmpass"
+              />
+              <mat-error *ngIf="registerForm.hasError('required')">
+                Confirm New Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="submissionButtons" class="submissionButtons">
+      <button
+        mat-raised-button
+        color="basic"
+        (click)="registered()"
+        [disabled]="!registerForm.valid"
+      >
+        Complete Registration
+      </button>
+      <button mat-raised-button color="warn" [routerLink]="['/login']">
+        Cancel
+      </button>
+    </div>
+    <div id="registered" class="registered">
+      <h2>Registration Complete!</h2>
+      <p>Please return to the login screen, and sign in.</p>
+      <button mat-raised-button color="warn" [routerLink]="['/login']">
+        Return
+      </button>
+    </div>
+  </form>
+</body>
