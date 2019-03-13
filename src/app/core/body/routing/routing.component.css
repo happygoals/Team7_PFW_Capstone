@@ -1,3 +1,10 @@
+#canvasEl{
+    background-image:    url(../../../../assets/images/x160.jpg);
+          
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
 /* Body Styling START */
 body {
     padding-left: 2%;

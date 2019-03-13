@@ -1,0 +1,7 @@
+::ng-deep #chart {
+    height: 750px;
+}
+
+::ng-deep .active {
+    font-weight: 500;
+}

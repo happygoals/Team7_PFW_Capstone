@@ -11,7 +11,6 @@
     </dxo-common-series-settings>
     <dxo-export [enabled]="false"></dxo-export>
     <dxo-legend
-        
         [visible] ="false"
         horizontalAlignment="left">
         <dxo-border [visible]="true"></dxo-border>
@@ -19,7 +18,9 @@
     <dxo-argument-axis title="Number of Beacons Taken per Route">
         <dxo-label [customizeText]="argumentCustomizeText"></dxo-label>
     </dxo-argument-axis>
-    <dxi-value-axis title="Beacon Number">
+    <dxi-value-axis title="Beacon Number" 
+    [visualRange]="{startValue:-15, endValue:100}"
+    visualRangeUpdateMode = "keep">
         <dxo-label [customizeText]="valueCustomizeText"></dxo-label>
     </dxi-value-axis>
     <dxo-tooltip

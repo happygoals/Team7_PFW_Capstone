@@ -8,7 +8,7 @@ import { Population } from '../../../../interfaces/population.interface';
 @Component({
   selector: 'app-core-body-routing-chart',
   templateUrl: './chart.component.html',
-  styleUrls: []
+  styleUrls: ['./chart.component.css']
 })
 
 export class ChartComponent {
@@ -3072,74 +3072,3 @@ export class ChartComponent {
         }
     }
 }
-
-// @NgModule({
-//     imports: [
-//         BrowserModule,
-//         DxChartModule
-//     ],
-//     declarations: [ChartComponent],
-//     bootstrap: [ChartComponent]
-// })
-// export class AppModule { }
-
-// platformBrowserDynamic().bootstrapModule(AppModule);
-
-
-
-
-
-
-
-
-    // @ViewChild('myChart') myChart: jqxChartComponent;
-
-    // path: any;
-
-    // sampleData: any = [
-    //     { Visit: '1', Path1: 2, Path2: 54, Path3: 54, Value1: 50, Value2: 1, Value3: 22 },
-    //     { Visit: '2', Path1: 44, Path2: 66, Path3: 55, Value1: 50, Value2: 1, Value3: 22 },
-    //     { Visit: '3', Path1: 30, Path2: 77, Path3: 66, Value1: 50, Value2: 1, Value3: 22 },
-    //     { Visit: '4', Path1: 43, Path2: 9, Path3: 55, Value1: 50, Value2: 1, Value3: 22 },
-    //     { Visit: '5', Path1: 41, Path2: 90, Path3: 44, Value1: 50, Value2: 1, Value3: 22 },
-    //     { Visit: '6', Path1: 65, Path2: 76, Path3: 33, Value1: 50, Value2: 1, Value3: 22 },
-    //     { Visit: '7', Path1: 66, Path2: 64, Path3: 22, Value1: 50, Value2: 1, Value3: 21 }
-    // ];
-
-    // padding: any = { left: 5, top: 5, right: 5, bottom: 5 };
-
-    // titlePadding: any = { left: 90, top: 0, right: 0, bottom: 10 };
-
-    // xAxis: any =
-    // {
-    //     dataField: 'Visit',
-    //     valuesOnTicks: true
-    // };
-
-    // valueAxis: any =
-    // {
-    //     unitInterval: 1,
-    //     minValue: -1,
-    //     maxValue: 100,
-    //     title: { text: 'Beacon Number' },
-    //     labels: {
-    //         formatSettings: { prefix: '', thousandsSeparator: ',' },
-    //         horizontalAlignment: 'right'
-    //     }
-    // };
-
-    // seriesGroups: any[] =
-    // [
-    //     {
-    //         type: 'bubble',
-    //         series: [
-    //             { dataField: 'Path1', radiusDataField: 67, minRadius: 0, maxRadius: 100, displayText: 'Beacon # for Path 1' },
-    //             { dataField: 'Path2', radiusDataField: 77, minRadius: 0, maxRadius: 100, displayText: 'Beacon # for Path 2' },
-    //             { dataField: 'Path3', radiusDataField: 4, minRadius: 0, maxRadius: 100, displayText: 'Beacon # for Path 3' }
-    //         ]
-    //     }
-    // ];
-
-    //symbolsList: string[] = ['circle', 'diamond', 'square', 'triangle_up', 'triangle_down', 'triangle_left', 'triangle_right'];
-
-
