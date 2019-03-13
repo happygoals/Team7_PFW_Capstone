@@ -17,7 +17,12 @@ export class HeaderComponent {
 
   ngOnInit() {
       this.href = this.router.url;
-      alert(this.href);
+      if(this.href === '/population'){
+        document.getElementById('popbutton').style.backgroundColor = 'blue';
+      }
+      else{
+        document.getElementById('routingbutton').style.backgroundColor = 'blue';
+      }
   }
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;

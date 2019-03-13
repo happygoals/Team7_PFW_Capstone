@@ -24,7 +24,7 @@ ul {
 }
 
 li {
-  padding-top: 15px; 
+  padding-top: 15px;
 }
 
 a {
@@ -50,14 +50,14 @@ img {
   background: rgba(20, 41, 22, 1) !important;
   background-color:  rgba(20, 41, 22, 1) !important;
   color: white !important;
-  position: fixed; 
+  position: fixed;
   top: 0;
   z-index: 5;
 }
 
 header{
   margin: 0 auto !important;
-  
+
 }
 
 /* mat-button Styling */
@@ -71,11 +71,13 @@ header{
     font-weight: 300;
     line-height: 1.50;
     border-radius: 20px;
-    background-color: #000000;
+    background-color: #f12020;
+    /*
     background-image: url("../../../assets/images/overlay.png"), -moz-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
     background-image: url("../../../assets/images/overlay.png"), -webkit-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
     background-image: url("../../../assets/images/overlay.png"), -ms-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
     background-image: url("../../../assets/images/overlay.png"), linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
+    */
   }
 
 
