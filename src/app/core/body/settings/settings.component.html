@@ -1,12 +1,55 @@
 <app-core-header></app-core-header>
      <div class="sidenav">
-        <a href="#about">Settings</a>
+        <span class="material-icons" style=" margin-left: 2.35vw; font-size: 2vw; color: white;">settings</span>
+        <a class="material-icons" style=" margin-left: 1vw; font-size: 4vw; line-height: 0px;">account_circle</a>
+        <br>
+        <a href="#about">Account<br>Settings</a>
 
       </div>
       
       <div class="main">
-        <h2>Settings</h2>
-    
+        <h1>Enter your detail below.</h1>
+
+        <form class="example-form">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Email Address</mat-label>
+                  <input matInput disabled value="parkview@parkview.com">
+                  <mat-hint align="start"><strong>Cannot be changed</strong> </mat-hint>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Valid Employee ID</mat-label>
+                  <input matInput disabled value="Q1W2E3R4">
+                  <mat-hint align="start"><strong>Cannot be changed</strong></mat-hint>
+                </mat-form-field>
+                <table class="example-full-width" cellspacing="0"><tr>
+                  <td>
+                    <mat-form-field class="example-full-width">
+                    <input matInput placeholder="First Name">
+                  </mat-form-field>
+                  </td>
+                  <td>
+                    <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Last Name">
+                     </mat-form-field>
+                  </td>
+                </tr></table>
+              
+                <p>
+                 <mat-form-field class="example-full-width">
+                    <mat-label>New Password</mat-label>
+                    <input matInput #message maxlength="30" [type]="hide ? 'password' : 'text'" [formControl]="passwordFormControl">
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                 </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                      <mat-label>Confirm New Password</mat-label>
+                      <input matInput #message maxlength="30" [type]="hide ? 'password' : 'text'" [formControl]="passwordFormControl">
+                      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </mat-form-field>
+                </p>
+              
+            
+              </form>
+            <div class="saveButton">
+                <button mat-raised-button color="basic" >SAVE</button>
+            </div>
       </div>
- 
-      

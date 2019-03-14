@@ -1,7 +1,8 @@
 .sidenav {
     margin-top: 5%;
+    padding-top: 3%;
     height: 100%;
-    width: 20%;
+    width: 22%;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -9,15 +10,15 @@
     background-color: #111;
     overflow-x: hidden;
     padding-top: 20px;
-    background-image: url("/../assets/images/parkview_doc.jpg"), -moz-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
-    background-image: url("/../assets/images/parkview_doc.jpg"), -webkit-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
-    background-image: url("/../assets/images/parkview_doc.jpg"), linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
-  }
+    background-image: url("/../assets/images/parkviewstaff.png"), -moz-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
+    background-image: url("/../assets/images/parkviewstaff.png"), -webkit-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
+    background-image: url("/../assets/images/parkviewstaff.png"), linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
+}
   
   .sidenav a {
-    padding: 6px 8px 6px 16px;
+    padding: 6px 20px 6px 35px;
     text-decoration: none;
-    font-size: 3vw;
+    font-size: 2.6vw;
     color: #FFFFFF;
     display: block;
   }
@@ -27,13 +28,78 @@
   }
   
   .main {
-    margin-top: 5%;
-    margin-left: 20%; /* Same as the width of the sidenav */
+    margin-top: 9%;
+    margin-left: 30%; /* Same as the width of the sidenav */
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
+    height: 100%;
   }
   
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
+
+  /* Responsive text START */
+  h1{
+    font-size:2vw;
+    font-weight: 300;
+    color: #31CF9A;
+  }
+  
+  h2{
+    text-align:left; 
+    font-size: 1.4vw;
+    font-weight: 200;
+    line-height: 2.3;
+  }
+  
+  h3{
+    font-size:1.8vw;
+  }
+  
+  h4{
+    font-size:1.5vw;
+  }
+  
+  span {
+    font-size: 4.0vw;
+    margin-left: 4vw;
+  }
+  /* Responsive text END */
+
+    input{
+        font-size:1.2vw;
+    }
+    textarea{
+        font-size:1.2vw;  
+    }
+
+  .example-form {
+    margin-top: 4%;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    font-size:1vw;
+  }
+
+  .mat-basic{
+    background-color:#31CF9A;
+    color: #fff;
+}
+
+  mat-raised-button{
+      font-weight: 200;
+  }
+  
+  .example-full-width {
+    width: 100%;
+    font-size:1vw;
+    margin: 2% 0; 
+  }
+
+  .saveButton{
+    text-align: right;
+    margin-right: 42%;
+  }
+  
