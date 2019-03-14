@@ -53,6 +53,7 @@ mat-grid-tile.fact3 {
     background-color: rgba(25, 91, 38, 200);
     color: #fafafa;
     transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
   }
 
   mat-card.box1:hover{
@@ -243,6 +244,10 @@ h4{
 span {
   font-size: 4.0vw;
   margin-left: 4vw;
+}
+
+p{
+  text-align:left; 
 }
 /* Responsive text END */
 
