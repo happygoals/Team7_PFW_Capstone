@@ -10,7 +10,6 @@ import {
 import { Router } from "@angular/router";
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
-//import { Beacon } from './beacon';
 import { Beacon } from "../interfaces/beacon.interface";
 
 @Injectable()

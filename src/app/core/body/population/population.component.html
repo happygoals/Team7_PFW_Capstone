@@ -9,8 +9,8 @@
       <mat-grid-tile class="fact1" colspan="1" rowspan="1">
         <mat-card class="box1">
             <div style="display: inline-block">
-                <h2>Most Popular Location</h2>
-                <p style="font-size:2.0vw;">Ronald McDonald House</p>
+                <h2>Most Popular Department</h2>
+                <p style="font-size:2.0vw;">{{Department}}</p>
             </div>
             <div style="display: inline-block">
                 <span class="material-icons" style=" margin-left: 0vw;">add_location</span>
@@ -26,7 +26,7 @@
           <mat-card class="box2">
             <div style="display: inline-block">
               <h2>Most Popular Beacon</h2>
-              <p>Beacon:{{numMax}}</p>
+              <p>Beacon Number: {{numMax}}</p>
             </div>
             <div style="display: inline-block">
               <span class="material-icons" style="font-size: 3.5vw; margin-left: 5vw;">gps_fixed</span>
@@ -37,7 +37,7 @@
           <mat-card class="box3">
             <div style="display: inline-block">
               <h2>Least Popular Beacon</h2>
-              <p>Beacon:{{numMin}}</p>
+              <p>Beacon Number: {{numMin}}</p>
             </div>
             <div style="display: inline-block">
               <span class="material-icons" style="font-size: 3.5vw; margin-left: 5vw;">gps_not_fixed</span>

@@ -15,6 +15,7 @@ var objparse = []
 
 var text, posf, posb, output
 var beaconList = []
+var departmentList = [0, 0, 0, 0, 0, 0, 0]
 var routeBeacons =[]
 var routeList = []
 var listItem = [[], []]
@@ -43,18 +44,20 @@ function par(beacons) {
     //set the location to cut the text
     posf = text.indexOf(":") + 2
     posb = text.lastIndexOf("}") - 1
-    output = text.slice(posf, posb) //cut it
+    output = text.slice(posf, posb) //cut
     beaconList.push(output)
+
     //1-D array
     //listItemD[i] = beaconList[i].split("-")
+
     beacons.Value++ // pointer move
+
     //listItemD = beaconList.split("-")
     //beacons.Value++ // pointer move
     //store(push) cutted text (string) to list to 2-D
+
     listItem[i] = beaconList[i].split("-")
   }
-  //console.log(listItemD)
-  //console.log(beaconList)
 }
 
 function parseRouting(beacons) {
@@ -74,7 +77,6 @@ function parseRouting(beacons) {
     //  listItem[i] = beaconList[i].split("-")
   }
   console.log(routeBeacons)
-  //  console.log(listItem[3][3])
 }
 
 function returnValueForHeatMap() {
@@ -168,6 +170,7 @@ function StoreValueForRouting(routeBeacons){
     }
   }
 }
+
 function StoreValueForHeatmap(listItem) {
   heatList
     = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -197,27 +200,35 @@ function StoreValueForHeatmap(listItem) {
           break;
         case "4":
           heatList[4]++
+          departmentList[2]++ //imaging
           break;
         case "5":
           heatList[5]++
+          departmentList[1]++ //ATC
           break;
         case "6":
           heatList[6]++
+          departmentList[5]++ //Children
           break;
         case "7":
           heatList[7]++
+          departmentList[4]++ //Dining
           break;
         case "8":
           heatList[8]++
+          departmentList[6]++ //Emergency
           break;
         case "9":
           heatList[9]++
+          departmentList[3]++ //Gift
           break;
         case "10":
           heatList[10]++
+          departmentList[0]++ //ppgc
           break;
         case "11":
           heatList[11]++
+          departmentList[6]++ //Emergency
           break;
         case "12":
           heatList[12]++
@@ -421,8 +432,3 @@ function StoreValueForHeatmap(listItem) {
   }
 
 }
-
-
-
-//module.exports = store
-

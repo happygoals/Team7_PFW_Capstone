@@ -53,14 +53,9 @@ export class HeatmapComponent implements OnChanges {
     }
 
     this.drawHeatMap(this.heatmap);
-
-    //this.drawHeatMap(this.heatmap);
-    // this.ClearHeatMap(heatmap);
-
   }
 
   drawHeatMap(heatmap) {
-    /* test data */
     heatmap.setData({
       max: 400,
       min: 0,
@@ -130,8 +125,6 @@ export class HeatmapComponent implements OnChanges {
           /* 66 */{ x: 454, y: 157, value: this.heatList[66] },
       ]
     });
-
-
   }
 
   ClearHeatMap(heatmap) {
