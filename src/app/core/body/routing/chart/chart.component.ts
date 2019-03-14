@@ -1,9 +1,6 @@
-import { NgModule, ViewChild, Component, enableProdMode, Input, SimpleChanges } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { DxChartModule } from 'devextreme-angular';
+import { ViewChild, Output, EventEmitter, Component, Input, SimpleChanges } from '@angular/core';
 import { Population } from '../../../../interfaces/population.interface';
-//import { Correlation } from '../../../../interfaces/correlation.interface';
+import { DxChartComponent } from "devextreme-angular";
 
 @Component({
   selector: 'app-core-body-routing-chart',
@@ -12,8 +9,9 @@ import { Population } from '../../../../interfaces/population.interface';
 })
 
 export class ChartComponent {
-    
-    @Input() routeList: any;
+    @ViewChild("chartVar") chart: DxChartComponent;
+    @Output() outputToParent = new EventEmitter<any>(); //output to the route parent component for which path to draw
+    @Input() routeList: any; //input from the routing parent component
 
 	getWidth() : any {
 		return (document.body.offsetWidth-860);
@@ -22,6 +20,88 @@ export class ChartComponent {
     getHeight() : any {
 		return (document.body.offsetHeight-230);
     }
+
+    routeToPrint: number;
+    
+    //positions for the beacons
+    positions: any = [
+        {x: 665.6, y: 638.4},
+        {x: 136, y: 304},
+        {x: 708.8, y: 51.2},
+        {x: null, y: null},
+        {x: 659.2, y: 422.4},
+        {x: 676.8, y: 459.2},
+        {x: 262.4, y: 350.4},
+        {x: 456, y: 153.6},
+        {x: 792, y: 336},
+        {x: 561.6, y: 164.8},
+        {x: 838.4, y: 624},
+        {x: 940.8, y: 155.2},
+        {x: null, y: null},
+        {x: null, y: null},
+        {x: null, y: null},
+        {x: null, y: null},
+        {x: null, y: null},
+        {x: null, y: null},
+        {x: null, y: null},
+        {x: null, y: null},
+        {x: 670.4, y: 595.2},
+        {x: 624, y: 435.2},
+        {x: 736, y: 448},
+        {x: 636.8, y: 384},
+        {x: 201.6, y: 339.2},
+        {x: 700.8, y: 88},
+        {x: null, y: null},
+        {x: 660.8, y: 502.4},
+        {x: 736, y: 404.8},
+        {x: 632, y: 288},
+        {x: 672, y: 550.4},
+        {x: 736, y: 504},
+        {x: 772.8, y: 369.6},
+        {x: 569.6, y: 56},
+        {x: 294.4, y: 268.8},
+        {x: 640, y: 472},
+        {x: 635.2, y: 334.4},
+        {x: 628.8, y: 217.6},
+        {x: 396.8, y: 148.8},
+        {x: 448, y: 97.6},
+        {x: 500.8, y: 44.8},
+        {x: 259.2, y: 299.2},
+        {x: 352, y: 206.4},
+        {x: 420.8, y: 128},
+        {x: 432, y: 284.8},
+        {x: 531.2, y: 195.2},
+        {x: 472, y: 67.2},
+        {x: 323.2, y: 240},
+        {x: 337.6, y: 176},
+        {x: 520, y: 288},
+        {x: 388.8, y: 260.8},
+        {x: 606.4, y: 140.8},
+        {x: 758.4, y: 544},
+        {x: 480, y: 288},
+        {x: 828.8, y: 584},
+        {x: 576, y: 288},
+        {x: 520, y: 235.2},
+        {x: 806.4, y: 553.6},
+        {x: 780.8, y: 616},
+        {x: 744, y: 94.4},
+        {x: 808, y: 625.6},
+        {x: 788.8, y: 585.6},
+        {x: 825.6, y: 100.8},
+        {x: 916.8, y: 115.2},
+        {x: 720, y: 136},
+        {x: 782.4, y: 97.6},
+        {x: 726.4, y: 251.2},
+        {x: 768, y: 296},
+        {x: 715.2, y: 180.8},
+        {x: 870.4, y: 108.8},
+        {x: 691.2, y: 216},
+        {x: 771.2, y: 251.2},
+        {x: 617.6, y: 110.4},
+        {x: null, y: null},
+        {x: null, y: null},
+        {x: 654.4, y: 86.4} 
+    ]
 
     routes: any = [null, null, null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null, null, null,
@@ -1537,17 +1617,13 @@ export class ChartComponent {
     }
 
     ngOnChanges(changes: SimpleChanges) {
+        this.dataSource= [{}]
         this.routes = this.routeList;
-        console.log('dasdas')
-        console.log(this.routeList[3])
         for(var i=0; i < 26; i++){
             if(this.routeList[i] === 0){
                 this.routeList[i] = null;
-                console.log('changed')
             }
-            console.log('changedcycle')
         }
-        console.log(this.routeList)
         this.dataSource = [{
             x1: 1,
             x2: 1,
@@ -3048,6 +3124,11 @@ export class ChartComponent {
         
     }
 
+    NotifyParent( selected : any){
+        this.outputToParent.emit(selected);
+      }
+
+    //tooltip function for chart, used when hovering on bubble
     customizeTooltip(arg: any) {
         return {
             text: arg.point.tag + '<br/>Beacon Number: ' + arg.valueText + '<br> Number of instances: ' +arg.size
@@ -3062,13 +3143,10 @@ export class ChartComponent {
         return args.value;
     }
 
+    //onclick function for the chart, returns a notice to the parent component
     onSeriesClick(e: any) {
         var series = e.target;
-        if (series.isVisible()) {
-            series.hide();
-            console.log(series.index)
-        } else {
-            series.show();
-        }
+        this.routeToPrint = series.index +1
+        this.NotifyParent(this.routeToPrint)
     }
 }

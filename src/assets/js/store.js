@@ -1,14 +1,3 @@
-
-//var beacon = require('/Capstone/Team7_PFW_Capstone/backend/models/beacon')
-
-
-var k = "Hello testing!";
-//connection testing with Angular front end w/ ts!
-function help(k) {
-  alert(k)
-}
-
-
 let obj = new Array()
 obj = ["a", "b"]
 var objparse = []
@@ -47,15 +36,12 @@ function par(beacons) {
     output = text.slice(posf, posb) //cut it
     beaconList.push(output)
     //1-D array
-    //listItemD[i] = beaconList[i].split("-")
+
     beacons.Value++ // pointer move
-    //listItemD = beaconList.split("-")
-    //beacons.Value++ // pointer move
+
     //store(push) cutted text (string) to list to 2-D
     listItem[i] = beaconList[i].split("-")
   }
-  //console.log(listItemD)
-  //console.log(beaconList)
 }
 
 function parseRouting(beacons) {
@@ -72,10 +58,8 @@ function parseRouting(beacons) {
 
     routeBeacons.push(output)
     //store(push) cutted text (string) to list
-    //  listItem[i] = beaconList[i].split("-")
+
   }
-  console.log(routeBeacons)
-  //  console.log(listItem[3][3])
 }
 
 function returnValueForHeatMap() {
@@ -86,6 +70,9 @@ function StoreValueForRouting(routeBeacons){
   routeList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0]
+  for(var i =0; i < routeBeacons.length; i++){
+    routeList[i] = 0;
+  }
   for(var i =0; i < routeBeacons.length; i++){
     switch(routeBeacons[i]){
       case "0-58-60-10":
@@ -168,6 +155,7 @@ function StoreValueForRouting(routeBeacons){
         break;
     }
   }
+  console.log(routeList)
 }
 function StoreValueForHeatmap(listItem) {
   heatList

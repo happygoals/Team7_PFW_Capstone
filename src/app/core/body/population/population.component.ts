@@ -6,27 +6,15 @@ import { Router, UrlSegment } from "@angular/router";
 import { Variable } from "@angular/compiler/src/render3/r3_ast";
 
 interface External {
-  help: Function
-  k: Variable
   par: Function
-  beaconList: Variable
-  listItemD: Variable
   listItem: Variable
   heatList: Variable
-  parseRouting: Function
-  returnValueForHeatMap: Function
   StoreValueForHeatmap: Function
-  resetHeatList: Function
 }
 
-declare function help(string): any
 declare function par(list):any
-declare function parseRouting(list):any
-declare function returnValueForHeatMap():any
-declare var k: any
 declare var heatList: any
 declare var listItem: any
-declare function resetHeatList(): any
 declare function StoreValueForHeatmap(Array): any
 
 

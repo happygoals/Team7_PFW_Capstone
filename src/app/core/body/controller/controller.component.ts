@@ -1,11 +1,10 @@
-import { Variable } from "@angular/compiler/src/render3/r3_ast";
 import { ChangeContext } from "ng5-slider";
 import { Timeset } from "./../routing/timeset";
 import { DatePipe } from "@angular/common";
 import { BeaconService } from "./../../../services/beacon.service";
 import { Beacon } from "./../../../services/beacon";
-import { Component, ViewChild, EventEmitter, Input, Output } from "@angular/core";
-import { Router } from "@angular/router";
+import { Component, ViewChild, EventEmitter, Output } from "@angular/core";
+
 import {
   MatButton,
   MatSlideToggle,
@@ -15,17 +14,6 @@ import {
 } from "@angular/material";
 import { LabelType, Options } from "ng5-slider";
 import { FormGroup, FormControl } from "@angular/forms";
-
-interface External {
-  help: Function;
-  k: Variable;
-  par: Function;
-  beaconList: Variable;
-  listItemD: Variable;
-  listItem: Variable;
-  StoreValueForHeatmap: Function
-  returnValueForHeatMap: Function
-}
 
 // This is for the gender select
 export interface Gender {
@@ -45,13 +33,6 @@ export interface Height {
   viewValue: string;
 }
 
-declare function help(string): any;
-declare function par(list): any;
-declare var k: any;
-declare var listItem: any
-declare function returnValueForHeatMap():any
-declare function StoreValueForHeatmap(Array): any
-
 @Component({
   selector: "app-core-body-controller",
   templateUrl: "./controller.component.html",
@@ -64,11 +45,13 @@ export class ControllerComponent {
   public routeBeacons: Beacon[];
   errorMessage: String;
   heatList: any
+  empty: any[] = [0];
   public beaconSet: any[];
   panelOpenState = false;
   events: string[] = [];
 
   NotifyParent( selected : any){
+    this.outputToParent.emit(this.empty)
     this.outputToParent.emit(selected);
   }
   
@@ -98,7 +81,6 @@ export class ControllerComponent {
   /* user-event-slider START */
   logText: string = ''; // to print the time result
 
-  ary: any = ['2018-01-19', '2018-01-20', '07:30:00', '08:01:32'];
   startDate: string = '';
   endDate: string = '';
   startTime: string = '';
@@ -244,25 +226,21 @@ export class ControllerComponent {
 
   constructor(
     private beaconService: BeaconService,
-    private router: Router,
     private datePipe: DatePipe
   ) {}
 
   ngOnInit() {
   }
 
-  getBeaconSets(startDate, endDate, startTime, endTime) {
+  //function to call the backend call to get the data from db
+  getBeaconSets() {
     this.beaconService
-      .getBeaconSets(startDate, endDate, startTime, endTime)
+      .getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime)
       .subscribe((data: Beacon[]) => {
         this.beacons = data;
       });
-      this.NotifyParent(this.beacons)
   }
-
-  // startTime: string = null; // to store the time string for low
-  // endTime: string = null; // to store the time string for high
-
+  
   // get change result for time selection
   onUserChange(changeContext: ChangeContext): void {
     // this.logText += `Change(${this.getChangeContextString(changeContext)})\n`;
@@ -280,10 +258,7 @@ export class ControllerComponent {
     const zerolowValue = changeContext.value < 10 ? '0' : ''; // to put zero for the time format
     this.startTime = `${zerolowValue}${changeContext.value}:00:00`; // selected start time
     this.getBeaconSets(
-      this.startDate,
-      this.endDate,
-      this.startTime,
-      this.endTime
+
     );
     this.NotifyParent(this.beacons)
     return this.startTime;
@@ -294,10 +269,7 @@ export class ControllerComponent {
     const zerohighValue = changeContext.highValue < 10 ? '0' : ''; // to put zero for the time format
     this.endTime = `${zerohighValue}${changeContext.highValue}:00:00`; // selected end time
     this.getBeaconSets(
-      this.startDate,
-      this.endDate,
-      this.startTime,
-      this.endTime
+
     );
     this.NotifyParent(this.beacons)
     return this.endTime;
@@ -320,10 +292,7 @@ export class ControllerComponent {
     const tempEndDate = new Date(Date.parse(this.endDate));
 
     this.getBeaconSets(
-      this.startDate,
-      this.endDate,
-      this.startTime,
-      this.endTime
+
     );      
     this.NotifyParent(this.beacons)
 

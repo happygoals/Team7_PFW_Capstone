@@ -1,21 +1,7 @@
 /*from library name*/
-import { AfterViewInit, Component, ChangeDetectorRef, DoCheck, Input, ChangeDetectionStrategy, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { Variable } from '@angular/compiler/src/render3/r3_ast';
-import { BeaconService } from 'src/app/services/beacon.service';
-import { Beacon } from '../../../../interfaces/beacon.interface';
-
-interface External {
-  help: Function;
-  k: Variable;
-  par: Function;
-  StoreValueForHeatMap: Function;
-  beaconList: Variable;
-  listItemD: Variable;
-  listItem: Variable;
-}
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 declare const h337: any;
-declare var heatList: any;
 
 @Component({
   selector: 'app-core-body-population-heatmap',
@@ -45,7 +31,7 @@ export class HeatmapComponent implements OnChanges {
   drawHeatMap(heatmap) {
     /* test data */
     heatmap.setData({
-      max: 400,
+      max: 4000,
       min: 0,
       data: [
           /* 1 */{ x: 85, y: 190, value: this.heatList[1] },
