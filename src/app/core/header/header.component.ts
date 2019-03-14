@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,6 +10,23 @@ import { MatMenuTrigger } from '@angular/material';
 })
 
 export class HeaderComponent {
+
+  public href: string = "";
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+      this.href = this.router.url;
+      if(this.href === '/population'){
+        document.getElementById('popbutton').style.backgroundColor = '#27e9b6';
+        document.getElementById('popbutton').style.color = 'white';
+      }
+      else{
+        document.getElementById('routingbutton').style.backgroundColor = '#27e9b6';
+        document.getElementById('routingbutton').style.color = 'white';
+      }
+  }
+
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
   if (selected) {
@@ -20,6 +38,5 @@ export class HeaderComponent {
     this.trigger.openMenu();
   }
 
-  
-  
+
 }

@@ -24,9 +24,10 @@ export class ForgotpassComponent {
   ]);
 
   matcher = new MyErrorStateMatcher();
-  input = '';
 
   emailSent(){
-
+    document.getElementById('emailSent').style.display = 'block';
+    document.getElementById('submissionButtons').style.display = 'none';
+    document.getElementById('inputForm').style.display = 'none';
   }
 }

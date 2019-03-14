@@ -54,32 +54,32 @@ export class ControllerComponent {
     this.outputToParent.emit(this.empty)
     this.outputToParent.emit(selected);
   }
-  
+
   // Form Variables for Input clearing
-  value1 = '';
-  value2 = '';
-  weightValue = '';
-  heightValue = '';
-  genderValue = '';
+  value1 = "";
+  value2 = "";
+  weightValue = "";
+  heightValue = "";
+  genderValue = "";
   checked_HD = false;
 
-  @ViewChild('dp1', {
+  @ViewChild("dp1", {
     read: MatInput
   })
   dp1: MatInput;
 
-  @ViewChild('dp2', {
+  @ViewChild("dp2", {
     read: MatInput
   })
   dp2: MatInput;
 
-  @ViewChild('slidetoggle', {
+  @ViewChild("slidetoggle", {
     read: MatSlideToggle
   })
   slidetoggle: MatSlideToggle;
 
   /* user-event-slider START */
-  logText: string = ''; // to print the time result
+  logText: string = ""; // to print the time result
 
   startDate: string = '';
   endDate: string = '';
@@ -105,9 +105,9 @@ export class ControllerComponent {
       switch (label) {
         case LabelType.Low:
           if (hours < 12) {
-            time = 'AM';
+            time = "AM";
           } else {
-            time = 'PM';
+            time = "PM";
           }
           if (value == 0) {
             hours = 12;
@@ -115,12 +115,12 @@ export class ControllerComponent {
           if (hours > 12) {
             hours = hours - 12;
           }
-          return '<b>Start</b> ' + hours + time;
+          return "<b>Start</b> " + hours + time;
         case LabelType.High:
           if (hours < 12 || hours == 24) {
-            time = 'AM';
+            time = "AM";
           } else {
-            time = 'PM';
+            time = "PM";
           }
           if (value == 0) {
             hours = 12;
@@ -128,7 +128,7 @@ export class ControllerComponent {
           if (hours > 12) {
             hours = hours - 12;
           }
-          return '<b>End</b> ' + hours + time;
+          return "<b>End</b> " + hours + time;
         default:
           return hours + time;
       }
@@ -162,8 +162,8 @@ export class ControllerComponent {
       { value: 24 }
     ],
     selectionBarGradient: {
-      from: 'rgb(30, 137, 51)',
-      to: 'rgb(21, 40, 22)'
+      from: "rgb(30, 137, 51)",
+      to: "rgb(21, 40, 22)"
     },
     showTicks: true,
     draggableRange: true
@@ -172,56 +172,56 @@ export class ControllerComponent {
 
   // Gender Select
   genders: Gender[] = [
-    { value: 'none-0', viewValue: '' },
-    { value: 'male-1', viewValue: 'Male' },
-    { value: 'female-2', viewValue: 'Female' },
-    { value: 'other-3', viewValue: 'Other' },
-    { value: 'all-4', viewValue: 'All' }
+    { value: "none-0", viewValue: "" },
+    { value: "male-1", viewValue: "Male" },
+    { value: "female-2", viewValue: "Female" },
+    { value: "other-3", viewValue: "Other" },
+    { value: "all-4", viewValue: "All" }
   ];
 
   // Weight Select
   weights: Weight[] = [
-    { value: '1-0', viewValue: '' },
-    { value: '2-1', viewValue: '1 - 25 lbs' },
-    { value: '3-2', viewValue: '26 - 50 lbs' },
-    { value: '4-3', viewValue: '51 - 75 lbs' },
-    { value: '5-4', viewValue: '76 - 100 lbs' },
-    { value: '6-5', viewValue: '101 - 125 lbs' },
-    { value: '7-6', viewValue: '126 - 150 lbs' },
-    { value: '8-7', viewValue: '151 - 175 lbs' },
-    { value: '9-8', viewValue: '176 - 200 lbs' },
-    { value: '10-9', viewValue: '201 - 225 lbs' },
-    { value: '11-10', viewValue: '226 - 250 lbs' },
-    { value: '12-11', viewValue: '251 - 275 lbs' },
-    { value: '13-12', viewValue: '276 - 300 lbs' },
-    { value: '14-13', viewValue: '300 + lbs' },
-    { value: '15-14', viewValue: 'All' }
+    { value: "1-0", viewValue: "" },
+    { value: "2-1", viewValue: "1 - 25 lbs" },
+    { value: "3-2", viewValue: "26 - 50 lbs" },
+    { value: "4-3", viewValue: "51 - 75 lbs" },
+    { value: "5-4", viewValue: "76 - 100 lbs" },
+    { value: "6-5", viewValue: "101 - 125 lbs" },
+    { value: "7-6", viewValue: "126 - 150 lbs" },
+    { value: "8-7", viewValue: "151 - 175 lbs" },
+    { value: "9-8", viewValue: "176 - 200 lbs" },
+    { value: "10-9", viewValue: "201 - 225 lbs" },
+    { value: "11-10", viewValue: "226 - 250 lbs" },
+    { value: "12-11", viewValue: "251 - 275 lbs" },
+    { value: "13-12", viewValue: "276 - 300 lbs" },
+    { value: "14-13", viewValue: "300 + lbs" },
+    { value: "15-14", viewValue: "All" }
   ];
 
   // Height Select
   heights: Height[] = [
-    { value: '1-0', viewValue: '' },
-    { value: '2-1', viewValue: '4\'6 - 4\'7 in.' },
-    { value: '3-2', viewValue: '4\'7 - 4\'8 in.' },
-    { value: '4-3', viewValue: '4\'8 - 4\'9 in.' },
-    { value: '5-4', viewValue: '4\'9 - 4\'10 in.' },
-    { value: '6-5', viewValue: '4\'10 - 4\'11 in.' },
-    { value: '7-6', viewValue: '4\'11 - 5\'0 in.' },
-    { value: '8-7', viewValue: '5\'0 - 5\'1 in.' },
-    { value: '9-8', viewValue: '5\'1 - 5\'2 in.' },
-    { value: '10-9', viewValue: '5\'2 - 5\'3 in.' },
-    { value: '11-10', viewValue: '5\'3 - 5\'4 in.' },
-    { value: '12-11', viewValue: '5\'4 - 5\'5 in.' },
-    { value: '13-12', viewValue: '5\'5 - 5\'6 in.' },
-    { value: '14-13', viewValue: '5\'6 - 5\'7 in.' },
-    { value: '15-14', viewValue: '5\'7 - 5\'8 in.' },
-    { value: '16-15', viewValue: '5\'8 - 5\'9 in.' },
-    { value: '17-16', viewValue: '5\'9 - 5\'10 in.' },
-    { value: '18-17', viewValue: '5\'10 - 5\'11 in.' },
-    { value: '19-18', viewValue: '5\'11 - 6\'0 in.' },
-    { value: '20-19', viewValue: '6\'1 - 6\'2 in.' },
-    { value: '21-20', viewValue: '6\'2 +  in.' },
-    { value: '22-21', viewValue: 'All' }
+    { value: "1-0", viewValue: "" },
+    { value: "2-1", viewValue: "4'6 - 4'7 in." },
+    { value: "3-2", viewValue: "4'7 - 4'8 in." },
+    { value: "4-3", viewValue: "4'8 - 4'9 in." },
+    { value: "5-4", viewValue: "4'9 - 4'10 in." },
+    { value: "6-5", viewValue: "4'10 - 4'11 in." },
+    { value: "7-6", viewValue: "4'11 - 5'0 in." },
+    { value: "8-7", viewValue: "5'0 - 5'1 in." },
+    { value: "9-8", viewValue: "5'1 - 5'2 in." },
+    { value: "10-9", viewValue: "5'2 - 5'3 in." },
+    { value: "11-10", viewValue: "5'3 - 5'4 in." },
+    { value: "12-11", viewValue: "5'4 - 5'5 in." },
+    { value: "13-12", viewValue: "5'5 - 5'6 in." },
+    { value: "14-13", viewValue: "5'6 - 5'7 in." },
+    { value: "15-14", viewValue: "5'7 - 5'8 in." },
+    { value: "16-15", viewValue: "5'8 - 5'9 in." },
+    { value: "17-16", viewValue: "5'9 - 5'10 in." },
+    { value: "18-17", viewValue: "5'10 - 5'11 in." },
+    { value: "19-18", viewValue: "5'11 - 6'0 in." },
+    { value: "20-19", viewValue: "6'1 - 6'2 in." },
+    { value: "21-20", viewValue: "6'2 +  in." },
+    { value: "22-21", viewValue: "All" }
   ];
 
   constructor(
@@ -229,8 +229,7 @@ export class ControllerComponent {
     private datePipe: DatePipe
   ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   //function to call the backend call to get the data from db
   getBeaconSets() {
@@ -255,23 +254,23 @@ export class ControllerComponent {
 
   // Update the string Starttime value
   getChangeStartString(changeContext: ChangeContext): string {
-    const zerolowValue = changeContext.value < 10 ? '0' : ''; // to put zero for the time format
+    const zerolowValue = changeContext.value < 10 ? "0" : ""; // to put zero for the time format
     this.startTime = `${zerolowValue}${changeContext.value}:00:00`; // selected start time
     this.getBeaconSets(
 
     );
-    this.NotifyParent(this.beacons)
+    this.NotifyParent(this.beacons);
     return this.startTime;
   }
 
   // Update the string Starttime value
   getChangeEndString(changeContext: ChangeContext): string {
-    const zerohighValue = changeContext.highValue < 10 ? '0' : ''; // to put zero for the time format
+    const zerohighValue = changeContext.highValue < 10 ? "0" : ""; // to put zero for the time format
     this.endTime = `${zerohighValue}${changeContext.highValue}:00:00`; // selected end time
     this.getBeaconSets(
 
     );
-    this.NotifyParent(this.beacons)
+    this.NotifyParent(this.beacons);
     return this.endTime;
   }
   /* user-event-slider END */
@@ -287,7 +286,7 @@ export class ControllerComponent {
   // Start Date Listener
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     const eventDate = new Date(event.value); // Datepicker Date Value
-    const formattedDate = this.datePipe.transform(eventDate, 'yyyy-MM-dd'); // Formatted new Date
+    const formattedDate = this.datePipe.transform(eventDate, "yyyy-MM-dd"); // Formatted new Date
     const tempStartDate = new Date(Date.parse(this.startDate));
     const tempEndDate = new Date(Date.parse(this.endDate));
 
@@ -297,10 +296,10 @@ export class ControllerComponent {
     this.NotifyParent(this.beacons)
 
     // Checking for which datepicker is being used
-    if (event.targetElement.id === 'dp1') {
+    if (event.targetElement.id === "dp1") {
       // Checks for Datepicker 1
       this.startDate = formattedDate;
-    } else if (event.targetElement.id === 'dp2') {
+    } else if (event.targetElement.id === "dp2") {
       // checks for Datepicker 2
       this.endDate = formattedDate;
     }
@@ -312,9 +311,9 @@ export class ControllerComponent {
 
   toggle(event: MatSlideToggleChange) {
     if (event.checked) {
-      document.getElementById('dp2_div').style.display = '';
+      document.getElementById("dp2_div").style.display = "";
     } else {
-      document.getElementById('dp2_div').style.display = 'none';
+      document.getElementById("dp2_div").style.display = "none";
     }
   }
 
@@ -323,10 +322,10 @@ export class ControllerComponent {
   // Start of Reset button for date and time
 
   resetDate(type: MatButton) {
-    this.dp1.value = '';
-    this.dp2.value = '';
+    this.dp1.value = "";
+    this.dp2.value = "";
     this.slidetoggle.checked = false;
-    document.getElementById('dp2_div').style.display = 'none';
+    document.getElementById("dp2_div").style.display = "none";
     this.sliderForm.reset({ sliderControl: [0, 24] });
   }
 
@@ -335,11 +334,11 @@ export class ControllerComponent {
   // START of Reset button for Other Options
 
   resetOptions(): void {
-    this.value1 = '';
-    this.value2 = '';
-    this.weightValue = '';
-    this.heightValue = '';
-    this.genderValue = '';
+    this.value1 = "";
+    this.value2 = "";
+    this.weightValue = "";
+    this.heightValue = "";
+    this.genderValue = "";
     this.checked_HD = false;
   }
 

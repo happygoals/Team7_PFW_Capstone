@@ -24,7 +24,7 @@ ul {
 }
 
 li {
-  padding-top: 15px; 
+  padding-top: 15px;
 }
 
 a {
@@ -50,40 +50,37 @@ img {
   background: rgba(20, 41, 22, 1) !important;
   background-color:  rgba(20, 41, 22, 1) !important;
   color: white !important;
-  position: fixed; 
+  position: fixed;
   top: 0;
   z-index: 5;
 }
 
 header{
   margin: 0 auto !important;
-  
+
 }
 
-/* mat-chop Styling */
-.mat-chip{
+/* mat-button Styling */
+.mat-button{
     margin : 0px auto;
     text-decoration: none;
-    padding: 0 12px;
-    color: white;
+    padding: 8px 12px;
+    color: #a1cfc3b7;
     font-family: "Source Sans Pro", Helvetica, sans-serif;
     font-size: 10pt;
     font-weight: 300;
     line-height: 1.50;
-    background-color: #000000;
-    background-image: url("../../../assets/images/overlay.png"), -moz-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
-    background-image: url("../../../assets/images/overlay.png"), -webkit-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
-    background-image: url("../../../assets/images/overlay.png"), -ms-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
-    background-image: url("../../../assets/images/overlay.png"), linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
+    border-radius: 20px;
+    border: 1px solid #a1cfc3b7;
+    background-color: rgba(133, 133, 133, 0.2);
   }
 
 
-mat-chip:hover {
+.mat-button:hover {
+  color: #c5fced;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  background-image: url("../../../assets/images/overlay.png"), -moz-linear-gradient(100deg, rgb(202, 202, 202) 100%, #41C483 50%);
-  background-image: url("../../../assets/images/overlay.png"), -webkit-linear-gradient(100deg, rgb(202, 202, 202) 100%, #41C483 50%);
-  background-image: url("../../../assets/images/overlay.png"), -ms-linear-gradient(100deg, rgb(202, 202, 202) 100%, #41C483 50%);
-  background-image: url("../../../assets/images/overlay.png"), linear-gradient(100deg, rgb(202, 202, 202) 100%, #41C483 50%);
+  background-image: url("../../../assets/images/overlay.png"), -moz-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
+  background-image: url("../../../assets/images/overlay.png"), -webkit-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
+  background-image: url("../../../assets/images/overlay.png"), -ms-linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
+  background-image: url("../../../assets/images/overlay.png"), linear-gradient(100deg, #31CF9A 50%, #41C483 50%);
 }
-
-

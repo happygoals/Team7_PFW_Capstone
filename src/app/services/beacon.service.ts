@@ -28,10 +28,8 @@ export class BeaconService {
 		let body = res.json();
 		return body;
 	}
-
-	private handleError (error: Response | any){
-		console.error(error.message || error);
-		return Observable.throw(error.message || error);
-	}
-
+  private handleError(error: Response | any) {
+    console.error(error.message || error);
+    return Observable.throw(error.message || error);
+  }
 }

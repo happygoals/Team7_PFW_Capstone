@@ -16,7 +16,7 @@ declare function par(list):any
 declare var heatList: any
 declare var listItem: any
 declare function StoreValueForHeatmap(Array): any
-
+declare var departmentList: any
 
 @Component({
   selector: "app-core-body-population",
@@ -24,7 +24,7 @@ declare function StoreValueForHeatmap(Array): any
   styleUrls: ["./population.component.css"]
 })
 
-export class PopulationComponent{
+export class PopulationComponent {
 
   public beacons: Beacon[];
   public beacon: Beacon;
@@ -33,8 +33,14 @@ export class PopulationComponent{
   public beaconSet : any[];
   heats: any = 0;
   ChildVal : any;
+  tempBeacon: any[];
+  temp: any;
+  numMax: number;
+  numMin: number;
+  Department: any;
+  tempDept: any;
 
-  GetOutput(selected: any){
+  GetOutput(selected: any) {
     if(selected)
     {
       this.beacons = selected;
@@ -44,7 +50,94 @@ export class PopulationComponent{
 
   callParse() {
     par(this.beacons);
+    for(var v =0; v <heatList.length; v++){
+      heatList[v] = 0;
+    }
     StoreValueForHeatmap(listItem)
+    this.MaxBeaconNum()
+    this.MinBeaconNum()
+    this.BusyDept()
     this.heats = heatList
   }
+
+  MaxBeaconNum() {
+    this.tempBeacon = heatList;
+    this.temp = this.tempBeacon[0];
+    var num: number = 1;
+    var k: number;
+
+    for(k = num; k < this.tempBeacon.length; k++)
+    {
+      if(this.tempBeacon[k] >= this.temp) {
+        this.temp = this.tempBeacon[k];
+        this.numMax = k;
+      }
+    }
+  }
+
+  MinBeaconNum() {
+    this.tempBeacon = heatList;
+    this.temp = this.tempBeacon[0];
+    var num: number = 1;
+    var j: number;
+
+    for(j = num; j < this.tempBeacon.length; j++)
+    {
+      if(this.tempBeacon[j] <= this.temp) {
+        if(this.tempBeacon[j] != 0) {
+        this.temp = this.tempBeacon[j];
+        this.numMin = j;
+
+        }
+      }
+    }
+  }
+
+
+  BusyDept() {
+    this.tempBeacon = departmentList;
+    this.temp = this.tempBeacon[0];
+    var num: number = 1;
+    var j: number;
+
+    for(j = num; j < departmentList.length; j++)
+    {
+      if(this.tempBeacon[j] <= this.temp) {
+        this.temp = this.tempBeacon[j];
+        this.tempDept = j
+      }
+    }
+
+
+    if(this.tempDept===0)
+    {
+      this.Department = "Parkview physicians group cardiology"
+    }
+    else if(this.tempDept===1)
+    {
+      this.Department = "ATC"
+    }
+    else if(this.tempDept===2)
+    {
+      this.Department = "Imaging"
+    }
+    else if(this.tempDept===3)
+    {
+      this.Department = "Gift shop"
+    }
+    else if(this.tempDept===4)
+    {
+      this.Department = "Dining area"
+    }
+    else if(this.tempDept===5)
+    {
+      this.Department = "Children’s speciality clinic"
+    }
+    else if(this.tempDept===6)
+    {
+      this.Department = "Emergency"
+    }
+
+  }
+
 }

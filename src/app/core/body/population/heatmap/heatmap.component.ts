@@ -17,19 +17,30 @@ export class HeatmapComponent implements OnChanges {
   differ: any;
   interval: any;
   data: any;
+  heatmap: any;
+  number: number = 0;
 
   constructor() {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-      var heatmap = h337.create({
+
+    if(this.number>1)
+    {
+      this.ClearHeatMap(this.heatmap);
+    }
+
+    if(this.number === 0) {
+      this.heatmap = h337.create({
         container: window.document.querySelector('#heatmap')
       });
-      this.drawHeatMap(heatmap);
+      this.number++;
+    }
+
+    this.drawHeatMap(this.heatmap);
   }
 
   drawHeatMap(heatmap) {
-    /* test data */
     heatmap.setData({
       max: 4000,
       min: 0,
@@ -100,6 +111,18 @@ export class HeatmapComponent implements OnChanges {
       ]
     });
   }
+
+  ClearHeatMap(heatmap) {
+
+    heatmap.setData({
+      max: 400,
+      min: 0,
+      data: [
+        0,0,0,0
+      ]
+    });
+  }
+
 }
 
 
