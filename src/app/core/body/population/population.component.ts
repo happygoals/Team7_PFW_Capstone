@@ -38,6 +38,7 @@ export class PopulationComponent {
   numMax: number;
   numMin: number;
   Department: any;
+  setVal: number = 0;
   tempDept: any;
 
   GetOutput(selected: any) {
@@ -54,6 +55,7 @@ export class PopulationComponent {
       heatList[v] = 0;
     }
     StoreValueForHeatmap(listItem)
+    this.setVal++
     this.MaxBeaconNum()
     this.MinBeaconNum()
     this.BusyDept()
@@ -61,6 +63,7 @@ export class PopulationComponent {
   }
 
   MaxBeaconNum() {
+    if(this.setVal > 6){
     this.tempBeacon = heatList;
     this.temp = this.tempBeacon[0];
     var num: number = 1;
@@ -73,6 +76,7 @@ export class PopulationComponent {
         this.numMax = k;
       }
     }
+  }
   }
 
   MinBeaconNum() {
@@ -95,6 +99,8 @@ export class PopulationComponent {
 
 
   BusyDept() {
+    this.Department = "";
+    if(this.setVal > 6){
     this.tempBeacon = departmentList;
     this.temp = this.tempBeacon[0];
     var num: number = 1;
@@ -139,5 +145,6 @@ export class PopulationComponent {
     }
 
   }
+}
 
 }

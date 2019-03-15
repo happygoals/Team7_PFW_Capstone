@@ -42,7 +42,7 @@ export class HeatmapComponent implements OnChanges {
 
   drawHeatMap(heatmap) {
     heatmap.setData({
-      max: 4000,
+      max: 400,
       min: 0,
       data: [
           /* 1 */{ x: 85, y: 190, value: this.heatList[1] },
