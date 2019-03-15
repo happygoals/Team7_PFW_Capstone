@@ -3,13 +3,13 @@
 body {
   background-color: #000000;
   background: url("/../../../assets/images/overlay.png") no-repeat center center fixed,
-    -moz-linear-gradient(180deg, #4a9f50 25%, #7ee36a 75%) ;
+    -moz-linear-gradient(180deg, #4a9f50 35%, #7ee36a 65%) ;
   background: url("/../../../assets/images/overlay.png") no-repeat center center fixed,
-    -webkit-linear-gradient(180deg, #4a9f50 25%, #7ee36a 75%);
+    -webkit-linear-gradient(180deg, #4a9f50 35%, #7ee36a 65%);
   background: url("/../../../assets/images/overlay.png") no-repeat center center fixed,
-    -ms-linear-gradient(180deg, #4a9f50 25%, #7ee36a 75%);
+    -ms-linear-gradient(180deg, #4a9f50 35%, #7ee36a 65%);
   background: url("/../../../assets/images/overlay.png") no-repeat center center fixed,
-    linear-gradient(180deg, #4a9f50 25%, #7ee36a 75%);
+    linear-gradient(180deg, #4a9f50 35%, #7ee36a 65%);
     -webkit-background-size: cover; /* For WebKit */
     -moz-background-size: cover;    /* Mozilla */
     -o-background-size: cover;      /* Opera */
@@ -29,6 +29,7 @@ body {
 
 .emailForm {
   margin: 0 auto;
+  box-shadow: 0.5px 0.5px 5px rgb(136, 136, 136); 
   background-color: white;
   width: 40%;
 }
@@ -42,6 +43,7 @@ body {
 }
 
 .emailinput{
+  font-size: 0.6vw;
   width: 40vw;
 }
 
@@ -68,6 +70,13 @@ body {
 
 button {
   margin: 1%;
+  font-weight: 300;
+  border-radius: 2px;
+}
+
+.mat-basic{
+  background-color:rgb(207, 205, 205);
+  color: #fff;
 }
 
 h1 {
