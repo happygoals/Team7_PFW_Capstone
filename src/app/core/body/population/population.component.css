@@ -4,6 +4,7 @@ body {
   padding-right: 2%;
   padding-top: 5%;
   padding-bottom: 2%;
+  min-height: 100vh;
 }
 
 div.body2 {
@@ -46,9 +47,9 @@ mat-grid-tile.fact3 {
 }
   /* mat-card style for the fact-boxes START*/
   mat-card.box1{
-    max-width: 630px; 
-    min-width: 630px; 
-    height: auto;  
+    max-width: 630px;
+    min-width: 630px;
+    height: auto;
     margin: 1% auto;
     background-color: rgba(25, 91, 38, 200);
     color: #fafafa;
@@ -62,10 +63,10 @@ mat-grid-tile.fact3 {
   }
 
   mat-card.box2{
-    max-width: 630px; 
-    min-width: 630px; 
+    max-width: 630px;
+    min-width: 630px;
     margin: 1% auto;
-    padding: 1%; 
+    padding: 1%;
     background-color: rgba(30, 109, 46, 200);
     color: #fafafa;
     transition: 0.3s;
@@ -73,13 +74,13 @@ mat-grid-tile.fact3 {
   }
 
   mat-card.box2:hover{
-    box-shadow: 0 16px 16px 0 rgba(0,0,0,0.4); 
+    box-shadow: 0 16px 16px 0 rgba(0,0,0,0.4);
     text-shadow: 1px 1px rgba(21, 40, 22, 0.9);
   }
 
   mat-card.box3{
-    max-width: 630px; 
-    min-width: 630px; 
+    max-width: 630px;
+    min-width: 630px;
     background-color: rgba(30, 137, 51, 200);
     color: #fafafa;
     transition: 0.3s;
@@ -227,7 +228,7 @@ h1{
 }
 
 h2{
-  text-align:left; 
+  text-align:left;
   font-size: 1.4vw;
   font-weight: 200;
   line-height: 2.3;
@@ -247,7 +248,7 @@ span {
 }
 
 p{
-  text-align:left; 
+  text-align:left;
 }
 /* Responsive text END */
 

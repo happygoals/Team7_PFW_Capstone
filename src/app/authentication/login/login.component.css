@@ -41,6 +41,7 @@ html, body {
     right: calc(-50vw + 50%);
     margin-left: auto;
     margin-right: auto;
+    margin-top: 3.5%;
  }
 
  .only-parkview{
