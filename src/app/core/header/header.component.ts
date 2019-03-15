@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 
 export class HeaderComponent {
 
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
   public href: string = "";
 
   constructor(private router: Router) {}
@@ -21,13 +22,14 @@ export class HeaderComponent {
         document.getElementById('popbutton').style.backgroundColor = '#27e9b6';
         document.getElementById('popbutton').style.color = 'white';
       }
+      if(this.href === '/settings'){
+        return;
+      }
       else{
         document.getElementById('routingbutton').style.backgroundColor = '#27e9b6';
         document.getElementById('routingbutton').style.color = 'white';
       }
   }
-
-  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
   if (selected) {
     selected = false;
