@@ -13,7 +13,7 @@
         <form class="example-form">
                 <mat-form-field class="example-full-width">
                   <mat-label>Email Address</mat-label>
-                  <input matInput disabled value="parkview@parkview.com">
+                  <input matInput disabled value="parkview@health.pfw">
                   <mat-hint align="start"><strong>Cannot be changed</strong> </mat-hint>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
@@ -42,7 +42,7 @@
                  </mat-form-field>
                   <mat-form-field class="example-full-width">
                       <mat-label>Confirm New Password</mat-label>
-                      <input matInput #message maxlength="30" [type]="hide ? 'password' : 'text'" [formControl]="passwordFormControl">
+                      <input matInput #message maxlength="30" [type]="hide ? 'password' : 'text'" [formControl]="pwconfirmFormControl">
                       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </mat-form-field>
                 </p>
