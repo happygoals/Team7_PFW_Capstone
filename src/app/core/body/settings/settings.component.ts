@@ -1,5 +1,5 @@
-import { Component} from '@angular/core';
-
+import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-core-body-settings',
@@ -9,4 +9,18 @@ import { Component} from '@angular/core';
 
 export class SettingsComponent {
 
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+
+  passwordFormControl = new FormControl('', [
+    Validators.required
+  ]);
+
+  pwconfirmFormControl = new FormControl('', [
+    Validators.required
+  ]);
+
+  hide = true;
 }
