@@ -4,7 +4,7 @@
     src="../../../assets/images/parkview-health-logo-w.png"
     alt="Parkview Health logo"
   />
-  <form class="emailForm">
+  <form class="emailForm" [formGroup]="emailFormControl">
     <div id="inputForm" class="inputCenter">
       <h1 style="font-weight: 300;">Forgot Your Password</h1>
         <div>
@@ -33,7 +33,7 @@
     </div>
     <br />
     <div id="submissionButtons" class="submissionButtons">
-      <button mat-raised-button color="basic" (click)="emailSent();">Retrieve Password</button>
+      <button mat-raised-button color="basic" (click)="emailSent();" [disabled]="!emailFormControl.valid">Retrieve Password</button>
       <button mat-raised-button color="warn" [routerLink]="['/login']" >Cancel</button>
     </div>
     <div id="emailSent" class="emailSent">

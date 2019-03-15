@@ -18,12 +18,12 @@ export class HeaderComponent {
 
   ngOnInit() {
       this.href = this.router.url;
-      if(this.href === '/population'){
-        document.getElementById('popbutton').style.backgroundColor = '#27e9b6';
-        document.getElementById('popbutton').style.color = 'white';
-      }
       if(this.href === '/settings'){
         return;
+      }
+      else if(this.href === '/population'){
+        document.getElementById('popbutton').style.backgroundColor = '#27e9b6';
+        document.getElementById('popbutton').style.color = 'white';
       }
       else{
         document.getElementById('routingbutton').style.backgroundColor = '#27e9b6';
