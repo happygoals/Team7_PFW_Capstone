@@ -6,6 +6,7 @@
     (onSeriesClick)="onSeriesClick($event)">
     <dxo-common-series-settings
     hoverMode = "allSeriesPoints"
+    [hoverStyle] = "{color:'black'}"
     ignoreEmptyPoints = "true"
     type="bubble">
     </dxo-common-series-settings>
@@ -18,7 +19,7 @@
     <dxo-argument-axis title="Number of Beacons Taken per Route">
         <dxo-label [customizeText]="argumentCustomizeText"></dxo-label>
     </dxo-argument-axis>
-    <dxi-value-axis title="Beacon Number" 
+    <dxi-value-axis title="Beacon Number"
     [visualRange]="{startValue:-15, endValue:100}"
     visualRangeUpdateMode = "keep">
         <dxo-label [customizeText]="valueCustomizeText"></dxo-label>
