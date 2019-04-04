@@ -2,6 +2,7 @@
 
 const express = require('express')
 const app = express()
+var router = require('./controllers/auth')
 var connection = require('./connection')
 var beacon = require('./models/beacon')
 var BeaconController = require('./controllers/beacons')
@@ -13,5 +14,9 @@ app.use((req, res, next) => {
   res.send('Hello - !')
   next()
 })
+
+beacon.getBeaconsByDateTimeForHeatmap('2018-01-01', '2018-01-02', '07:30:00', '08:00:00');
+beacon.login('DarrellKeeling@parkview.com', 'a123456789')
+
 
 module.exports = app

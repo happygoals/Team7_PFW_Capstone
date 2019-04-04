@@ -27,7 +27,7 @@ router.get('/beaconSets/:startDate/:endDate/:startTime/:endTime', function(req, 
     var endDate = req.params.endDate;
     var startTime = req.params.startTime;
     var endTime = req.params.endTime;
-    var sqlBeacon = "SELECT beacon FROM test WHERE Date BETWEEN ? AND ?  AND Time BETWEEN ? AND ?"
+    var sqlBeacon = "SELECT beacon FROM test.test WHERE Date BETWEEN ? AND ?  AND Time BETWEEN ? AND ?"
 
     return connection.query(sqlBeacon, [startDate, endDate, startTime, endTime], (err, rows)=>{
         if(err){
