@@ -9,19 +9,41 @@ var objparse = []
 var text, posf, posb, output
 var beaconList = []
 var listItem = [[],[]]
-var sqlBeacon = "SELECT beacon FROM test WHERE Date BETWEEN ? AND ?  AND Time BETWEEN ? AND ?"
+var sqlBeacon = "SELECT beacon FROM test.test WHERE Date BETWEEN ? AND ?  AND Time BETWEEN ? AND ?"
 
 var beacon = {
     //this function calls for a query of all the data from our db for the navigations table
     getAllDataSet:function(callback){
-        return connection.query("SELECT * FROM test", callback)
+        return connection.query("SELECT * FROM test.test", callback)
     },
 
+    login:function(Email, Password){
+      if (Email && Password) {
+        connection.query('SELECT * FROM test.login WHERE Email = ? AND Password = ?', [Email, Password], function(error, results, fields) {
+          if (results.length > 0) {
+            //request.session.loggedin = true;
+            //request.session.Email = Email;
+            //response.redirect('/population');
+            console.log("connected")
+            return true;
+          } else {
+            //response.send('Incorrect Email and/or Password!');
+            console.log("false")
+            return false;
+          }
+          //response.end();
+        })
+      } else {
+        console.log("fail")
+        //response.send('Please enter Email and Password!');
+        //response.end();
+      }
+    },
     getBeaconsByDateTimeForRouting:function(array, callback){
       return connection.query(sqlBeacon, [array[0], array[1], array[2], array[3]], callback)},
 
     getBeaconsByDateTimeForHeatmap(startDate, endDate, startTime, endTime){
-      return connection.query("SELECT beacon FROM test WHERE Date BETWEEN ? AND ?  AND Time BETWEEN ? AND ?",
+      return connection.query("SELECT beacon FROM test.test WHERE Date BETWEEN ? AND ?  AND Time BETWEEN ? AND ?",
        [startDate, endDate, startTime, endTime], (error, rows) => {
 
         if (!error){
@@ -49,7 +71,7 @@ var beacon = {
   },
 
     getBeaconsById(ID){
-        return connection.query("SELECT beacon FROM test WHERE ID=?", [ID], (error, rows) => {
+        return connection.query("SELECT beacon FROM test.test WHERE ID=?", [ID], (error, rows) => {
             if (!error)
               console.log(rows)
             else

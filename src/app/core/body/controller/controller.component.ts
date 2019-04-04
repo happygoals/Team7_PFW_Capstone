@@ -239,7 +239,7 @@ export class ControllerComponent {
         this.beacons = data;
       });
   }
-  
+
   // get change result for time selection
   onUserChange(changeContext: ChangeContext): void {
     // this.logText += `Change(${this.getChangeContextString(changeContext)})\n`;
@@ -292,7 +292,7 @@ export class ControllerComponent {
 
     this.getBeaconSets(
 
-    );      
+    );
     this.NotifyParent(this.beacons)
 
     // Checking for which datepicker is being used
