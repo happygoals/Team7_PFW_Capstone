@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { PasswordValidation } from '../../../passwordvalidation'
 
 @Component({
   selector: 'app-core-body-settings',
@@ -8,6 +9,23 @@ import { FormControl, Validators } from '@angular/forms';
 })
 
 export class SettingsComponent {
+
+  onSubmit() {
+    console.log(this.form);
+  }
+
+  form: FormGroup;
+  constructor(fb: FormBuilder)
+  {
+    this.form = fb.group({
+    // define your control in you form
+    password: ['', Validators.required],
+    confirmPassword: ['', Validators.required]
+    }, {
+      validator: PasswordValidation.MatchPassword // your validation method
+    })
+  }
+
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -19,8 +37,11 @@ export class SettingsComponent {
   ]);
 
   pwconfirmFormControl = new FormControl('', [
-    Validators.required
+    Validators.required,
+    Validators.minLength(10),
+    
   ]);
 
   hide = true;
+
 }
