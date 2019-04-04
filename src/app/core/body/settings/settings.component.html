@@ -9,8 +9,7 @@
       
       <div class="main">
         <h1>Enter your detail below.</h1>
-
-        <form class="example-form">
+        <form [formGroup]="form" class="example-form">
                 <mat-form-field class="example-full-width">
                   <mat-label>Email Address</mat-label>
                   <input matInput disabled value="parkview@health.pfw">
@@ -18,7 +17,7 @@
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
                   <mat-label>Valid Employee ID</mat-label>
-                  <input matInput disabled value="Q1W2E3R4">
+                  <input matInput disabled value="777123129">
                   <mat-hint align="start"><strong>Cannot be changed</strong></mat-hint>
                 </mat-form-field>
                 <table class="example-full-width" cellspacing="0"><tr>
@@ -37,16 +36,26 @@
                 <p>
                  <mat-form-field class="example-full-width">
                     <mat-label>New Password</mat-label>
-                    <input matInput #message maxlength="30" [type]="hide ? 'password' : 'text'" [formControl]="passwordFormControl">
+                    <input matInput #message maxlength="30" [type]="hide ? 'password' : 'text'" id="password"  formControlName="password" class="form-control"  [formGroup]="form" [formControl]="passwordFormControl">
                     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                  </mat-form-field>
                   <mat-form-field class="example-full-width">
                       <mat-label>Confirm New Password</mat-label>
-                      <input matInput #message maxlength="30" [type]="hide ? 'password' : 'text'" [formControl]="pwconfirmFormControl">
+                      <input matInput #message maxlength="30" [type]="hide ? 'password' : 'text'" id="confirmPassword"  formControlName="confirmPassword" class="form-control"  [formGroup]="form" [formControl]="pwconfirmFormControl">
                       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </mat-form-field>
                 </p>
-              
+                <div class="alert alert-danger"  *ngIf="form.hasError('required')">Password not match</div>
+                <div class="validation">
+                  <mat-error
+                    *ngIf="
+                      pwconfirmFormControl.hasError('password') &&
+                      !pwconfirmFormControl.hasError('required')
+                    "
+                  >
+                    Please enter the matched password
+                  </mat-error>
+                </div>
               </form>
             <div class="saveButton">
                 <button mat-raised-button color="basic" [routerLink]="['/population']"  [disabled]="!pwconfirmFormControl.valid"
