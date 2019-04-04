@@ -233,11 +233,13 @@ export class ControllerComponent {
 
   //function to call the backend call to get the data from db
   getBeaconSets() {
+    if(this.startDate && this.endDate && this.endTime && this.startTime){
     this.beaconService
       .getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime)
       .subscribe((data: Beacon[]) => {
         this.beacons = data;
       });
+    }
   }
   
   // get change result for time selection
@@ -327,6 +329,11 @@ export class ControllerComponent {
     this.slidetoggle.checked = false;
     document.getElementById("dp2_div").style.display = "none";
     this.sliderForm.reset({ sliderControl: [0, 24] });
+  
+    this.endDate = ''
+    this.startDate = ''
+    this.startTime = ''
+    this.endTime = ''
   }
 
   // END of Reset button for date and time

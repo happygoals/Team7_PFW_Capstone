@@ -12,7 +12,7 @@ interface External {
   StoreValueForHeatmap: Function
 }
 
-declare function par(list):any
+declare function par(list): any
 declare var heatList: any
 declare var listItem: any
 declare function StoreValueForHeatmap(Array): any
@@ -30,9 +30,9 @@ export class PopulationComponent {
   public beacon: Beacon;
   public routeBeacons: Beacon[];
   errorMessage: String;
-  public beaconSet : any[];
+  public beaconSet: any[];
   heats: any = 0;
-  ChildVal : any;
+  ChildVal: any;
   tempBeacon: any[];
   temp: any;
   numMax: number;
@@ -42,8 +42,7 @@ export class PopulationComponent {
   tempDept: any;
 
   GetOutput(selected: any) {
-    if(selected)
-    {
+    if (selected) {
       this.beacons = selected;
       this.callParse()
     }
@@ -51,7 +50,7 @@ export class PopulationComponent {
 
   callParse() {
     par(this.beacons);
-    for(var v =0; v <heatList.length; v++){
+    for (var v = 0; v < heatList.length; v++) {
       heatList[v] = 0;
     }
     StoreValueForHeatmap(listItem)
@@ -63,20 +62,19 @@ export class PopulationComponent {
   }
 
   MaxBeaconNum() {
-    if(this.setVal > 6){
-    this.tempBeacon = heatList;
-    this.temp = this.tempBeacon[0];
-    var num: number = 1;
-    var k: number;
+    if (this.setVal > 6) {
+      this.tempBeacon = heatList;
+      this.temp = this.tempBeacon[0];
+      var num: number = 1;
+      var k: number;
 
-    for(k = num; k < this.tempBeacon.length; k++)
-    {
-      if(this.tempBeacon[k] >= this.temp) {
-        this.temp = this.tempBeacon[k];
-        this.numMax = k;
+      for (k = num; k < this.tempBeacon.length; k++) {
+        if (this.tempBeacon[k] >= this.temp) {
+          this.temp = this.tempBeacon[k];
+          this.numMax = k;
+        }
       }
     }
-  }
   }
 
   MinBeaconNum() {
@@ -85,12 +83,11 @@ export class PopulationComponent {
     var num: number = 1;
     var j: number;
 
-    for(j = num; j < this.tempBeacon.length; j++)
-    {
-      if(this.tempBeacon[j] <= this.temp) {
-        if(this.tempBeacon[j] != 0) {
-        this.temp = this.tempBeacon[j];
-        this.numMin = j;
+    for (j = num; j < this.tempBeacon.length; j++) {
+      if (this.tempBeacon[j] <= this.temp) {
+        if (this.tempBeacon[j] != 0) {
+          this.temp = this.tempBeacon[j];
+          this.numMin = j;
 
         }
       }
@@ -100,51 +97,43 @@ export class PopulationComponent {
 
   BusyDept() {
     this.Department = "";
-    if(this.setVal > 6){
-    this.tempBeacon = departmentList;
-    this.temp = this.tempBeacon[0];
-    var num: number = 1;
-    var j: number;
+    if (this.setVal > 6) {
+      this.tempBeacon = departmentList;
+      this.temp = this.tempBeacon[0];
+      var num: number = 1;
+      var j: number;
 
-    for(j = num; j < departmentList.length; j++)
-    {
-      if(this.tempBeacon[j] <= this.temp) {
-        this.temp = this.tempBeacon[j];
-        this.tempDept = j
+      for (j = num; j < departmentList.length; j++) {
+        if (this.tempBeacon[j] <= this.temp) {
+          this.temp = this.tempBeacon[j];
+          this.tempDept = j
+        }
       }
-    }
 
 
-    if(this.tempDept===0)
-    {
-      this.Department = "Parkview physicians group cardiology"
-    }
-    else if(this.tempDept===1)
-    {
-      this.Department = "ATC"
-    }
-    else if(this.tempDept===2)
-    {
-      this.Department = "Imaging"
-    }
-    else if(this.tempDept===3)
-    {
-      this.Department = "Gift shop"
-    }
-    else if(this.tempDept===4)
-    {
-      this.Department = "Dining area"
-    }
-    else if(this.tempDept===5)
-    {
-      this.Department = "Children’s speciality clinic"
-    }
-    else if(this.tempDept===6)
-    {
-      this.Department = "Emergency"
-    }
+      if (this.tempDept === 0) {
+        this.Department = "Parkview physicians group cardiology"
+      }
+      else if (this.tempDept === 1) {
+        this.Department = "ATC"
+      }
+      else if (this.tempDept === 2) {
+        this.Department = "Imaging"
+      }
+      else if (this.tempDept === 3) {
+        this.Department = "Gift shop"
+      }
+      else if (this.tempDept === 4) {
+        this.Department = "Dining area"
+      }
+      else if (this.tempDept === 5) {
+        this.Department = "Children’s speciality clinic"
+      }
+      else if (this.tempDept === 6) {
+        this.Department = "Emergency"
+      }
 
+    }
   }
-}
 
 }

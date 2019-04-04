@@ -20,10 +20,13 @@ export class BeaconService {
 		.get(`${this.url}/beacons`)
 	}
 	getBeaconSets(startDate, endDate, startTime, endTime):Observable<any>{
+		
 		return this
 		.http
 		.get(`${this.url}/beacons/beaconSets/`+startDate+`/`+endDate+`/`+startTime+`/`+endTime)
+	
 	}
+
 	private extractData(res: Response){
 		let body = res.json();
 		return body;
