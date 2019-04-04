@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { PasswordValidation } from '../../../passwordvalidation'
 
 @Component({
   selector: 'app-core-body-settings',
@@ -22,7 +21,7 @@ export class SettingsComponent {
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required]
     }, {
-      validator: PasswordValidation.MatchPassword // your validation method
+     
     })
   }
 
