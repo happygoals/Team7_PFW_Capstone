@@ -23,12 +23,12 @@
                 <table class="example-full-width" cellspacing="0"><tr>
                   <td>
                     <mat-form-field class="example-full-width">
-                    <input matInput placeholder="First Name">
+                    <input matInput placeholder="First Name" id="name1Input">
                   </mat-form-field>
                   </td>
                   <td>
                     <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Last Name">
+                    <input matInput placeholder="Last Name" id="name2Input">
                      </mat-form-field>
                   </td>
                 </tr></table>
@@ -58,7 +58,9 @@
                 </div>
               </form>
             <div class="saveButton">
-                <button mat-raised-button color="basic" [routerLink]="['/population']"  [disabled]="!pwconfirmFormControl.valid"
+                <button mat-raised-button color="basic" (click)="saveValue()"   
+                [routerLink]="['/population']"
+                [disabled]="!pwconfirmFormControl.valid"
              >SAVE</button>
             </div>
       </div>
