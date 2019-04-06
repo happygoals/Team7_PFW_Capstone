@@ -19,4 +19,6 @@ beacon.getBeaconsByDateTimeForHeatmap('2018-01-01', '2018-01-02', '07:30:00', '0
 beacon.login('DarrellKeeling@parkview.com', 'a123456789')
 
 
+beacon.register('123')
+
 module.exports = app

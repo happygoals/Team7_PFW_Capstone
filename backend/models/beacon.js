@@ -16,7 +16,39 @@ var beacon = {
     getAllDataSet:function(callback){
         return connection.query("SELECT * FROM test.test", callback)
     },
+    register:function(EmployeeID){
 
+      let checkingquery = "SELECT * FROM test.login WHERE EmployeeID= '" + EmployeeID + "'"
+
+      connection.query(checkingquery, (err, result) => {
+        if (err) {
+          //return res.status(500).send(err)
+          console.log("first error")
+        }
+        if (result.length > 0) {
+          console.log("got to length")
+          //let addquery ="INSERT INTO `test.login` (Firstname, Lastname, Email, Password) VALUES ('" +
+         // Firstname + "', '" + Lastname + "', '" + Email + "', '" + Password+ "')";
+         let stmt ="UPDATE test.login set Firstname ='b', Lastname ='b', Email = 'b@pfw.edu', Password = 'b' WHERE EmployeeID = '" + EmployeeID + "'"
+         let todo = ["Insert", false]
+         connection.query(stmt,todo, (err,results,fields) => {
+           if(err) {
+             return console.error(err.message)
+           }
+           console.log ('todo id:' + results.insertid)
+         })
+
+         /*
+         connection.query(addquery, (err, result) => {
+          if (err) {
+            console.log("bad")
+          }
+          //res.redirect('/');
+          else{console.log("created")}
+
+        })*/
+      }})
+    },
     login:function(Email, Password){
       if (Email && Password) {
         connection.query('SELECT * FROM test.login WHERE Email = ? AND Password = ?', [Email, Password], function(error, results, fields) {

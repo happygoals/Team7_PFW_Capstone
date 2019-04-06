@@ -18,6 +18,35 @@ router.get('/', function(request, response){
   response.sendFile(path.join())
 })
 
+router.post('/register', (req, res) => {
+  let Firstname = req.body.Firstname
+  let Lastname = req.body.Lastname
+  let Email = req.body.Email
+  let Password = req.body.Password
+  let EmployeeID = req.body.EmployeeID
+
+  let checkingquery = "SELECT * FROM test.login WHERE EmployeeID= '" + EmployeeID + "'"
+
+  connection.query(checkingquery, (err, result) => {
+    if (err) {
+      return res.status(500).send(err)
+    }
+    if (result.length > 0) {
+      let addquery = "INSERT INTO `test.login` (Firstname, Lastname, Email, Password) VALUES ('" +
+      Firstname + "', '" + Lastname + "', '" + Email + "', '" + Password+ "')";
+      connection.query(addquery, (err, result) => {
+      if (err) {
+          return res.status(500).send(err);
+      }
+      //res.redirect('/');
+      console.log("created")
+    })
+  }})
+})
+
+
+
+
 router.post('/auth/:Email/:Password', function(req, response) {
 /*
   var Email = request.body.Email;
