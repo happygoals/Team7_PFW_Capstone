@@ -79,12 +79,10 @@ export class ControllerComponent {
   slidetoggle: MatSlideToggle;
 
   /* user-event-slider START */
-  logText: string = ""; // to print the time result
-
   startDate: string = '';
   endDate: string = '';
-  startTime: string = '';
-  endTime: string = '';
+  startTime: string = '00:00:00';
+  endTime: string = '23:59:59';
 
   /* Time slider value reset */
   sliderForm: FormGroup = new FormGroup({
@@ -231,7 +229,7 @@ export class ControllerComponent {
 
   ngOnInit() {}
 
-  //function to call the backend call to get the data from db
+  // Function to call the backend call to get the data from db
   getBeaconSets() {
     this.beaconService
       .getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime)
@@ -239,27 +237,24 @@ export class ControllerComponent {
         this.beacons = data;
       });
   }
-  
+
   // get change result for time selection
   onUserChange(changeContext: ChangeContext): void {
-    // this.logText += `Change(${this.getChangeContextString(changeContext)})\n`;
+
   }
+
   // get end result for time selection
   onUserChangeEnd(changeContext: ChangeContext): void {
-    // this.logText += `End(${this.getChangeContextString(changeContext)})\n`;
     this.startTime = `${this.getChangeStartString(changeContext)}`;
     this.endTime = `${this.getChangeEndString(changeContext)}`;
-    this.logText += this.startTime + ` ` + this.endTime + `\n`;
+    this.getBeaconSets();
+    this.NotifyParent(this.beacons);
   }
 
   // Update the string Starttime value
   getChangeStartString(changeContext: ChangeContext): string {
     const zerolowValue = changeContext.value < 10 ? "0" : ""; // to put zero for the time format
     this.startTime = `${zerolowValue}${changeContext.value}:00:00`; // selected start time
-    this.getBeaconSets(
-
-    );
-    this.NotifyParent(this.beacons);
     return this.startTime;
   }
 
@@ -267,12 +262,9 @@ export class ControllerComponent {
   getChangeEndString(changeContext: ChangeContext): string {
     const zerohighValue = changeContext.highValue < 10 ? "0" : ""; // to put zero for the time format
     this.endTime = `${zerohighValue}${changeContext.highValue}:00:00`; // selected end time
-    this.getBeaconSets(
-
-    );
-    this.NotifyParent(this.beacons);
     return this.endTime;
   }
+
   /* user-event-slider END */
 
   /* button*/
@@ -281,28 +273,19 @@ export class ControllerComponent {
     console.log(JSON.stringify(reset));
   }
 
-  // Start of Date Picker Extraction Method
-
   // Start Date Listener
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     const eventDate = new Date(event.value); // Datepicker Date Value
     const formattedDate = this.datePipe.transform(eventDate, "yyyy-MM-dd"); // Formatted new Date
-    const tempStartDate = new Date(Date.parse(this.startDate));
-    const tempEndDate = new Date(Date.parse(this.endDate));
-
-    this.getBeaconSets(
-
-    );      
-    this.NotifyParent(this.beacons)
 
     // Checking for which datepicker is being used
-    if (event.targetElement.id === "dp1") {
-      // Checks for Datepicker 1
+    if (event.targetElement.id === 'dp1') {
       this.startDate = formattedDate;
-    } else if (event.targetElement.id === "dp2") {
-      // checks for Datepicker 2
+    } else if (event.targetElement.id === 'dp2') {
       this.endDate = formattedDate;
     }
+    this.getBeaconSets();
+    this.NotifyParent(this.beacons);
   }
 
   // End of Date Picker Extraction
@@ -324,7 +307,7 @@ export class ControllerComponent {
   resetDate(type: MatButton) {
     this.dp1.value = "";
     this.dp2.value = "";
-    this.slidetoggle.checked = false;
+    this.slidetoggle.checked = true;
     document.getElementById("dp2_div").style.display = "none";
     this.sliderForm.reset({ sliderControl: [0, 24] });
   }

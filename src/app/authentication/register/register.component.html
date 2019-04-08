@@ -42,12 +42,12 @@
         <tr>
           <td>
             <mat-form-field class="maxWidth">
-              <textarea
+              <input
                 id="id"
                 matInput
                 placeholder="Employee ID Number"
                 formControlName="id"
-              ></textarea>
+              >
               <mat-error *ngIf="registerForm.hasError('required')">
                 ID is <strong>required</strong>
               </mat-error>
@@ -84,7 +84,7 @@
           <td>
             <mat-form-field class="maxWidth">
               <input
-                id="newpass"
+                id="pass"
                 matInput
                 placeholder="Password"
                 formControlName="newpass"
@@ -111,9 +111,13 @@
           </td>
         </tr>
       </table>
+      <div class="errorDiv" *ngIf="passMatch()">
+        Passwords do not match
+      </div>
     </div>
     <div id="submissionButtons" class="submissionButtons">
       <button
+        id="register"
         mat-raised-button
         color="basic"
         (click)="registered()"
