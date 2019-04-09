@@ -23,4 +23,12 @@ export class LoginComponent {
   ]);
 
   hide = true;
+
+/* Save email address and password when the user types those on login input box */
+  saveValue(){
+    var loginemail = (<HTMLInputElement>document.getElementById("emailInput")).value;
+    var loginpw = (<HTMLInputElement>document.getElementById("passwordInput")).value;
+    alert(loginemail + loginpw); /* just for alert, anyone can remove it after testing */
+  }
+
 }

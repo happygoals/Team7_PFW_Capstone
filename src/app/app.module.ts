@@ -28,6 +28,7 @@ import { DatePipe } from '@angular/common';
 import { ForgotpassComponent } from './authentication/forgotpass/forgotpass.component';
 import { DxChartModule } from 'devextreme-angular';
 import { RegisterComponent } from './authentication/register/register.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { RegisterComponent } from './authentication/register/register.component'
     ChartComponent,
     jqxChartComponent,
     jqxDropDownListComponent,
-    RegisterComponent
+    RegisterComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

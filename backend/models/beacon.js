@@ -16,29 +16,113 @@ var beacon = {
     getAllDataSet:function(callback){
         return connection.query("SELECT * FROM test.test", callback)
     },
+  login:function(Email, Password){
 
-    login:function(Email, Password){
-      if (Email && Password) {
-        connection.query('SELECT * FROM test.login WHERE Email = ? AND Password = ?', [Email, Password], function(error, results, fields) {
-          if (results.length > 0) {
-            //request.session.loggedin = true;
-            //request.session.Email = Email;
-            //response.redirect('/population');
-            console.log("connected")
-            return true;
-          } else {
-            //response.send('Incorrect Email and/or Password!');
-            console.log("false")
-            return false;
-          }
-          //response.end();
-        })
-      } else {
-        console.log("fail")
-        //response.send('Please enter Email and Password!');
-        //response.end();
-      }
+  let checkingquery = "SELECT * FROM test.login WHERE Email= '" + Email + "' and Password = '"+ Password +"' "
+
+	if (Email && Password) {
+		connection.query(checkingquery,(error, results) => {
+			if (results.length > 0) {
+				console.log('llogged in ')
+			} else {
+				console.log("bad pass")
+			}
+		});
+	} else {
+		console.log("empty")
+	}
     },
+    update:function(Firstname, Lastname, Email, Password){
+
+      let checkingquery = "SELECT * FROM test.login WHERE Email= '" + Email + "'"
+
+      connection.query(checkingquery, (err, result) => {
+        if (err) {
+          //return res.status(500).send(err)
+          console.log("first error")
+        }
+        if (result.length > 0) {
+          console.log("got to length")
+          //let addquery ="INSERT INTO `test.login` (Firstname, Lastname, Email, Password) VALUES ('" +
+         // Firstname + "', '" + Lastname + "', '" + Email + "', '" + Password+ "')";
+         //UPDATE `test`.`login` SET `Firstname` = 'Robert', `Lastname` = 'Hall', `Email` = 'RobertHall@parkview.com', `Password` = 'c123456789' WHERE (`EmployeeID` = '555789203');
+         let stmt ="UPDATE test.login set Firstname ='"+Firstname+"', Lastname ='"+Lastname+"', Password = '"+Password+"' WHERE (Email = '" + Email + "')"
+         let todo = ["Insert", false]
+         connection.query(stmt,todo, (err,results,fields) => {
+           if(err) {
+             return console.error(err.message)
+           }
+           console.log("new update")
+           console.log ('todo id:' + results.insertid)
+         })
+
+         /*
+         connection.query(addquery, (err, result) => {
+          if (err) {
+            console.log("bad")
+          }
+          //res.redirect('/');
+          else{console.log("created")}
+
+        })*/
+      }})
+    },
+    register:function(Firstname, Lastname, Email, Password, EmployeeID){
+
+      let checkingquery = "SELECT * FROM test.login WHERE EmployeeID= '" + EmployeeID + "'"
+
+      connection.query(checkingquery, (err, result) => {
+        if (err) {
+          //return res.status(500).send(err)
+          console.log("first error")
+        }
+        if (result.length > 0) {
+          console.log("got to length")
+          //let addquery ="INSERT INTO `test.login` (Firstname, Lastname, Email, Password) VALUES ('" +
+         // Firstname + "', '" + Lastname + "', '" + Email + "', '" + Password+ "')";
+         //UPDATE `test`.`login` SET `Firstname` = 'Robert', `Lastname` = 'Hall', `Email` = 'RobertHall@parkview.com', `Password` = 'c123456789' WHERE (`EmployeeID` = '555789203');
+         let stmt ="UPDATE test.login set Firstname ='"+Firstname+"', Lastname ='"+Lastname+"', Email = '"+Email+"', Password = '"+Password+"' WHERE (EmployeeID = '" + EmployeeID + "')"
+         let todo = ["Insert", false]
+         connection.query(stmt,todo, (err,results,fields) => {
+           if(err) {
+             return console.error(err.message)
+           }
+           console.log ('todo id:' + results.insertid)
+         })
+
+         /*
+         connection.query(addquery, (err, result) => {
+          if (err) {
+            console.log("bad")
+          }
+          //res.redirect('/');
+          else{console.log("created")}
+
+        })*/
+      }})
+    },
+    // login:function(Email, Password){
+    //   if (Email && Password) {
+    //     connection.query('SELECT * FROM test.login WHERE Email = ? AND Password = ?', [Email, Password], function(error, results, fields) {
+    //       if (results.length > 0) {
+    //         //request.session.loggedin = true;
+    //         //request.session.Email = Email;
+    //         //response.redirect('/population');
+    //         console.log("connected")
+    //         return true;
+    //       } else {
+    //         //response.send('Incorrect Email and/or Password!');
+    //         console.log("false")
+    //         return false;
+    //       }
+    //       //response.end();
+    //     })
+    //   } else {
+    //     console.log("fail")
+    //     //response.send('Please enter Email and Password!');
+    //     //response.end();
+    //   }
+    // },
     getBeaconsByDateTimeForRouting:function(array, callback){
       return connection.query(sqlBeacon, [array[0], array[1], array[2], array[3]], callback)},
 
