@@ -23,12 +23,12 @@
                 <table class="example-full-width" cellspacing="0"><tr>
                   <td>
                     <mat-form-field class="example-full-width">
-                    <input matInput placeholder="First Name" id="name1Input">
+                    <input matInput placeholder="First Name" id="name1Input" formControlName="firstname" class="form-control"  [formGroup]="form" [formControl]="firstnameFormControl">
                   </mat-form-field>
                   </td>
                   <td>
                     <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Last Name" id="name2Input">
+                    <input matInput placeholder="Last Name" id="name2Input" formControlName="lastname" class="form-control"  [formGroup]="form" [formControl]="lastnameFormControl">
                      </mat-form-field>
                   </td>
                 </tr></table>
@@ -36,31 +36,44 @@
                 <p>
                  <mat-form-field class="example-full-width">
                     <mat-label>New Password</mat-label>
-                    <input matInput #message maxlength="30" [type]="hide ? 'password' : 'text'" id="password"  formControlName="password" class="form-control"  [formGroup]="form" [formControl]="passwordFormControl">
+                    <input matInput #message maxlength="30" [type]="hide ? 'password' : 'text'" id="password" formControlName="password" class="form-control"  [formGroup]="form" [formControl]="passwordFormControl">
                     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                  </mat-form-field>
                   <mat-form-field class="example-full-width">
                       <mat-label>Confirm New Password</mat-label>
-                      <input matInput #message maxlength="30" [type]="hide ? 'password' : 'text'" id="confirmPassword"  formControlName="confirmPassword" class="form-control"  [formGroup]="form" [formControl]="pwconfirmFormControl">
+                      <input matInput #message maxlength="30" [type]="hide ? 'password' : 'text'" id="confirmPassword" formControlName="confirmPassword" class="form-control"  [formGroup]="form" [formControl]="pwconfirmFormControl">
                       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </mat-form-field>
                 </p>
-                <div class="alert alert-danger"  *ngIf="form.hasError('required')">Password not match</div>
+                <!-- Validation Error -->
                 <div class="validation">
-                  <mat-error
-                    *ngIf="
-                      pwconfirmFormControl.hasError('password') &&
-                      !pwconfirmFormControl.hasError('required')
-                    "
+                    <mat-error
+                      *ngIf=" passMatch()"
+                    >
+                      Please enter the matched password
+                    </mat-error>
+                      <mat-error
+                      *ngIf="passwordFormControl.hasError('required') && !pwconfirmFormControl.hasError('required') && (!firstnameFormControl.hasError('required') || !lastnameFormControl.hasError('required'))"
+                    >
+                      Password is <strong>required</strong>
+                    </mat-error>
+                    <mat-error
+                    *ngIf="pwconfirmFormControl.hasError('required') && !passwordFormControl.hasError('required') && (!firstnameFormControl.hasError('required') || !lastnameFormControl.hasError('required')) "
                   >
-                    Please enter the matched password
+                    Confirm Password is <strong>required</strong>
                   </mat-error>
+                  <mat-error
+                  *ngIf="(firstnameFormControl.hasError('required') || lastnameFormControl.hasError('required')) && !passwordFormControl.hasError('required') && !pwconfirmFormControl.hasError('required') "
+                >
+                  Name is <strong>required</strong>
+                </mat-error>
                 </div>
               </form>
             <div class="saveButton">
                 <button mat-raised-button color="basic" (click)="saveValue()"   
                 [routerLink]="['/population']"
-                [disabled]="!pwconfirmFormControl.valid"
+                [disabled]="disabledButton()"
+                id="saveButton"
              >SAVE</button>
             </div>
       </div>
