@@ -12,6 +12,36 @@ import { UserService } from "../../../services/user.service"
 
 export class SettingsComponent {
 
+  /* password validation */
+  passMatch() {
+    const name1 = ((document.getElementById('name1Input') as HTMLInputElement).value);
+    const name2 = ((document.getElementById('name2Input') as HTMLInputElement).value);
+    const pass = ((document.getElementById('password') as HTMLInputElement).value);
+    const confirmpass = ((document.getElementById('confirmPassword') as HTMLInputElement).value);
+    const saveButton = document.getElementById('saveButton') as HTMLButtonElement;
+    if (pass !== confirmpass || (pass === '' && confirmpass === '') ) {
+      if(pass === '' && confirmpass === ''){
+        return false;
+      }
+      return true;
+    }
+    return false;
+  }
+
+  disabledButton(){
+      const name1 = ((document.getElementById('name1Input') as HTMLInputElement).value);
+      const name2 = ((document.getElementById('name2Input') as HTMLInputElement).value);
+      const pass = ((document.getElementById('password') as HTMLInputElement).value);
+      const confirmpass = ((document.getElementById('confirmPassword') as HTMLInputElement).value);
+      const saveButton = document.getElementById('saveButton') as HTMLButtonElement;
+      if (pass !== confirmpass || (pass === '' && confirmpass === '' || !name1 || !name2) ) {
+        saveButton.disabled = true;
+      }
+      else{
+        saveButton.disabled = false;
+      }
+  }
+
   onSubmit() {
     console.log(this.form);
   }
@@ -20,7 +50,9 @@ export class SettingsComponent {
   constructor(fb: FormBuilder, private router: Router, private authService: AuthService, private userService: UserService)
   {
     this.form = fb.group({
-    // define your control in you form
+    // Define your control in you form
+    firstname: ['', Validators.required],
+    lastname: ['', Validators.required],
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required]
     }, {
@@ -28,12 +60,14 @@ export class SettingsComponent {
     })
   }
 
-
-  emailFormControl = new FormControl('', [
+  firstnameFormControl = new FormControl('', [
     Validators.required,
-    Validators.email,
   ]);
 
+  lastnameFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+  
   passwordFormControl = new FormControl('', [
     Validators.required,
     Validators.minLength(8), // password should be more than 8 letters
@@ -67,5 +101,4 @@ export class SettingsComponent {
   update(email, firstname, lastname, password){
     this.authService.update(email, firstname, lastname, password);
   }
-
 }
