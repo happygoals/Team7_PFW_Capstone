@@ -1,6 +1,10 @@
 import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material';
+import { AuthService } from "../auth.service";
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { last } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-authentication-register',
@@ -31,6 +35,10 @@ export class RegisterComponent {
     ]),
   }, );
 
+  constructor(
+    private authService: AuthService, private router: Router, private userService: UserService
+  ) {}
+
   registered() {
     if(!this.passMatch()){
       document.getElementById('registered').style.display = 'block';
@@ -54,4 +62,9 @@ export class RegisterComponent {
     return false;
   }
 
+  register(firstname, lastname, email, password, employeeID){
+
+    this.authService.createUser(firstname, lastname, email, password, employeeID)
+
+  }
 }

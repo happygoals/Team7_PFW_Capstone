@@ -6,7 +6,9 @@ var router = require('./controllers/auth')
 var connection = require('./connection')
 var beacon = require('./models/beacon')
 var BeaconController = require('./controllers/beacons')
+var AuthController = require('./controllers/auth')
 app.use('/beacons', BeaconController)
+app.use('/auth', AuthController)
 
 var i = 1
 
@@ -19,7 +21,7 @@ app.use((req, res, next) => {
 //beacon.login('DarrellKeeling@parkview.com', 'a123456789')
 
 //beacon.register('x', 'x','x@pfw.edu', 'xx','456')
-beacon.update('23423423', 'ppppp','x@pfw.edu', 'xxo999')
+//beacon.update('23423423', 'ppppp','x@pfw.edu', 'xxo999')
 //beacon.login('x@pfw.edu', 'xx33232')
 
 module.exports = app

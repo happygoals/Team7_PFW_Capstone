@@ -29,6 +29,8 @@ import { ForgotpassComponent } from './authentication/forgotpass/forgotpass.comp
 import { DxChartModule } from 'devextreme-angular';
 import { RegisterComponent } from './authentication/register/register.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { AuthService } from './authentication/auth.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     HttpClientModule,
 
   ],
-  providers: [DatePipe, BeaconService],
+  providers: [DatePipe, BeaconService, AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

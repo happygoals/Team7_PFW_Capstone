@@ -1,5 +1,9 @@
 import { Component} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { AuthService } from "../auth.service";
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+
 
 
 @Component({
@@ -24,11 +28,23 @@ export class LoginComponent {
 
   hide = true;
 
+  constructor(
+    private authService: AuthService, private router: Router, private userService: UserService
+  ) {}
+
 /* Save email address and password when the user types those on login input box */
   saveValue(){
     var loginemail = (<HTMLInputElement>document.getElementById("emailInput")).value;
     var loginpw = (<HTMLInputElement>document.getElementById("passwordInput")).value;
-    alert(loginemail + loginpw); /* just for alert, anyone can remove it after testing */
+
+    this.userService.setValue(loginemail);
+    this.login(loginemail, loginpw);
+    //alert(loginemail + loginpw); /* just for alert, anyone can remove it after testing */
+  }
+
+  login(email, password) {
+    //this.router.navigate(["/population"]);
+    this.authService.login(email, password);
   }
 
 }

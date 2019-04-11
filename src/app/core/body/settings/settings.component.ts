@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from "../../../authentication/auth.service";
+import { UserService } from "../../../services/user.service"
 
 @Component({
   selector: 'app-core-body-settings',
@@ -14,7 +17,7 @@ export class SettingsComponent {
   }
 
   form: FormGroup;
-  constructor(fb: FormBuilder)
+  constructor(fb: FormBuilder, private router: Router, private authService: AuthService, private userService: UserService)
   {
     this.form = fb.group({
     // define your control in you form
@@ -43,15 +46,26 @@ export class SettingsComponent {
 
   hide = true;
 
+  
 
   /* Save first name, last name, password, and confirmPassword when the user types those info on settings' input box */
   saveValue(){
+
+    var email = this.userService.getValue()
+
     var settingsName1 = (<HTMLInputElement>document.getElementById("name1Input")).value; // First name
     var settingsName2 = (<HTMLInputElement>document.getElementById("name2Input")).value; // Last name
     var settingPW = (<HTMLInputElement>document.getElementById("password")).value; // new password
     var settingCPW = (<HTMLInputElement>document.getElementById("confirmPassword")).value; // confirm new password
     var string =  "First Name:" + settingsName1 +"/ Last Name:" + settingsName2 + "/ Password:"+ settingPW + "/ ConfirmPassword:" + settingCPW // all values pluged in a string
-    alert(string); /* just for alert, anyone can remove it after testing */
+
+    this.update(email, settingsName1, settingsName2, settingPW)
+    //alert(string); /* just for alert, anyone can remove it after testing */
+    //this.router.navigate(["/population"]);
+  }
+
+  update(email, firstname, lastname, password){
+    this.authService.update(email, firstname, lastname, password);
   }
 
 }
