@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from "../../../authentication/auth.service";
@@ -10,8 +10,12 @@ import { UserService } from "../../../services/user.service"
   styleUrls: ['./settings.component.css']
 })
 
-export class SettingsComponent {
-
+export class SettingsComponent implements OnInit{
+  ngOnInit(){
+    if(this.authService.getIsAuth() == false){
+      this.router.navigateByUrl('/login')
+    }
+  }
   /* password validation */
   passMatch() {
     const name1 = ((document.getElementById('name1Input') as HTMLInputElement).value);

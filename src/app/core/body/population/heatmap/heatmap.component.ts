@@ -25,17 +25,9 @@ export class HeatmapComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
 
-    if(this.number>1)
-    {
-      this.ClearHeatMap(this.heatmap);
-    }
-
-    if(this.number === 0) {
       this.heatmap = h337.create({
         container: window.document.querySelector('#heatmap')
       });
-      this.number++;
-    }
 
     this.drawHeatMap(this.heatmap);
   }

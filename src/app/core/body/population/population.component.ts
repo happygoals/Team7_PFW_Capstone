@@ -4,6 +4,7 @@ import { BeaconService } from "../../../services/beacon.service";
 import { Beacon } from "../../../interfaces/beacon.interface";
 import { Router, UrlSegment } from "@angular/router";
 import { Variable } from "@angular/compiler/src/render3/r3_ast";
+import { AuthService } from "../../../authentication/auth.service"
 
 interface External {
   par: Function
@@ -24,7 +25,7 @@ declare var departmentList: any
   styleUrls: ["./population.component.css"]
 })
 
-export class PopulationComponent {
+export class PopulationComponent implements OnInit{
 
   public beacons: Beacon[];
   public beacon: Beacon;
@@ -40,6 +41,16 @@ export class PopulationComponent {
   Department: any;
   setVal: number = 0;
   tempDept: any;
+
+  ngOnInit(){
+    if(this.authService.getIsAuth() == false){
+      this.router.navigateByUrl('/login')
+    }
+  }
+
+  constructor(
+    private authService: AuthService, private router: Router
+  ) {}
 
   GetOutput(selected: any) {
     if (selected) {

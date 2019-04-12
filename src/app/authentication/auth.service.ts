@@ -75,6 +75,7 @@ export class AuthService {
     .subscribe(
       response =>{
         this.router.navigate(["/population"]);
+        this.isAuthenticated = true
         return true
       },
       error => {
@@ -102,13 +103,13 @@ export class AuthService {
   }
 
   logout() {
-    this.token = null;
+    //this.token = null;
     this.isAuthenticated = false;
     this.authStatusListener.next(false);
-    this.userId = null;
-    clearTimeout(this.tokenTimer);
-    this.clearAuthData();
-    this.router.navigate(["/"]);
+    // this.userId = null;
+    // clearTimeout(this.tokenTimer);
+    // this.clearAuthData();
+    this.router.navigate(["/login"]);
   }
 
   private setAuthTimer(duration: number) {
