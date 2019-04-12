@@ -15,7 +15,7 @@ router.get('/', function(req, res){
             res.status(400).json(err)
         }
         else{
-            //console.log(rows)
+      
             res.json(rows)
         }
     })

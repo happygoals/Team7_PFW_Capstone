@@ -209,7 +209,7 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <mat-checkbox color="green" id="hand" class="Hand1" [(ngModel)]="checked_HD" 
+            <mat-checkbox color="green" id="hand" class="Hand1" [(ngModel)]="checked_HD"
               >Handicapped/Disabled</mat-checkbox
             >
           </div>
@@ -222,7 +222,7 @@
           <span class="material-icons">get_app</span> &nbsp;Export
         </mat-grid-tile-header>
         <div style="margin-top: 50px">
-          <button>
+          <button (click)="export()">
             <span
               class="material-icons"
               style="margin: 0px auto; font-size: 70px;"

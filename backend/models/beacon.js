@@ -14,8 +14,17 @@ var sqlBeacon = "SELECT beacon FROM test.test WHERE Date BETWEEN ? AND ?  AND Ti
 var beacon = {
     //this function calls for a query of all the data from our db for the navigations table
     getAllDataSet:function(callback){
-        return connection.query("SELECT * FROM test.test", callback)
+        return connection.query("SELECT beacon FROM test.test", callback)
     },
+    getExport(startDate, endDate, startTime, endTime){
+      return connection.query("SELECT beacon FROM test.test WHERE Date BETWEEN ? AND ?  AND Time BETWEEN ? AND ?",
+       [startDate, endDate, startTime, endTime], (error, rows) => {
+
+        if (!error){
+            obj = JSON.stringify(rows)
+            console.log("print")
+             objparse = JSON.parse(obj)
+        }})},
   login:function(Email, Password){
 
   let checkingquery = "SELECT * FROM test.login WHERE Email= '" + Email + "' and Password = '"+ Password +"' "
@@ -186,8 +195,37 @@ var beacon = {
       }
       console.log(beaconList)
     //  console.log(listItem[3][3])
-    }
+    },
 
-}
+
+     createExcel() {
+      var Excel = require('exceljs')
+
+      var workbook = new Excel.Workbook();
+
+      workbook.creator = 'Capstone Team 7'
+      workbook.lastModifiedBy = ''
+      workbook.created = new Date(2019, 4, 11)
+      workbook.modified = new Date()
+      workbook.lastPrinted = new Date(2019, 4, 11)
+
+      var sheet = workbook.addWorksheet('Sheet1')
+
+      sheet.columns = [
+        {
+          header: 'beacon', key: 'beacon'
+        }
+      ]
+
+      for(let i =0; i< beacons; i++){
+        sheet.addRow({beacon: beacons[i]});
+      }
+
+      workbook.xlsx.writeFile("The First Excel2. xlsx").then(function() {
+        console.log("worked")
+        //alert("File created!")
+      })
+    }
+  }
 
 module.exports = beacon
