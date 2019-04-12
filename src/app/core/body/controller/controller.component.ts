@@ -43,6 +43,7 @@ export class ControllerComponent {
   public beacons: Beacon[];
   public beacon: Beacon;
   public routeBeacons: Beacon[];
+  isLoading = false;
   errorMessage: String;
   heatList: any
   empty: any[] = [0];
@@ -232,9 +233,11 @@ export class ControllerComponent {
   // Function to call the backend call to get the data from db
   getBeaconSets() {
     if(this.startDate && this.endDate && this.endTime && this.startTime){
+    this.isLoading = true;
     this.beaconService
       .getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime)
       .subscribe((data: Beacon[]) => {
+        this.isLoading = false;
         this.beacons = data;
       });
     }

@@ -11,10 +11,15 @@ import { UserService } from "../../../services/user.service"
 })
 
 export class SettingsComponent implements OnInit{
+
+  email : string
+
   ngOnInit(){
     if(this.authService.getIsAuth() == false){
       this.router.navigateByUrl('/login')
     }
+
+    this.email = this.getEmail();
   }
   /* password validation */
   passMatch() {
@@ -104,5 +109,9 @@ export class SettingsComponent implements OnInit{
 
   update(email, firstname, lastname, password){
     this.authService.update(email, firstname, lastname, password);
+  }
+
+  getEmail(){
+    return this.userService.getValue()
   }
 }
