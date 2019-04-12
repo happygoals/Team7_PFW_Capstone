@@ -31,7 +31,7 @@
         </button>
         <button mat-menu-item [routerLink]="['/login']">
           <i class="material-icons" [routerLink]="['/login']">power_settings_new</i>
-          <span [routerLink]="['/login']"> Sign Out</span>
+          <span (click)="logout()"> Sign Out</span>
         </button>
       </mat-menu>
     </li>

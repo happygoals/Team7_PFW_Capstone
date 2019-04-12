@@ -1,25 +1,12 @@
 var express = require('express')
 var router = express.Router()
 var bodyParser = require('body-parser')
-//router.use(bodyParser.json())
+router.use(bodyParser.json())
 var connection = require('../connection')
 var session = require('express-session')
 
-
-router.use(session({
-  secret:'secret',
-  resave: true,
-  saveUninitialized: true
-}))
-router.use(bodyParser.urlencoded({extended : true}))
-router.use(bodyParser.json(__dirname + '/src/app/authentication/login/login.component.html'))
-
-router.get('/', function(request, response){
-  response.sendFile(path.join())
-})
-
 //Register
-router.post('/register', (req, res) => {
+router.post('/register', function(req, res)  {
   let Firstname = req.body.Firstname
   let Lastname = req.body.Lastname
   let Email = req.body.Email
@@ -45,58 +32,56 @@ router.post('/register', (req, res) => {
   }})
 })
 
-//login
+//update
+router.post('/update', (req, res) => {
+  let Email = req.body.Email
+  let Firstname = req.body.Firstname
+  let Lastname = req.body.Lastname
+
+  let Password = req.body.Password
+
+
+  let checkingquery = "SELECT * FROM test.login WHERE Email= '" + Email + "'"
+
+      connection.query(checkingquery, (err, result) => {
+        if (err) {
+          //return res.status(500).send(err)
+          console.log("first error")
+        }
+        if (result.length > 0) {
+          console.log("got to length")
+         let stmt ="UPDATE test.login set Firstname ='"+Firstname+"', Lastname ='"+Lastname+"', Password = '"+Password+"' WHERE (Email = '" + Email + "')"
+         let todo = ["Insert", false]
+         connection.query(stmt,todo, function(error, results, fields) {
+			if (results.length > 0) {
+        console.log("conect")
+			} else {
+				res.send('Incorrect Username and/or Password!');
+			}
+			res.end();
+		});
+  }})
+})
+
+///auth/login
 router.post('/login', (req, res) => {
   let Email = req.body.Email
   let Password = req.body.Password
-  let checkingquery = "SELECT * FROM test.login WHERE Email= '" + Email + "' and Password = '"+ Password +"' "
+  let checkingquery = "SELECT * FROM test.login WHERE Email= '" + req.body.Email + "' and Password = '"+ req.body.Password +"' "
 
 	if (Email && Password) {
 		connection.query(checkingquery, [Email, Password], function(error, results, fields) {
 			if (results.length > 0) {
-				request.session.loggedin = true;
-				request.session.username = username;
-				response.redirect('/home');
+        console.log("conect")
 			} else {
-				response.send('Incorrect Username and/or Password!');
+				res.send('Incorrect Username and/or Password!');
 			}
-			response.end();
+			res.end();
 		});
 	} else {
-		response.send('Please enter Username and Password!');
-		response.end();
+		res.send('Please enter Username and Password!');
+		res.end();
 	}
 })
-
-
-
-
-
-// router.post('/auth/:Email/:Password', function(req, response) {
-// /*
-//   var Email = request.body.Email;
-//   var Password = request.body.Password;
-// */
-//   var Email = req.params.Email
-//   var Password = req.params.Password
-
-// 	if (Email && Password) {
-// 		connection.query('SELECT * FROM test.login WHERE Email = ? AND Password = ?', [Email, Password], function(error, results, fields) {
-// 			if (results.length > 0) {
-// 				//request.session.loggedin = true;
-//         //request.session.Email = Email;
-//         response.redirect('/population');
-//         return true;
-// 			} else {
-// 				response.send('Incorrect Email and/or Password!');
-//         return false;
-//       }
-// 			response.end();
-// 		})
-// 	} else {
-// 		response.send('Please enter Email and Password!');
-// 		response.end();
-// 	}
-// });
 
 module.exports = router

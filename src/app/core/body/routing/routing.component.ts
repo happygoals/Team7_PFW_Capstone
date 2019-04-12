@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core'
 import { Beacon } from '../../../interfaces/beacon.interface';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
+import { Router, UrlSegment } from "@angular/router";
+import { AuthService } from "../../../authentication/auth.service"
+
 
 interface External {
   parseRouting: Function
@@ -118,10 +121,17 @@ export class RoutingComponent implements OnInit{
 
   //initialize the canvas 
   ngOnInit(){
+      if(this.authService.getIsAuth() == false){
+        this.router.navigateByUrl('/login')
+      }
+    
+
     this.context = (this.canvasEl.nativeElement as HTMLCanvasElement).getContext('2d');
     
   }
-
+  constructor(
+    private authService: AuthService, private router: Router
+  ) {}
   //function to get the output from child component for creating the routing chart
   GetOutput(selected: any){
     if(selected)

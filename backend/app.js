@@ -10,7 +10,9 @@ var BeaconController = require('./controllers/beacons')
 
 
 
+var AuthController = require('./controllers/auth')
 app.use('/beacons', BeaconController)
+app.use('/auth', AuthController)
 
 var i = 1
 

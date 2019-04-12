@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/authentication/auth.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class HeaderComponent {
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
   public href: string = "";
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
       this.href = this.router.url;
@@ -40,5 +41,7 @@ export class HeaderComponent {
     this.trigger.openMenu();
   }
 
-
+  logout(){
+    this.authService.logout()
+  }
 }

@@ -6,6 +6,7 @@ import { SettingsComponent } from 'src/app/core/body/settings/settings.component
 import { LoginComponent } from './authentication/login/login.component';
 import { ForgotpassComponent } from './authentication/forgotpass/forgotpass.component';
 import { RegisterComponent } from './authentication/register/register.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'forgotpass', component: ForgotpassComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'notfound', component: NotfoundComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 

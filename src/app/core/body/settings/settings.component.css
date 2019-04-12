@@ -107,3 +107,6 @@ body{
     margin-right: 42%;
   }
   
+.errorDiv {
+  color: red;
+}

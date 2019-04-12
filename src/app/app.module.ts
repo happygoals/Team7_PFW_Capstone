@@ -28,6 +28,9 @@ import { DatePipe } from '@angular/common';
 import { ForgotpassComponent } from './authentication/forgotpass/forgotpass.component';
 import { DxChartModule } from 'devextreme-angular';
 import { RegisterComponent } from './authentication/register/register.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { AuthService } from './authentication/auth.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { RegisterComponent } from './authentication/register/register.component'
     ChartComponent,
     jqxChartComponent,
     jqxDropDownListComponent,
-    RegisterComponent
+    RegisterComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,7 @@ import { RegisterComponent } from './authentication/register/register.component'
     HttpClientModule,
 
   ],
-  providers: [DatePipe, BeaconService],
+  providers: [DatePipe, BeaconService, AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
