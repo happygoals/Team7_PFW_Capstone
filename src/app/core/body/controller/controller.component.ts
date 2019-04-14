@@ -4,7 +4,7 @@ import { DatePipe } from "@angular/common";
 import { BeaconService } from "./../../../services/beacon.service";
 import { Beacon } from "./../../../services/beacon";
 import { Component, ViewChild, EventEmitter, Output } from "@angular/core";
-
+import { saveAs } from "file-saver";
 import {
   MatButton,
   MatSlideToggle,
@@ -59,6 +59,26 @@ export class ControllerComponent {
     this.outputToParent.emit(this.empty)
     this.outputToParent.emit(selected);
   }
+
+
+downloadFile() {
+  let data = this.beacons
+  const replacer = (key, value) => value === null ? '' : value; // specify how you want to handle null values here
+  const header = Object.keys(data[0]);
+  let csv = data.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
+  csv.unshift(header.join(','));
+  let csvArray = csv.join('\r\n');
+
+  var a = document.createElement('a');
+  var blob = new Blob([csvArray], {type: 'text/csv' }),
+  url = window.URL.createObjectURL(blob);
+
+  a.href = url;
+  a.download = "myFile.csv";
+  a.click();
+  window.URL.revokeObjectURL(url);
+  a.remove();
+}
 
   // Form Variables for Input clearing
   value1 = "";
