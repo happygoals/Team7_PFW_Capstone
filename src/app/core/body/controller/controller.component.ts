@@ -264,9 +264,9 @@ createExcel(this.beacons)
 
   // Function to call the backend call to get the data from db
   getBeaconSets() {
-    this.spinner.show()
+    
     if(this.startDate && this.endDate && this.endTime && this.startTime){
-      
+    this.spinner.show()
 
       
     this.isLoading = true;
