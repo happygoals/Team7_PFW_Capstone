@@ -48,7 +48,7 @@ import { UserService } from './services/user.service';
     jqxChartComponent,
     jqxDropDownListComponent,
     RegisterComponent,
-    NotfoundComponent
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
