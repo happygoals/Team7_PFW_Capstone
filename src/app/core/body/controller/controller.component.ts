@@ -14,7 +14,11 @@ import {
 } from "@angular/material";
 import { LabelType, Options } from "ng5-slider";
 import { FormGroup, FormControl } from "@angular/forms";
+interface External {
+  createExcel: Function
+}
 
+declare function createExcel(beacon):any
 // This is for the gender select
 export interface Gender {
   value: string;
@@ -63,7 +67,10 @@ export class ControllerComponent {
   heightValue = "";
   genderValue = "";
   checked_HD = false;
-
+export(){
+  console.log("function reach")
+createExcel(this.beacons)
+}
   @ViewChild("dp1", {
     read: MatInput
   })
