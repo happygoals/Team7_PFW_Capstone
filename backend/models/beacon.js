@@ -205,9 +205,9 @@ var beacon = {
 
       workbook.creator = 'Capstone Team 7'
       workbook.lastModifiedBy = ''
-      workbook.created = new Date(2019, 4, 11)
+      workbook.created = new Date(2019, 4, 14)
       workbook.modified = new Date()
-      workbook.lastPrinted = new Date(2019, 4, 11)
+      workbook.lastPrinted = new Date(2019, 4, 14)
 
       var sheet = workbook.addWorksheet('Sheet1')
 
@@ -217,11 +217,11 @@ var beacon = {
         }
       ]
 
-      for(let i =0; i< beacons; i++){
-        sheet.addRow({beacon: beacons[i]});
+      for(let i =0; i< beacon.length; i++){
+        sheet.addRow({beacon: beacon[i]});
       }
 
-      workbook.xlsx.writeFile("The First Excel2. xlsx").then(function() {
+      workbook.xlsx.writeFile("The First Excel3.xlsx").then(function() {
         console.log("worked")
         //alert("File created!")
       })
