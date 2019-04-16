@@ -45,6 +45,14 @@ export class RegisterComponent {
       document.getElementById('submissionButtons').style.display = 'none';
       document.getElementById('registerInput').style.display = 'none';
     }
+
+    var firstname = (<HTMLInputElement>document.getElementById("first")).value; // First name
+    var lastname = (<HTMLInputElement>document.getElementById("last")).value; // Last name
+    var id = (<HTMLInputElement>document.getElementById("id")).value; // id
+    var password = (<HTMLInputElement>document.getElementById("pass")).value; // new password
+    var email = (<HTMLInputElement>document.getElementById("email")).value; // email
+
+    this.register(firstname, lastname, email, password, id)
   }
 
   passMatch() {

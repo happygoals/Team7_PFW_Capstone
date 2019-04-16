@@ -5,6 +5,8 @@ import { BeaconService } from "./../../../services/beacon.service";
 import { Beacon } from "./../../../services/beacon";
 import { Component, ViewChild, EventEmitter, Output } from "@angular/core";
 import { saveAs } from "file-saver";
+import { NgxSpinnerService } from 'ngx-spinner';
+
 import {
   MatButton,
   MatSlideToggle,
@@ -62,6 +64,7 @@ export class ControllerComponent {
 
 
 downloadFile() {
+
   let data = this.beacons
   const replacer = (key, value) => value === null ? '' : value; // specify how you want to handle null values here
   const header = Object.keys(data[0]);
@@ -252,20 +255,27 @@ createExcel(this.beacons)
 
   constructor(
     private beaconService: BeaconService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private spinner: NgxSpinnerService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   // Function to call the backend call to get the data from db
   getBeaconSets() {
+    
     if(this.startDate && this.endDate && this.endTime && this.startTime){
+    this.spinner.show()
+
+      
     this.isLoading = true;
     this.beaconService
       .getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime)
       .subscribe((data: Beacon[]) => {
         this.isLoading = false;
         this.beacons = data;
+        this.spinner.hide();
       });
     }
   }

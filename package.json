@@ -40,6 +40,7 @@
     "material-design-icons": "^3.0.1",
     "mysql": "^2.16.0",
     "ng5-slider": "^1.1.13",
+    "ngx-spinner": "^7.1.4",
     "node-excel-export": "^1.4.4",
     "node-sass": "^4.11.0",
     "rxjs": "~6.3.3",
