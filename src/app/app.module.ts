@@ -31,6 +31,7 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AuthService } from './authentication/auth.service';
 import { UserService } from './services/user.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { UserService } from './services/user.service';
     DxChartModule,
     Ng5SliderModule,
     HttpClientModule,
+    NgxSpinnerModule
 
   ],
   providers: [DatePipe, BeaconService, AuthService, UserService],
