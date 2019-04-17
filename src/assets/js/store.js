@@ -64,6 +64,9 @@ function parseRouting(beacons) {
   }
 }
 
+
+
+
 function returnValueForHeatMap() {
   return heatList
 }
@@ -420,4 +423,35 @@ function StoreValueForHeatmap(listItem) {
 
   }
 
+}
+
+
+function createExcel(beacon) {
+  var Excel = require('exceljs')
+
+  var workbook = new Excel.Workbook();
+
+  workbook.creator = 'Capstone Team 7'
+  workbook.lastModifiedBy = ''
+  workbook.created = new Date(2019, 4, 11)
+  workbook.modified = new Date()
+  workbook.lastPrinted = new Date(2019, 4, 11)
+
+  var sheet = workbook.addWorksheet('Sheet1')
+
+  sheet.columns = [
+    {
+      header: 'beacon', key: 'beacon'
+    }
+  ]
+
+  for(let i =0; i< beacons.length; i++){
+    sheet.addRow({beacon: beacons[i]});
+  }
+
+  sheet.addRow(beacon.getBeaconsByDateTimeForHeatmap(beacon))
+  workbook.xlsx.writeFile("The First Excel. xlsx").then(function() {
+    console.log("worked")
+    //alert("File created!")
+  })
 }
