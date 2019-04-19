@@ -4,6 +4,8 @@ import { DatePipe } from "@angular/common";
 import { BeaconService } from "./../../../services/beacon.service";
 import { Beacon } from "./../../../services/beacon";
 import { Component, ViewChild, EventEmitter, Output } from "@angular/core";
+import { saveAs } from "file-saver";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import {
   MatButton,
@@ -14,7 +16,11 @@ import {
 } from "@angular/material";
 import { LabelType, Options } from "ng5-slider";
 import { FormGroup, FormControl } from "@angular/forms";
+interface External {
+  createExcel: Function
+}
 
+declare function createExcel(beacon):any
 // This is for the gender select
 export interface Gender {
   value: string;
@@ -56,6 +62,27 @@ export class ControllerComponent {
     this.outputToParent.emit(selected);
   }
 
+
+downloadFile() {
+
+  let data = this.beacons
+  const replacer = (key, value) => value === null ? '' : value; // specify how you want to handle null values here
+  const header = Object.keys(data[0]);
+  let csv = data.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
+  csv.unshift(header.join(','));
+  let csvArray = csv.join('\r\n');
+
+  var a = document.createElement('a');
+  var blob = new Blob([csvArray], {type: 'text/csv' }),
+  url = window.URL.createObjectURL(blob);
+
+  a.href = url;
+  a.download = "myFile.csv";
+  a.click();
+  window.URL.revokeObjectURL(url);
+  a.remove();
+}
+
   // Form Variables for Input clearing
   value1 = "";
   value2 = "";
@@ -63,7 +90,10 @@ export class ControllerComponent {
   heightValue = "";
   genderValue = "";
   checked_HD = false;
-
+export(){
+  console.log("function reach")
+createExcel(this.beacons)
+}
   @ViewChild("dp1", {
     read: MatInput
   })
@@ -225,20 +255,27 @@ export class ControllerComponent {
 
   constructor(
     private beaconService: BeaconService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private spinner: NgxSpinnerService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   // Function to call the backend call to get the data from db
   getBeaconSets() {
+    
     if(this.startDate && this.endDate && this.endTime && this.startTime){
+    this.spinner.show()
+
+      
     this.isLoading = true;
     this.beaconService
       .getBeaconSets(this.startDate, this.endDate, this.startTime, this.endTime)
       .subscribe((data: Beacon[]) => {
         this.isLoading = false;
         this.beacons = data;
+        this.spinner.hide();
       });
     }
   }
