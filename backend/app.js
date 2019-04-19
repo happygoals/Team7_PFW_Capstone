@@ -6,6 +6,10 @@ var router = require('./controllers/auth')
 var connection = require('./connection')
 var beacon = require('./models/beacon')
 var BeaconController = require('./controllers/beacons')
+
+var cors = require('cors')
+ 
+app.use(cors())
 //const excel = require('node-excel-export')
 
 
