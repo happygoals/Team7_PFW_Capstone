@@ -29,11 +29,9 @@ export class RegisterComponent {
     ]),
     newpass: new FormControl(null, [
       Validators.required,
-      Validators.minLength(8),
     ]),
     confirmpass: new FormControl(null, [
       Validators.required,
-      Validators.minLength(8),
     ]),
   }, );
 
