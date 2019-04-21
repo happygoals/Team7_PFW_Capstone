@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { AuthData } from "./auth-data.model";
-const LOGIN_URL = 'http://localhost:3000/user';
 
 @Injectable()
 export class AuthService {
@@ -103,12 +101,8 @@ export class AuthService {
   }
 
   logout() {
-    //this.token = null;
     this.isAuthenticated = false;
     this.authStatusListener.next(false);
-    // this.userId = null;
-    // clearTimeout(this.tokenTimer);
-    // this.clearAuthData();
     this.router.navigate(["/login"]);
   }
 
@@ -144,9 +138,4 @@ export class AuthService {
       userId: userId
     };
   }
-
-
-  // login(Email, Password) {
-  //   return this.http.post(`${this.url}/auth/` + Email + `/` + Password, null);
-  // }
 }

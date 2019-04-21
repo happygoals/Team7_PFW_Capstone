@@ -45,7 +45,6 @@ router.post('/update', (req, res) => {
 
       connection.query(checkingquery, (err, result) => {
         if (err) {
-          //return res.status(500).send(err)
           console.log("first error")
         }
         if (result.length > 0) {

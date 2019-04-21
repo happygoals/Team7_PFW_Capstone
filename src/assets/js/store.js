@@ -452,6 +452,5 @@ function createExcel(beacon) {
   sheet.addRow(beacon.getBeaconsByDateTimeForHeatmap(beacon))
   workbook.xlsx.writeFile("The First Excel. xlsx").then(function() {
     console.log("worked")
-    //alert("File created!")
   })
 }
