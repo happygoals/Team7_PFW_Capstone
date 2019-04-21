@@ -65,7 +65,7 @@ export class SettingsComponent implements OnInit{
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required]
     }, {
-     
+
     })
   }
 
@@ -76,7 +76,7 @@ export class SettingsComponent implements OnInit{
   lastnameFormControl = new FormControl('', [
     Validators.required,
   ]);
-  
+
   passwordFormControl = new FormControl('', [
     Validators.required,
     Validators.minLength(8), // password should be more than 8 letters
@@ -89,7 +89,7 @@ export class SettingsComponent implements OnInit{
 
   hide = true;
 
-  
+
 
   /* Save first name, last name, password, and confirmPassword when the user types those info on settings' input box */
   saveValue(){
@@ -103,8 +103,6 @@ export class SettingsComponent implements OnInit{
     var string =  "First Name:" + settingsName1 +"/ Last Name:" + settingsName2 + "/ Password:"+ settingPW + "/ ConfirmPassword:" + settingCPW // all values pluged in a string
 
     this.update(email, settingsName1, settingsName2, settingPW)
-    //alert(string); /* just for alert, anyone can remove it after testing */
-    //this.router.navigate(["/population"]);
   }
 
   update(email, firstname, lastname, password){

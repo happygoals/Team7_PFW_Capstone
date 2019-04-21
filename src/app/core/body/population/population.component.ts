@@ -42,19 +42,6 @@ export class PopulationComponent implements OnInit{
   setVal: number = 0;
   tempDept: any;
 
-  // Spinner Logic for mat-spinner
-  /*
-  // Enable or Disable the spinner if loading
-  toggleSpin(){
-    const spinner = document.getElementById('spinner');
-    if(spinner.style.display === 'none') {
-      spinner.style.display = 'block';
-    }
-    spinner.style.display = 'none';
-    return;
-  }
-  */
-
   ngOnInit(){
     if(this.authService.getIsAuth() == false){
       this.router.navigateByUrl('/login')
@@ -66,12 +53,10 @@ export class PopulationComponent implements OnInit{
   ) {}
 
   GetOutput(selected: any) {
-    // this.toggleSpin();
     if (selected) {
       this.beacons = selected;
       this.callParse()
     }
-    // this.toggleSpin();
   }
 
   callParse() {

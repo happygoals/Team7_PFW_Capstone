@@ -39,11 +39,9 @@ export class LoginComponent {
 
     this.userService.setValue(loginemail);
     this.login(loginemail, loginpw);
-    //alert(loginemail + loginpw); /* just for alert, anyone can remove it after testing */
   }
 
   login(email, password) {
-    //this.router.navigate(["/population"]);
     this.authService.login(email, password);
   }
 
