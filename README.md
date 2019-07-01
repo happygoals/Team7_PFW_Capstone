@@ -43,14 +43,13 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Screenshot
-
-                    Parkview Analytics Main login Page
+Parkview Analytics Main login Page
 <img src="docs/mainlogin.png" alt="Parkview Analytics Main login Page"/ height="400">
-                    Heat Map Page
+Heat Map Page
 <img src="docs/heatmap.png" alt="Heat Map Page"/ height="400">
-                    Routing Map Page
+Routing Map Page
 <img src="docs/routemap.png" alt="Routing Map Page"/ height="400">
-                    SW Diagram
+SW Diagram
 <img src="docs/software_diagram.png" alt="SW Diagram"/ width="50%" height="50%">
 
 
