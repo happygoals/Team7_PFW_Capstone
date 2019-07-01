@@ -20,7 +20,7 @@ This iteration of the project will focus on three key features web development, 
   Development of a Web Application that presents analyzed data to administrative staff in a comprehensive manner and allowing the data to be manipulated or viewed in many different formats and the Web application is only for staff members.   
   For example, using the webpage the Parkview staff could determine what time are most populated, and by which age group or gender. This would allow for an in-depth look at particular patient demographics, giving Parkview the tools to improve upon their already great services.
 
-<img src="docs/heatmap2.png" alt="Heat Map Page"/>
+<img src="docs/heatmap2.png" alt="Heatmap"/ width="462px" height="300px">
 
 ## Development server
 
@@ -43,14 +43,14 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Screenshot
-Parkview Analytics Main login Page
-<img src="docs/mainlogin.png" alt="Parkview Analytics Main login Page"/>
+<center>Parkview Analytics Main login Page</center>
+<img src="docs/mainlogin.png" alt="Parkview Analytics Main login Page"/ height="400">
 Heat Map Page
 <img src="docs/heatmap.png" alt="Heat Map Page"/>
 Routing Map Page
 <img src="docs/routemap.png" alt="Routing Map Page"/>
 SW Diagram
-<img src="docs/software_diagram.png" alt="SW Diagram"/>
+<img src="docs/software_diagram.png" alt="SW Diagram"/ width="30%" height="30%">
 
 
 ## Further help
