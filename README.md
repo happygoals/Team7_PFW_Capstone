@@ -2,9 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
 
-![alt text](http://docs/mainlogin.png)
-<img src="docs/mainlogin.png" alt="My cool logo"/>
-
+<img src="docs/poster.png" alt="poster"/>
 
 ## Project Background and Description
 The primary purpose of this project is to improve upon the previous generation of the Indoor Navigation Mobile Application that was created for the Parkview Regional Medical Campus (PRMC) in Fort Wayne, Indiana. PRMC is invested in improving the patient experience and is a leading institution in the medical industry. This project aims to utilize new technologies with a focus on the patient experience to keep PRMC ahead of the competitors. The application currently uses Bluetooth low energy to power the real-time positioning functionality of the application creating an easy to understand navigation system. 
@@ -22,6 +20,7 @@ This iteration of the project will focus on three key features web development, 
   Development of a Web Application that presents analyzed data to administrative staff in a comprehensive manner and allowing the data to be manipulated or viewed in many different formats and the Web application is only for staff members.   
   For example, using the webpage the Parkview staff could determine what time are most populated, and by which age group or gender. This would allow for an in-depth look at particular patient demographics, giving Parkview the tools to improve upon their already great services.
 
+<img src="docs/heatmap2.png" alt="Heat Map Page"/>
 
 ## Development server
 
@@ -42,6 +41,17 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Screenshot
+Parkview Analytics Main login Page
+<img src="docs/mainlogin.png" alt="Parkview Analytics Main login Page"/>
+Heat Map Page
+<img src="docs/heatmap.png" alt="Heat Map Page"/>
+Routing Map Page
+<img src="docs/routemap.png" alt="Routing Map Page"/>
+SW Diagram
+<img src="docs/software_diagram.png" alt="SW Diagram"/>
+
 
 ## Further help
 
