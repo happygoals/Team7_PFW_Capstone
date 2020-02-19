@@ -1,8 +1,9 @@
 # Indoor Navigation: Improved Accessibility for People with Disabilities
 <img src="docs/poster.png" alt="poster"/>
 
+[Project Final Demo Link](https://vimeo.com/392359571) (Password: parkview) 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
-[Demo Link](https://vimeo.com/392359571)
+
 
 ## Project Background and Description
 The primary purpose of this project is to improve upon the previous generation of the Indoor Navigation Mobile Application that was created for the Parkview Regional Medical Campus (PRMC) in Fort Wayne, Indiana. PRMC is invested in improving the patient experience and is a leading institution in the medical industry. This project aims to utilize new technologies with a focus on the patient experience to keep PRMC ahead of the competitors. The application currently uses Bluetooth low energy to power the real-time positioning functionality of the application creating an easy to understand navigation system. 
