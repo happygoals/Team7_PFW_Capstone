@@ -2,6 +2,7 @@
 <img src="docs/poster.png" alt="poster"/>
 
 [Project Final Demo Link](https://vimeo.com/392359571) (Password: parkview) 
+<br>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
 
 
