@@ -1,7 +1,7 @@
 # Indoor Navigation: Improved Accessibility for People with Disabilities
 <img src="docs/poster.png" alt="poster"/>
 
-[Project Final Demo Link](https://vimeo.com/392359571) (Password: parkview) 
+[Project Final Demo Link](https://vimeo.com/392359571/6adb6cafd8) 
 <br>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
 
